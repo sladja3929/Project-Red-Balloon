@@ -320,6 +320,7 @@ namespace UnityEngine.UI
         private bool m_HasDoneFocusTransition = false;
         private WaitForSecondsRealtime m_WaitForSecondsRealtime;
         private bool m_TouchKeyboardAllowsInPlaceEditing = false;
+        private bool m_IsCompositionActive = false;
 
         private BaseInput input
         {
@@ -1166,7 +1167,7 @@ namespace UnityEngine.UI
                 m_TextComponent.UnregisterDirtyVerticesCallback(UpdateLabel);
                 m_TextComponent.UnregisterDirtyMaterialCallback(UpdateCaretMaterial);
             }
-            CanvasUpdateRegistry.UnRegisterCanvasElementForRebuild(this);
+            CanvasUpdateRegistry.DisableCanvasElementForRebuild(this);
 
             // Clear needs to be called otherwise sync never happens as the object is disabled.
             if (m_CachedInputRenderer != null)
@@ -1177,6 +1178,12 @@ namespace UnityEngine.UI
             m_Mesh = null;
 
             base.OnDisable();
+        }
+
+        protected override void OnDestroy()
+        {
+            CanvasUpdateRegistry.UnRegisterCanvasElementForRebuild(this);
+            base.OnDestroy();
         }
 
         IEnumerator CaretBlink()
@@ -1959,6 +1966,9 @@ namespace UnityEngine.UI
 
         private bool IsValidChar(char c)
         {
+            if (c == 0)
+                return false;
+
             // Delete key on mac
             if ((int)c == 127)
                 return false;
@@ -1998,6 +2008,17 @@ namespace UnityEngine.UI
                 if (m_ProcessingEvent.rawType == EventType.KeyDown)
                 {
                     consumedEvent = true;
+
+                    // Special handling on OSX which produces more events which need to be suppressed.
+                    if (m_IsCompositionActive && compositionString.Length == 0)
+                    {
+                        // Suppress other events related to navigation or termination of composition sequence.
+                        if (m_ProcessingEvent.character == 0 && m_ProcessingEvent.modifiers == EventModifiers.None)
+                        {
+                            continue;
+                        }
+                    }
+
                     var shouldContinue = KeyPressed(m_ProcessingEvent);
                     if (shouldContinue == EditState.Finish)
                     {
@@ -2005,8 +2026,9 @@ namespace UnityEngine.UI
                             SendOnSubmit();
 
                         DeactivateInputField();
-                        break;
+                        continue;
                     }
+                    UpdateLabel();
                 }
 
                 switch (m_ProcessingEvent.type)
@@ -2456,10 +2478,17 @@ namespace UnityEngine.UI
                 m_PreventFontCallback = true;
 
                 string fullText;
+
                 if (EventSystem.current != null && gameObject == EventSystem.current.currentSelectedGameObject && compositionString.Length > 0)
+                {
+                    m_IsCompositionActive = true;
                     fullText = text.Substring(0, m_CaretPosition) + compositionString + text.Substring(m_CaretPosition);
+                }
                 else
+                {
+                    m_IsCompositionActive = false;
                     fullText = text;
+                }
 
                 string processed;
                 if (inputType == InputType.Password)
