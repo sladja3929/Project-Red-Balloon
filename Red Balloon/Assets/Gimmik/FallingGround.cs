@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class FallingGround : MonoBehaviour
 {
@@ -57,10 +58,20 @@ public class FallingGround : MonoBehaviour
         GetComponent<Collider>().isTrigger = false;
 
         Invoke(nameof(DeletePrefab), destroyPrefabTime);
+        
+        SetRandomRotation();
     }
 
     private void DeletePrefab()
     {
         Destroy(gameObject);
+    }
+    
+    public float randomRotationSpeed;
+    private void SetRandomRotation()
+    {
+        _rigid.angularVelocity = new Vector3
+            (Random.value * randomRotationSpeed, Random.value * randomRotationSpeed, Random.value * randomRotationSpeed);
+        
     }
 }
