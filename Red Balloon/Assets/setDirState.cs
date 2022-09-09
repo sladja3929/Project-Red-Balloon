@@ -40,10 +40,6 @@ public class setDirState : StateMachineBehaviour
     {
         CameraController.instance.onControll = CameraController.ControllType.Stop;
 
-        Vector3 dirVec = new Vector3(0, 0, 1);
-        Vector3 rotatedDirVec = animator.GetComponent<DragRotation>().GetDirection() * dirVec;
-        
-        animator.GetComponent<BallonShoot>().setMoveDirection(rotatedDirVec);
 
         dr.onControll = false;
 

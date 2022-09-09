@@ -7,6 +7,8 @@ public class FlyingState : StateMachineBehaviour
 {
     private float time;
 
+    public float stopCriterionVelocity;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -15,6 +17,10 @@ public class FlyingState : StateMachineBehaviour
         
         
         
+        Vector3 dirVec = new Vector3(0, 0, 1);
+        Vector3 rotatedDirVec = animator.GetComponent<DragRotation>().GetDirection() * dirVec;
+        
+        animator.GetComponent<BallonShoot>().setMoveDirection(rotatedDirVec);
         if (animator.GetComponent<BallonShoot>().StartMove(animator.GetFloat("chargeGauge")))
         {
             CameraController.instance.onControll = CameraController.ControllType.LookAround;
@@ -29,7 +35,7 @@ public class FlyingState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         time += Time.deltaTime;
-        if (animator.GetComponent<Rigidbody>().velocity.magnitude == 0 && time > 0.5f)
+        if (animator.GetComponent<Rigidbody>().velocity.magnitude <= stopCriterionVelocity && time > 0.5f)
         {
             animator.SetTrigger("land");
         }
