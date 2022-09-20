@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class modeSelect : StateMachineBehaviour
+public class ModeSelect : StateMachineBehaviour
 {
 
     public KeyCode key1, key2;

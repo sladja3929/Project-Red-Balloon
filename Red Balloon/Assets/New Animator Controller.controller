@@ -13,7 +13,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: 7099196336822988283}
   m_StateMachineBehaviours:
-  - {fileID: -8100250547009011044}
+  - {fileID: -6562751500472017998}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -41,7 +41,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: -4028233286529679879}
   m_StateMachineBehaviours:
-  - {fileID: 1859991048750049823}
+  - {fileID: -3707267514603086209}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -70,6 +70,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeGauge: 0
   chargeSpeed: 0.6
+  chargeKey: 32
+--- !u!114 &-6562751500472017998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa5e8cdea2f9f049aac32e13d1c31fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeGauge: 0
+  chargeSpeed: 0
   chargeKey: 32
 --- !u!114 &-5589294133397564102
 MonoBehaviour:
@@ -137,6 +152,19 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-3707267514603086209
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64324d3e1d1ba1c44aa3259d4221d633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeKey: 32
 --- !u!1109 &-3436111316231357176
 AnimatorTransition:
   m_ObjectHideFlags: 1
@@ -291,7 +319,7 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_EntryPosition: {x: -260, y: 150, z: 0}
+  m_EntryPosition: {x: -280, y: 160, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -8278755676830122842}

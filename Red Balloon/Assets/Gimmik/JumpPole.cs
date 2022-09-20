@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class JumpPole : MonoBehaviour
 {
-    private Rigidbody rigid;
+    private Rigidbody _rigid;
 
-    public Vector3 _pushDirection;
+    [FormerlySerializedAs("_pushDirection")] public Vector3 pushDirection;
     void Awake()
     {
         
         //https://dydvn.tistory.com/28
         
-        rigid = GetComponent<Rigidbody>();
+        _rigid = GetComponent<Rigidbody>();
     }
 
     public float pushTime;
@@ -33,9 +34,9 @@ public class JumpPole : MonoBehaviour
             time += dt;
             if (time  > pushTime) break;
             
-            objRigid.AddForce(_pushDirection * pushPower);
+            objRigid.AddForce(pushDirection * pushPower);
             Debug.Log("Push");
-            Debug.Log(_pushDirection * pushPower);
+            Debug.Log(pushDirection * pushPower);
             yield return new WaitForSeconds(dt);
         }
 

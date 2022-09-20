@@ -17,7 +17,7 @@ public class BallonShoot : MonoBehaviour
     }
 
     
-    public void setMoveDirection(Vector3 moveDirection)
+    public void SetMoveDirection(Vector3 moveDirection)
     {
         _moveDirection = moveDirection.normalized;
     }
@@ -29,19 +29,19 @@ public class BallonShoot : MonoBehaviour
     
     
     public float pushTime; //Second
-    IEnumerator pushBallon(float power)
+    IEnumerator PushBallon(float power)
     {
         int count = (int)(pushTime * 100);
         for (int i = 0; i < count; i++)
         {
-            _rigidbody.AddForce(_moveDirection * power * moveSpeed * speedScale);
+            _rigidbody.AddForce(_moveDirection * (power * moveSpeed * speedScale));
             yield return new WaitForSeconds(0.01f);
         }
     } 
     public bool StartMove(float power)
     {
         SetRandomRotation();
-        StartCoroutine(pushBallon(power));
+        StartCoroutine(PushBallon(power));
         return true;
     }
 

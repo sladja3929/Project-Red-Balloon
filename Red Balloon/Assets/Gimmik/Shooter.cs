@@ -11,16 +11,16 @@ public class Shooter : MonoBehaviour
         Instantiate(bullet, transform.position, transform.rotation);
     }
 
-    private float time = 0f;
+    private float _time = 0f;
     public float attackDelay;
 
     void Update()
     {
-        time += Time.deltaTime;
+        _time += Time.deltaTime;
         
-        if (time > attackDelay)
+        if (_time > attackDelay)
         {
-            time = 0;
+            _time = 0;
             Shoot();
         }
     }

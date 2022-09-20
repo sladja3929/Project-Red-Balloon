@@ -12,7 +12,7 @@ public class SimpleJumpPoleAnim : MonoBehaviour
     void Awake()
     {
         _originalScale = transform.localScale;
-        _moveDirection = GetComponent<JumpPole>()._pushDirection;
+        _moveDirection = GetComponent<JumpPole>().pushDirection;
         _moveScale = _moveDirection.normalized * moveSpeed;
     }
     void Start()

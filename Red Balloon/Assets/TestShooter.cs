@@ -17,7 +17,7 @@ public class TestShooter : MonoBehaviour
 
     private void Shoot()
     {
-        GetComponent<BallonShoot>().setMoveDirection(direction);
+        GetComponent<BallonShoot>().SetMoveDirection(direction);
         GetComponent<BallonShoot>().StartMove(power);
     }
 }

@@ -43,20 +43,29 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void SFXPlay(string sfxName, AudioClip clip)
+    private float _sfxVolume;
+    public void SfxPlay(string sfxName, AudioClip clip)
     {
         GameObject go = new GameObject(sfxName + "Sound");
         AudioSource audioSource = go.AddComponent<AudioSource>();
+        
         audioSource.clip = clip;
+        audioSource.volume = _sfxVolume;
         
         Destroy(go, clip.length);
     }
 
-    public void BackgroundSoundPlay(AudioClip clip)
+    private float _backgroundVolume;
+    private void BackgroundSoundPlay(AudioClip clip)
     {
         backgroundSound.clip = clip;
         backgroundSound.loop = true;
-        backgroundSound.volume = 0.1f;
+        backgroundSound.volume = _backgroundVolume;
         backgroundSound.Play();
+    }
+
+    public void SetBackgroundVolume(float volume)
+    {
+        
     }
 }
