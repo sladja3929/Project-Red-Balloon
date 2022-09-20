@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FollowBallon : MonoBehaviour
 {
-    [SerializeField] private Transform ballon;
+    [SerializeField] private Transform balloon;
     // Update is called once per frame
     void Update()
     {
-        transform.position = ballon.position;
+        transform.position = balloon.position;
     }
 }

@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     }
 
     [SerializeField] private Transform viewerTransform;
-    [SerializeField] private float DPI;
+    [SerializeField] private float dpi;
 
     public enum ControllType
     {
@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
     private void LookAround()
     {
         Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        mouseDelta *= DPI;
+        mouseDelta *= dpi;
         Vector3 camAngle = viewerTransform.rotation.eulerAngles;
 
         float x = camAngle.x - mouseDelta.y;

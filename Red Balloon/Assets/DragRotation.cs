@@ -10,6 +10,8 @@ public class DragRotation : MonoBehaviour
     public float rotationSpeed = 10f;
 
     public Camera cam;
+
+    public GameObject direction;
     private void DragRotate()
     {
 
@@ -18,17 +20,17 @@ public class DragRotation : MonoBehaviour
             float rotx = Input.GetAxis("Mouse X") * rotationSpeed;
             float roty = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-            Vector3 right = Vector3.Cross(cam.transform.up, transform.position - cam.transform.position);
-            Vector3 up = Vector3.Cross(transform.position - cam.transform.position, right);
-            transform.rotation = Quaternion.AngleAxis(-rotx, up) * transform.rotation;
-            transform.rotation = Quaternion.AngleAxis(roty, right) * transform.rotation;
+            Vector3 right = Vector3.Cross(cam.transform.up, direction.transform.position - cam.transform.position);
+            Vector3 up = Vector3.Cross(direction.transform.position - cam.transform.position, right);
+            direction.transform.rotation = Quaternion.AngleAxis(-rotx, up) * direction.transform.rotation;
+            direction.transform.rotation = Quaternion.AngleAxis(roty, right) * direction.transform.rotation;
         }
         
         
         //테스트용 전방 45도 바라보는 방향지정
         if (Input.GetKey(KeyCode.Y))
         {
-            transform.rotation = Quaternion.Euler(-45, 0, 0);
+            direction.transform.rotation = Quaternion.Euler(-45, 0, 0);
         }
     }
 
@@ -37,4 +39,8 @@ public class DragRotation : MonoBehaviour
         if (onControll) DragRotate();
     }
 
+    public Quaternion GetDirection()
+    {
+        return direction.transform.rotation;
+    }
 }
