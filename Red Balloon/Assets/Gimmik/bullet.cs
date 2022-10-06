@@ -6,15 +6,15 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
 
-    public Rigidbody rigid;
+    private Rigidbody _rigidbody;
     // Start is called before the first frame update
     void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     void Start()
     {
-        rigid.velocity = speed * Vector3.forward;
+        _rigidbody.velocity = speed * Vector3.forward;
     }
 }
