@@ -20,8 +20,8 @@ public class FlyingState : StateMachineBehaviour
         Vector3 dirVec = new Vector3(0, 0, 1);
         Vector3 rotatedDirVec = animator.GetComponent<DragRotation>().GetDirection() * dirVec;
         
-        animator.GetComponent<BallonShoot>().SetMoveDirection(rotatedDirVec);
-        if (animator.GetComponent<BallonShoot>().StartMove(animator.GetFloat("chargeGauge")))
+        animator.GetComponent<BalloonShoot>().SetMoveDirection(rotatedDirVec);
+        if (animator.GetComponent<BalloonShoot>().StartMove(animator.GetFloat("chargeGauge")))
         {
             CameraController.instance.onControll = CameraController.ControllType.LookAround;
         }

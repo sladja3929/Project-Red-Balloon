@@ -9,15 +9,18 @@ public class TestShooter : MonoBehaviour
     public float power;
 
     public float startWaitTime;
+
+    private BalloonShoot _balloonShoot;
     // Start is called before the first frame update
     void Start()
     {
         Invoke(nameof(Shoot), startWaitTime);
+        _balloonShoot = GetComponent<BalloonShoot>();
     }
 
     private void Shoot()
     {
-        GetComponent<BallonShoot>().SetMoveDirection(direction);
-        GetComponent<BallonShoot>().StartMove(power);
+        _balloonShoot.SetMoveDirection(direction);
+        _balloonShoot.StartMove(power);
     }
 }
