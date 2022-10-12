@@ -12,6 +12,7 @@ public class GaugeSlider : MonoBehaviour
     void Start()
     {
         _slider = GetComponent<Slider>();
+        balloon = GameObject.FindWithTag("Player").GetComponent<BalloonController>();
     }
     // Update is called once per frame
     void Update()

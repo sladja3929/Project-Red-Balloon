@@ -66,6 +66,11 @@ public class SoundManager : MonoBehaviour
 
     public void SetBackgroundVolume(float volume)
     {
-        
+        _backgroundVolume = volume;
+    }
+
+    public void SetSfxSoundVolume(float volume)
+    {
+        _sfxVolume = volume;
     }
 }

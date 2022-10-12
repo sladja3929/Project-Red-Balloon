@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    public Vector3 windPower;
-
+    public Vector3 windDirection;
+    public float windPower;
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<Rigidbody>().AddForce(windPower * Time.deltaTime);
+            other.GetComponent<Rigidbody>().AddForce(windPower * windDirection.normalized * Time.deltaTime);
         }
     }
 }

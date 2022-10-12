@@ -9,32 +9,32 @@ public class FallingGround : MonoBehaviour
 {
     private Rigidbody _rigid;
 
-    public GameObject groundThatWillFall;
+    private GameObject _groundThatWillFall;
     public float respownTime;
     public float fallTime;
 
     void Awake()
     {
         _rigid = GetComponent<Rigidbody>();
-        groundThatWillFall = gameObject;
+        _groundThatWillFall = gameObject;
     }
 
 
-    public bool isBreaking;
+    private bool _isBreaking;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !isPrefab && !isBreaking)
+        if (collision.gameObject.CompareTag("Player") && !_isPrefab && !_isBreaking)
         {
-            isBreaking = true;
+            _isBreaking = true;
             Invoke(nameof(Fall), fallTime);
         }
     }
 
     private void Fall()
     {
-        isBreaking = true;
+        _isBreaking = true;
         
-        Instantiate(groundThatWillFall, transform.position, Quaternion.identity)
+        Instantiate(_groundThatWillFall, transform.position, Quaternion.identity)
             .GetComponent<FallingGround>().SetPrefabMode();
         gameObject.SetActive(false);
         
@@ -45,15 +45,15 @@ public class FallingGround : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        isBreaking = false;
+        _isBreaking = false;
     }
 
 
-    public bool isPrefab = false;
+    private bool _isPrefab = false;
     public float destroyPrefabTime;
     public void SetPrefabMode()
     {
-        isPrefab = true;
+        _isPrefab = true;
         _rigid.isKinematic = false;
         GetComponent<Collider>().isTrigger = false;
 
