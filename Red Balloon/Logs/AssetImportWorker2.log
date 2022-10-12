@@ -1,0 +1,399 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.6f1 (7da38d85baf6) revision 8233869'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22000) 64bit Core' Language: 'ko' Physical Memory: 16068 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.6f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/creep/OneDrive/문서/GitHub/Project-Red-Balloon/Red Balloon
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+62626
+Successfully changed project path to: C:/Users/creep/OneDrive/문서/GitHub/Project-Red-Balloon/Red Balloon
+C:/Users/creep/OneDrive/문서/GitHub/Project-Red-Balloon/Red Balloon
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 63.10 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.6f1 (7da38d85baf6)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/creep/OneDrive/문서/GitHub/Project-Red-Balloon/Red Balloon/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2050 (ID=0x25a9)
+    Vendor:   NVIDIA
+    VRAM:     3993 MB
+    Driver:   30.0.15.1181
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56736
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004877 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 65.30 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.551 seconds
+Domain Reload Profiling:
+	ReloadAssembly (551ms)
+		BeginReloadAssembly (73ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (379ms)
+			LoadAssemblies (71ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (84ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (22ms)
+			SetupLoadedEditorAssemblies (228ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (65ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (112ms)
+				ProcessInitializeOnLoadMethodAttributes (41ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.004358 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x00032] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:48 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.239 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1241ms)
+		BeginReloadAssembly (110ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (1026ms)
+			LoadAssemblies (72ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (222ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (46ms)
+			SetupLoadedEditorAssemblies (640ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (79ms)
+				ProcessInitializeOnLoadAttributes (504ms)
+				ProcessInitializeOnLoadMethodAttributes (41ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (12ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 0.52 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3544 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 28 unused Assets / (55.5 KB). Loaded Objects now: 4002.
+Memory consumption went from 127.9 MB to 127.8 MB.
+Total: 16.442800 ms (FindLiveObjects: 0.213000 ms CreateObjectMapping: 0.100200 ms MarkObjects: 15.979500 ms  DeleteObjects: 0.148800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 57659.173380 seconds.
+  path: Assets/TerrainData_b8a47d0b-076c-4472-9c1e-97751001a5c9.asset
+  artifactKey: Guid(543ea49fff42293479bbe7dcd8e03786) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_b8a47d0b-076c-4472-9c1e-97751001a5c9.asset using Guid(543ea49fff42293479bbe7dcd8e03786) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6f4f601a5dfb4b7154240d22a8637fb') in 0.062728 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/New Terrain.asset
+  artifactKey: Guid(271dab5c28943e04c994b3261af0a348) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Terrain.asset using Guid(271dab5c28943e04c994b3261af0a348) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c6a8c1319b906c967d89236311f1ad7') in 0.013189 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/TerrainData_af4d274c-bae9-4cd1-a5fa-a17dcb593059.asset
+  artifactKey: Guid(1d9b0b3754c5df84697e0862a2271525) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_af4d274c-bae9-4cd1-a5fa-a17dcb593059.asset using Guid(1d9b0b3754c5df84697e0862a2271525) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81594062d370aae713b41b0a21bdbf38') in 0.015391 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/TerrainData_70db6d8f-b7c0-43bd-8dfb-f25c07ac4c45.asset
+  artifactKey: Guid(0879659aeebaf95479c779f93d5eb11a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_70db6d8f-b7c0-43bd-8dfb-f25c07ac4c45.asset using Guid(0879659aeebaf95479c779f93d5eb11a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c254007f773ee34bb425d6bac8b94c58') in 0.013233 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/TerrainData_4392d95e-217b-4e43-b3c1-b3f05e4c9380.asset
+  artifactKey: Guid(0a033b549e3b3f74e9543b0186148c00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_4392d95e-217b-4e43-b3c1-b3f05e4c9380.asset using Guid(0a033b549e3b3f74e9543b0186148c00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ca5189ae3c23409130fe7aeee4840c0') in 0.014682 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/TerrainData_51c87303-0105-47e8-ba5c-ae73e750e35c.asset
+  artifactKey: Guid(7162f39e385dda24f95814d867359b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_51c87303-0105-47e8-ba5c-ae73e750e35c.asset using Guid(7162f39e385dda24f95814d867359b3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0efbb7bb33b000cc470ddf3ad9c75678') in 0.015729 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/TerrainData_190bcf24-f94e-4cdc-9c82-cb75f1948f38.asset
+  artifactKey: Guid(a57a0c401f65db444849a1613ae4d419) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_190bcf24-f94e-4cdc-9c82-cb75f1948f38.asset using Guid(a57a0c401f65db444849a1613ae4d419) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68dd11909ee569360895225c7c1b556e') in 0.015511 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/TerrainData_a9597bd5-4015-4a62-967b-7cc81f599b60.asset
+  artifactKey: Guid(5f4d5ecc757387245be18b009a502f97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_a9597bd5-4015-4a62-967b-7cc81f599b60.asset using Guid(5f4d5ecc757387245be18b009a502f97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1276e8feefd7d560489d79b3db54cf63') in 0.014988 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/TerrainData_237674ad-e3f1-4fff-b1fd-cdad3bf9ed43.asset
+  artifactKey: Guid(9bec4009baff06e48b854fb99c937ac7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_237674ad-e3f1-4fff-b1fd-cdad3bf9ed43.asset using Guid(9bec4009baff06e48b854fb99c937ac7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0132d97cf9f4face9b06ae217af1704') in 0.012104 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/TerrainData_99455f97-83df-44a8-a3fb-8d60e1061efd.asset
+  artifactKey: Guid(88adb5b59e747ef4bb0bff7898a2e210) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_99455f97-83df-44a8-a3fb-8d60e1061efd.asset using Guid(88adb5b59e747ef4bb0bff7898a2e210) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e08be6c3a2066345571387bb33fb824') in 0.013454 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/TerrainData_f786f8e1-2faa-4527-b879-fd023464a020.asset
+  artifactKey: Guid(5fa8a623e81caba4bb835f244761f027) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_f786f8e1-2faa-4527-b879-fd023464a020.asset using Guid(5fa8a623e81caba4bb835f244761f027) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb2b5b430eaf9fc91cbca3dc61e69abf') in 0.014122 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/TerrainData_0e0daaad-f784-4634-b092-3aa2b16ac711.asset
+  artifactKey: Guid(1704b53922d18cd4ca3ce6dbd28238d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_0e0daaad-f784-4634-b092-3aa2b16ac711.asset using Guid(1704b53922d18cd4ca3ce6dbd28238d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c182cedc7b1a59372e5407ff9cf154f1') in 0.016867 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/TerrainData_320c2c55-bd35-4669-a107-a6cd46e121a7.asset
+  artifactKey: Guid(56e03e930b4120643a287734a2c5ce46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData_320c2c55-bd35-4669-a107-a6cd46e121a7.asset using Guid(56e03e930b4120643a287734a2c5ce46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddb12f23edb41b5854dcd4e539b1c597') in 0.013429 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.102661 seconds.
+  path: Assets/Scripts/FollowBallon.cs
+  artifactKey: Guid(1746786b25a68ca43bbf4c260d0c6463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/FollowBallon.cs using Guid(1746786b25a68ca43bbf4c260d0c6463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0835fc5a533de25c8856b754aa26fcc') in 0.010951 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.550389 seconds.
+  path: Assets/Scripts/FlyingState.cs
+  artifactKey: Guid(bc51414ed0972054197e05109c82fc06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/FlyingState.cs using Guid(bc51414ed0972054197e05109c82fc06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '979297535276a078bcc39862cd898cad') in 0.006901 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.801609 seconds.
+  path: Assets/Scripts/CameraController.cs
+  artifactKey: Guid(98553046dc168264fa12ea09264c3a22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/CameraController.cs using Guid(98553046dc168264fa12ea09264c3a22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c09deefc9c230620366666f2589c7e25') in 0.006505 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.485497 seconds.
+  path: Assets/Scripts/DragRotation.cs
+  artifactKey: Guid(e615ab9391f609c4dacef499b63e70d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/DragRotation.cs using Guid(e615ab9391f609c4dacef499b63e70d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '579f53ea1db5cfdae52f2318366e7892') in 0.006889 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.843368 seconds.
+  path: Assets/Scripts/TestShooter.cs
+  artifactKey: Guid(558a9985fa9bcea408a9b9e6c1a331b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/TestShooter.cs using Guid(558a9985fa9bcea408a9b9e6c1a331b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ece5e42b035a24e1a2255b81f9528c91') in 0.007184 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004014 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in C:\Users\creep\OneDrive\문서\GitHub\Project-Red-Balloon\Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.201 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1201ms)
+		BeginReloadAssembly (131ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (979ms)
+			LoadAssemblies (74ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (207ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (39ms)
+			SetupLoadedEditorAssemblies (473ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (55ms)
+				ProcessInitializeOnLoadAttributes (380ms)
+				ProcessInitializeOnLoadMethodAttributes (21ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.76 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3517 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (0.5 MB). Loaded Objects now: 4007.
+Memory consumption went from 126.5 MB to 125.9 MB.
+Total: 10.149600 ms (FindLiveObjects: 0.226900 ms CreateObjectMapping: 0.101900 ms MarkObjects: 9.572800 ms  DeleteObjects: 0.245900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 55.793985 seconds.
+  path: Assets/TextMesh Pro
+  artifactKey: Guid(f54d1bd14bd3ca042bd867b519fee8cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro using Guid(f54d1bd14bd3ca042bd867b519fee8cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d457b26d2bc8024e58729449d46e968') in 0.010166 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.993002 seconds.
+  path: Assets/Gimmik
+  artifactKey: Guid(e875469c47f76374e9302d46b9681f45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Gimmik using Guid(e875469c47f76374e9302d46b9681f45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3925f8153b0db3250fbc0c21ca02a8e8') in 0.007379 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.526608 seconds.
+  path: Assets/Managers
+  artifactKey: Guid(4d9ab32f6f5c4ea4caecbb4afa757049) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Managers using Guid(4d9ab32f6f5c4ea4caecbb4afa757049) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92ed13f8f373bb1fe2abbdb51c74f03c') in 0.007216 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.387177 seconds.
+  path: Assets/Object
+  artifactKey: Guid(8b183aec219d88240b1391a1d52db05e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Object using Guid(8b183aec219d88240b1391a1d52db05e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0288f6845cfff0544bba3d50bfd3e5cf') in 0.006817 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.550126 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(6ea315d0fd7389c41b19996891e99ae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(6ea315d0fd7389c41b19996891e99ae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc172811d573b296104adb4d2728db37') in 0.006558 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.864089 seconds.
+  path: Assets/Scenes/Stage0.unity
+  artifactKey: Guid(1e2933a6f2b419e4998e57ace970e331) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Stage0.unity using Guid(1e2933a6f2b419e4998e57ace970e331) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3251ed2c277446a388e596a6dceab7a') in 0.007203 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.846937 seconds.
+  path: Assets/Scenes/TestOrSamPleScenes
+  artifactKey: Guid(996136b1e27c59d47a77c96216076646) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/TestOrSamPleScenes using Guid(996136b1e27c59d47a77c96216076646) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcfcee2d77751f3ad1fc1b4351c735f6') in 0.005812 seconds 
