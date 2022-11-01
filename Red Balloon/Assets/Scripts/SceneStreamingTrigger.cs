@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneStreamingTrigger : MonoBehaviour
 {
     [SerializeField] private string streamTargetSceneName;
-    [SerializeField] private string triggerOwnScene;
+    [SerializeField] private string triggerOwnSceneName;
 
     enum LoadType
     {
@@ -37,7 +37,7 @@ public class SceneStreamingTrigger : MonoBehaviour
         var targetScene = SceneManager.GetSceneByName(streamTargetSceneName);
         if (targetScene.isLoaded)
         {
-            var currentScene = SceneManager.GetSceneByName(triggerOwnScene);
+            var currentScene = SceneManager.GetSceneByName(triggerOwnSceneName);
             SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("MainPlayObject"), currentScene);
             
             var op = SceneManager.UnloadSceneAsync(streamTargetSceneName);
@@ -56,16 +56,5 @@ public class SceneStreamingTrigger : MonoBehaviour
             if(loadType == LoadType.LoadScene) StartCoroutine(StreamingTargetScene());
             if(loadType == LoadType.UnloadScene) StartCoroutine(UnloadStreamingScene());
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
