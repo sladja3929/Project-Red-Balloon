@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Water : MonoBehaviour
 {
-    public Vector3 driftDirection;
+    public Vector3 streamVector;
 
 
     public float floatingPower;
@@ -34,8 +34,14 @@ public class Water : MonoBehaviour
     private void DriftOverWater(GameObject player)
     {
         if (!player.CompareTag("Player")) return;
+
+        Vector3 balloonVelocity = player.GetComponent<Rigidbody>().velocity;
+
+        Vector3 pushVector = streamVector.normalized *
+                             (streamVector.magnitude -
+                              Vector3.Dot(balloonVelocity, streamVector) / streamVector.magnitude);
         
-        player.GetComponent<Rigidbody>().AddForce(Time.deltaTime * driftDirection);
+        player.GetComponent<Rigidbody>().AddForce(Time.deltaTime * pushVector);
     }
 
     private void OnTriggerStay(Collider other)
