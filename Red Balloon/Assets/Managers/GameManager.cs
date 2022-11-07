@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static bool isPause = false;
+    
     [SerializeField] private Vector3 savePoint;
 
     public void SetSavePoint(Vector3 point)
