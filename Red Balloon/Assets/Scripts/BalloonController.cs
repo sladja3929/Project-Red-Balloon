@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,10 @@ public class BalloonController : MonoBehaviour
 	[SerializeField] private float chargeGauge;
 	[SerializeField] private KeyCode chargeKey;
 	[SerializeField] private float chargeSpeed;
+
+	[SerializeField] private AudioClip balloonShootSound;
+	[SerializeField] private AudioClip balloonChargeSound;
+	[SerializeField] private AudioClip balloonBoundSound;
 
 	private void Awake()
 	{
@@ -78,6 +83,8 @@ public class BalloonController : MonoBehaviour
 
 		while (true)
 		{
+			SoundManager.instance.SfxPlay("BalloonCharge", balloonChargeSound);
+			
 			if (Input.GetKey(chargeKey))
 			{
 				chargeGauge += chargeSpeed * Time.deltaTime;
@@ -96,6 +103,8 @@ public class BalloonController : MonoBehaviour
 	private IEnumerator Fly()
 	{
 		Debug.Log("Fly State");
+		
+		SoundManager.instance.SfxPlay("BalloonShoot", balloonShootSound);
 		
 		_time = 0;
 		
@@ -128,5 +137,13 @@ public class BalloonController : MonoBehaviour
 	public float GetChargeGauge()
 	{
 		return chargeGauge;
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.CompareTag($"Collider"))
+		{
+			SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound);
+		}
 	}
 }

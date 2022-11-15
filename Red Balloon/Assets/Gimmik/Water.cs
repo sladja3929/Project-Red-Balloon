@@ -34,14 +34,15 @@ public class Water : MonoBehaviour
     private void DriftOverWater(GameObject player)
     {
         if (!player.CompareTag("Player")) return;
+        Rigidbody playerRigid = player.GetComponent<Rigidbody>();
 
-        Vector3 balloonVelocity = player.GetComponent<Rigidbody>().velocity;
+        Vector3 balloonVelocity = playerRigid.velocity;
 
         Vector3 pushVector = streamVector.normalized *
                              (streamVector.magnitude -
                               Vector3.Dot(balloonVelocity, streamVector) / streamVector.magnitude);
         
-        player.GetComponent<Rigidbody>().AddForce(Time.deltaTime * pushVector);
+        playerRigid.AddForce(Time.deltaTime * pushVector);
     }
 
     private void OnTriggerStay(Collider other)
