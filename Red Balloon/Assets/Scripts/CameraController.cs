@@ -28,8 +28,10 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (onControll == ControllType.LookAround) LookAround();
-        else if (onControll == ControllType.Drag && Input.GetMouseButton(1)) LookAround();
+        if (Input.GetMouseButton(1))
+        {
+            if (onControll == ControllType.LookAround || onControll == ControllType.Drag) LookAround(); 
+        }
     }
 
 

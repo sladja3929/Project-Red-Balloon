@@ -46,6 +46,7 @@ public class SoundManager : MonoBehaviour
     private float _sfxVolume;
     public void SfxPlay(string sfxName, AudioClip clip)
     {
+        if (clip == null) return;
         GameObject go = new GameObject(sfxName + "Sound");
         AudioSource audioSource = go.AddComponent<AudioSource>();
         

@@ -78,13 +78,12 @@ public class BalloonController : MonoBehaviour
 	private IEnumerator Charge()
 	{
 		Debug.Log("Charge State");
+		//SoundManager.instance.SfxPlay("BalloonCharge", balloonChargeSound);
 		
 		chargeGauge = 0f;
 
 		while (true)
 		{
-			SoundManager.instance.SfxPlay("BalloonCharge", balloonChargeSound);
-			
 			if (Input.GetKey(chargeKey))
 			{
 				chargeGauge += chargeSpeed * Time.deltaTime;
@@ -104,7 +103,7 @@ public class BalloonController : MonoBehaviour
 	{
 		Debug.Log("Fly State");
 		
-		SoundManager.instance.SfxPlay("BalloonShoot", balloonShootSound);
+		//SoundManager.instance.SfxPlay("BalloonShoot", balloonShootSound);
 		
 		_time = 0;
 		
@@ -143,7 +142,7 @@ public class BalloonController : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag($"Collider"))
 		{
-			SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound);
+			//SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound);
 		}
 	}
 }
