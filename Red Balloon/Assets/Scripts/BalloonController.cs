@@ -52,6 +52,11 @@ public class BalloonController : MonoBehaviour
 		StartCoroutine(_balloonState.ToString());
 	}
 
+	public void SetBasicState()
+	{
+		ChangeState(BalloonState.Aim);
+	}
+
 	
 	private IEnumerator Aim()
 	{
