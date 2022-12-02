@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
     {
         optionMenu.SetActive(true);
         mainMenu.SetActive(false);
+        
     }
 
     public void OptionToMain()

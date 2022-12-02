@@ -10,10 +10,12 @@ public class Respawn : MonoBehaviour
     [SerializeField] private float respawnTime;
 
     private Rigidbody _rigidbody;
+    private BalloonController _controller;
 
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _controller = GetComponent<BalloonController>();
     }
 
     public void SetSavePoint(Vector3 point)
@@ -31,12 +33,16 @@ public class Respawn : MonoBehaviour
         var transform1 = transform;
         Instantiate(dieEffect, transform1.position, transform1.rotation);
         
+        
+        
         Invoke(nameof(Spawn), respawnTime);
     }
 
     private void Spawn()
     {
         _rigidbody.position = savePoint;
+        _rigidbody.velocity = Vector3.zero;
+        _controller.SetBasicState();
         gameObject.SetActive(true);
     }
 }
