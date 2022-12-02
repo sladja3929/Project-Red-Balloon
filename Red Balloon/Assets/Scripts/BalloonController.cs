@@ -36,7 +36,7 @@ public class BalloonController : MonoBehaviour
 
 	private void Start()
 	{
-		ChangeState(BalloonState.Aim);
+		ChangeState(BalloonState.Fly);
 	}
 
 	/// <summary>
@@ -61,6 +61,8 @@ public class BalloonController : MonoBehaviour
 	private IEnumerator Aim()
 	{
 		Debug.Log("Aim State");
+
+		_rigidbody.isKinematic = true;
 
 		_showArrow?.Show();
 		//카메라 컨트롤 타입 드래그로 변경
@@ -99,7 +101,7 @@ public class BalloonController : MonoBehaviour
 			yield return null;
 		}
 
-		_showArrow?.Hide();
+		_rigidbody.isKinematic = false;
 		ChangeState(BalloonState.Fly);
 	}
 
@@ -107,6 +109,7 @@ public class BalloonController : MonoBehaviour
 	private IEnumerator Fly()
 	{
 		Debug.Log("Fly State");
+		_showArrow?.Hide();
 		
 		//SoundManager.instance.SfxPlay("BalloonShoot", balloonShootSound);
 		
