@@ -21,7 +21,7 @@ public class FallingGround : MonoBehaviour
 
 
     private bool _isBreaking;
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player") && !_isPrefab && !_isBreaking)
         {
@@ -33,6 +33,7 @@ public class FallingGround : MonoBehaviour
     private void Fall()
     {
         _isBreaking = true;
+
         
         Instantiate(_groundThatWillFall, transform.position, Quaternion.identity)
             .GetComponent<FallingGround>().SetPrefabMode();

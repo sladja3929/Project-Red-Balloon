@@ -25,6 +25,8 @@ public class BalloonController : MonoBehaviour
 	[SerializeField] private AudioClip balloonChargeSound;
 	[SerializeField] private AudioClip balloonBoundSound;
 
+	[SerializeField] private float rayToBottomLength;
+
 	private void Awake()
 	{
 		_showArrow = GetComponent<ShowArrow>();
@@ -57,13 +59,24 @@ public class BalloonController : MonoBehaviour
 		ChangeState(BalloonState.Aim);
 	}
 
+	/// <summary>
+	/// 풍선 아래에 뭔가 있는지 확인하는 함수
+	/// </summary>
+	/// <returns></returns>
+	private bool SomethingUnderBalloon()
+	{
+		var position = transform.position;
+		Debug.DrawRay(position, Vector3.down, Color.blue);
+		
+		LayerMask wallLayer = LayerMask.GetMask("Platform");
+
+		return Physics.Raycast(position, Vector3.down, rayToBottomLength, wallLayer);
+	}
 	
 	private IEnumerator Aim()
 	{
 		Debug.Log("Aim State");
-
-		_rigidbody.isKinematic = true;
-
+		
 		_showArrow?.Show();
 		//카메라 컨트롤 타입 드래그로 변경
 		CameraController.instance.onControll = CameraController.ControllType.Drag;
@@ -72,6 +85,7 @@ public class BalloonController : MonoBehaviour
 		while (true)
 		{
 			if (Input.GetKey(chargeKey)) break;
+			_rigidbody.isKinematic = SomethingUnderBalloon();
 			yield return null;
 		}
 
@@ -101,7 +115,7 @@ public class BalloonController : MonoBehaviour
 			yield return null;
 		}
 
-		_rigidbody.isKinematic = false;
+		
 		ChangeState(BalloonState.Fly);
 	}
 
@@ -110,6 +124,7 @@ public class BalloonController : MonoBehaviour
 	{
 		Debug.Log("Fly State");
 		_showArrow?.Hide();
+		_rigidbody.isKinematic = false;
 		
 		//SoundManager.instance.SfxPlay("BalloonShoot", balloonShootSound);
 		
