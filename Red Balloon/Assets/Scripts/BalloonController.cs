@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BalloonController : MonoBehaviour
 {
-    private enum BalloonState { Aim, Charge, Fly }
+    private enum BalloonState { Aim, Charge, Fly, Fall }
 	
 	private BalloonState _balloonState;
 
@@ -38,7 +38,7 @@ public class BalloonController : MonoBehaviour
 
 	private void Start()
 	{
-		ChangeState(BalloonState.Fly);
+		ChangeState(BalloonState.Fall);
 	}
 
 	/// <summary>
@@ -85,7 +85,11 @@ public class BalloonController : MonoBehaviour
 		while (true)
 		{
 			if (Input.GetKey(chargeKey)) break;
-			_rigidbody.isKinematic = SomethingUnderBalloon();
+			if (!SomethingUnderBalloon())
+			{
+				ChangeState(BalloonState.Fall);
+			}
+			
 			yield return null;
 		}
 
@@ -127,9 +131,7 @@ public class BalloonController : MonoBehaviour
 		_rigidbody.isKinematic = false;
 		
 		//SoundManager.instance.SfxPlay("BalloonShoot", balloonShootSound);
-		
-		_time = 0;
-		
+
 		var dirVec = new Vector3(0, 0, 1);
 		var rotatedDirVec = _dragRotation.GetDirection() * dirVec;
 		
@@ -140,12 +142,25 @@ public class BalloonController : MonoBehaviour
 				CameraController.ControllType.LookAround;
 			chargeGauge = 0f;
 		}
-		
 
+		yield return new WaitForSeconds(0.5f);
+		
+		ChangeState(BalloonState.Fall);
+	}
+
+	private IEnumerator Fall()
+	{
+		Debug.Log("Fall state");
+		_showArrow?.Hide();
+		
+		_rigidbody.isKinematic = false;
+		_time = 0;
+		
 		while (true)
 		{
 			_time += Time.deltaTime;
-			if (_rigidbody.velocity.magnitude <= stopCriterionVelocity && _time > 0.5f)
+			if (_rigidbody.velocity.magnitude <= stopCriterionVelocity &&
+			    SomethingUnderBalloon())
 			{
 				break;
 			}

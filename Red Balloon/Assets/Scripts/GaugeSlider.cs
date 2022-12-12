@@ -9,7 +9,7 @@ public class GaugeSlider : MonoBehaviour
 
     public BalloonController balloon;
 
-    void Start()
+    void Awake()
     {
         _slider = GetComponent<Slider>();
         balloon = GameObject.FindWithTag("Player").GetComponent<BalloonController>();
