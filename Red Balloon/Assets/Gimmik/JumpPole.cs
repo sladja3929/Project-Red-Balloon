@@ -35,8 +35,6 @@ public class JumpPole : MonoBehaviour
             if (time  > pushTime) break;
             
             objRigid.AddForce(pushDirection * pushPower);
-            Debug.Log("Push");
-            Debug.Log(pushDirection * pushPower);
             yield return new WaitForSeconds(dt);
         }
 

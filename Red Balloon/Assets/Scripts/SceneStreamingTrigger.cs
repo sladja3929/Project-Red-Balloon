@@ -30,6 +30,7 @@ public class SceneStreamingTrigger : MonoBehaviour
         }
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private IEnumerator UnloadStreamingScene()
     {
         Debug.Log("Scene Unload Call");

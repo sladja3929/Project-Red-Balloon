@@ -12,7 +12,7 @@ public class Wind : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<Rigidbody>().AddForce(windPower * windDirection.normalized * Time.deltaTime);
+            other.GetComponent<Rigidbody>().AddForce(windPower * Time.deltaTime * windDirection.normalized);
         }
     }
 }

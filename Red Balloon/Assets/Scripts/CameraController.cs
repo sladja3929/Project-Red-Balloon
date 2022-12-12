@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
-            if (onControll == ControllType.LookAround || onControll == ControllType.Drag) LookAround(); 
+            if (onControll is ControllType.LookAround or ControllType.Drag) LookAround(); 
         }
     }
 

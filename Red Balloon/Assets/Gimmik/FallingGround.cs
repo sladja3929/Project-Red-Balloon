@@ -10,8 +10,8 @@ public class FallingGround : MonoBehaviour
     private Rigidbody _rigid;
 
     private GameObject _groundThatWillFall;
-    public float respownTime;
-    public float fallTime;
+    [SerializeField] private float respownTime;
+    [SerializeField] private float fallTime;
 
     void Awake()
     {

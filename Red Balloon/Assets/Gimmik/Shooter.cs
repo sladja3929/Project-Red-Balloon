@@ -1,37 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {   
-    public GameObject bullet;
-    public float rayDistance = 15f;
-    public float attackDelay;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] float rayDistance = 15f;
+    [SerializeField] private float attackDelay;
 
-    RaycastHit hit;
-    private float _time = 0f;
+    
+    private bool _canAttack;
 
-    public void Shoot()
+    private IEnumerator AttackCooldown(float cooldown)
     {
-        Instantiate(bullet, transform.position, transform.rotation);
+        _canAttack = false;
+        yield return new WaitForSeconds(cooldown);
+        _canAttack = true;
+    }
+
+    private void Shoot()
+    {
+        var transform1 = transform;
+        Debug.DrawRay(transform1.position, transform1.forward * rayDistance, Color.red);
+
+
+        if (!Physics.Raycast(transform.position, transform.forward, out var hit, rayDistance)) return;
+        if (!hit.collider.CompareTag("Player")) return;
+
+        Instantiate(bullet, transform1.position, transform1.rotation);
+        StartCoroutine(AttackCooldown(attackDelay));
     }
 
     void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
-        _time += Time.deltaTime;
-
-        
-
-        if(Physics.Raycast (transform.position, transform.forward, out hit, rayDistance))
-        {
-            if (_time > attackDelay)
-            {
-                _time = 0;
-                Shoot();
-            }
-        }
-        
+        if (_canAttack) Shoot();
     }
-
 }

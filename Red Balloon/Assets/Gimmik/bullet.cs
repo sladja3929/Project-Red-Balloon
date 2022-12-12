@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] private float speed;
 
     private Rigidbody _rigidbody;
     // Start is called before the first frame update
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.useGravity = false;
     }
 
     void Start()
