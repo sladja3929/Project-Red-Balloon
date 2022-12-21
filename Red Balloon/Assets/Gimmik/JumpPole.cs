@@ -8,7 +8,7 @@ public class JumpPole : MonoBehaviour
 {
     private Rigidbody _rigid;
 
-    [FormerlySerializedAs("_pushDirection")] public Vector3 pushDirection;
+    public Vector3 pushDirection;
     void Awake()
     {
         
