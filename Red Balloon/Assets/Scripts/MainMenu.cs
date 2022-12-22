@@ -10,7 +10,6 @@ public class MainMenu : MonoBehaviour
     {
         IEnumerator LoadSceneCoroutine(string target)
         {
-            yield return null;
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(target);
             asyncOperation.allowSceneActivation = false;
         

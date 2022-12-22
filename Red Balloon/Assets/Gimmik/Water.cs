@@ -45,6 +45,7 @@ public class Water : MonoBehaviour
         Vector3 pushVector = streamVector.normalized *
                              (streamVector.magnitude -
                               Vector3.Dot(balloonVelocity, streamVector) / streamVector.magnitude);
+        Debug.Log(pushVector);
         
         playerRigid.AddForce(Time.deltaTime * pushVector);
     }

@@ -151,6 +151,10 @@ MonoBehaviour:
   chargeGauge: 0
   chargeKey: 32
   chargeSpeed: 1
+  balloonShootSound: {fileID: 0}
+  balloonChargeSound: {fileID: 0}
+  balloonBoundSound: {fileID: 0}
+  rayToBottomLength: 1
 --- !u!114 &7725434210765982043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,3 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65748dcf1ae7ea247bfd2d35e39ac2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  savePoint: {x: 0, y: 0, z: 0}
+  dieEffect: {fileID: 0}
+  respawnTime: 0
