@@ -27,7 +27,8 @@ public class BalloonShoot : MonoBehaviour
     //그래서 실제로 손으로 풍선을 밀듯, 특정 힘을 {push Time}초에 거쳐 지속적으로 가하는 방법을 선택
     //코루틴을 통해 0.01초마다 반복해서 힘을 가함
     public float pushTime; //Second
-    IEnumerator PushBalloon(float power)
+
+    private IEnumerator PushBalloon(float power)
     {
         int count = (int)(pushTime * 100);
         for (int i = 0; i < count; i++)
@@ -51,7 +52,6 @@ public class BalloonShoot : MonoBehaviour
             (   Random.value * randomRotationSpeed, 
                 Random.value * randomRotationSpeed,
                 Random.value * randomRotationSpeed);
-        
     }
     
     

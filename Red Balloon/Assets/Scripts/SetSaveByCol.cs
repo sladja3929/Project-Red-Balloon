@@ -15,6 +15,6 @@ public class SetSaveByCol : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         
-        other.GetComponent<Collider>().GetComponent<Respawn>().SetSavePoint(transform.position);
+        other.GetComponent<Respawn>().SetSavePoint(transform.position);
     }
 }
