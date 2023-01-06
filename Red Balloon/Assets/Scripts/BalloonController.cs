@@ -56,7 +56,7 @@ public class BalloonController : MonoBehaviour
 
 	public void SetBasicState()
 	{
-		ChangeState(BalloonState.Aim);
+		ChangeState(BalloonState.Fall);
 	}
 
 	/// <summary>

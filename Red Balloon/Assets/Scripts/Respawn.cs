@@ -12,10 +12,26 @@ public class Respawn : MonoBehaviour
     private Rigidbody _rigidbody;
     private BalloonController _controller;
 
+    public KeyCode dieKey;
+
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _controller = GetComponent<BalloonController>();
+    }
+
+    void Start()
+    {
+        //임시 세이브
+        SetSavePoint(transform.position);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(dieKey))
+        {
+            Die();
+        }
     }
 
     public void SetSavePoint(Vector3 point)
@@ -31,18 +47,19 @@ public class Respawn : MonoBehaviour
         gameObject.SetActive(false);
         
         var transform1 = transform;
-        Instantiate(dieEffect, transform1.position, transform1.rotation);
+        var effect = Instantiate(dieEffect, transform1.position, Quaternion.identity);
         
-        
-        
+        Destroy(effect, respawnTime);
         Invoke(nameof(Spawn), respawnTime);
     }
 
     private void Spawn()
     {
+        transform.position = savePoint;
         _rigidbody.position = savePoint;
         _rigidbody.velocity = Vector3.zero;
-        _controller.SetBasicState();
+        
         gameObject.SetActive(true);
+        _controller.SetBasicState();
     }
 }
