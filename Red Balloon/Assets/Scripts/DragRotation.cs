@@ -12,6 +12,8 @@ public class DragRotation : MonoBehaviour
     public Camera cam;
 
     public GameObject direction;
+
+    public bool isOnFlyMode;
     private void DragRotate()
     {
 
@@ -37,6 +39,7 @@ public class DragRotation : MonoBehaviour
     void Update()
     {
         if (onControll) DragRotate();
+        if (isOnFlyMode) transform.rotation = direction.transform.rotation;
     }
 
     public Quaternion GetDirection()

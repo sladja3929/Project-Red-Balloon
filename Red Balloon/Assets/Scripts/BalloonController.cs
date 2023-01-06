@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BalloonController : MonoBehaviour
 {
-    private enum BalloonState { Aim, Charge, Fly, Fall }
+    private enum BalloonState { Aim, Charge, Fly, Fall, DeveloperMode }
 	
 	private BalloonState _balloonState;
 
@@ -171,6 +171,22 @@ public class BalloonController : MonoBehaviour
 		ChangeState(BalloonState.Aim);
 	}
 
+	private IEnumerator DeveloperMode()
+	{
+		yield return new WaitForSeconds(0.5f);
+		
+		Debug.Log("Developer_mode");
+
+		DeveloperMode developerModeComponent = gameObject.AddComponent<DeveloperMode>();
+		while (!Input.GetKeyDown(flyKey))
+		{
+			yield return null;
+		}
+		Destroy(developerModeComponent);
+
+		ChangeState(BalloonState.Fall);
+	}
+
 	public float GetChargeGauge()
 	{
 		return chargeGauge;
@@ -181,6 +197,15 @@ public class BalloonController : MonoBehaviour
 		if (collision.gameObject.CompareTag($"Collider"))
 		{
 			//SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound);
+		}
+	}
+
+	public KeyCode flyKey;
+	private void Update()
+	{
+		if (Input.GetKeyDown(flyKey) && _balloonState != BalloonState.DeveloperMode)
+		{
+			ChangeState(BalloonState.DeveloperMode);
 		}
 	}
 }

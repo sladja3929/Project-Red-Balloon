@@ -30,8 +30,10 @@ public class CameraController : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
-            if (onControll is ControllType.LookAround or ControllType.Drag) LookAround(); 
+            if (onControll is ControllType.Drag) LookAround(); 
         }
+        
+        if(onControll is ControllType.LookAround) LookAround();
     }
 
 
@@ -55,5 +57,8 @@ public class CameraController : MonoBehaviour
         viewerTransform.rotation = Quaternion.Euler(x, camAngle.y + mouseDelta.x, camAngle.z);
     }
 
-
+    public Quaternion GetRotation()
+    {
+        return viewerTransform.rotation;
+    }
 }
