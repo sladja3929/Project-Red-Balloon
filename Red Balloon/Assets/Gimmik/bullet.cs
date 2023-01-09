@@ -16,6 +16,6 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        _rigidbody.velocity = speed * Vector3.forward;
+        _rigidbody.velocity = speed * transform.forward;
     }
 }

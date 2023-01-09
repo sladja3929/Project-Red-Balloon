@@ -9,14 +9,14 @@ public class Shooter : MonoBehaviour
     [SerializeField] float rayDistance = 15f;
     [SerializeField] private float attackDelay;
 
-    
-    private bool _canAttack;
+    [SerializeField]
+    private bool canAttack;
 
     private IEnumerator AttackCooldown(float cooldown)
     {
-        _canAttack = false;
+        canAttack = false;
         yield return new WaitForSeconds(cooldown);
-        _canAttack = true;
+        canAttack = true;
     }
 
     private void Shoot()
@@ -26,7 +26,9 @@ public class Shooter : MonoBehaviour
 
 
         if (!Physics.Raycast(transform.position, transform.forward, out var hit, rayDistance)) return;
+        Debug.Log(hit.collider.gameObject);
         if (!hit.collider.CompareTag("Player")) return;
+        
 
         Instantiate(bullet, transform1.position, transform1.rotation);
         StartCoroutine(AttackCooldown(attackDelay));
@@ -34,6 +36,6 @@ public class Shooter : MonoBehaviour
 
     void Update()
     {
-        if (_canAttack) Shoot();
+        if (canAttack) Shoot();
     }
 }
