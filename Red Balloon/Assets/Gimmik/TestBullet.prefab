@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 3585204799571932892}
   - component: {fileID: 1221267742602663014}
   - component: {fileID: 3289594823632919086}
-  - component: {fileID: 341560145021951824}
   - component: {fileID: 1674468953783980150}
+  - component: {fileID: 5519820075140068008}
+  - component: {fileID: 4455670442166350051}
   m_Layer: 0
   m_Name: TestBullet
   m_TagString: Untagged
@@ -99,19 +100,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &341560145021951824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417347054613932890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3204d9e9e026f4f4e8981de3217cee8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
 --- !u!54 &1674468953783980150
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,3 +116,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5519820075140068008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417347054613932890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bacd27f0091e3b84c8721ae03e7a56b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4455670442166350051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417347054613932890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3204d9e9e026f4f4e8981de3217cee8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
