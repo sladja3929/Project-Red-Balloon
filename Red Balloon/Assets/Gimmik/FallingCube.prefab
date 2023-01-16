@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1292454307708654059}
   - component: {fileID: 1292454307708654056}
   - component: {fileID: 1292454307708654057}
-  - component: {fileID: 1292454307708657174}
   - component: {fileID: 1292454307708654061}
   - component: {fileID: 1292454307708654058}
+  - component: {fileID: 4158719638760073712}
   m_Layer: 3
   m_Name: FallingCube
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1292454307708657175}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -20.711578, y: 1.1802444, z: -385.45044}
-  m_LocalScale: {x: 10, y: 5, z: 10}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1292454307708657174
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292454307708657175}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1292454307708654061
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,3 +118,16 @@ MonoBehaviour:
   fallTime: 5
   destroyPrefabTime: 10
   randomRotationSpeed: 30
+--- !u!65 &4158719638760073712
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292454307708657175}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
