@@ -18,6 +18,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource backgroundSound;
     public AudioClip[] backgroundSoundList;
     
+    [SerializeField] private float backgroundVolume;
+    [SerializeField] private float sfxVolume;
     
     //싱글톤 처리
     public static SoundManager instance;
@@ -42,8 +44,7 @@ public class SoundManager : MonoBehaviour
             if (arg0.name == t.name) BackgroundSoundPlay(t);
         }
     }
-
-    private float _sfxVolume;
+    
     public void SfxPlay(string sfxName, AudioClip clip)
     {
         if (clip == null) return;
@@ -51,27 +52,26 @@ public class SoundManager : MonoBehaviour
         AudioSource audioSource = go.AddComponent<AudioSource>();
         
         audioSource.clip = clip;
-        audioSource.volume = _sfxVolume;
+        audioSource.volume = sfxVolume;
         
         Destroy(go, clip.length);
     }
 
-    private float _backgroundVolume;
     private void BackgroundSoundPlay(AudioClip clip)
     {
         backgroundSound.clip = clip;
         backgroundSound.loop = true;
-        backgroundSound.volume = _backgroundVolume;
+        backgroundSound.volume = backgroundVolume;
         backgroundSound.Play();
     }
 
     public void SetBackgroundVolume(float volume)
     {
-        _backgroundVolume = volume;
+        backgroundVolume = volume;
     }
 
     public void SetSfxSoundVolume(float volume)
     {
-        _sfxVolume = volume;
+        sfxVolume = volume;
     }
 }

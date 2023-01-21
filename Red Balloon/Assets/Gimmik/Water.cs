@@ -7,6 +7,7 @@ using UnityEngine;
 public class Water : MonoBehaviour
 {
     [SerializeField] private Vector3 streamVector;
+    [SerializeField] private float streamPower;
     [SerializeField] private float floatingPower;
     private float _sizeOfBalloon = 2.25f;
     
@@ -45,7 +46,7 @@ public class Water : MonoBehaviour
         Vector3 pushVector = streamVector.normalized *
                              (streamVector.magnitude -
                               Vector3.Dot(balloonVelocity, streamVector) / streamVector.magnitude);
-        Debug.Log(pushVector);
+        pushVector.Normalize();
         
         playerRigid.AddForce(Time.deltaTime * pushVector);
     }

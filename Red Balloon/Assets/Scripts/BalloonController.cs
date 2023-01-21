@@ -27,6 +27,8 @@ public class BalloonController : MonoBehaviour
 
 	[SerializeField] private float rayToBottomLength;
 
+	[SerializeField] private bool isGamePaused;
+
 	private void Awake()
 	{
 		_showArrow = GetComponent<ShowArrow>();
@@ -160,7 +162,7 @@ public class BalloonController : MonoBehaviour
 		{
 			_time += Time.deltaTime;
 			if (_rigidbody.velocity.magnitude <= stopCriterionVelocity &&
-			    SomethingUnderBalloon())
+			    SomethingUnderBalloon() && !isGamePaused) 
 			{
 				break;
 			}

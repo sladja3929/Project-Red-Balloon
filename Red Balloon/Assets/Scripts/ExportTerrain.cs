@@ -39,7 +39,7 @@ class ExportTerrain : EditorWindow
          terrainPos = terrainObject.transform.position;
       }
  
-      EditorWindow.GetWindow<ExportTerrain>().Show();
+      GetWindow<ExportTerrain>().Show();
    }
  
    void OnGUI()
@@ -49,7 +49,7 @@ class ExportTerrain : EditorWindow
          GUILayout.Label("No terrain found");
          if (GUILayout.Button("Cancel"))
          {
-            EditorWindow.GetWindow<ExportTerrain>().Close();
+            GetWindow<ExportTerrain>().Close();
          }
          return;
       }

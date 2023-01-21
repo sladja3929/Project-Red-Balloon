@@ -19,9 +19,10 @@ public class DragRotation : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
+            //마우스 움직임 변화값을 Input으로 받아옴
             float rotx = Input.GetAxis("Mouse X") * rotationSpeed;
             float roty = Input.GetAxis("Mouse Y") * rotationSpeed;
-
+            
             Vector3 right = Vector3.Cross(cam.transform.up, direction.transform.position - cam.transform.position);
             Vector3 up = Vector3.Cross(direction.transform.position - cam.transform.position, right);
             direction.transform.rotation = Quaternion.AngleAxis(-rotx, up) * direction.transform.rotation;
@@ -38,6 +39,8 @@ public class DragRotation : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.isPause) return;
+        
         if (onControll) DragRotate();
         if (isOnFlyMode) transform.rotation = direction.transform.rotation;
     }

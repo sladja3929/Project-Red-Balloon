@@ -8,43 +8,38 @@ public class Object2Terrain : EditorWindow {
 		EditorWindow.GetWindow<Object2Terrain>(true);
 	}
  
-	private int resolution = 512;
-	private Vector3 addTerrain;
-	int bottomTopRadioSelected = 0;
-	static string[] bottomTopRadio = new string[] { "Bottom Up", "Top Down"};
-	private float shiftHeight = 0f;
+	private int _resolution = 512;
+	private Vector3 _addTerrain;
+	private int _bottomTopRadioSelected = 0;
+	private static readonly string[] BottomTopRadio = { "Bottom Up", "Top Down"};
+	private float _shiftHeight = 0f;
+
+	private void OnGUI () {
  
-	void OnGUI () {
- 
-		resolution = EditorGUILayout.IntField("Resolution", resolution);
-		addTerrain = EditorGUILayout.Vector3Field("Add terrain", addTerrain);
-		shiftHeight = EditorGUILayout.Slider("Shift height", shiftHeight, -1f, 1f);
-		bottomTopRadioSelected = GUILayout.SelectionGrid(bottomTopRadioSelected, bottomTopRadio, bottomTopRadio.Length, EditorStyles.radioButton);
+		_resolution = EditorGUILayout.IntField("Resolution", _resolution);
+		_addTerrain = EditorGUILayout.Vector3Field("Add terrain", _addTerrain);
+		_shiftHeight = EditorGUILayout.Slider("Shift height", _shiftHeight, -1f, 1f);
+		_bottomTopRadioSelected = GUILayout.SelectionGrid(_bottomTopRadioSelected, BottomTopRadio, BottomTopRadio.Length, EditorStyles.radioButton);
  
 		if(GUILayout.Button("Create Terrain")){
- 
 			if(Selection.activeGameObject == null){
- 
 				EditorUtility.DisplayDialog("No object selected", "Please select an object.", "Ok");
 				return;
 			}
- 
-			else{
- 
-				CreateTerrain();
-			}
+			
+			CreateTerrain();
 		}
 	}
- 
-	delegate void CleanUp();
- 
-	void CreateTerrain(){	
+
+	private delegate void CleanUp();
+
+	private void CreateTerrain(){	
  
 		//fire up the progress bar
 		ShowProgressBar(1, 100);
  
 		TerrainData terrain = new TerrainData();
-		terrain.heightmapResolution = resolution;
+		terrain.heightmapResolution = _resolution;
 		GameObject terrainObject = Terrain.CreateTerrainGameObject(terrain);
  
 		Undo.RegisterCreatedObjectUndo(terrainObject, "Object to Terrain");
@@ -60,22 +55,22 @@ public class Object2Terrain : EditorWindow {
 			cleanUp = () => DestroyImmediate(collider);
 		}
  
-		Bounds bounds = collider.bounds;	
-		float sizeFactor = collider.bounds.size.y / (collider.bounds.size.y + addTerrain.y);
-		terrain.size = collider.bounds.size + addTerrain;
+		var bounds = collider.bounds;	
+		var sizeFactor = collider.bounds.size.y / (collider.bounds.size.y + _addTerrain.y);
+		terrain.size = collider.bounds.size + _addTerrain;
 		bounds.size = new Vector3(terrain.size.x, collider.bounds.size.y, terrain.size.z);
  
 		// Do raycasting samples over the object to see what terrain heights should be
-		float[,] heights = new float[terrain.heightmapResolution, terrain.heightmapResolution];	
-		Ray ray = new Ray(new Vector3(bounds.min.x, bounds.max.y + bounds.size.y, bounds.min.z), -Vector3.up);
-		RaycastHit hit = new RaycastHit();
-		float meshHeightInverse = 1 / bounds.size.y;
-		Vector3 rayOrigin = ray.origin;
+		var heights = new float[terrain.heightmapResolution, terrain.heightmapResolution];	
+		var ray = new Ray(new Vector3(bounds.min.x, bounds.max.y + bounds.size.y, bounds.min.z), -Vector3.up);
+		RaycastHit hit;
+		var meshHeightInverse = 1 / bounds.size.y;
+		var rayOrigin = ray.origin;
  
-		int maxHeight = heights.GetLength(0);
-		int maxLength = heights.GetLength(1);
+		var maxHeight = heights.GetLength(0);
+		var maxLength = heights.GetLength(1);
  
-		Vector2 stepXZ = new Vector2(bounds.size.x / maxLength, bounds.size.z / maxHeight);
+		var stepXZ = new Vector2(bounds.size.x / maxLength, bounds.size.z / maxHeight);
  
 		for(int zCount = 0; zCount < maxHeight; zCount++){
  
@@ -88,10 +83,10 @@ public class Object2Terrain : EditorWindow {
 				if(collider.Raycast(ray, out hit, bounds.size.y * 3)){
  
 					height = (hit.point.y - bounds.min.y) * meshHeightInverse;
-					height += shiftHeight;
+					height += _shiftHeight;
  
 					//bottom up
-					if(bottomTopRadioSelected == 0){
+					if(_bottomTopRadioSelected == 0){
  
 						height *= sizeFactor;
 					}
