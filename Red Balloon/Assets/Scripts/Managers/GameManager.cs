@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+    //현재 Spawn Point를 디버깅하기 위한 변수
     [SerializeField] private Vector3 savePoint;
 
     private GameObject _balloonObj;
@@ -51,17 +52,11 @@ public class GameManager : MonoBehaviour
     private Respawn _balloonSpawn;
     public void SetSavePoint(Vector3 point) {
         savePoint = point;
+        _balloonSpawn.SetSavePoint(point);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void KillBalloon()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _balloonSpawn.Die();
     }
 }

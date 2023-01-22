@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
-public class Water : MonoBehaviour
+public class Water : Gimmick
 {
     [SerializeField] private Vector3 streamVector;
     [SerializeField] private float streamPower;
@@ -53,6 +53,7 @@ public class Water : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (!isGimmickEnable) return;
         if (other.CompareTag("Player"))
         {
             floatOnWater(other.gameObject);

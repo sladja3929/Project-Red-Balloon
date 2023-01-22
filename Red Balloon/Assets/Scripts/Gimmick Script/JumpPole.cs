@@ -4,16 +4,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class JumpPole : MonoBehaviour
+public class JumpPole : Gimmick
 {
     private Rigidbody _rigid;
 
     public Vector3 pushDirection;
     void Awake()
     {
-        
         //https://dydvn.tistory.com/28
-        
         _rigid = GetComponent<Rigidbody>();
     }
 
@@ -22,7 +20,6 @@ public class JumpPole : MonoBehaviour
     public bool isPushing = false;
     IEnumerator Push(GameObject obj)
     {
-        
         Rigidbody objRigid = obj.GetComponent<Rigidbody>();
         isPushing = true;
         
@@ -42,12 +39,12 @@ public class JumpPole : MonoBehaviour
     }
 
 
-        void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.CompareTag("Player") && !isPushing)
-            {
-                StartCoroutine(Push(collision.gameObject));
-            }
-        }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!isGimmickEnable) return;
+        if (!collision.gameObject.CompareTag("Player") || isPushing) return;
+        
+        StartCoroutine(Push(collision.gameObject));
+    }
 
 }

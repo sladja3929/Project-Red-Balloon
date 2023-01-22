@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Shooter : MonoBehaviour
+public class Shooter : Gimmick
 {   
     [SerializeField] private GameObject bullet;
     [SerializeField] float rayDistance = 15f;
@@ -34,8 +34,9 @@ public class Shooter : MonoBehaviour
         StartCoroutine(AttackCooldown(attackDelay));
     }
 
-    void Update()
+    private void Update()
     {
+        if (!isGimmickEnable) return;
         if (canAttack) Shoot();
     }
 }
