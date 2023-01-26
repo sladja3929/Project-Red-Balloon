@@ -141,7 +141,7 @@ public class BalloonController : MonoBehaviour
 		if (_balloonShoot.StartMove(chargeGauge))
 		{
 			CameraController.instance.onControll = 
-				CameraController.ControllType.LookAround;
+				CameraController.ControllType.Drag;
 			chargeGauge = 0f;
 		}
 
