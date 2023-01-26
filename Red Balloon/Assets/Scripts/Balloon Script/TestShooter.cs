@@ -12,7 +12,7 @@ public class TestShooter : MonoBehaviour
 
     private BalloonShoot _balloonShoot;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Invoke(nameof(Shoot), startWaitTime);
         _balloonShoot = GetComponent<BalloonShoot>();

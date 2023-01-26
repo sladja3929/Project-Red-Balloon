@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
     /*
      * 모든 효과음, 배경음악의 재생을 관리하는 스크립트
@@ -22,19 +22,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private float sfxVolume;
     
     //싱글톤 처리
-    public static SoundManager instance;
+   
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)

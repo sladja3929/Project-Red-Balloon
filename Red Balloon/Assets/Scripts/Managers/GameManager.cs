@@ -2,23 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    //싱글톤 처리
-    public static GameManager instance;
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        
-        
         _balloonObj = GameObject.FindWithTag("Player");
 
         _balloonRigid = _balloonObj.GetComponent<Rigidbody>();

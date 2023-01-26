@@ -39,7 +39,7 @@ public class DragRotation : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.isPause) return;
+        if (GameManager.Instance.isPause) return;
         
         if (onControll) DragRotate();
         if (isOnFlyMode) transform.rotation = direction.transform.rotation;

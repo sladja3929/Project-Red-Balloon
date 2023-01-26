@@ -14,19 +14,19 @@ public class Respawn : MonoBehaviour
 
     public KeyCode dieKey;
 
-    void Awake()
+    private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _controller = GetComponent<BalloonController>();
     }
 
-    void Start()
+    private void Start()
     {
         //임시 세이브
         SetSavePoint(transform.position);
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(dieKey))
         {

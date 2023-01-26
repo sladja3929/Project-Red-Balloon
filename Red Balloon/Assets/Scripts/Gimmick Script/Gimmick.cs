@@ -11,7 +11,7 @@ public abstract class Gimmick : MonoBehaviour
     public void GimmickSwitch() => isGimmickEnable = !isGimmickEnable;
     public virtual void Execute()
     {
-        Debug.Log("Execute 함수를 사용 할 수 없는 기믹입니다.");
+        Debug.Log(gameObject.name + " : Execute 함수를 사용 할 수 없는 기믹입니다.");
         throw new System.NotImplementedException();
     }
 }

@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
         backGround.SetActive(true);
         menuUI.SetActive(true);
         
-        GameManager.instance.Pause();
+        GameManager.Instance.Pause();
     }
 
     public void ClosePauseMenu()
@@ -23,15 +23,15 @@ public class PauseMenu : MonoBehaviour
         backGround.SetActive(false);
         menuUI.SetActive(false);
 
-        GameManager.instance.Continue();
+        GameManager.Instance.Continue();
     }
 
     public void SetVolume()
     {
         float value = volumeSlider.value;
         
-        SoundManager.instance.SetSfxSoundVolume(value);
-        SoundManager.instance.SetBackgroundVolume(value);
+        SoundManager.Instance.SetSfxSoundVolume(value);
+        SoundManager.Instance.SetBackgroundVolume(value);
     }
 
     public void SetQuality(int level)
@@ -46,7 +46,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        GameManager.instance.QuitGame();
+        GameManager.Instance.QuitGame();
     }
 
     // Update is called once per frame

@@ -17,8 +17,9 @@ public class JumpPole : Gimmick
 
     public float pushTime;
     public float pushPower;
-    public bool isPushing = false;
-    IEnumerator Push(GameObject obj)
+    public bool isPushing;
+
+    private IEnumerator Push(GameObject obj)
     {
         Rigidbody objRigid = obj.GetComponent<Rigidbody>();
         isPushing = true;
@@ -27,7 +28,7 @@ public class JumpPole : Gimmick
 
         while (true)
         {
-            float dt = 0.01f;
+            const float dt = 0.01f;
             time += dt;
             if (time  > pushTime) break;
             

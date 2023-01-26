@@ -7,7 +7,7 @@ public class FollowBalloon : MonoBehaviour
 {
     [SerializeField] private Transform balloon;
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.position = balloon.position;
     }
