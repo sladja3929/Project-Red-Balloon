@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 3267e1adc9258c94fbca9e22b90ac800, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1256,6 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a36b1d5293dac4d86a202f70af9bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGimmickEnable: 1
   pushDirection: {x: 0, y: 1, z: 0}
   pushTime: 0.1
   pushPower: 0.1

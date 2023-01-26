@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
             asyncOperation.allowSceneActivation = true;
         }
 
-        StartCoroutine(LoadSceneCoroutine("Stage0"));
+        StartCoroutine(LoadSceneCoroutine("Stage1"));
     }
     
     public void QuitGame()

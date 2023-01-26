@@ -196,9 +196,10 @@ public class BalloonController : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.CompareTag($"Collider"))
+		if (collision.gameObject.layer.Equals(3))
 		{
-			//SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound);
+			//SoundManager.Instance.SfxPlay("BalloonBound", balloonBoundSound);
+			AudioSource.PlayClipAtPoint(balloonBoundSound, transform.position);
 		}
 	}
 
