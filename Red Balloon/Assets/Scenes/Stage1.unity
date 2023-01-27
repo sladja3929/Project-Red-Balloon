@@ -1162,9 +1162,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 7.095
       objectReference: {fileID: 0}
+    - target: {fileID: 3311910657416141880, guid: bea276c90ad296b4f895342970f18c02, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3311910657416141881, guid: bea276c90ad296b4f895342970f18c02, type: 3}
       propertyPath: m_Name
       value: Stone_Grp_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7263516020005917557, guid: bea276c90ad296b4f895342970f18c02, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea276c90ad296b4f895342970f18c02, type: 3}
@@ -3186,10 +3194,24 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &163997771
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163997766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5069891000451963133, guid: e38c0f5f440df6e40b49f7ab5b47d1b8, type: 3}
 --- !u!1001 &169327066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14498,6 +14520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chalk_Rock_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6815213301095891099, guid: d6e263c64374d034d97d235c68ab9ec8, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6e263c64374d034d97d235c68ab9ec8, type: 3}
 --- !u!1001 &589640531
@@ -19314,7 +19340,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -24117,6 +24143,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1635696268}
     m_Modifications:
+    - target: {fileID: 642883956580057287, guid: 897afc854bc92d14a8f64d52a1442ec2, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7038215213442394099, guid: 897afc854bc92d14a8f64d52a1442ec2, type: 3}
       propertyPath: m_Name
       value: Boulder_01_LP
@@ -29135,6 +29165,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5945172591302004173, guid: 9b866f1f924fbc842a56a648f11e972b, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b866f1f924fbc842a56a648f11e972b, type: 3}
 --- !u!1001 &1219911623
@@ -30072,6 +30106,10 @@ PrefabInstance:
     - target: {fileID: 791699950899837923, guid: 7dd57bdffbc498c45a8185cc059f5291, type: 3}
       propertyPath: m_Name
       value: Boulder_02_LP
+      objectReference: {fileID: 0}
+    - target: {fileID: 8724658389826552731, guid: 7dd57bdffbc498c45a8185cc059f5291, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dd57bdffbc498c45a8185cc059f5291, type: 3}
@@ -37117,6 +37155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_06_Sand
       objectReference: {fileID: 0}
+    - target: {fileID: 3904075113450680610, guid: 0aa9b62ec818b9e4ca2e93e31a3b1f59, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aa9b62ec818b9e4ca2e93e31a3b1f59, type: 3}
 --- !u!1001 &1495571594
@@ -38344,7 +38386,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -44628,6 +44670,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boulder_02_LP
       objectReference: {fileID: 0}
+    - target: {fileID: 8724658389826552731, guid: 7dd57bdffbc498c45a8185cc059f5291, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dd57bdffbc498c45a8185cc059f5291, type: 3}
 --- !u!1001 &1800598811
@@ -45398,7 +45444,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -46803,7 +46849,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -49302,7 +49348,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -50261,7 +50307,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -50604,7 +50650,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
