@@ -37,7 +37,8 @@ public class GameManager : Singleton<GameManager>
     private GameObject _balloonObj;
     private Rigidbody _balloonRigid;
     private Respawn _balloonSpawn;
-    public void SetSavePoint(Vector3 point) {
+    public void SetSavePoint(Vector3 point) 
+    {
         savePoint = point;
         _balloonSpawn.SetSavePoint(point);
     }

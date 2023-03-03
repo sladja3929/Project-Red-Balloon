@@ -7,6 +7,7 @@ public class Respawn : MonoBehaviour
 {
     [SerializeField] private Vector3 savePoint;
     [SerializeField] private GameObject dieEffect;
+    [SerializeField] private AudioClip dieSound;
     [SerializeField] private float respawnTime;
 
     private Rigidbody _rigidbody;
@@ -48,6 +49,8 @@ public class Respawn : MonoBehaviour
         
         var transform1 = transform;
         var effect = Instantiate(dieEffect, transform1.position, Quaternion.identity);
+        
+        AudioSource.PlayClipAtPoint(dieSound, transform.position);
         
         Destroy(effect, respawnTime);
         Invoke(nameof(Spawn), respawnTime);
