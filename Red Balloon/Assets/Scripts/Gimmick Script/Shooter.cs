@@ -6,7 +6,7 @@ using UnityEngine;
 public class Shooter : Gimmick
 {   
     [SerializeField] private GameObject bullet;
-    [SerializeField] float rayDistance = 15f;
+    [SerializeField] private float rayDistance = 15f;
     [SerializeField] private float attackDelay;
 
     [SerializeField]

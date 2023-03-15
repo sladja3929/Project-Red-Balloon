@@ -25,8 +25,7 @@ public class Water : Gimmick
                               /_sizeOfBalloon; //물에 잠긴 비율
         if (submergedRate > 1f) submergedRate = 1f; //최대값은 1(100%)이므로 초과하면 1로 고정
         if (submergedRate <= 0f) return; //음수라면 잠기지 않은것이므로 return
-
-
+        
         float floatingForce = floatingPower * submergedRate;
         
         balloon.GetComponent<Rigidbody>().AddForce(Time.deltaTime * Vector3.up * floatingForce);
@@ -43,10 +42,11 @@ public class Water : Gimmick
 
         Vector3 balloonVelocity = playerRigid.velocity;
 
+        streamVector = streamVector.normalized * streamPower * 0.1f;
         Vector3 pushVector = streamVector.normalized *
                              (streamVector.magnitude -
                               Vector3.Dot(balloonVelocity, streamVector) / streamVector.magnitude);
-        pushVector.Normalize();
+        pushVector.y = 0;
         
         playerRigid.AddForce(Time.deltaTime * pushVector);
     }
