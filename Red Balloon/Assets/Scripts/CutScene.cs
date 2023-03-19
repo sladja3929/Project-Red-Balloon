@@ -12,13 +12,41 @@ public class CutScene : MonoBehaviour
 
     [SerializeField] private float timeToMove;
     [SerializeField] private float rotationSpeed;
+
     private float t;
     private Vector3[] curvePoints;
-    
-    // Start is called before the first frame update
-    void Start()
+    private SceneStreamingTrigger sceneStreamingTrigger;
+    private FadeInOut fadeInOut;
+
+    private void Start()
     {
-        StartCoroutine("CameraMoving");
+        cutSceneCamera.enabled = false;
+        sceneStreamingTrigger = GetComponent<SceneStreamingTrigger>();
+        fadeInOut = GetComponent<FadeInOut>();
+    }
+
+    // Start is called before the first frame update
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            StartCoroutine("TutorialCutScene");
+        }
+    }
+
+    private IEnumerator TutorialCutScene()
+    {
+        fadeInOut.SetTime(0.5f, 0f);
+        yield return fadeInOut.StartCoroutine("Fade", "In");
+        fadeInOut.SetTime(1f, 0.5f);
+        fadeInOut.StartCoroutine("Fade", "Out");
+        yield return StartCoroutine("CameraMoving");
+
+        sceneStreamingTrigger.StartCoroutine("UnloadStreamingScene");
+        fadeInOut.SetTime(1f, 0f);
+        fadeInOut.StartCoroutine("Fade", "Out");
+        yield return sceneStreamingTrigger.StartCoroutine("StreamingTargetScene");
+        fadeInOut.StartCoroutine("Fade", "In");
     }
 
     private Vector3 CalculateBezierPoint()
@@ -33,6 +61,8 @@ public class CutScene : MonoBehaviour
     private IEnumerator CameraMoving()
     {
         t = 0f;
+        Camera.main.enabled = false;
+        cutSceneCamera.enabled = true;
         while(t < 1)
         {            
             cutSceneCamera.transform.position = CalculateBezierPoint();

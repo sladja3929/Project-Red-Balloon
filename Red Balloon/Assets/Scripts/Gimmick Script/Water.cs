@@ -10,13 +10,14 @@ public class Water : Gimmick
     [SerializeField] private float streamPower;
     [SerializeField] private float floatingPower;
     private float _sizeOfBalloon = 2.25f;
-    
-     /// <summary>
-     /// 물에 잠긴 비율을 계산하여 그에 따른 부력을 가하는 함수입니다.
-     /// 계산의 편의성을 위해 풍선은 타원이 아닌 길이 2.25의 정사각형으로 잡고 계산합니다. (풍선 단축 길이 2 장축길이 2.5)
-     /// </summary>
-     /// <param name="balloon">풍선 게임오브젝트</param>
-     private void floatOnWater(GameObject balloon)
+
+    /// <summary>
+    /// 물에 잠긴 비율을 계산하여 그에 따른 부력을 가하는 함수입니다.
+    /// 계산의 편의성을 위해 풍선은 타원이 아닌 길이 2.25의 정사각형으로 잡고 계산합니다. (풍선 단축 길이 2 장축길이 2.5)
+    /// </summary>
+    /// <param name="balloon">풍선 게임오브젝트</param>
+
+    private void floatOnWater(GameObject balloon)
     {
         if (!balloon.CompareTag("Player")) return;
 
@@ -43,7 +44,8 @@ public class Water : Gimmick
 
         Vector3 balloonVelocity = playerRigid.velocity;
 
-        Vector3 pushVector = streamVector.normalized *
+        streamVector = streamVector.normalized * streamPower;
+        Vector3 pushVector = streamVector.normalized * 
                              (streamVector.magnitude -
                               Vector3.Dot(balloonVelocity, streamVector) / streamVector.magnitude);
         pushVector.Normalize();

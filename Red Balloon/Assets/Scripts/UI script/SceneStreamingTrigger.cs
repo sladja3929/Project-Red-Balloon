@@ -8,13 +8,13 @@ public class SceneStreamingTrigger : MonoBehaviour
     [SerializeField] private string streamTargetSceneName;
     [SerializeField] private string triggerOwnSceneName;
 
-    private enum LoadType
-    {
-        UnloadScene,
-        LoadScene
-    }
+    //private enum LoadType
+    //{
+    //    UnloadScene,
+    //    LoadScene
+    //}
 
-    [SerializeField] private LoadType loadType;
+    //[SerializeField] private LoadType loadType;
 
     private IEnumerator StreamingTargetScene()
     {
@@ -45,12 +45,12 @@ public class SceneStreamingTrigger : MonoBehaviour
             yield return null;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if(loadType == LoadType.LoadScene) StartCoroutine(StreamingTargetScene());
-            if(loadType == LoadType.UnloadScene) StartCoroutine(UnloadStreamingScene());
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        if(loadType == LoadType.LoadScene) StartCoroutine(StreamingTargetScene());
+    //        if(loadType == LoadType.UnloadScene) StartCoroutine(UnloadStreamingScene());
+    //    }
+    //}
 }
