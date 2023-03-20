@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465791, g: 0.49641317, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657832, g: 0.49641258, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -374,15 +374,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7357241206554440729, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -284.7
+      value: -196
       objectReference: {fileID: 0}
     - target: {fileID: 7357241206554440729, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -46.6
+      value: 48.1
       objectReference: {fileID: 0}
     - target: {fileID: 7357241206554440729, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 49.1
+      value: -353
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
@@ -1421,20 +1421,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6544106188780335405, guid: c6d9b98a2afe6bd4184ff5321935fe6b, type: 3}
   m_PrefabInstance: {fileID: 1949098431}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1184445610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4950035897321249792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e1726fe86b9e284f89438f823331f9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  streamTargetSceneName: Stage1
-  triggerOwnSceneName: Stage0
 --- !u!114 &1184445611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2380,6 +2366,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2932884199948947996, guid: ee50e4947e1bda542b5ba7d89040cc18, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 88.05238
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932884199948947996, guid: ee50e4947e1bda542b5ba7d89040cc18, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 95.0311
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932884199948947996, guid: ee50e4947e1bda542b5ba7d89040cc18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -505
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932884199948947996, guid: ee50e4947e1bda542b5ba7d89040cc18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -104
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932884199948947996, guid: ee50e4947e1bda542b5ba7d89040cc18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -269
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932884199948947997, guid: ee50e4947e1bda542b5ba7d89040cc18, type: 3}
+      propertyPath: floatingPower
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932884199948947997, guid: ee50e4947e1bda542b5ba7d89040cc18, type: 3}
+      propertyPath: isGimmickEnable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2932884200502427268, guid: ee50e4947e1bda542b5ba7d89040cc18, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2454,7 +2468,6 @@ GameObject:
   - component: {fileID: 4950035897321249793}
   - component: {fileID: 4950035897321249794}
   - component: {fileID: 3278574115640417327}
-  - component: {fileID: 1184445610}
   - component: {fileID: 1184445611}
   m_Layer: 0
   m_Name: PlayPoint

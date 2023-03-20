@@ -42,10 +42,10 @@ public class CutScene : MonoBehaviour
         fadeInOut.StartCoroutine("Fade", "Out");
         yield return StartCoroutine("CameraMoving");
 
-        sceneStreamingTrigger.StartCoroutine("UnloadStreamingScene");
+        //sceneStreamingTrigger.StartCoroutine("UnloadStreamingScene");
         fadeInOut.SetTime(1f, 0f);
         fadeInOut.StartCoroutine("Fade", "Out");
-        yield return sceneStreamingTrigger.StartCoroutine("StreamingTargetScene");
+        //yield return sceneStreamingTrigger.StartCoroutine("StreamingTargetScene");
         fadeInOut.StartCoroutine("Fade", "In");
     }
 

@@ -8,19 +8,19 @@ public class SceneStreamingTrigger : MonoBehaviour
     [SerializeField] private string streamTargetSceneName;
     [SerializeField] private string triggerOwnSceneName;
 
-    //private enum LoadType
-    //{
-    //    UnloadScene,
-    //    LoadScene
-    //}
+    private enum LoadType
+    {
+        UnloadScene,
+        LoadScene
+    }
 
-    //[SerializeField] private LoadType loadType;
+    [SerializeField] private LoadType loadType;
 
     private IEnumerator StreamingTargetScene()
     {
         var targetScene = SceneManager.GetSceneByName(streamTargetSceneName);
         if (targetScene.isLoaded) yield break;
-        
+
         var op = SceneManager.LoadSceneAsync(streamTargetSceneName, LoadSceneMode.Additive);
 
         while (!op.isDone)
@@ -32,25 +32,25 @@ public class SceneStreamingTrigger : MonoBehaviour
     private IEnumerator UnloadStreamingScene()
     {
         Debug.Log("Scene Unload Call");
-        
+
         var targetScene = SceneManager.GetSceneByName(streamTargetSceneName);
         if (!targetScene.isLoaded) yield break;
-        
+
         var currentScene = SceneManager.GetSceneByName(triggerOwnSceneName);
         SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("MainPlayObject"), currentScene);
-            
+
         var op = SceneManager.UnloadSceneAsync(streamTargetSceneName);
 
         while (!op.isDone)
             yield return null;
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        if(loadType == LoadType.LoadScene) StartCoroutine(StreamingTargetScene());
-    //        if(loadType == LoadType.UnloadScene) StartCoroutine(UnloadStreamingScene());
-    //    }
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (loadType == LoadType.LoadScene) StartCoroutine(StreamingTargetScene());
+            if (loadType == LoadType.UnloadScene) StartCoroutine(UnloadStreamingScene());
+        }
+    }
 }
