@@ -15,14 +15,10 @@ public class CutScene : MonoBehaviour
 
     private float t;
     private Vector3[] curvePoints;
-    private SceneStreamingTrigger sceneStreamingTrigger;
-    private FadeInOut fadeInOut;
 
     private void Start()
     {
         cutSceneCamera.enabled = false;
-        sceneStreamingTrigger = GetComponent<SceneStreamingTrigger>();
-        fadeInOut = GetComponent<FadeInOut>();
     }
 
     // Start is called before the first frame update
@@ -36,17 +32,22 @@ public class CutScene : MonoBehaviour
 
     private IEnumerator TutorialCutScene()
     {
-        fadeInOut.SetTime(0.5f, 0f);
-        yield return fadeInOut.StartCoroutine("Fade", "In");
-        fadeInOut.SetTime(1f, 0.5f);
-        fadeInOut.StartCoroutine("Fade", "Out");
+        float time = 0;
+        SceneChangeManager.Instance.SetTime(1f, 0f);
+        yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
+
+        SceneChangeManager.Instance.SetTime(1f, 1f);
+        SceneChangeManager.Instance.StartCoroutine("Fade", "Out");
+
         yield return StartCoroutine("CameraMoving");
 
-        //sceneStreamingTrigger.StartCoroutine("UnloadStreamingScene");
-        fadeInOut.SetTime(1f, 0f);
-        fadeInOut.StartCoroutine("Fade", "Out");
-        //yield return sceneStreamingTrigger.StartCoroutine("StreamingTargetScene");
-        fadeInOut.StartCoroutine("Fade", "In");
+        //while(time < timeToMove - 1f)
+        //{
+        //    time += Time.deltaTime;
+        //    yield return null;
+        //}
+
+        SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync");
     }
 
     private Vector3 CalculateBezierPoint()
