@@ -3912,6 +3912,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5431276197874681430, guid: c413e092e4685664584f720a5c639a98, type: 3}
+      propertyPath: streamVector.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4355999951767647293, guid: c413e092e4685664584f720a5c639a98, type: 3}
       propertyPath: m_Name
       value: Ocean
@@ -6564,7 +6568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacd27f0091e3b84c8721ae03e7a56b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGimmickEnable: 1
+  isGimmickEnable: 0
 --- !u!1001 &359292534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14840,11 +14844,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7357241206554440729, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4
+      value: 3.71
       objectReference: {fileID: 0}
     - target: {fileID: 7357241206554440729, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 268.34
+      value: 266.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357241206554440729, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.963098
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357241206554440729, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.26915106
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357241206554440729, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -31.228
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
