@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.WSA;
+using Application = UnityEngine.Application;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -11,18 +13,11 @@ public class GameManager : Singleton<GameManager>
         _balloonRigid = _balloonObj.GetComponent<Rigidbody>();
         _balloonSpawn = _balloonObj.GetComponent<Respawn>();
     }
-    
-    public bool isPause = false;
 
-    public void Pause()
+    public bool IsPause
     {
-        isPause = true;
-        Time.timeScale = 0;
-    }
-    public void Continue()
-    {
-        isPause = false;
-        Time.timeScale = 1f;
+        get => Time.timeScale == 0;
+        set => Time.timeScale = value ? 0 : 1;
     }
 
     public void QuitGame()

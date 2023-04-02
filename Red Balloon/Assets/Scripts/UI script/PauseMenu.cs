@@ -15,8 +15,8 @@ public class PauseMenu : MonoBehaviour
     {
         backGround.SetActive(true);
         menuUI.SetActive(true);
-        
-        GameManager.Instance.Pause();
+
+        GameManager.Instance.IsPause = true;
     }
 
     public void ClosePauseMenu()
@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
         backGround.SetActive(false);
         menuUI.SetActive(false);
 
-        GameManager.Instance.Continue();
+        GameManager.Instance.IsPause = false;
     }
 
     public void SetVolume()
