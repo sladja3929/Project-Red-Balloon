@@ -20,7 +20,7 @@ public class SceneStreamingTrigger : MonoBehaviour
     {
         var targetScene = SceneManager.GetSceneByName(streamTargetSceneName);
         if (targetScene.isLoaded) yield break;
-        
+
         var op = SceneManager.LoadSceneAsync(streamTargetSceneName, LoadSceneMode.Additive);
 
         while (!op.isDone)
@@ -32,13 +32,13 @@ public class SceneStreamingTrigger : MonoBehaviour
     private IEnumerator UnloadStreamingScene()
     {
         Debug.Log("Scene Unload Call");
-        
+
         var targetScene = SceneManager.GetSceneByName(streamTargetSceneName);
         if (!targetScene.isLoaded) yield break;
-        
+
         var currentScene = SceneManager.GetSceneByName(triggerOwnSceneName);
         SceneManager.MoveGameObjectToScene(GameObject.FindGameObjectWithTag("MainPlayObject"), currentScene);
-            
+
         var op = SceneManager.UnloadSceneAsync(streamTargetSceneName);
 
         while (!op.isDone)
@@ -49,8 +49,8 @@ public class SceneStreamingTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(loadType == LoadType.LoadScene) StartCoroutine(StreamingTargetScene());
-            if(loadType == LoadType.UnloadScene) StartCoroutine(UnloadStreamingScene());
+            if (loadType == LoadType.LoadScene) StartCoroutine(StreamingTargetScene());
+            if (loadType == LoadType.UnloadScene) StartCoroutine(UnloadStreamingScene());
         }
     }
 }

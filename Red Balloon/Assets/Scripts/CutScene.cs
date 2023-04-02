@@ -12,13 +12,42 @@ public class CutScene : MonoBehaviour
 
     [SerializeField] private float timeToMove;
     [SerializeField] private float rotationSpeed;
+
     private float t;
     private Vector3[] curvePoints;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        StartCoroutine("CameraMoving");
+        cutSceneCamera.enabled = false;
+    }
+
+    // Start is called before the first frame update
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            StartCoroutine("TutorialCutScene");
+        }
+    }
+
+    private IEnumerator TutorialCutScene()
+    {
+        float time = 0;
+        SceneChangeManager.Instance.SetTime(1f, 0f);
+        yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
+
+        SceneChangeManager.Instance.SetTime(1f, 1f);
+        SceneChangeManager.Instance.StartCoroutine("Fade", "Out");
+
+        yield return StartCoroutine("CameraMoving");
+
+        //while(time < timeToMove - 1f)
+        //{
+        //    time += Time.deltaTime;
+        //    yield return null;
+        //}
+
+        SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync");
     }
 
     private Vector3 CalculateBezierPoint()
@@ -33,6 +62,8 @@ public class CutScene : MonoBehaviour
     private IEnumerator CameraMoving()
     {
         t = 0f;
+        Camera.main.enabled = false;
+        cutSceneCamera.enabled = true;
         while(t < 1)
         {            
             cutSceneCamera.transform.position = CalculateBezierPoint();
