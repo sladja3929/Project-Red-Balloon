@@ -1,21 +1,19 @@
-//토네이도 수정본
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tornado : MonoBehaviour
+public class Tornado : Gimmick
 {
-    public Transform tornadoCenter;
     public float pullPower;
     public float upPower;
     public float refreshRate;
-
+    [Range(0, 90)]
     public float rotationDegree;
-    
+
     private void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && isGimmickEnable)
         {
             StartCoroutine(PullObject(col, true));
         }
@@ -23,7 +21,7 @@ public class Tornado : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && isGimmickEnable)
         {
             StartCoroutine(PullObject(col, false));
         }
@@ -33,7 +31,7 @@ public class Tornado : MonoBehaviour
     {
         if (!shouldPull) yield break;
         
-        var foreDir = tornadoCenter.position - x.transform.position;
+        var foreDir = transform.position - x.transform.position;
         foreDir.y = 0;
         var dist = foreDir.magnitude;
         foreDir.Normalize();
