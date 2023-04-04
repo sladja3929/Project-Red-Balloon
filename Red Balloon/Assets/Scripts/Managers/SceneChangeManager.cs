@@ -25,7 +25,7 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
         // Start fade in
         SetTime(2f, 0f);
         yield return StartCoroutine("Fade", "In");
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1f);
 
         // Update loading text until scene is fully loaded
         while (!asyncLoad.isDone)
@@ -37,7 +37,7 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
                 asyncLoad.allowSceneActivation = true;
 
                 // Start fade out
-                SetTime(4f, 0f);
+                SetTime(6f, 0f);
                 yield return StartCoroutine("Fade", "Out");
             }
 
