@@ -4163,6 +4163,10 @@ PrefabInstance:
       propertyPath: isGimmickEnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9052262913308175752, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 9177183886994772407, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
       propertyPath: m_Name
       value: Niddle (4)
@@ -4357,6 +4361,10 @@ PrefabInstance:
       propertyPath: isGimmickEnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9052262913308175752, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 9177183886994772407, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
       propertyPath: m_Name
       value: Niddle (1)
@@ -5595,7 +5603,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6004,6 +6012,10 @@ PrefabInstance:
       propertyPath: isGimmickEnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9052262913308175752, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 9177183886994772407, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
       propertyPath: m_Name
       value: Niddle (6)
@@ -15514,7 +15526,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16010,6 +16022,10 @@ PrefabInstance:
       propertyPath: isGimmickEnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9052262913308175752, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 9177183886994772407, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
       propertyPath: m_Name
       value: Niddle (2)
@@ -27424,8 +27440,8 @@ Transform:
   - {fileID: 692231864}
   - {fileID: 1569953508}
   - {fileID: 1806068841}
-  - {fileID: 1147476359}
   - {fileID: 492824895}
+  - {fileID: 1147476359}
   - {fileID: 881552454}
   - {fileID: 1913450994}
   - {fileID: 981386199}
@@ -27488,8 +27504,8 @@ Transform:
   - {fileID: 832599437}
   - {fileID: 1769245671}
   - {fileID: 432858756}
-  - {fileID: 1673179518}
   - {fileID: 1645582568}
+  - {fileID: 1673179518}
   - {fileID: 1411772647}
   - {fileID: 1871727518}
   - {fileID: 732603763}
@@ -29331,6 +29347,10 @@ PrefabInstance:
       propertyPath: isGimmickEnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9052262913308175752, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 9177183886994772407, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
       propertyPath: m_Name
       value: Niddle (5)
@@ -30388,7 +30408,7 @@ Terrain:
   m_DrawTreesAndFoliage: 1
   m_StaticShadowCaster: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -36346,7 +36366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60efd07706364cd409ee031a5f02c4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPause: 0
   savePoint: {x: 0, y: 0, z: 0}
 --- !u!82 &1958792452
 AudioSource:
@@ -39743,6 +39762,10 @@ PrefabInstance:
       propertyPath: isGimmickEnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9052262913308175752, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 9177183886994772407, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
       propertyPath: m_Name
       value: Niddle (3)
@@ -40057,6 +40080,10 @@ PrefabInstance:
       propertyPath: isGimmickEnable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9052262913308175752, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 9177183886994772407, guid: 1026c97f40485144e944a006a4dfbc4e, type: 3}
       propertyPath: m_Name
       value: Niddle
