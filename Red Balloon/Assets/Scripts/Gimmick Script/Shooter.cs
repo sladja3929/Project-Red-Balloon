@@ -41,4 +41,9 @@ public class Shooter : Gimmick
         if (!isGimmickEnable) return;
         if (canAttack) Shoot();
     }
+
+    public override void Execute()
+    {
+        Shoot();
+    }
 }
