@@ -12,6 +12,13 @@ public class GameManager : Singleton<GameManager>
 
         _balloonRigid = _balloonObj.GetComponent<Rigidbody>();
         _balloonSpawn = _balloonObj.GetComponent<Respawn>();
+
+        records = new List<float>();
+    }
+
+    private void Start()
+    {
+        StartGame();
     }
 
     public bool IsPause
@@ -41,5 +48,22 @@ public class GameManager : Singleton<GameManager>
     public void KillBalloon()
     {
         _balloonSpawn.Die();
+    }
+
+    [SerializeField] private float startTime;
+    public List<float> records;
+    public GameObject endCanvas;
+    public void StartGame()
+    {
+        startTime = Time.time;
+    }
+
+    public void FinishGame()
+    {
+        records.Add(Time.time - startTime);
+        records.Sort();
+
+        IsPause = true;
+        endCanvas.SetActive(true);
     }
 }
