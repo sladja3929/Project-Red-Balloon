@@ -23,9 +23,9 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
         asyncLoad.allowSceneActivation = false;
 
         // Start fade in
-        SetTime(2f, 0f);
-        yield return StartCoroutine("Fade", "In");
-        yield return new WaitForSeconds(1f);
+        //SetTime(2f, 0f);
+        //yield return StartCoroutine("Fade", "In");
+        //yield return new WaitForSeconds(1f);
 
         // Update loading text until scene is fully loaded
         while (!asyncLoad.isDone)
