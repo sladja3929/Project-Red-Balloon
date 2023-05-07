@@ -36,18 +36,21 @@ public class CutScene : MonoBehaviour
         SceneChangeManager.Instance.SetTime(1f, 0f);
         yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
 
+        StartCoroutine("CameraMoving");
+
         SceneChangeManager.Instance.SetTime(1f, 1f);
-        SceneChangeManager.Instance.StartCoroutine("Fade", "Out");
-
-        yield return StartCoroutine("CameraMoving");
-
+        yield return SceneChangeManager.Instance.StartCoroutine("Fade", "Out");
+        
         //while(time < timeToMove - 1f)
         //{
         //    time += Time.deltaTime;
         //    yield return null;
         //}
 
+        SceneChangeManager.Instance.SetTime(1f, 5f);
+        yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
         SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync");
+
     }
 
     private Vector3 CalculateBezierPoint()
