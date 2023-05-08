@@ -16,11 +16,6 @@ public class GameManager : Singleton<GameManager>
         records = new List<float>();
     }
 
-    private void Start()
-    {
-        StartGame();
-    }
-
     public bool IsPause
     {
         get => Time.timeScale == 0;

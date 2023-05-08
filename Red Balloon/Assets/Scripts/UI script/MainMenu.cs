@@ -31,8 +31,7 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Quit");
     }
 
-
-    public GameObject optionMenu;
+    public GameObject optionMenu; 
     public GameObject mainMenu;
     
     public void MainToOption()

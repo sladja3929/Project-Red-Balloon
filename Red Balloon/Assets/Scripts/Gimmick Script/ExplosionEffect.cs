@@ -8,6 +8,7 @@ public class ExplosionEffect : Gimmick
 
    [SerializeField] private float explosionPower;
    [SerializeField] private float explosionTime;
+   [SerializeField] private AudioClip fxSound;
 
    private void Awake()
    {
@@ -31,6 +32,10 @@ public class ExplosionEffect : Gimmick
       
       //플레이어가 닿아있을때만 활성화하는 기믹이므로 Execute함수를 오버라이딩 하지 않음.
       StartCoroutine(Explode(col.gameObject));
+      if (fxSound != null)
+      {
+         SoundManager.Instance.SfxPlay("explodeSound", fxSound);
+      }
    }
 
    private bool _isExploding;

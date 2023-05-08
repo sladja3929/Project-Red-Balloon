@@ -43,6 +43,8 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
 
             yield return null;
         }
+        
+        GameManager.Instance.StartGame();
     }
     //페이드 인 아웃
     private Image fadeImage;

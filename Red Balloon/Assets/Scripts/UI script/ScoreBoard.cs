@@ -20,7 +20,7 @@ public class ScoreBoard : MonoBehaviour
         foreach (var r in records)
         {
             var go = Instantiate(scoreText, transform).GetComponent<Text>();
-            go.text = r.ToString();
+            go.text = r + "second";
         }
     }
 
