@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExplosionEffect : Gimmick
 {
    private Rigidbody _rigid;
+   private Animator animator;
 
    [SerializeField] private float explosionPower;
    [SerializeField] private float explosionTime;
@@ -13,6 +14,7 @@ public class ExplosionEffect : Gimmick
    private void Awake()
    {
       _rigid = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
    }
 
    private void OnTriggerEnter(Collider col)
@@ -21,7 +23,7 @@ public class ExplosionEffect : Gimmick
       
       if (col.gameObject.CompareTag("Player") && !_isExploding)
       {
-         StartCoroutine(Explode(col.gameObject));
+         StartCoroutine(Explode(col.gameObject));            
       }
    }
 
@@ -32,9 +34,10 @@ public class ExplosionEffect : Gimmick
       
       //플레이어가 닿아있을때만 활성화하는 기믹이므로 Execute함수를 오버라이딩 하지 않음.
       StartCoroutine(Explode(col.gameObject));
-      if (fxSound != null)
+        animator.SetTrigger("Explosion");
+        if (fxSound != null)
       {
-         SoundManager.Instance.SfxPlay("explodeSound", fxSound);
+            SoundManager.Instance.SfxPlay("explodeSound", fxSound);
       }
    }
 
