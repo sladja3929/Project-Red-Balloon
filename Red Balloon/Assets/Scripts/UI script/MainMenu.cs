@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public bool starting = false;
     public void PlayGame()
     {
+        if (starting) return;
+        starting = true;
         IEnumerator LoadSceneCoroutine(string target)
         {
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(target);

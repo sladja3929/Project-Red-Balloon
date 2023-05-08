@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.WSA;
 using Application = UnityEngine.Application;
 
@@ -8,12 +9,19 @@ public class GameManager : Singleton<GameManager>
 {
     private void Awake()
     {
+        base.Awake();
+        records = new List<float>();
+
+        SceneManager.sceneLoaded += SetBalloon;
+    }
+    
+    private void SetBalloon(Scene arg0, LoadSceneMode arg1)
+    {
         _balloonObj = GameObject.FindWithTag("Player");
+        if (_balloonObj == null) return;
 
         _balloonRigid = _balloonObj.GetComponent<Rigidbody>();
         _balloonSpawn = _balloonObj.GetComponent<Respawn>();
-
-        records = new List<float>();
     }
 
     public bool IsPause

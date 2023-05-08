@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class SoundManager : Singleton<SoundManager>
 {
     /*
@@ -25,7 +26,12 @@ public class SoundManager : Singleton<SoundManager>
    
     private void Awake()
     {
+        base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
+        foreach (var t in backgroundSoundList)
+        {
+            if ("MainMenu" == t.name) BackgroundSoundPlay(t);
+        }
     }
     
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
