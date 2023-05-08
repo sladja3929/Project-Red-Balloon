@@ -10,6 +10,8 @@ public class Water : Gimmick
     [SerializeField] private float streamPower;
     [SerializeField] private float floatingPower;
     private float _sizeOfBalloon = 2.25f;
+
+    [SerializeField] private AudioClip fallSound;
     
      /// <summary>
      /// 물에 잠긴 비율을 계산하여 그에 따른 부력을 가하는 함수입니다.
@@ -58,6 +60,14 @@ public class Water : Gimmick
         {
             floatOnWater(other.gameObject);
             DriftOverWater(other.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            SoundManager.Instance.SfxPlay("water fall sound", fallSound);
         }
     }
 }
