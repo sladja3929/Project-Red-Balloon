@@ -49,16 +49,18 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
     //페이드 인 아웃
     private Image fadeImage;
 
-    private float playTime;
-    private float delayTime;
-    private Color color;
-
+    [SerializeField] private float playTime;
+    [SerializeField] private float delayTime;
+    [SerializeField] private float lightAlpha;     //알파 비율 0 ~ 1
+    [SerializeField] private float thickAlpha;
+    //튜토리얼 씬 로드시 실행
     private void Awake()
     {
         DontDestroyOnLoad(transform.root.gameObject);
         fadeImage = gameObject.GetComponent<Image>();
-        gameObject.SetActive(true);
-        SetAlpha(0f);
+        
+        StartCoroutine("Fade", "Out");
+        SetAlpha(0, 1);
     }
 
     public void SetTime(float playTime, float delayTime)
@@ -67,9 +69,15 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
         this.delayTime = delayTime;
     }
 
-    private void SetAlpha(float alpha)
+    public void SetAlpha(float lightAlpha, float thickAlpha)
     {
-        color = fadeImage.color;
+        this.lightAlpha = lightAlpha;
+        this.thickAlpha = thickAlpha;
+    }
+
+    private void ChangeAlpha(float alpha)
+    {
+        Color color = fadeImage.color;
         color.a = alpha;
         fadeImage.color = color;
     }
@@ -81,16 +89,16 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
 
         if (property == "In")
         {
-            start = 0f;
-            end = 1f;
-            SetAlpha(0f);
+            start = lightAlpha;
+            end = thickAlpha;
+            ChangeAlpha(lightAlpha);
         }
 
         else
         {
-            start = 1f;
-            end = 0f;
-            SetAlpha(1f);
+            start = thickAlpha;
+            end = lightAlpha;
+            ChangeAlpha(thickAlpha);
         }
 
         yield return new WaitForSeconds(delayTime);
@@ -98,7 +106,7 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
         while (t < 1)
         {
             t += Time.deltaTime / playTime;
-            SetAlpha(Mathf.Lerp(start, end, t));
+            ChangeAlpha(Mathf.Lerp(start, end, t));
 
             yield return null;
         }

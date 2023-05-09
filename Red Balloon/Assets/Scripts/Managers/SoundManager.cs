@@ -21,9 +21,10 @@ public class SoundManager : Singleton<SoundManager>
     
     [SerializeField] private float backgroundVolume;
     [SerializeField] private float sfxVolume;
-    
+    [SerializeField] private float delayTime = 2;
+
     //싱글톤 처리
-   
+
     private void Awake()
     {
         base.Awake();
@@ -38,7 +39,7 @@ public class SoundManager : Singleton<SoundManager>
     {
         foreach (var t in backgroundSoundList)
         {
-            if (arg0.name == t.name) BackgroundSoundPlay(t);
+            if (arg0.name == t.name) StartCoroutine("BackgroundSoundPlay", t);
         }
     }
     
@@ -54,17 +55,36 @@ public class SoundManager : Singleton<SoundManager>
         Destroy(go, clip.length);
     }
 
-    private void BackgroundSoundPlay(AudioClip clip)
+    private IEnumerator BackgroundSoundPlay(AudioClip clip)
     {
+        backgroundSound.Stop();
+        if (clip.name != "MainMenu")
+        {
+            yield return new WaitForSeconds(delayTime);
+        }
+
         backgroundSound.clip = clip;
         backgroundSound.loop = true;
-        backgroundSound.volume = backgroundVolume;
+        backgroundSound.volume = backgroundVolume;        
         backgroundSound.Play();
+
+        yield return null;
+    }
+
+    public IEnumerator BackGroundFadeOut()
+    {
+        while(backgroundSound.volume > 0)
+        {
+            backgroundSound.volume -= Time.deltaTime * 0.1f;
+
+            yield return null;
+        }
     }
 
     public void SetBackgroundVolume(float volume)
     {
         backgroundVolume = volume;
+        //backgroundSound.volume = backgroundVolume;
     }
 
     public void SetSfxSoundVolume(float volume)

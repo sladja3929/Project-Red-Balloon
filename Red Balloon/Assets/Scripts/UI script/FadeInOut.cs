@@ -7,15 +7,15 @@ public class FadeInOut : MonoBehaviour
 
 {
     [SerializeField] private Image fadeImage;
-
-    private float playTime;
-    private float delayTime;
+    [SerializeField] private bool isFadeIn;
+    [SerializeField] private float playTime;
+    [SerializeField] private float delayTime;
     private Color color;
 
     private void Awake()
     {
-        fadeImage.gameObject.SetActive(true);
-        SetAlpha(0f);
+        //fadeImage.gameObject.SetActive(true);
+        //SetAlpha(0f);
     }
 
     public void SetTime(float playTime, float delayTime)
