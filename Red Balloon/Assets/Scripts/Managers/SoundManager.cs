@@ -71,4 +71,7 @@ public class SoundManager : Singleton<SoundManager>
     {
         sfxVolume = volume;
     }
+
+    public float GetBackgroundVolume() => backgroundVolume;
+    public float GetSfxSoundVolume() => sfxVolume;
 }

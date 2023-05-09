@@ -11,26 +11,27 @@ public class MainMenu : MonoBehaviour
     {
         if (starting) return;
         starting = true;
-        IEnumerator LoadSceneCoroutine(string target)
-        {
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(target);
-            asyncOperation.allowSceneActivation = false;
-        
-            while (asyncOperation.progress < 0.9f)
-            {
-                yield return null;
-                Debug.Log(asyncOperation.progress);
-            }
-
-            asyncOperation.allowSceneActivation = true;
-        }
-
-        StartCoroutine(LoadSceneCoroutine("Stage0"));
+        // IEnumerator LoadSceneCoroutine(string target)
+        // {
+        //     AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(target);
+        //     asyncOperation.allowSceneActivation = false;
+        //
+        //     while (asyncOperation.progress < 0.9f)
+        //     {
+        //         yield return null;
+        //         Debug.Log(asyncOperation.progress);
+        //     }
+        //
+        //     asyncOperation.allowSceneActivation = true;
+        // }
+        //
+        // StartCoroutine(LoadSceneCoroutine("Stage0"));
+        SceneManager.LoadScene("Stage0");
     }
     
     public void QuitGame()
     {
-        //Application.Quit();
+        Application.Quit();
         Debug.Log("Quit");
     }
 

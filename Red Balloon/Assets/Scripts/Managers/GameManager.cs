@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.WSA;
 using Application = UnityEngine.Application;
 
 public class GameManager : Singleton<GameManager>

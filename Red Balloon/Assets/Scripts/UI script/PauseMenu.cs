@@ -9,14 +9,18 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject backGround;
     [SerializeField] private GameObject menuUI;
 
-    [SerializeField] private Slider volumeSlider;
-    
+    [SerializeField] private Slider sfxVolumeSlider;
+    [SerializeField] private Slider musicVolumeSlider;
+
     private void OpenPauseMenu()
     {
         backGround.SetActive(true);
         menuUI.SetActive(true);
 
         GameManager.Instance.IsPause = true;
+
+        sfxVolumeSlider.value = SoundManager.Instance.GetSfxSoundVolume();
+        musicVolumeSlider.value = SoundManager.Instance.GetBackgroundVolume();
     }
 
     public void ClosePauseMenu()
@@ -27,11 +31,15 @@ public class PauseMenu : MonoBehaviour
         GameManager.Instance.IsPause = false;
     }
 
-    public void SetVolume()
+    public void SetSfxVolume()
     {
-        float value = volumeSlider.value;
-        
+        float value = sfxVolumeSlider.value;
         SoundManager.Instance.SetSfxSoundVolume(value);
+    }
+
+    public void SetBackgroundVolume()
+    {
+        float value = musicVolumeSlider.value;
         SoundManager.Instance.SetBackgroundVolume(value);
     }
 

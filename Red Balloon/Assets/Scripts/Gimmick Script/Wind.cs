@@ -8,12 +8,6 @@ public class Wind : Gimmick
 {
     public Vector3 windDirection;
     public float windPower;
-    public GameObject windEffect;
-
-    private void Awake()
-    {
-        windEffect = GetComponentInChildren<ParticleSystem>().gameObject;
-    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -24,9 +18,16 @@ public class Wind : Gimmick
             other.GetComponent<Rigidbody>().AddForce(windPower * Time.deltaTime * windDirection.normalized);
         }
     }
+    
+
+    private AudioSource windSound;
+    private void Awake()
+    {
+        windSound = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
-        windEffect.SetActive(isGimmickEnable);
+        windSound.volume = SoundManager.Instance.GetSfxSoundVolume();
     }
 }

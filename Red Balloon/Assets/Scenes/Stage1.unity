@@ -1690,7 +1690,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 279028853345504502, guid: 72f64d90faac79b4ab0f8fe7b21b3489, type: 3}
       propertyPath: m_Size.x
-      value: 0.8161583
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 279028853345504502, guid: 72f64d90faac79b4ab0f8fe7b21b3489, type: 3}
       propertyPath: m_Size.y
@@ -1706,7 +1706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 279028853345504502, guid: 72f64d90faac79b4ab0f8fe7b21b3489, type: 3}
       propertyPath: m_Center.y
-      value: 0.29341635
+      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: 279028853345504502, guid: 72f64d90faac79b4ab0f8fe7b21b3489, type: 3}
       propertyPath: m_Center.z
@@ -3230,10 +3230,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1297363798888601661, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: flyKey
-      value: 282
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1297363798888601661, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: balloonBoundSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9bccbd9c6983dac499c43800dcfee40e, type: 3}
+    - target: {fileID: 1297363798888601661, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
+      propertyPath: balloonShootSound
       value: 
       objectReference: {fileID: 8300000, guid: 9bccbd9c6983dac499c43800dcfee40e, type: 3}
     - target: {fileID: 1297363798888601661, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
@@ -3242,12 +3246,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3589880397156845643, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: dieKey
-      value: 114
+      value: 286
       objectReference: {fileID: 0}
     - target: {fileID: 3589880397156845643, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: dieSound
       value: 
-      objectReference: {fileID: 8300000, guid: 4ff069f9f23a2334f90d27d0d55ef26d, type: 3}
+      objectReference: {fileID: 8300000, guid: 48fceb0a6fc53254db8fdd775bd9b0c9, type: 3}
     - target: {fileID: 3589880397156845643, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: dieEffect
       value: 
@@ -3362,7 +3366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7357241206554440729, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.7
+      value: 43.19
       objectReference: {fileID: 0}
     - target: {fileID: 7357241206554440729, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10465,7 +10469,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!23 &62994013730322449
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10781,7 +10785,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!54 &595954694930215858
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11119,7 +11123,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!114 &975773682294079938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11135,7 +11139,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!33 &1027175127968860325
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11665,7 +11669,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!95 &1646096085865974930
 Animator:
   serializedVersion: 4
@@ -11701,7 +11705,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!33 &1819235896483726386
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11810,7 +11814,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!114 &1967382355025686748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11826,7 +11830,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!54 &2046927474378010795
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30222,7 +30226,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!23 &2983966476937016978
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30342,7 +30346,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!95 &3155771927429741583
 Animator:
   serializedVersion: 4
@@ -30549,7 +30553,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!54 &3800489868062643274
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30655,7 +30659,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &4176064718206892870
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30729,7 +30733,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!4 &4351617821094245764
 Transform:
   m_ObjectHideFlags: 0
@@ -30794,6 +30798,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2810138211047158847}
     m_Modifications:
+    - target: {fileID: 1137116327774425582, guid: 6a41c91d8f8f916449193d2b7da31b2d, type: 3}
+      propertyPath: fxSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
     - target: {fileID: 5053717955404285186, guid: 6a41c91d8f8f916449193d2b7da31b2d, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -31010,7 +31018,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!33 &4867010737340588773
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -31316,7 +31324,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!114 &5628446695304373825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31332,7 +31340,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!95 &5684986392015080749
 Animator:
   serializedVersion: 4
@@ -31368,7 +31376,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &5832229443695064713
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31398,7 +31406,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!95 &5891202202993072138
 Animator:
   serializedVersion: 4
@@ -31869,6 +31877,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2810138211047158847}
     m_Modifications:
+    - target: {fileID: 1137116327774425582, guid: 6a41c91d8f8f916449193d2b7da31b2d, type: 3}
+      propertyPath: fxSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
     - target: {fileID: 5053717955404285186, guid: 6a41c91d8f8f916449193d2b7da31b2d, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -31939,7 +31951,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!95 &6827746272014428659
 Animator:
   serializedVersion: 4
@@ -32005,7 +32017,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!114 &6998466850726218928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32021,7 +32033,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!95 &7007646445318264570
 Animator:
   serializedVersion: 4
@@ -32277,7 +32289,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!23 &7510521161027549926
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32394,7 +32406,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!114 &7649231632404301085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32410,7 +32422,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!33 &7685516691833706339
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -32621,7 +32633,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!4 &7979810559333547643
 Transform:
   m_ObjectHideFlags: 0
@@ -32965,7 +32977,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 0.1
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!1 &8696812989474437851
 GameObject:
   m_ObjectHideFlags: 0
