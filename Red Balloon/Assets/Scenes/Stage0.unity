@@ -522,7 +522,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4626578633399234692, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
 --- !u!1 &230675663 stripped
 GameObject:
@@ -3194,6 +3195,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1515353193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7877353515159088803, guid: 1887a6d394dd4504a9fc02d3bafb0757, type: 3}
+  m_PrefabInstance: {fileID: 230675662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &1515353195
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515353193}
+  m_Enabled: 1
 --- !u!4 &1527101157 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8133927385846124497, guid: 55a1b97700d96de4f8fe7da8f9ae9387, type: 3}

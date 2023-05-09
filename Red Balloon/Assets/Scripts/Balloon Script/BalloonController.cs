@@ -198,7 +198,7 @@ public class BalloonController : MonoBehaviour
 	{
 		if (collision.gameObject.layer.Equals(3))
 		{
-			SoundManager.Instance.SfxPlay("BalloonBound", balloonBoundSound);
+			SoundManager.Instance.SfxPlay("BalloonBound", balloonBoundSound, transform.position);
 		}
 	}
 
