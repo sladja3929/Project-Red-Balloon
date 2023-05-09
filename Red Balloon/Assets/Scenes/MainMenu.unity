@@ -1845,6 +1845,10 @@ PrefabInstance:
       value: 900
       objectReference: {fileID: 0}
     - target: {fileID: -5431276197874681430, guid: c413e092e4685664584f720a5c639a98, type: 3}
+      propertyPath: streamVector.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5431276197874681430, guid: c413e092e4685664584f720a5c639a98, type: 3}
       propertyPath: isGimmickEnable
       value: 1
       objectReference: {fileID: 0}
@@ -2913,7 +2917,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4cea01bb3b2d3ad42ae0e3629328d36c, type: 3}
   backgroundVolume: 0.1
   sfxVolume: 0.1
-  delayTime: 3.1
+  delayTime: 4
 --- !u!4 &2054255438
 Transform:
   m_ObjectHideFlags: 0

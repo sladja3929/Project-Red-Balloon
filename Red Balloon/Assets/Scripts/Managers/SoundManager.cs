@@ -88,7 +88,7 @@ public class SoundManager : Singleton<SoundManager>
     public void SetBackgroundVolume(float volume)
     {
         backgroundVolume = volume;
-        //backgroundSound.volume = backgroundVolume;
+        backgroundSound.volume = backgroundVolume;
     }
 
     public void SetSfxSoundVolume(float volume)
