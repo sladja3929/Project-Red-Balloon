@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ocean
+  m_Name: Ocean_Main
   m_Shader: {fileID: -6465566751694194690, guid: 6cc8a277a4c25c442aead9ab4318d88a, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -78,11 +78,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Depth_Fade: 10
+    - Depth_Fade: 0
     - Smooth: 0.8
     - Speed: 0.2
     - Vector1_b477c45853f247c4b3ec903cfac6b438: 10
-    - Vector1_c892da3e47c54e8a865a0935bf75ad0a: 0.07
+    - Vector1_c892da3e47c54e8a865a0935bf75ad0a: 0.03
     - _Alpha: 0.5
     - _AlphaClip: 0
     - _Blend: 0
@@ -124,14 +124,14 @@ Material:
     - scale: 1.49
     m_Colors:
     - Color_07d66dbf459a427290c7b0403283d67f: {r: 1, g: 1, b: 1, a: 0}
-    - Deep: {r: 0.15294115, g: 0.38712984, b: 0.5019608, a: 1}
+    - Deep: {r: 0.23921567, g: 0.6509804, b: 0.5291018, a: 1}
     - Shallow: {r: 0.410763, g: 0.7172731, b: 0.8113208, a: 0}
     - _BaseColor: {r: 0.050980393, g: 0.17254902, b: 0.6156863, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RippleColor: {r: 2.2617798, g: 2.2617798, b: 2.2617798, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Wind_Direction: {r: 0, g: -1, b: 0, a: 0}
+    - _Wind_Direction: {r: -1, g: -1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7226245641460963624
 MonoBehaviour:
