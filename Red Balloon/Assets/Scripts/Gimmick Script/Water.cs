@@ -65,9 +65,9 @@ public class Water : Gimmick
 
     private void OnTriggerEnter(Collider other)
     {
-#if UNITY_EDITOR
-        Debug.Log("Play Water Fall Sound");
-#endif
-        SoundManager.Instance.SfxPlay("water fall sound", fallSound, other.transform.position);
+        if (other.CompareTag("Player"))
+        {
+            SoundManager.Instance.SfxPlay("water fall sound", fallSound, other.transform.position);
+        }
     }
 }
