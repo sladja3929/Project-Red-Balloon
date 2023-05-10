@@ -43,14 +43,18 @@ public class SoundManager : Singleton<SoundManager>
         }
     }
     
-    public void SfxPlay(string sfxName, AudioClip clip)
+    public void SfxPlay(string sfxName, AudioClip clip, Vector3 position)
     {
         if (clip == null) return;
         GameObject go = new GameObject(sfxName + "Sound");
         AudioSource audioSource = go.AddComponent<AudioSource>();
+        go.transform.position = position;
         
         audioSource.clip = clip;
         audioSource.volume = sfxVolume;
+        audioSource.minDistance = 10;
+        audioSource.maxDistance = 20;
+        audioSource.Play();
         
         Destroy(go, clip.length);
     }
@@ -84,7 +88,7 @@ public class SoundManager : Singleton<SoundManager>
     public void SetBackgroundVolume(float volume)
     {
         backgroundVolume = volume;
-        //backgroundSound.volume = backgroundVolume;
+        backgroundSound.volume = backgroundVolume;
     }
 
     public void SetSfxSoundVolume(float volume)
