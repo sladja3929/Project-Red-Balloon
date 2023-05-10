@@ -17,6 +17,7 @@ public class TutorialStartEffect : MonoBehaviour
     {
         main.enabled = false;
         direction.SetActive(false);
+        SceneChangeManager.Instance.StartCoroutine("Fade", "Out");
         StartCoroutine("Wait");
     }
     

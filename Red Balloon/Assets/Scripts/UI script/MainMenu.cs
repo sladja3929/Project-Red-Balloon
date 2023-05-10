@@ -13,7 +13,8 @@ public class MainMenu : MonoBehaviour
         starting = true;
         SceneChangeManager.Instance.SetTime(3f, 0f);
         SceneChangeManager.Instance.SetAlpha(0f, 0.7f);
-        SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync", "Stage0");
+        //SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync", "Stage0");
+        SceneManager.LoadScene("Stage0");
     }
     
     public void QuitGame()
