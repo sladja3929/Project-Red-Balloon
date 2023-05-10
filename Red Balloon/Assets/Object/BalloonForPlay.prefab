@@ -98,7 +98,7 @@ Rigidbody:
   m_GameObject: {fileID: 3271042181040711083}
   serializedVersion: 2
   m_Mass: 0.001
-  m_Drag: 1
+  m_Drag: 0.8
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08a5c08c6195964ab917f8a437cf0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  speedScale: 1
+  moveSpeed: 0.5
+  speedScale: 0.8
   pushTime: 0.1
   randomRotationSpeed: 10
 --- !u!114 &-3299518666821889227
@@ -155,6 +155,8 @@ MonoBehaviour:
   balloonChargeSound: {fileID: 0}
   balloonBoundSound: {fileID: 0}
   rayToBottomLength: 1
+  isGamePaused: 0
+  flyKey: 0
 --- !u!114 &7725434210765982043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +173,7 @@ MonoBehaviour:
   rotationSpeed: 10
   cam: {fileID: 0}
   direction: {fileID: 0}
+  isOnFlyMode: 0
 --- !u!114 &8207029611085120323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,4 +188,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePoint: {x: 0, y: 0, z: 0}
   dieEffect: {fileID: 0}
+  dieSound: {fileID: 0}
   respawnTime: 0
+  dieKey: 0

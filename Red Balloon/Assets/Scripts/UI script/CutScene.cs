@@ -34,6 +34,7 @@ public class CutScene : MonoBehaviour
     {
         float time = 0;
         SceneChangeManager.Instance.SetTime(1f, 0f);
+        SceneChangeManager.Instance.SetAlpha(0f, 1f);
         yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
 
         StartCoroutine("CameraMoving");
@@ -49,7 +50,8 @@ public class CutScene : MonoBehaviour
 
         SceneChangeManager.Instance.SetTime(1f, 5f);
         yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
-        SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync");
+        SceneChangeManager.Instance.SetTime(6f, 0f);
+        SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync", "Stage1");
 
     }
 

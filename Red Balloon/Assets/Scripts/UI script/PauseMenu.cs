@@ -58,6 +58,11 @@ public class PauseMenu : MonoBehaviour
         GameManager.Instance.QuitGame();
     }
 
+    public void BackToMainMenu()
+    {
+        GameManager.Instance.GoToMainMenu();
+    }
+
     // Update is called once per frame
     void Update()
     {
