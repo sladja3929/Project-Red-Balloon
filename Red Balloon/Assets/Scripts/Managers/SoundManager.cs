@@ -29,12 +29,17 @@ public class SoundManager : Singleton<SoundManager>
     {
         base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
+        
+        //수정필요 - 사운드매니저가 시작시작화면에 들어가면 해결
         foreach (var t in backgroundSoundList)
         {
             if ("MainMenu" == t.name) BackgroundSoundPlay(t);
         }
     }
-    
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         foreach (var t in backgroundSoundList)

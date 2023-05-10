@@ -14,18 +14,12 @@ using UnityEngine.UI;
 public class SceneChangeManager : Singleton<SceneChangeManager>
 {
     //씬 로드
-    private string nextSceneName = "stage1";
 
-    public IEnumerator LoadSceneAsync()
+    public IEnumerator LoadSceneAsync(string nextSceneName)
     {
         // Load scene
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextSceneName);
         asyncLoad.allowSceneActivation = false;
-
-        // Start fade in
-        //SetTime(2f, 0f);
-        //yield return StartCoroutine("Fade", "In");
-        //yield return new WaitForSeconds(1f);
 
         // Update loading text until scene is fully loaded
         while (!asyncLoad.isDone)
@@ -37,7 +31,6 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
                 asyncLoad.allowSceneActivation = true;
 
                 // Start fade out
-                SetTime(6f, 0f);
                 yield return StartCoroutine("Fade", "Out");
             }
 
@@ -49,18 +42,15 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
     //페이드 인 아웃
     private Image fadeImage;
 
-    [SerializeField] private float playTime;
-    [SerializeField] private float delayTime;
-    [SerializeField] private float lightAlpha;     //알파 비율 0 ~ 1
-    [SerializeField] private float thickAlpha;
+    private float playTime;
+    private float delayTime;
+    private float lightAlpha;     //알파 비율 0 ~ 1
+    private float thickAlpha;
     //튜토리얼 씬 로드시 실행
     private void Awake()
     {
-        DontDestroyOnLoad(transform.root.gameObject);
-        fadeImage = gameObject.GetComponent<Image>();
-        
-        StartCoroutine("Fade", "Out");
-        SetAlpha(0, 1);
+        base.Awake();
+        fadeImage = gameObject.GetComponentsInChildren<Image>()[0];
     }
 
     public void SetTime(float playTime, float delayTime)

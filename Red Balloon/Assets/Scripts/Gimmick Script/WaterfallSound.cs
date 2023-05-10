@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WaterfallSound : MonoBehaviour
 {
+    [SerializeField] private bool isBig;
+
     private AudioSource waterFallSound;
     private void Awake()
     {
@@ -12,6 +14,7 @@ public class WaterfallSound : MonoBehaviour
 
     private void Update()
     {
-        waterFallSound.volume = SoundManager.Instance.GetSfxSoundVolume();
+        if(isBig) waterFallSound.volume = SoundManager.Instance.GetSfxSoundVolume();
+        else waterFallSound.volume = SoundManager.Instance.GetSfxSoundVolume() * 0.7f;
     }
 }

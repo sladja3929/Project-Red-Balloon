@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Application = UnityEngine.Application;
+using System;
 
 public class GameManager : Singleton<GameManager>
 {
     private void Awake()
     {
         base.Awake();
-        records = new List<float>();
+        //records = new List<float>();
 
         SceneManager.sceneLoaded += SetBalloon;
     }
@@ -53,7 +54,8 @@ public class GameManager : Singleton<GameManager>
     }
 
     [SerializeField] private float startTime;
-    public List<float> records;
+    //public List<float> records;
+    public string record;
     public GameObject endCanvas;
     public void StartGame()
     {
@@ -62,10 +64,20 @@ public class GameManager : Singleton<GameManager>
 
     public void FinishGame()
     {
-        records.Add(Time.time - startTime);
-        records.Sort();
+        //records.Add(Time.time - startTime);
+        //records.Sort();
+        TimeSpan t = TimeSpan.FromSeconds(Time.time - startTime);
+
+        record = "score: " + string.Format("{0:D2} h {1:D2} m {2:D2} s", t.Hours, t.Minutes, t.Seconds);
 
         IsPause = true;
         endCanvas.SetActive(true);
+    }
+    public void GoToMainMenu()
+    {
+        SceneChangeManager.Instance.SetTime(0f, 0f);
+        SceneChangeManager.Instance.SetAlpha(0f, 0f);
+        SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync", "MainMenu");
+        GameManager.Instance.IsPause = false;
     }
 }
