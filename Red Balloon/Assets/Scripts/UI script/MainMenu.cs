@@ -11,21 +11,9 @@ public class MainMenu : MonoBehaviour
     {
         if (starting) return;
         starting = true;
-        // IEnumerator LoadSceneCoroutine(string target)
-        // {
-        //     AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(target);
-        //     asyncOperation.allowSceneActivation = false;
-        //
-        //     while (asyncOperation.progress < 0.9f)
-        //     {
-        //         yield return null;
-        //         Debug.Log(asyncOperation.progress);
-        //     }
-        //
-        //     asyncOperation.allowSceneActivation = true;
-        // }
-        //
-        // StartCoroutine(LoadSceneCoroutine("Stage0"));
+        SceneChangeManager.Instance.SetTime(3f, 0f);
+        SceneChangeManager.Instance.SetAlpha(0f, 0.7f);
+        //SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync", "Stage0");
         SceneManager.LoadScene("Stage0");
     }
     

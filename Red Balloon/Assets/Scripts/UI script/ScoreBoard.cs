@@ -6,45 +6,33 @@ using UnityEngine.UI;
 
 public class ScoreBoard : MonoBehaviour
 {
-    public GameObject scoreText;
-    public List<GameObject> lines;
+    //public GameObject scoreText;
+    //public List<GameObject> lines;
+    public Text Score;
 
     private void Awake()
     {
-        lines = new List<GameObject>();
+        //lines = new List<GameObject>();
     }
     private void OnEnable()
     {
-        var records = GameManager.Instance.records;
-        foreach (var r in records)
-        {
-            var go = Instantiate(scoreText, transform).GetComponent<Text>();
-            go.text = r + "second";
-        }
+        //var records = GameManager.Instance.records;
+        //foreach (var r in records)
+        //{
+        //    var go = Instantiate(scoreText, transform).GetComponent<Text>();
+        //    go.text = r + "second";
+        //}
+        Score.text = GameManager.Instance.record;
     }
 
     private void OnDisable()
     {
-        lines.Clear();
+        //lines.Clear();
     }
 
-    public void BackToMenu()
+    public void BackToMainMenu()
     {
-        
-        IEnumerator LoadSceneCoroutine(string target)
-        {
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(target);
-            asyncOperation.allowSceneActivation = false;
-        
-            while (asyncOperation.progress < 0.9f)
-            {
-                yield return null;
-                Debug.Log(asyncOperation.progress);
-            }
-
-            asyncOperation.allowSceneActivation = true;
-        }
-
-        StartCoroutine(LoadSceneCoroutine("MainMenu"));
+        GameManager.Instance.GoToMainMenu();
+        transform.parent.gameObject.SetActive(false);
     }
 }
