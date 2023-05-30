@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ControlTutorial : MonoBehaviour
 {
-    [SerializeField] GameObject Image;
+    [SerializeField] private GameObject image;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
-            Image.SetActive(true);
+            image.SetActive(true);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            Image.SetActive(false);
+            image.SetActive(false);
         }
     }
 }

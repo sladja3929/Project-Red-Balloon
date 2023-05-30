@@ -10,7 +10,7 @@ public class FadeInOut : MonoBehaviour
     [SerializeField] private bool isFadeIn;
     [SerializeField] private float playTime;
     [SerializeField] private float delayTime;
-    private Color color;
+    private Color _color;
 
     private void Awake()
     {
@@ -26,39 +26,49 @@ public class FadeInOut : MonoBehaviour
 
     private void SetAlpha(float alpha)
     {        
-        color = fadeImage.color;
-        color.a = alpha;
-        fadeImage.color = color;    
+        _color = fadeImage.color;
+        _color.a = alpha;
+        fadeImage.color = _color;    
     }
 
-    private IEnumerator Fade(string property)
+    private IEnumerator FadeIn()
     {
         float t = 0f;
         float start, end;
 
-        if(property == "In")
-        {
-            start = 0f;
-            end = 1f;
-            SetAlpha(0f);
-        }
-
-        else
-        {
-            start = 1f;
-            end = 0f;
-            SetAlpha(1f);
-        }
+        start = 0f;
+        end = 1f;
+        SetAlpha(0f);
 
         yield return new WaitForSeconds(delayTime);
 
-        while(t < 1)
+        while(t < playTime)
         {
-            t += Time.deltaTime / playTime;
+            t += Time.deltaTime;
             SetAlpha(Mathf.Lerp(start, end, t));
 
             yield return null;
         }
     }
+    
+    private IEnumerator FadeOut()
+    {
+        float t = 0f;
+        float start, end;
 
+        start = 1f;
+        end = 0f;
+        SetAlpha(1f);
+        
+
+        yield return new WaitForSeconds(delayTime);
+
+        while(t < playTime)
+        {
+            t += Time.deltaTime;
+            SetAlpha(Mathf.Lerp(start, end, t));
+
+            yield return null;
+        }
+    }
 }

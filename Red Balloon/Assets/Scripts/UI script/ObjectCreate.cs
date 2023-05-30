@@ -6,20 +6,20 @@ public class ObjectCreate : MonoBehaviour
 {
     [SerializeField] private GameObject obj;
     [SerializeField] private float term;
-    private float t;
+    private float _t;
 
     private void Awake()
     {
-        t = 0;
+        _t = 0;
     }
     // Update is called once per frame
     void Update()
     {
-        t += Time.deltaTime;
-        if(t > term)
+        _t += Time.deltaTime;
+        if(_t > term)
         {
             Instantiate(obj);
-            t = 0;
+            _t = 0;
         }
     }
 }

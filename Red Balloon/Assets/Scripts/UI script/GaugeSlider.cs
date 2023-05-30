@@ -8,17 +8,17 @@ public class GaugeSlider : MonoBehaviour
 {
     private Slider _slider;
 
-    private BalloonController balloon;
+    private BalloonController _balloon;
 
     void Awake()
     {
         _slider = GetComponent<Slider>();
-        balloon = GameObject.FindWithTag("Player").GetComponent<BalloonController>();
+        _balloon = GameObject.FindWithTag("Player").GetComponent<BalloonController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _slider.value = balloon.GetChargeGauge();
+        _slider.value = _balloon.GetChargeGauge();
     }
 }
