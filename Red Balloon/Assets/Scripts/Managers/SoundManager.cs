@@ -80,7 +80,11 @@ public class SoundManager : Singleton<SoundManager>
         yield return null;
     }
 
-    public IEnumerator BackGroundFadeOut()
+    public void FadeOutBackgroundVolume()
+    {
+        StartCoroutine(BackGroundFadeOutCoroutine());
+    }
+    private IEnumerator BackGroundFadeOutCoroutine()
     {
         while(backgroundSound.volume > 0)
         {
