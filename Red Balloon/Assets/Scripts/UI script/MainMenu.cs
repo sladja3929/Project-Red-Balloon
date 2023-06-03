@@ -11,12 +11,35 @@ public class MainMenu : MonoBehaviour
     {
         if (starting) return;
         starting = true;
-        SceneChangeManager.Instance.SetTime(3f, 0f);
-        SceneChangeManager.Instance.SetAlpha(0f, 0.7f);
+
+        StartCoroutine("PlayGameCoroutine");        
+    }
+
+    private IEnumerator PlayGameCoroutine()
+    {
+        //    경고화면 페이드
+        //    SceneChangeManager.Instance.SetTime(1f, 0f);
+        //    SceneChangeManager.Instance.SetAlpha(0f, 1f);
+        //    yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
+        //    warning.SetActive(true);
+
+        //    SceneChangeManager.Instance.SetTime(1f, 0.5f);
+        //    yield return SceneChangeManager.Instance.StartCoroutine("Fade", "Out");
+
+        //    SceneChangeManager.Instance.SetTime(1f, 3f);
+        //    yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
+
+        //    SceneChangeManager.Instance.SetTime(3f, 0f);
+        //    SceneManager.LoadScene("Stage0");
+
+        SceneChangeManager.Instance.SetAlpha(0f, 1f);
+        SceneChangeManager.Instance.SetTime(1.5f, 0f);
+        yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
+
+        SceneChangeManager.Instance.SetTime(3f, 0f);        
         //SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync", "Stage0");
         SceneManager.LoadScene("Stage0");
     }
-    
     public void QuitGame()
     {
         Application.Quit();

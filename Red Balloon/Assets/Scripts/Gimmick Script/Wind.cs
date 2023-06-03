@@ -21,14 +21,18 @@ public class Wind : Gimmick
     
 
     private AudioSource windSound;
+    private ParticleSystem windEffect;
+
     private void Awake()
     {
         windSound = GetComponent<AudioSource>();
+        windEffect = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Update()
     {
         windSound.volume = SoundManager.Instance.GetSfxSoundVolume() + 0.5f;
         if (windSound.volume > 1) windSound.volume = 1;
+        windEffect.gameObject.SetActive(isGimmickEnable);
     }
 }
