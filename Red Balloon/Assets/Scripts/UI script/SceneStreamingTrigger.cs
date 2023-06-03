@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+internal enum LoadType
+{
+    UnloadScene,
+    LoadScene
+}
+
 public class SceneStreamingTrigger : MonoBehaviour
 {
     [SerializeField] private string streamTargetSceneName;
     [SerializeField] private string triggerOwnSceneName;
-
-    private enum LoadType
-    {
-        UnloadScene,
-        LoadScene
-    }
-
     [SerializeField] private LoadType loadType;
+
+
 
     private IEnumerator StreamingTargetScene()
     {

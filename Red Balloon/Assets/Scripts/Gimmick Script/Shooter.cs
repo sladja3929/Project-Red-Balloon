@@ -21,7 +21,7 @@ public class Shooter : Gimmick
 
     private void Shoot()
     {
-        var transform1 = transform;
+        var shooterTransform = transform;
         /*
         Debug.DrawRay(transform1.position, transform1.forward * rayDistance, Color.red);
 
@@ -32,7 +32,7 @@ public class Shooter : Gimmick
         */
         
 
-        Instantiate(bullet, transform1.position, transform1.rotation);
+        Instantiate(bullet, shooterTransform.position, shooterTransform.rotation);
         StartCoroutine(AttackCooldown(attackDelay));
     }
 

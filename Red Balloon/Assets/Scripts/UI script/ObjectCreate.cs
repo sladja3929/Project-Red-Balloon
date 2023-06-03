@@ -13,7 +13,7 @@ public class ObjectCreate : MonoBehaviour
         _t = 0;
     }
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         _t += Time.deltaTime;
         if(_t > term)
