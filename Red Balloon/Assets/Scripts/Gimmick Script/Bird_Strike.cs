@@ -6,9 +6,7 @@ public class Bird_Strike : Gimmick
 {
     [SerializeField] private Transform balloonTransform;
     [SerializeField] private float birdDistance;
-
     [SerializeField] private float birdFlyTime;
-
     [SerializeField] private bool birdFlying;
     private void Awake()
     {

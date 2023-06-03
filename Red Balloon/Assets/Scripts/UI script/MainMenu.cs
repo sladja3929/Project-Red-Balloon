@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
         if (starting) return;
         starting = true;
 
-        StartCoroutine("PlayGameCoroutine");        
+        StartCoroutine(PlayGameCoroutine());        
     }
 
     private IEnumerator PlayGameCoroutine()

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TutorialStartEffect : MonoBehaviour
 {
-    [SerializeField] private float WaitTime;
+    [SerializeField] private float waitTime;
     [SerializeField] private Camera main;
     [SerializeField] private GameObject direction;
     //[SerializeField] private GameObject balloon;
     //[SerializeField] private GameObject waterfall;
 
 
-    private float distance;
+    private float _distance;
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,10 +22,10 @@ public class TutorialStartEffect : MonoBehaviour
     
     private IEnumerator Wait()
     {
-        yield return new WaitForSeconds(WaitTime);
+        yield return new WaitForSeconds(waitTime);
         direction.SetActive(true);
         main.enabled = true;        
-        this.GetComponent<Camera>().enabled = false;
+        GetComponent<Camera>().enabled = false;
     }
 
 

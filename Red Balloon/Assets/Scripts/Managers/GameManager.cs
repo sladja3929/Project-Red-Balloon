@@ -68,7 +68,7 @@ public class GameManager : Singleton<GameManager>
         //records.Sort();
         TimeSpan t = TimeSpan.FromSeconds(Time.time - startTime);
 
-        record = "score: " + string.Format("{0:D2} h {1:D2} m {2:D2} s", t.Hours, t.Minutes, t.Seconds);
+        record = "score: " + $"{t.Hours:D2} h {t.Minutes:D2} m {t.Seconds:D2} s";
 
         IsPause = true;
         endCanvas.SetActive(true);

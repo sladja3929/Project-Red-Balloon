@@ -29,7 +29,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         if(_instance != null)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         if (transform.parent != null && transform.root != null)
