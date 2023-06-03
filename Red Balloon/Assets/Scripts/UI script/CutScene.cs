@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class CutScene : MonoBehaviour
@@ -13,7 +15,9 @@ public class CutScene : MonoBehaviour
     [SerializeField] private float timeToMove;
     [SerializeField] private float rotationSpeed;
 
-    private float _t;
+    [SerializeField] private FadingInfo tutorialFadingInfo;
+
+    private float _curTime;
     private Vector3[] _curvePoints;
 
     private void Start()
@@ -26,21 +30,37 @@ public class CutScene : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            StartCoroutine(nameof(TutorialCutScene));
+            StartCoroutine(TutorialCutScene());
         }
     }
 
     private IEnumerator TutorialCutScene()
     {
-        float time = 0;
-        SceneChangeManager.Instance.SetTime(1f, 0f);
-        SceneChangeManager.Instance.SetAlpha(0f, 1f);
-        yield return SceneChangeManager.Instance.StartCoroutine(nameof(FadeInOut));
+        FadingInfo cutSceneFadeInfo = new FadingInfo(1, 0, 1, 0);
+        WaitUntil waitingFadeFinish = new WaitUntil(SceneChangeManager.Instance.FinishFade); 
+        void FadeIn() => SceneChangeManager.Instance.FadeIn(cutSceneFadeInfo);
+        void FadeOut() => SceneChangeManager.Instance.FadeOut(cutSceneFadeInfo);
 
-        StartCoroutine("CameraMoving");
+        
+        //float time = 0;
+        // SceneChangeManager.Instance.SetTime(1f, 0f);
+        // SceneChangeManager.Instance.SetAlpha(0f, 1f);
+        // yield return SceneChangeManager.Instance.StartCoroutine(SceneChangeManager.Instance.FadeInCoroutine());
 
-        SceneChangeManager.Instance.SetTime(1f, 1f);
-        yield return SceneChangeManager.Instance.StartCoroutine(nameof(SceneChangeManager.FadeOut));
+        FadeOut();
+        yield return waitingFadeFinish;
+
+
+        // SceneChangeManager.Instance.SetTime(1f, 1f);
+        // yield return SceneChangeManager.Instance.StartCoroutine(SceneChangeManager.Instance.FadeOutCoroutine());
+        
+        FadeIn();
+        StartCoroutine(CameraMoving());
+
+        yield return new WaitUntil(() => isCameraMoving is not true);
+
+        FadeOut();
+        yield return waitingFadeFinish;
         
         //while(time < timeToMove - 1f)
         //{
@@ -48,40 +68,47 @@ public class CutScene : MonoBehaviour
         //    yield return null;
         //}
 
-        SceneChangeManager.Instance.SetTime(1f, 5f);
-        yield return SceneChangeManager.Instance.StartCoroutine(nameof(SceneChangeManager.FadeIn));
-        SceneChangeManager.Instance.SetTime(6f, 0f);
-        SceneChangeManager.Instance.StartCoroutine(nameof(SceneChangeManager.LoadSceneAsync), "Stage1");
-
+        //SceneChangeManager.Instance.SetTime(1f, 5f);
+        //yield return SceneChangeManager.instance.StartCoroutine(SceneChangeManager.instance.FadeInCoroutine());
+        
+        //SceneChangeManager.instance.StartCoroutine(nameof(SceneChangeManager.LoadSceneAsyncCoroutine), "Stage1");
+        SceneChangeManager.Instance.LoadSceneAsync("stage1", onFinish : FadeIn);
     }
 
     private Vector3 CalculateBezierPoint()
     {
+        float percentage = _curTime / timeToMove;
+        
         Vector3 pA = pointA.position;
         Vector3 pB = pointB.position;
         Vector3 pC = pointC.position;
 
-        return Vector3.Lerp(Vector3.Lerp(pA, pB, _t), Vector3.Lerp(pB, pC, _t), _t);
+        return Vector3.Lerp(Vector3.Lerp(pA, pB, percentage), Vector3.Lerp(pB, pC, percentage), percentage);
     }
 
+    [SerializeField] private bool isCameraMoving;
     private IEnumerator CameraMoving()
     {
-        _t = 0f;
+        isCameraMoving = true;
+        
+        _curTime = 0f;
         Camera.main.enabled = false;
         cutSceneCamera.enabled = true;
-        while(_t < timeToMove)
-        {            
-            cutSceneCamera.transform.position =
-                CalculateBezierPoint();
+
+        while(_curTime < timeToMove)
+        {
+            cutSceneCamera.transform.position = CalculateBezierPoint();
             
             cutSceneCamera.transform.rotation =
                 Quaternion.Lerp(cutSceneCamera.transform.rotation, 
                     Quaternion.LookRotation(pointD.position - cutSceneCamera.transform.position), 
                     Time.deltaTime * rotationSpeed);
             
-            _t += Time.deltaTime;
+            _curTime += Time.deltaTime;
             yield return null;
         }
-        
+
+
+        isCameraMoving = false;
     }
 }

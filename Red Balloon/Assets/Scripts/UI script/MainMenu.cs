@@ -31,14 +31,22 @@ public class MainMenu : MonoBehaviour
 
         //    SceneChangeManager.Instance.SetTime(3f, 0f);
         //    SceneManager.LoadScene("Stage0");
+        
+        //yield return SceneChangeManager.Instance.StartCoroutine(nameof(SceneChangeManager.FadeIn));
 
-        SceneChangeManager.Instance.SetAlpha(0f, 1f);
-        SceneChangeManager.Instance.SetTime(1.5f, 0f);
-        yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
+        FadingInfo startGameFadingInfo = new FadingInfo(1.5f, 0, 1, 0);
+        SceneChangeManager.Instance.FadeOut(startGameFadingInfo);
+        yield return new WaitUntil(() => SceneChangeManager.Instance.FinishFade());
 
-        SceneChangeManager.Instance.SetTime(3f, 0f);        
+        //SceneChangeManager.Instance.SetTime(3f, 0f);        
         //SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync", "Stage0");
-        SceneManager.LoadScene("Stage0");
+        //SceneManager.LoadScene("Stage0");
+        
+        SceneChangeManager.Instance.LoadSceneAsync("Stage0", () =>
+        {
+            SceneChangeManager.Instance.FadeIn(startGameFadingInfo);
+        }
+            );
     }
     public void QuitGame()
     {
