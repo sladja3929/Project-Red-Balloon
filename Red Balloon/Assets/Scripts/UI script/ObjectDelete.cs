@@ -6,7 +6,7 @@ public class ObjectDelete : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
             Destroy(other.gameObject);
         }
