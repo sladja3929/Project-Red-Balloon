@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class DirectionalLight : Singleton<DirectionalLight>
 {
+    private Light _light;
+
+    private new void Awake()
+    {
+        base.Awake();
+
+        _light = GetComponent<Light>();
+    }
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -14,8 +22,7 @@ public class DirectionalLight : Singleton<DirectionalLight>
     {
         if(scene.name == "Stage1")
         {
-            Color color = Color.white;
-            this.GetComponent<Light>().color = color;
+            _light.color = Color.white;
         }
     }
 

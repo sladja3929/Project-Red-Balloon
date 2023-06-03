@@ -19,13 +19,13 @@ public class RollingStone : Gimmick
     
     private void OnCollisionEnter(Collision other)
     {
-        if (other.collider.CompareTag("Player")) GameManager.Instance.KillBalloon();
+        if (other.collider.CompareTag("Player")) GameManager.instance.KillBalloon();
         if (other.collider.CompareTag($"Rolling Stone Killer")) Invoke(nameof(DelObject), delCooldown);
     }
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) GameManager.Instance.KillBalloon();
+        if (other.CompareTag("Player")) GameManager.instance.KillBalloon();
         if (other.CompareTag($"Rolling Stone Killer")) Invoke(nameof(DelObject), delCooldown);
     }
     

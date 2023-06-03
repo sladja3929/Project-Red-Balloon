@@ -37,7 +37,7 @@ public class ExplosionEffect : Gimmick
         animator.SetTrigger("Explosion");
         if (fxSound != null)
       {
-            SoundManager.Instance.SfxPlay("explodeSound", fxSound, transform.position);
+            SoundManager.instance.SfxPlay("explodeSound", fxSound, transform.position);
       }
    }
 

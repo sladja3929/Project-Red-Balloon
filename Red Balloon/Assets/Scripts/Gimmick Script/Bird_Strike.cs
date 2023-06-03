@@ -55,6 +55,6 @@ public class Bird_Strike : Gimmick
         
         Debug.Log("KillBalloon");
 
-        GameManager.Instance.KillBalloon();
+        GameManager.instance.KillBalloon();
     }
 }

@@ -75,7 +75,7 @@ public class GameManager : Singleton<GameManager>
     }
     public void GoToMainMenu()
     {
-        SceneChangeManager.Instance.LoadSceneAsync("MainMenu");
+        SceneChangeManager.instance.LoadSceneAsync("MainMenu");
         
         //SceneChangeManager.Instance.StartCoroutine("LoadSceneAsyncCoroutine", "MainMenu");
         IsPause = false;

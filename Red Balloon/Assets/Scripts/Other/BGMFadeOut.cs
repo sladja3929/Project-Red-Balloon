@@ -8,7 +8,7 @@ public class BGMFadeOut : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SoundManager.Instance.StartCoroutine(SoundManager.Instance.BackGroundFadeOut());
+            SoundManager.instance.StartCoroutine(SoundManager.instance.BackGroundFadeOut());
         }
     }
 }

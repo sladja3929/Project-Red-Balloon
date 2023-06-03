@@ -37,9 +37,9 @@ public class CutScene : MonoBehaviour
     private IEnumerator TutorialCutScene()
     {
         FadingInfo cutSceneFadeInfo = new FadingInfo(1, 0, 1, 0);
-        WaitUntil waitingFadeFinish = new WaitUntil(SceneChangeManager.Instance.FinishFade); 
-        void FadeIn() => SceneChangeManager.Instance.FadeIn(cutSceneFadeInfo);
-        void FadeOut() => SceneChangeManager.Instance.FadeOut(cutSceneFadeInfo);
+        WaitUntil waitingFadeFinish = new WaitUntil(SceneChangeManager.instance.FinishFade); 
+        void FadeIn() => SceneChangeManager.instance.FadeIn(cutSceneFadeInfo);
+        void FadeOut() => SceneChangeManager.instance.FadeOut(cutSceneFadeInfo);
 
         
         //float time = 0;
@@ -72,7 +72,7 @@ public class CutScene : MonoBehaviour
         //yield return SceneChangeManager.instance.StartCoroutine(SceneChangeManager.instance.FadeInCoroutine());
         
         //SceneChangeManager.instance.StartCoroutine(nameof(SceneChangeManager.LoadSceneAsyncCoroutine), "Stage1");
-        SceneChangeManager.Instance.LoadSceneAsync("stage1", onFinish : FadeIn);
+        SceneChangeManager.instance.LoadSceneAsync("stage1", onFinish : FadeIn);
     }
 
     private Vector3 CalculateBezierPoint()

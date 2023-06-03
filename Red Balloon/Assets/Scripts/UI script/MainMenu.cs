@@ -35,16 +35,16 @@ public class MainMenu : MonoBehaviour
         //yield return SceneChangeManager.Instance.StartCoroutine(nameof(SceneChangeManager.FadeIn));
 
         FadingInfo startGameFadingInfo = new FadingInfo(1.5f, 0, 1, 0);
-        SceneChangeManager.Instance.FadeOut(startGameFadingInfo);
-        yield return new WaitUntil(() => SceneChangeManager.Instance.FinishFade());
+        SceneChangeManager.instance.FadeOut(startGameFadingInfo);
+        yield return new WaitUntil(() => SceneChangeManager.instance.FinishFade());
 
         //SceneChangeManager.Instance.SetTime(3f, 0f);        
         //SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync", "Stage0");
         //SceneManager.LoadScene("Stage0");
         
-        SceneChangeManager.Instance.LoadSceneAsync("Stage0", () =>
+        SceneChangeManager.instance.LoadSceneAsync("Stage0", () =>
         {
-            SceneChangeManager.Instance.FadeIn(startGameFadingInfo);
+            SceneChangeManager.instance.FadeIn(startGameFadingInfo);
         }
             );
     }
