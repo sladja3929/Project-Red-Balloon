@@ -57,7 +57,7 @@ public class CutScene : MonoBehaviour
         FadeIn();
         StartCoroutine(CameraMoving());
 
-        yield return new WaitUntil(() => isCameraMoving is not true);
+        yield return new WaitUntil(() => _cutSceneCameraState is CameraState.Stop or CameraState.AlmostFinish);
 
         FadeOut();
         yield return waitingFadeFinish;
@@ -86,10 +86,17 @@ public class CutScene : MonoBehaviour
         return Vector3.Lerp(Vector3.Lerp(pA, pB, percentage), Vector3.Lerp(pB, pC, percentage), percentage);
     }
 
-    [SerializeField] private bool isCameraMoving;
+    enum CameraState
+    {
+        Stop,
+        Moving,
+        AlmostFinish,
+    }
+    
+    [SerializeField] private CameraState _cutSceneCameraState;
     private IEnumerator CameraMoving()
     {
-        isCameraMoving = true;
+        _cutSceneCameraState = CameraState.Moving;
         
         _curTime = 0f;
         Camera.main.enabled = false;
@@ -103,12 +110,13 @@ public class CutScene : MonoBehaviour
                 Quaternion.Lerp(cutSceneCamera.transform.rotation, 
                     Quaternion.LookRotation(pointD.position - cutSceneCamera.transform.position), 
                     Time.deltaTime * rotationSpeed);
-            
+
+            if (_curTime > timeToMove * 0.95f) _cutSceneCameraState = CameraState.AlmostFinish;
             _curTime += Time.deltaTime;
             yield return null;
         }
 
 
-        isCameraMoving = false;
+        _cutSceneCameraState = CameraState.Stop;
     }
 }
