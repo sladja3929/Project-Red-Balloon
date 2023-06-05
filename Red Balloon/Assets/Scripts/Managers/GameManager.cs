@@ -7,7 +7,7 @@ using System;
 
 public class GameManager : Singleton<GameManager>
 {
-    private void Awake()
+    private new void Awake()
     {
         base.Awake();
         //records = new List<float>();
@@ -24,7 +24,7 @@ public class GameManager : Singleton<GameManager>
         _balloonSpawn = _balloonObj.GetComponent<Respawn>();
     }
 
-    public bool IsPause
+    public static bool IsPause
     {
         get => Time.timeScale == 0;
         set => Time.timeScale = value ? 0 : 1;
@@ -76,8 +76,8 @@ public class GameManager : Singleton<GameManager>
     public void GoToMainMenu()
     {
         SceneChangeManager.instance.LoadSceneAsync("MainMenu");
-        
-        //SceneChangeManager.Instance.StartCoroutine("LoadSceneAsyncCoroutine", "MainMenu");
+        //
+        // SceneChangeManager.instance.StartCoroutine(nameof(FinishGame), "MainMenu");
         IsPause = false;
     }
 }

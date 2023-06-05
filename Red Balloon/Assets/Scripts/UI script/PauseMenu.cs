@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
         backGround.SetActive(true);
         menuUI.SetActive(true);
 
-        GameManager.instance.IsPause = true;
+        GameManager.IsPause = true;
 
         sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();
         musicVolumeSlider.value = SoundManager.instance.GetBackgroundVolume();
@@ -28,7 +28,7 @@ public class PauseMenu : MonoBehaviour
         backGround.SetActive(false);
         menuUI.SetActive(false);
 
-        GameManager.instance.IsPause = false;
+        GameManager.IsPause = false;
     }
 
     public void SetSfxVolume()

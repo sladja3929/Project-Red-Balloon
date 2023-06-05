@@ -16,10 +16,9 @@ public class ObjectCreate : MonoBehaviour
     private void Update()
     {
         _t += Time.deltaTime;
-        if(_t > term)
-        {
-            Instantiate(obj);
-            _t = 0;
-        }
+        if (_t <= term) return;
+        
+        Instantiate(obj);
+        _t = 0;
     }
 }
