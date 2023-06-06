@@ -10,15 +10,16 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         get
         {
-            if (_instance != null) return _instance;
+            if (_instance is not null) return _instance;
             
             //없으면 동일 타입의 오브젝트 탐색
             _instance = (T)FindObjectOfType(typeof(T));
 
-            if (_instance != null) return _instance;
+            if (_instance is not null) return _instance;
             
             //찾아도 없으면 오브젝트 생성
-            var obj = new GameObject(typeof(T).Name, typeof(T));
+            //var obj = new GameObject(typeof(T).Name, typeof(T));
+            var obj = Instantiate(Resources.Load<T>("Singleton/" + typeof(T)));
             _instance = obj.GetComponent<T>();
 
             return _instance;

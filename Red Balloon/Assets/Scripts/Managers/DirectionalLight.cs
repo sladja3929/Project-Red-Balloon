@@ -18,7 +18,7 @@ public class DirectionalLight : Singleton<DirectionalLight>
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if(scene.name == "Stage1")
         {
@@ -26,7 +26,7 @@ public class DirectionalLight : Singleton<DirectionalLight>
         }
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }

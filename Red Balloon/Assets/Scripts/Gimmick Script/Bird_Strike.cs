@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bird_Strike : Gimmick
+public class BirdStrike : Gimmick
 {
     [SerializeField] private Transform balloonTransform;
     [SerializeField] private float birdDistance;

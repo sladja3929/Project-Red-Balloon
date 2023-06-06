@@ -13,16 +13,17 @@ public class TutorialStartEffect : MonoBehaviour
 
     private float _distance;
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         main.enabled = false;
         direction.SetActive(false);
-        StartCoroutine(Wait());
+        StartCoroutine(WaitCoroutine());
     }
     
-    private IEnumerator Wait()
+    private IEnumerator WaitCoroutine()
     {
         yield return new WaitForSeconds(waitTime);
+        
         direction.SetActive(true);
         main.enabled = true;        
         GetComponent<Camera>().enabled = false;
