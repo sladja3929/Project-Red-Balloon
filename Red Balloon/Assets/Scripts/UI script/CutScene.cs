@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutScene : MonoBehaviour
 {
@@ -15,13 +16,13 @@ public class CutScene : MonoBehaviour
     [SerializeField] private float timeToMove;
     [SerializeField] private float rotationSpeed;
 
-    [SerializeField] private FadingInfo tutorialFadingInfo;
-
+    WaitUntil waitingFadeFinish;
     private float _curTime;
     private Vector3[] _curvePoints;
 
     private void Start()
     {
+        waitingFadeFinish = new WaitUntil(SceneChangeManager.instance.FinishFade);
         cutSceneCamera.enabled = false;
     }
 
@@ -30,48 +31,34 @@ public class CutScene : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            StartCoroutine(TutorialCutScene());
+            StartCoroutine(SceneManager.GetActiveScene().name + "CutScene");
         }
     }
 
-    private IEnumerator TutorialCutScene()
+    private IEnumerator Stage1CutScene()
     {
         FadingInfo cutSceneFadeInfo = new FadingInfo(1, 0, 1, 0);
-        WaitUntil waitingFadeFinish = new WaitUntil(SceneChangeManager.instance.FinishFade); 
+        WaitUntil waitingFadeFinish = new WaitUntil(SceneChangeManager.instance.FinishFade);
         void FadeIn() => SceneChangeManager.instance.FadeIn(cutSceneFadeInfo);
         void FadeOut() => SceneChangeManager.instance.FadeOut(cutSceneFadeInfo);
 
-        
-        //float time = 0;
-        // SceneChangeManager.Instance.SetTime(1f, 0f);
-        // SceneChangeManager.Instance.SetAlpha(0f, 1f);
-        // yield return SceneChangeManager.Instance.StartCoroutine(SceneChangeManager.Instance.FadeInCoroutine());
+        yield return null;
+    }
 
-        FadeOut();
+    private IEnumerator Stage0CutScene()
+    {
+        SceneChangeManager.instance.FadeOut(new FadingInfo(1, 0, 1, 0));
         yield return waitingFadeFinish;
 
-
-        // SceneChangeManager.Instance.SetTime(1f, 1f);
-        // yield return SceneChangeManager.Instance.StartCoroutine(SceneChangeManager.Instance.FadeOutCoroutine());
-        
-        FadeIn();
+        SceneChangeManager.instance.FadeIn(new FadingInfo(1, 1, 1, 0));
         StartCoroutine(CameraMoving());
 
         yield return new WaitUntil(() => _cutSceneCameraState is CameraState.Stop or CameraState.AlmostFinish);
 
-        FadeOut();
+        SceneChangeManager.instance.FadeOut(new FadingInfo(1, 0, 1, 0));
         yield return waitingFadeFinish;
-        
-        //while(time < timeToMove - 1f)
-        //{
-        //    time += Time.deltaTime;
-        //    yield return null;
-        //}
 
-        //SceneChangeManager.Instance.SetTime(1f, 5f);
-        //yield return SceneChangeManager.instance.StartCoroutine(SceneChangeManager.instance.FadeInCoroutine());
-        
-        //SceneChangeManager.instance.StartCoroutine(nameof(SceneChangeManager.LoadSceneAsyncCoroutine), "Stage1");
+        void FadeIn() => SceneChangeManager.instance.FadeIn(new FadingInfo(5, 0, 1, 0));
         SceneChangeManager.instance.LoadSceneAsync("stage1", onFinish : FadeIn);
     }
 
@@ -111,7 +98,7 @@ public class CutScene : MonoBehaviour
                     Quaternion.LookRotation(pointD.position - cutSceneCamera.transform.position), 
                     Time.deltaTime * rotationSpeed);
 
-            if (_curTime > timeToMove * 0.95f) _cutSceneCameraState = CameraState.AlmostFinish;
+            if (_curTime > timeToMove * 0.9f) _cutSceneCameraState = CameraState.AlmostFinish;
             _curTime += Time.deltaTime;
             yield return null;
         }
