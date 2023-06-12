@@ -8,10 +8,11 @@ using UnityEngine.SceneManagement;
 public class CutScene : MonoBehaviour
 {
     [SerializeField] private Camera cutSceneCamera;
-    [SerializeField] private Transform pointA;
-    [SerializeField] private Transform pointB;
-    [SerializeField] private Transform pointC;
-    [SerializeField] private Transform pointD;
+    [SerializeField] private Transform startPoint;
+    [SerializeField] private Transform middlePoint;
+    [SerializeField] private Transform endPoint;
+    [SerializeField] private Transform lookPoint;
+    [SerializeField] private Transform nextPoint;
 
     [SerializeField] private float timeToMove;
     [SerializeField] private float rotationSpeed;
@@ -19,11 +20,15 @@ public class CutScene : MonoBehaviour
     WaitUntil waitingFadeFinish;
     private float _curTime;
     private Vector3[] _curvePoints;
+    private bool _isRotation;
 
     private void Start()
     {
         waitingFadeFinish = new WaitUntil(SceneChangeManager.instance.FinishFade);
+        cutSceneCamera.transform.position = startPoint.transform.position;
+        cutSceneCamera.transform.rotation = Quaternion.LookRotation(lookPoint.position - cutSceneCamera.transform.position).normalized;        
         cutSceneCamera.enabled = false;
+        lookPoint.gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -37,28 +42,51 @@ public class CutScene : MonoBehaviour
 
     private IEnumerator Stage1CutScene()
     {
-        FadingInfo cutSceneFadeInfo = new FadingInfo(1, 0, 1, 0);
-        WaitUntil waitingFadeFinish = new WaitUntil(SceneChangeManager.instance.FinishFade);
-        void FadeIn() => SceneChangeManager.instance.FadeIn(cutSceneFadeInfo);
-        void FadeOut() => SceneChangeManager.instance.FadeOut(cutSceneFadeInfo);
+        FadingInfo fadingInfo = new FadingInfo(1, 0, 1, 0);
+        SceneChangeManager.instance.FadeOut(fadingInfo);
+        yield return waitingFadeFinish;
 
-        yield return null;
+        SceneChangeManager.instance.FadeIn(fadingInfo);
+        _isRotation = true;
+        StartCoroutine(CameraMovingCoroutine());
+        yield return new WaitUntil(() => _cutSceneCameraState is CameraState.Stop or CameraState.AlmostFinish);
+
+        SceneChangeManager.instance.FadeOut(fadingInfo);
+        yield return waitingFadeFinish;
+
+        
+        fadingInfo.delayTime = 1;
+        SceneChangeManager.instance.FadeIn(fadingInfo);
+        yield return waitingFadeFinish;
+
+        fadingInfo.delayTime = 5;
+        SceneChangeManager.instance.FadeOut(fadingInfo);
+        yield return waitingFadeFinish;
+
+        fadingInfo.delayTime = 0;
+        fadingInfo.playTime = 4;
+        void FadeIn() => SceneChangeManager.instance.FadeIn(fadingInfo);
+        //SceneChangeManager.instance.LoadSceneAsync("stage2", onFinish: FadeIn);
     }
 
     private IEnumerator Stage0CutScene()
     {
-        SceneChangeManager.instance.FadeOut(new FadingInfo(1, 0, 1, 0));
+        FadingInfo fadingInfo = new FadingInfo(1, 0, 1, 0);
+        SceneChangeManager.instance.FadeOut(fadingInfo);
         yield return waitingFadeFinish;
 
-        SceneChangeManager.instance.FadeIn(new FadingInfo(1, 1, 1, 0));
-        StartCoroutine(CameraMoving());
-
+        fadingInfo.delayTime = 0.5f;
+        SceneChangeManager.instance.FadeIn(fadingInfo);
+        _isRotation = true;
+        StartCoroutine(CameraMovingCoroutine());
         yield return new WaitUntil(() => _cutSceneCameraState is CameraState.Stop or CameraState.AlmostFinish);
 
-        SceneChangeManager.instance.FadeOut(new FadingInfo(1, 0, 1, 0));
+        fadingInfo.delayTime = 0;
+        SceneChangeManager.instance.FadeOut(fadingInfo);
         yield return waitingFadeFinish;
 
-        void FadeIn() => SceneChangeManager.instance.FadeIn(new FadingInfo(5, 0, 1, 0));
+        fadingInfo.playTime = 5;
+        void FadeIn() => SceneChangeManager.instance.FadeIn(fadingInfo);
         SceneChangeManager.instance.LoadSceneAsync("stage1", onFinish : FadeIn);
     }
 
@@ -66,9 +94,9 @@ public class CutScene : MonoBehaviour
     {
         float percentage = _curTime / timeToMove;
         
-        Vector3 pA = pointA.position;
-        Vector3 pB = pointB.position;
-        Vector3 pC = pointC.position;
+        Vector3 pA = startPoint.position;
+        Vector3 pB = middlePoint.position;
+        Vector3 pC = endPoint.position;
 
         return Vector3.Lerp(Vector3.Lerp(pA, pB, percentage), Vector3.Lerp(pB, pC, percentage), percentage);
     }
@@ -81,8 +109,9 @@ public class CutScene : MonoBehaviour
     }
     
     [SerializeField] private CameraState _cutSceneCameraState;
-    private IEnumerator CameraMoving()
+    private IEnumerator CameraMovingCoroutine()
     {
+        lookPoint.gameObject.SetActive(true);
         _cutSceneCameraState = CameraState.Moving;
         
         _curTime = 0f;
@@ -93,17 +122,20 @@ public class CutScene : MonoBehaviour
         {
             cutSceneCamera.transform.position = CalculateBezierPoint();
             
-            cutSceneCamera.transform.rotation =
-                Quaternion.Lerp(cutSceneCamera.transform.rotation, 
-                    Quaternion.LookRotation(pointD.position - cutSceneCamera.transform.position), 
-                    Time.deltaTime * rotationSpeed);
+            if(_isRotation)
+            {
+                cutSceneCamera.transform.rotation = Quaternion.Lerp(cutSceneCamera.transform.rotation,
+                                                                    Quaternion.LookRotation(lookPoint.position - cutSceneCamera.transform.position),
+                                                                    Time.deltaTime * rotationSpeed);
+            }
 
-            if (_curTime > timeToMove * 0.9f) _cutSceneCameraState = CameraState.AlmostFinish;
+            if (_curTime > timeToMove - 1.3f) _cutSceneCameraState = CameraState.AlmostFinish;
             _curTime += Time.deltaTime;
             yield return null;
         }
 
-
+        cutSceneCamera.transform.position = nextPoint.transform.position;
+        cutSceneCamera.transform.rotation = Quaternion.LookRotation(transform.position - cutSceneCamera.transform.position).normalized;
         _cutSceneCameraState = CameraState.Stop;
     }
 }
