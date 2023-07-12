@@ -8,8 +8,7 @@ public class Tornado : Gimmick
     public float pullPower;
     public float upPower;
     public float refreshRate;
-    [Range(0, 90)]
-    public float rotationDegree;
+    [Range(0, 90)] public float rotationDegree;
 
     private void OnTriggerEnter(Collider col)
     {

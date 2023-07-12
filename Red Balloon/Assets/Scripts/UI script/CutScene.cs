@@ -57,7 +57,7 @@ public class CutScene : MonoBehaviour
         FadeIn();
         StartCoroutine(CameraMoving());
 
-        yield return new WaitUntil(() => _cutSceneCameraState is CameraState.Stop or CameraState.AlmostFinish);
+        yield return new WaitUntil(() => cutSceneCameraState is CameraState.Stop or CameraState.AlmostFinish);
 
         FadeOut();
         yield return waitingFadeFinish;
@@ -93,10 +93,10 @@ public class CutScene : MonoBehaviour
         AlmostFinish,
     }
     
-    [SerializeField] private CameraState _cutSceneCameraState;
+    [SerializeField] private CameraState cutSceneCameraState;
     private IEnumerator CameraMoving()
     {
-        _cutSceneCameraState = CameraState.Moving;
+        cutSceneCameraState = CameraState.Moving;
         
         _curTime = 0f;
         Camera.main.enabled = false;
@@ -111,12 +111,12 @@ public class CutScene : MonoBehaviour
                     Quaternion.LookRotation(pointD.position - cutSceneCamera.transform.position), 
                     Time.deltaTime * rotationSpeed);
 
-            if (_curTime > timeToMove * 0.95f) _cutSceneCameraState = CameraState.AlmostFinish;
+            if (_curTime > timeToMove * 0.95f) cutSceneCameraState = CameraState.AlmostFinish;
             _curTime += Time.deltaTime;
             yield return null;
         }
 
 
-        _cutSceneCameraState = CameraState.Stop;
+        cutSceneCameraState = CameraState.Stop;
     }
 }

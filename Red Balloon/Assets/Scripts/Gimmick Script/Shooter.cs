@@ -22,15 +22,6 @@ public class Shooter : Gimmick
     private void Shoot()
     {
         var shooterTransform = transform;
-        /*
-        Debug.DrawRay(transform1.position, transform1.forward * rayDistance, Color.red);
-
-
-        if (!Physics.Raycast(transform.position, transform.forward, out var hit, rayDistance)) return;
-        Debug.Log(hit.collider.gameObject);
-        if (!hit.collider.CompareTag("Player")) return;
-        */
-        
 
         Instantiate(bullet, shooterTransform.position, shooterTransform.rotation);
         StartCoroutine(AttackCooldown(attackDelay));
