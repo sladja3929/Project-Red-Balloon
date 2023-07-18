@@ -13,6 +13,7 @@ public class CutScene : MonoBehaviour
     [SerializeField] private Transform endPoint;
     [SerializeField] private Transform lookPoint;
     [SerializeField] private Transform nextPoint;
+    [SerializeField] private ParticleSystem particleObject;
 
     [SerializeField] private float timeToMove;
     [SerializeField] private float rotationSpeed;
@@ -20,7 +21,7 @@ public class CutScene : MonoBehaviour
     WaitUntil waitingFadeFinish;
     private float _curTime;
     private Vector3[] _curvePoints;
-    private bool _isRotation;
+    private bool _isRotation;    
 
     private void Start()
     {
@@ -44,11 +45,13 @@ public class CutScene : MonoBehaviour
     {
         FadingInfo fadingInfo = new FadingInfo(1, 0, 1, 0);
         SceneChangeManager.instance.FadeOut(fadingInfo);
+        particleObject.Play();
         yield return waitingFadeFinish;
 
         SceneChangeManager.instance.FadeIn(fadingInfo);
         _isRotation = true;
         StartCoroutine(CameraMovingCoroutine());
+        
         yield return new WaitUntil(() => _cutSceneCameraState is CameraState.Stop or CameraState.AlmostFinish);
 
         SceneChangeManager.instance.FadeOut(fadingInfo);
