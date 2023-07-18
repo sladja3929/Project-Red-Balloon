@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 
+[RequireComponent(typeof(Rigidbody))]
 public class ExplosionEffect : Gimmick
 {
    private Rigidbody _rigid;
-   private Animator animator;
+   //private Animator animator;
 
    [SerializeField] private float explosionPower;
    [SerializeField] private float explosionTime;
@@ -14,7 +16,7 @@ public class ExplosionEffect : Gimmick
    private void Awake()
    {
       _rigid = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+      //animator = GetComponent<Animator>();
    }
 
    private void OnTriggerEnter(Collider col)
@@ -27,15 +29,15 @@ public class ExplosionEffect : Gimmick
       }
    }
 
-   private void OnCollisionEnter(Collision col)
+   private void OnCollisionEnter(Collision col) 
    {
       if (!isGimmickEnable) return;
       if (!col.gameObject.CompareTag("Player") || _isExploding) return;
       
       //플레이어가 닿아있을때만 활성화하는 기믹이므로 Execute함수를 오버라이딩 하지 않음.
       StartCoroutine(Explode(col.gameObject));
-        animator.SetTrigger("Explosion");
-        if (fxSound != null)
+      //animator.SetTrigger("Explosion");
+      if (fxSound != null)
       {
             SoundManager.instance.SfxPlay("explodeSound", fxSound, transform.position);
       }

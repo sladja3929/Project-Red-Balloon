@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575580351}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -514.35, y: 1, z: -807.6}
+  m_LocalPosition: {x: -492.3, y: 1, z: -2302.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -363,6 +363,206 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: cullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: autoRandomSeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: TrailModule.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: TrailModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ShapeModule.arc.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ShapeModule.arc.value
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: RotationModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ShapeModule.arc.spread
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: VelocityModule.y.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ClampVelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: RotationModule.separateAxes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: TrailModule.lifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ExternalForcesModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: InheritVelocityModule.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ShapeModule.alignToDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: TrailModule.dieWithParticles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: VelocityModule.radial.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: RotationBySpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: RotationBySpeedModule.y.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: VelocityModule.orbitalX.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: VelocityModule.orbitalY.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ShapeModule.randomPositionAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ShapeModule.randomDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: InitialModule.startRotation.scalar
+      value: 0.043458696
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: RotationBySpeedModule.curve.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: RotationBySpeedModule.separateAxes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 0.046600293
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0.07539823
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: VelocityModule.orbitalOffsetY.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: InitialModule.randomizeRotationDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360608, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: ExternalForcesModule.multiplierCurve.scalar
+      value: 4.71
+      objectReference: {fileID: 0}
     - target: {fileID: 9203686212067360611, guid: 362866523059f164c95fec65995f5cdf, type: 3}
       propertyPath: m_RootOrder
       value: 2

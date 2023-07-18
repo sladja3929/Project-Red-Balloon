@@ -28,12 +28,12 @@ public class JumpPole : Gimmick
 
         while (true)
         {
-            const float dt = 0.01f;
-            time += dt;
+            const float DT = 0.01f;
+            time += DT;
             if (time  > pushTime) break;
             
             objRigid.AddForce(pushDirection * pushPower);
-            yield return new WaitForSeconds(dt);
+            yield return new WaitForSeconds(DT);
         }
 
         isPushing = false;
