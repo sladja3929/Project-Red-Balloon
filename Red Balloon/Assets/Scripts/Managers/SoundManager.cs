@@ -64,6 +64,23 @@ public class SoundManager : Singleton<SoundManager>
         Destroy(go, clip.length);
     }
 
+    public void SfxPlay(string sfxName, AudioClip clip, Transform parent)
+    {
+        if (clip == null) return;
+        GameObject go = new GameObject(sfxName + "Sound");
+        AudioSource audioSource = go.AddComponent<AudioSource>();
+        go.transform.SetParent(parent);
+        go.transform.localPosition = Vector3.zero;
+        
+        audioSource.clip = clip;
+        audioSource.volume = sfxVolume;
+        audioSource.minDistance = 10;
+        audioSource.maxDistance = 20;
+        audioSource.Play();
+        
+        Destroy(go, clip.length);
+    }
+
     private IEnumerator BackgroundSoundPlayCoroutine(AudioClip clip)
     {
         backgroundSound.Stop();
@@ -76,8 +93,6 @@ public class SoundManager : Singleton<SoundManager>
         backgroundSound.loop = true;
         backgroundSound.volume = backgroundVolume;        
         backgroundSound.Play();
-
-        yield return null;
     }
 
     public void FadeOutBackgroundVolume()

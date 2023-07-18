@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     private new void Awake()
     {
         base.Awake();
+        _balloonObj = GameObject.FindWithTag("Player");
         //records = new List<float>();
 
         SceneManager.sceneLoaded += SetBalloon;
@@ -24,7 +25,7 @@ public class GameManager : Singleton<GameManager>
         _balloonSpawn = _balloonObj.GetComponent<Respawn>();
     }
 
-    public static bool IsPause
+    public static bool isPause
     {
         get => Time.timeScale == 0;
         set => Time.timeScale = value ? 0 : 1;
@@ -70,14 +71,19 @@ public class GameManager : Singleton<GameManager>
 
         record = "score: " + $"{t.Hours:D2} h {t.Minutes:D2} m {t.Seconds:D2} s";
 
-        IsPause = true;
+        isPause = true;
         endCanvas.SetActive(true);
     }
-    public void GoToMainMenu()
+    public static void GoToMainMenu()
     {
         SceneChangeManager.instance.LoadSceneAsync("MainMenu");
         //
         // SceneChangeManager.instance.StartCoroutine(nameof(FinishGame), "MainMenu");
-        IsPause = false;
+        isPause = false;
+    }
+
+    public Vector3 GetBalloonPosition()
+    {
+        return _balloonObj.transform.position;
     }
 }

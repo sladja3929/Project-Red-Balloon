@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
         backGround.SetActive(true);
         menuUI.SetActive(true);
 
-        GameManager.IsPause = true;
+        GameManager.isPause = true;
 
         sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();
         musicVolumeSlider.value = SoundManager.instance.GetBackgroundVolume();
@@ -28,7 +28,7 @@ public class PauseMenu : MonoBehaviour
         backGround.SetActive(false);
         menuUI.SetActive(false);
 
-        GameManager.IsPause = false;
+        GameManager.isPause = false;
     }
 
     public void SetSfxVolume()
@@ -60,11 +60,11 @@ public class PauseMenu : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        GameManager.instance.GoToMainMenu();
+        GameManager.GoToMainMenu();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
