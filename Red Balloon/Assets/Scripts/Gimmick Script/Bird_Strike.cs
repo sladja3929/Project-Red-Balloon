@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bird_Strike : Gimmick
+public class BirdStrike : Gimmick
 {
     [SerializeField] private Transform balloonTransform;
     [SerializeField] private float birdDistance;
-
     [SerializeField] private float birdFlyTime;
-
     [SerializeField] private bool birdFlying;
     private void Awake()
     {
@@ -57,6 +55,6 @@ public class Bird_Strike : Gimmick
         
         Debug.Log("KillBalloon");
 
-        GameManager.Instance.KillBalloon();
+        GameManager.instance.KillBalloon();
     }
 }

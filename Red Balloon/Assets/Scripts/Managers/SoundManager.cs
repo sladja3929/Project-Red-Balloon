@@ -25,7 +25,7 @@ public class SoundManager : Singleton<SoundManager>
 
     //싱글톤 처리
 
-    private void Awake()
+    private new void Awake()
     {
         base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -33,7 +33,7 @@ public class SoundManager : Singleton<SoundManager>
         //수정필요 - 사운드매니저가 시작시작화면에 들어가면 해결
         foreach (var t in backgroundSoundList)
         {
-            if ("MainMenu" == t.name) BackgroundSoundPlay(t);
+            if ("MainMenu" == t.name) StartCoroutine(BackgroundSoundPlayCoroutine(t));
         }
     }
     void OnDisable()
@@ -44,7 +44,7 @@ public class SoundManager : Singleton<SoundManager>
     {
         foreach (var t in backgroundSoundList)
         {
-            if (arg0.name == t.name) StartCoroutine("BackgroundSoundPlay", t);
+            if (arg0.name == t.name) StartCoroutine(BackgroundSoundPlayCoroutine(t));
         }
     }
     
@@ -64,7 +64,7 @@ public class SoundManager : Singleton<SoundManager>
         Destroy(go, clip.length);
     }
 
-    private IEnumerator BackgroundSoundPlay(AudioClip clip)
+    private IEnumerator BackgroundSoundPlayCoroutine(AudioClip clip)
     {
         backgroundSound.Stop();
         if (clip.name != "MainMenu")
@@ -80,7 +80,11 @@ public class SoundManager : Singleton<SoundManager>
         yield return null;
     }
 
-    public IEnumerator BackGroundFadeOut()
+    public void FadeOutBackgroundVolume()
+    {
+        StartCoroutine(BackGroundVolumeFadeOutCoroutine());
+    }
+    private IEnumerator BackGroundVolumeFadeOutCoroutine()
     {
         while(backgroundSound.volume > 0)
         {

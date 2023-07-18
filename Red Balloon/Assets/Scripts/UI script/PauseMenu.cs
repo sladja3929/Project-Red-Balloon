@@ -17,10 +17,10 @@ public class PauseMenu : MonoBehaviour
         backGround.SetActive(true);
         menuUI.SetActive(true);
 
-        GameManager.Instance.IsPause = true;
+        GameManager.IsPause = true;
 
-        sfxVolumeSlider.value = SoundManager.Instance.GetSfxSoundVolume();
-        musicVolumeSlider.value = SoundManager.Instance.GetBackgroundVolume();
+        sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();
+        musicVolumeSlider.value = SoundManager.instance.GetBackgroundVolume();
     }
 
     public void ClosePauseMenu()
@@ -28,19 +28,19 @@ public class PauseMenu : MonoBehaviour
         backGround.SetActive(false);
         menuUI.SetActive(false);
 
-        GameManager.Instance.IsPause = false;
+        GameManager.IsPause = false;
     }
 
     public void SetSfxVolume()
     {
         float value = sfxVolumeSlider.value;
-        SoundManager.Instance.SetSfxSoundVolume(value);
+        SoundManager.instance.SetSfxSoundVolume(value);
     }
 
     public void SetBackgroundVolume()
     {
         float value = musicVolumeSlider.value;
-        SoundManager.Instance.SetBackgroundVolume(value);
+        SoundManager.instance.SetBackgroundVolume(value);
     }
 
     public void SetQuality(int level)
@@ -55,12 +55,12 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        GameManager.Instance.QuitGame();
+        GameManager.instance.QuitGame();
     }
 
     public void BackToMainMenu()
     {
-        GameManager.Instance.GoToMainMenu();
+        GameManager.instance.GoToMainMenu();
     }
 
     // Update is called once per frame

@@ -67,7 +67,7 @@ public class Water : Gimmick
     {
         if (other.CompareTag("Player"))
         {
-            SoundManager.Instance.SfxPlay("water fall sound", fallSound, other.transform.position);
+            SoundManager.instance.SfxPlay("water fall sound", fallSound, other.transform.position);
         }
     }
 }

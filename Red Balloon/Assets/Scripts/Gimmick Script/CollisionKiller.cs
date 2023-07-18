@@ -10,7 +10,7 @@ public class CollisionKiller : Gimmick
     {
         if (!isGimmickEnable) return;
         
-        GameManager.Instance.KillBalloon();
+        GameManager.instance.KillBalloon();
     }
     private void OnCollisionEnter(Collision other)
     {

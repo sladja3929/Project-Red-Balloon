@@ -14,7 +14,7 @@ public class WaterfallSound : MonoBehaviour
 
     private void Update()
     {
-        if(isBig) waterFallSound.volume = SoundManager.Instance.GetSfxSoundVolume();
-        else waterFallSound.volume = SoundManager.Instance.GetSfxSoundVolume() * 0.7f;
+        if(isBig) waterFallSound.volume = SoundManager.instance.GetSfxSoundVolume();
+        else waterFallSound.volume = SoundManager.instance.GetSfxSoundVolume() * 0.7f;
     }
 }

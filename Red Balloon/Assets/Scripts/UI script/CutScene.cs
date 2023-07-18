@@ -1,24 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutScene : MonoBehaviour
 {
     [SerializeField] private Camera cutSceneCamera;
-    [SerializeField] private Transform pointA;
-    [SerializeField] private Transform pointB;
-    [SerializeField] private Transform pointC;
-    [SerializeField] private Transform pointD;
+    [SerializeField] private Transform startPoint;
+    [SerializeField] private Transform middlePoint;
+    [SerializeField] private Transform endPoint;
+    [SerializeField] private Transform lookPoint;
+    [SerializeField] private Transform nextPoint;
+    [SerializeField] private ParticleSystem particleObject;
 
     [SerializeField] private float timeToMove;
     [SerializeField] private float rotationSpeed;
 
-    private float _t;
+    WaitUntil waitingFadeFinish;
+    private float _curTime;
     private Vector3[] _curvePoints;
+    private bool _isRotation;    
 
     private void Start()
     {
+        waitingFadeFinish = new WaitUntil(SceneChangeManager.instance.FinishFade);
+        cutSceneCamera.transform.position = startPoint.transform.position;
+        cutSceneCamera.transform.rotation = Quaternion.LookRotation(lookPoint.position - cutSceneCamera.transform.position).normalized;        
         cutSceneCamera.enabled = false;
+        lookPoint.gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -26,62 +37,108 @@ public class CutScene : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            StartCoroutine(nameof(TutorialCutScene));
+            StartCoroutine(SceneManager.GetActiveScene().name + "CutScene");
         }
     }
 
-    private IEnumerator TutorialCutScene()
+    private IEnumerator Stage1CutScene()
     {
-        float time = 0;
-        SceneChangeManager.Instance.SetTime(1f, 0f);
-        SceneChangeManager.Instance.SetAlpha(0f, 1f);
-        yield return SceneChangeManager.Instance.StartCoroutine(nameof(FadeInOut));
+        FadingInfo fadingInfo = new FadingInfo(1, 0, 1, 0);
+        SceneChangeManager.instance.FadeOut(fadingInfo);
+        particleObject.Play();
+        yield return waitingFadeFinish;
 
-        StartCoroutine("CameraMoving");
-
-        SceneChangeManager.Instance.SetTime(1f, 1f);
-        yield return SceneChangeManager.Instance.StartCoroutine(nameof(SceneChangeManager.FadeOut));
+        SceneChangeManager.instance.FadeIn(fadingInfo);
+        _isRotation = true;
+        StartCoroutine(CameraMovingCoroutine());
         
-        //while(time < timeToMove - 1f)
-        //{
-        //    time += Time.deltaTime;
-        //    yield return null;
-        //}
+        yield return new WaitUntil(() => _cutSceneCameraState is CameraState.Stop or CameraState.AlmostFinish);
 
-        SceneChangeManager.Instance.SetTime(1f, 5f);
-        yield return SceneChangeManager.Instance.StartCoroutine(nameof(SceneChangeManager.FadeIn));
-        SceneChangeManager.Instance.SetTime(6f, 0f);
-        SceneChangeManager.Instance.StartCoroutine(nameof(SceneChangeManager.LoadSceneAsync), "Stage1");
+        SceneChangeManager.instance.FadeOut(fadingInfo);
+        yield return waitingFadeFinish;
 
+        
+        fadingInfo.delayTime = 1;
+        SceneChangeManager.instance.FadeIn(fadingInfo);
+        yield return waitingFadeFinish;
+
+        fadingInfo.delayTime = 5;
+        SceneChangeManager.instance.FadeOut(fadingInfo);
+        yield return waitingFadeFinish;
+
+        fadingInfo.delayTime = 0;
+        fadingInfo.playTime = 4;
+        void FadeIn() => SceneChangeManager.instance.FadeIn(fadingInfo);
+        //SceneChangeManager.instance.LoadSceneAsync("stage2", onFinish: FadeIn);
+    }
+
+    private IEnumerator Stage0CutScene()
+    {
+        FadingInfo fadingInfo = new FadingInfo(1, 0, 1, 0);
+        SceneChangeManager.instance.FadeOut(fadingInfo);
+        yield return waitingFadeFinish;
+
+        fadingInfo.delayTime = 0.5f;
+        SceneChangeManager.instance.FadeIn(fadingInfo);
+        _isRotation = true;
+        StartCoroutine(CameraMovingCoroutine());
+        yield return new WaitUntil(() => _cutSceneCameraState is CameraState.Stop or CameraState.AlmostFinish);
+
+        fadingInfo.delayTime = 0;
+        SceneChangeManager.instance.FadeOut(fadingInfo);
+        yield return waitingFadeFinish;
+
+        fadingInfo.playTime = 5;
+        void FadeIn() => SceneChangeManager.instance.FadeIn(fadingInfo);
+        SceneChangeManager.instance.LoadSceneAsync("stage1", onFinish : FadeIn);
     }
 
     private Vector3 CalculateBezierPoint()
     {
-        Vector3 pA = pointA.position;
-        Vector3 pB = pointB.position;
-        Vector3 pC = pointC.position;
+        float percentage = _curTime / timeToMove;
+        
+        Vector3 pA = startPoint.position;
+        Vector3 pB = middlePoint.position;
+        Vector3 pC = endPoint.position;
 
-        return Vector3.Lerp(Vector3.Lerp(pA, pB, _t), Vector3.Lerp(pB, pC, _t), _t);
+        return Vector3.Lerp(Vector3.Lerp(pA, pB, percentage), Vector3.Lerp(pB, pC, percentage), percentage);
     }
 
-    private IEnumerator CameraMoving()
+    enum CameraState
     {
-        _t = 0f;
+        Stop,
+        Moving,
+        AlmostFinish,
+    }
+    
+    [SerializeField] private CameraState _cutSceneCameraState;
+    private IEnumerator CameraMovingCoroutine()
+    {
+        lookPoint.gameObject.SetActive(true);
+        _cutSceneCameraState = CameraState.Moving;
+        
+        _curTime = 0f;
         Camera.main.enabled = false;
         cutSceneCamera.enabled = true;
-        while(_t < timeToMove)
-        {            
-            cutSceneCamera.transform.position =
-                CalculateBezierPoint();
+
+        while(_curTime < timeToMove)
+        {
+            cutSceneCamera.transform.position = CalculateBezierPoint();
             
-            cutSceneCamera.transform.rotation =
-                Quaternion.Lerp(cutSceneCamera.transform.rotation, 
-                    Quaternion.LookRotation(pointD.position - cutSceneCamera.transform.position), 
-                    Time.deltaTime * rotationSpeed);
-            
-            _t += Time.deltaTime;
+            if(_isRotation)
+            {
+                cutSceneCamera.transform.rotation = Quaternion.Lerp(cutSceneCamera.transform.rotation,
+                                                                    Quaternion.LookRotation(lookPoint.position - cutSceneCamera.transform.position),
+                                                                    Time.deltaTime * rotationSpeed);
+            }
+
+            if (_curTime > timeToMove - 1.3f) _cutSceneCameraState = CameraState.AlmostFinish;
+            _curTime += Time.deltaTime;
             yield return null;
         }
-        
+
+        cutSceneCamera.transform.position = nextPoint.transform.position;
+        cutSceneCamera.transform.rotation = Quaternion.LookRotation(transform.position - cutSceneCamera.transform.position).normalized;
+        _cutSceneCameraState = CameraState.Stop;
     }
 }

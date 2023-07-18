@@ -7,7 +7,7 @@ using System;
 
 public class GameManager : Singleton<GameManager>
 {
-    private void Awake()
+    private new void Awake()
     {
         base.Awake();
         //records = new List<float>();
@@ -24,7 +24,7 @@ public class GameManager : Singleton<GameManager>
         _balloonSpawn = _balloonObj.GetComponent<Respawn>();
     }
 
-    public bool IsPause
+    public static bool IsPause
     {
         get => Time.timeScale == 0;
         set => Time.timeScale = value ? 0 : 1;
@@ -68,16 +68,16 @@ public class GameManager : Singleton<GameManager>
         //records.Sort();
         TimeSpan t = TimeSpan.FromSeconds(Time.time - startTime);
 
-        record = "score: " + string.Format("{0:D2} h {1:D2} m {2:D2} s", t.Hours, t.Minutes, t.Seconds);
+        record = "score: " + $"{t.Hours:D2} h {t.Minutes:D2} m {t.Seconds:D2} s";
 
         IsPause = true;
         endCanvas.SetActive(true);
     }
     public void GoToMainMenu()
     {
-        SceneChangeManager.Instance.SetTime(0f, 0f);
-        SceneChangeManager.Instance.SetAlpha(0f, 0f);
-        SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync", "MainMenu");
-        GameManager.Instance.IsPause = false;
+        SceneChangeManager.instance.LoadSceneAsync("MainMenu");
+        //
+        // SceneChangeManager.instance.StartCoroutine(nameof(FinishGame), "MainMenu");
+        IsPause = false;
     }
 }

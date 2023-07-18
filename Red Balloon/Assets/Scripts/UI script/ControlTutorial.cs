@@ -10,6 +10,7 @@ public class ControlTutorial : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            if (image is null) image = GameObject.Find("Controll");
             image.SetActive(true);
         }
     }
@@ -18,6 +19,7 @@ public class ControlTutorial : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (image is null) image = GameObject.Find("Controll");
             image.SetActive(false);
         }
     }

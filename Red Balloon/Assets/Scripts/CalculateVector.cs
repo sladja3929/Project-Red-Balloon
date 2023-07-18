@@ -8,7 +8,7 @@ public class CalculateVector : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Vector3 V = (targetObject.transform.position - baseObject.transform.position).normalized;
-        Debug.Log(V);
+        Vector3 vector = (targetObject.transform.position - baseObject.transform.position).normalized;
+        Debug.Log(vector);
     }
 }
