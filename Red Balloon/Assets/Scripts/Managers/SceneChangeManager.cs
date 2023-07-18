@@ -9,7 +9,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 페이드 인 아웃관련 정보를 담고있는 구조체입니다.
 /// </summary>
-[System.Serializable]
+[Serializable]
 public struct FadingInfo
 {
     /// <summary>

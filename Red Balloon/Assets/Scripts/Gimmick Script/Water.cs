@@ -21,8 +21,9 @@ public class Water : Gimmick
     private void floatOnWater(GameObject balloon)
     {
         if (!balloon.CompareTag("Player")) return;
-
-        float waterSurface = transform.position.y + transform.localScale.y / 2; //물 표면의 y좌표
+        var waterTransform = transform;
+        
+        float waterSurface = waterTransform.position.y + waterTransform.localScale.y / 2; //물 표면의 y좌표
         float submergedRate = (waterSurface - (balloon.transform.position.y - _sizeOfBalloon / 2))
                               / _sizeOfBalloon; //물에 잠긴 비율
         if (submergedRate > 1f) submergedRate = 1f; //최대값은 1(100%)이므로 초과하면 1로 고정

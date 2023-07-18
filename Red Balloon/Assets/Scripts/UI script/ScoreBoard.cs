@@ -32,7 +32,7 @@ public class ScoreBoard : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        GameManager.instance.GoToMainMenu();
+        GameManager.GoToMainMenu();
         transform.parent.gameObject.SetActive(false);
     }
 }

@@ -8,13 +8,13 @@ public class Bullet : MonoBehaviour
 
     private Rigidbody _rigidbody;
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.useGravity = false;
     }
 
-    void Start()
+    private void Start()
     {
         _rigidbody.velocity = speed * transform.forward;
     }
