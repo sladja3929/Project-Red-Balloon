@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+internal enum LoadType
+{
+    UnloadScene,
+    LoadScene
+}
+
 public class SceneStreamingTrigger : MonoBehaviour
 {
     [SerializeField] private string streamTargetSceneName;
     [SerializeField] private string triggerOwnSceneName;
-
-    private enum LoadType
-    {
-        UnloadScene,
-        LoadScene
-    }
-
     [SerializeField] private LoadType loadType;
-
+    
     private IEnumerator StreamingTargetScene()
     {
         var targetScene = SceneManager.GetSceneByName(streamTargetSceneName);
@@ -47,10 +47,9 @@ public class SceneStreamingTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            if (loadType == LoadType.LoadScene) StartCoroutine(StreamingTargetScene());
-            if (loadType == LoadType.UnloadScene) StartCoroutine(UnloadStreamingScene());
-        }
+        if (other.CompareTag("Player") is false) return;
+        
+        if (loadType == LoadType.LoadScene) StartCoroutine(StreamingTargetScene());
+        if (loadType == LoadType.UnloadScene) StartCoroutine(UnloadStreamingScene());
     }
 }

@@ -6,33 +6,55 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public bool starting = false;
     public void PlayGame()
     {
-        IEnumerator LoadSceneCoroutine(string target)
-        {
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(target);
-            asyncOperation.allowSceneActivation = false;
-        
-            while (asyncOperation.progress < 0.9f)
-            {
-                yield return null;
-                Debug.Log(asyncOperation.progress);
-            }
+        if (starting) return;
+        starting = true;
 
-            asyncOperation.allowSceneActivation = true;
-        }
-
-        StartCoroutine(LoadSceneCoroutine("Stage1"));
+        StartCoroutine(PlayGameCoroutine());        
     }
-    
+
+    private IEnumerator PlayGameCoroutine()
+    {
+        //    경고화면 페이드
+        //    SceneChangeManager.Instance.SetTime(1f, 0f);
+        //    SceneChangeManager.Instance.SetAlpha(0f, 1f);
+        //    yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
+        //    warning.SetActive(true);
+
+        //    SceneChangeManager.Instance.SetTime(1f, 0.5f);
+        //    yield return SceneChangeManager.Instance.StartCoroutine("Fade", "Out");
+
+        //    SceneChangeManager.Instance.SetTime(1f, 3f);
+        //    yield return SceneChangeManager.Instance.StartCoroutine("Fade", "In");
+
+        //    SceneChangeManager.Instance.SetTime(3f, 0f);
+        //    SceneManager.LoadScene("Stage0");
+        
+        //yield return SceneChangeManager.Instance.StartCoroutine(nameof(SceneChangeManager.FadeIn));
+
+        FadingInfo startGameFadingInfo = new FadingInfo(1.5f, 0, 1, 0);
+        SceneChangeManager.instance.FadeOut(startGameFadingInfo);
+        yield return new WaitUntil(() => SceneChangeManager.instance.FinishFade());
+
+        //SceneChangeManager.Instance.SetTime(3f, 0f);        
+        //SceneChangeManager.Instance.StartCoroutine("LoadSceneAsync", "Stage0");
+        //SceneManager.LoadScene("Stage0");
+        
+        SceneChangeManager.instance.LoadSceneAsync("Stage0", () =>
+        {
+            SceneChangeManager.instance.FadeIn(startGameFadingInfo);
+        }
+            );
+    }
     public void QuitGame()
     {
-        //Application.Quit();
+        Application.Quit();
         Debug.Log("Quit");
     }
 
-
-    public GameObject optionMenu;
+    public GameObject optionMenu; 
     public GameObject mainMenu;
     
     public void MainToOption()

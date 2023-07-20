@@ -57,7 +57,6 @@ public class FallingGround : Gimmick
         _isBreaking = false;
     }
 
-
     private bool _isPrefab = false;
     public float destroyPrefabTime;
     /// <summary>

@@ -9,7 +9,7 @@ public class SetSaveByCollision : Gimmick
     {
         if (!isGimmickEnable) return;
         
-        GameManager.Instance.SetSavePoint(savePoint.position);
+        GameManager.instance.SetSavePoint(savePoint.position);
     }
 
     private void OnCollisionEnter(Collision other)

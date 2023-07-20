@@ -49,13 +49,11 @@ public class BalloonShoot : MonoBehaviour
     private void SetRandomRotation()
     {
         _rigidbody.angularVelocity = new Vector3
-            (   Random.value * randomRotationSpeed, 
-                Random.value * randomRotationSpeed,
-                Random.value * randomRotationSpeed);
+            (Random.value * randomRotationSpeed, 
+            Random.value * randomRotationSpeed,
+            Random.value * randomRotationSpeed);
     }
-    
-    
-    
+
     private Rigidbody _rigidbody;
     void Awake()
     {

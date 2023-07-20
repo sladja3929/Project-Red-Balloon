@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DeveloperMode : MonoBehaviour
 {
-    public float moveSpeed = 15;
+    public float moveSpeed = 30;
 
     private Rigidbody _rigidbody;
     private CameraController _controller;

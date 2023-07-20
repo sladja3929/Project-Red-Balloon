@@ -9,14 +9,18 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject backGround;
     [SerializeField] private GameObject menuUI;
 
-    [SerializeField] private Slider volumeSlider;
-    
+    [SerializeField] private Slider sfxVolumeSlider;
+    [SerializeField] private Slider musicVolumeSlider;
+
     private void OpenPauseMenu()
     {
         backGround.SetActive(true);
         menuUI.SetActive(true);
 
-        GameManager.Instance.IsPause = true;
+        GameManager.isPause = true;
+
+        sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();
+        musicVolumeSlider.value = SoundManager.instance.GetBackgroundVolume();
     }
 
     public void ClosePauseMenu()
@@ -24,15 +28,19 @@ public class PauseMenu : MonoBehaviour
         backGround.SetActive(false);
         menuUI.SetActive(false);
 
-        GameManager.Instance.IsPause = false;
+        GameManager.isPause = false;
     }
 
-    public void SetVolume()
+    public void SetSfxVolume()
     {
-        float value = volumeSlider.value;
-        
-        SoundManager.Instance.SetSfxSoundVolume(value);
-        SoundManager.Instance.SetBackgroundVolume(value);
+        float value = sfxVolumeSlider.value;
+        SoundManager.instance.SetSfxSoundVolume(value);
+    }
+
+    public void SetBackgroundVolume()
+    {
+        float value = musicVolumeSlider.value;
+        SoundManager.instance.SetBackgroundVolume(value);
     }
 
     public void SetQuality(int level)
@@ -47,11 +55,16 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        GameManager.Instance.QuitGame();
+        GameManager.instance.QuitGame();
+    }
+
+    public void BackToMainMenu()
+    {
+        GameManager.GoToMainMenu();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {

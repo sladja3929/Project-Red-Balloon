@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Respawn : MonoBehaviour
@@ -55,14 +56,32 @@ public class Respawn : MonoBehaviour
         Destroy(effect, respawnTime);
         Invoke(nameof(Spawn), respawnTime);
     }
-
+    
     private void Spawn()
     {
         transform.position = savePoint;
+        transform.rotation = quaternion.Euler(90, 0, 0);
         _rigidbody.position = savePoint;
         _rigidbody.velocity = Vector3.zero;
-        
+
         gameObject.SetActive(true);
         _controller.SetBasicState();
+
+        StartCoroutine(SpawnCoroutine());
+    }
+
+    private IEnumerator SpawnCoroutine()
+    {
+        _rigidbody.isKinematic = true;
+        var curScale = Vector3.one;
+        for (int i = 0; i < 100; i++)
+        {
+            transform.localScale = curScale * (1 * i) ;
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        transform.localScale = new Vector3(100, 100, 100);
+        _rigidbody.isKinematic = false;
     }
 }

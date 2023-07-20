@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GaugeSlider : MonoBehaviour
 {
     private Slider _slider;
 
-    public BalloonController balloon;
+    private BalloonController _balloon;
 
-    void Awake()
+    private void Awake()
     {
         _slider = GetComponent<Slider>();
-        balloon = GameObject.FindWithTag("Player").GetComponent<BalloonController>();
+        _balloon = GameObject.FindWithTag("Player").GetComponent<BalloonController>();
     }
-    // Update is called once per frame
-    void Update()
+
+    public void Update()
     {
-        _slider.value = balloon.GetChargeGauge();
+        _slider.value = _balloon.GetChargeGauge();
     }
 }

@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.IsPause) return;
+        if (GameManager.isPause) return;
         
         if (Input.GetMouseButton(1))
         {
