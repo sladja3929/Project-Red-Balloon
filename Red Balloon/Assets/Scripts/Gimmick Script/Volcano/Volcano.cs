@@ -12,7 +12,7 @@ public class Volcano : Gimmick
     
     public override void Execute()
     {
-        
+        SpawnSingleStone();
     }
 
     [ContextMenu("돌떨어져유")]
