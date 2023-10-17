@@ -18,7 +18,8 @@ Sea: Balloon made by team Red Balloon [from Pandora Cube game maker club]
 
 
 ## 팀 소개
-Team Red Balloon: 나원준, 오재오, 안찬휘, 박기훈, 진새연
+### Team Red Balloon
+팀원 구성: 나원준, 오재오, 안찬휘, 박기훈, 진새연
 
 ## 환경
 + 플랫폼: Windows PC
