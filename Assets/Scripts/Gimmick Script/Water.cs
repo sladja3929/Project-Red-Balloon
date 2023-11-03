@@ -22,7 +22,7 @@ public class Water : Gimmick
     {
         if (!balloon.CompareTag("Player")) return;
         var waterTransform = transform;
-        
+
         float waterSurface = waterTransform.position.y + waterTransform.localScale.y / 2; //물 표면의 y좌표
         float submergedRate = (waterSurface - (balloon.transform.position.y - _sizeOfBalloon / 2))
                               / _sizeOfBalloon; //물에 잠긴 비율
@@ -30,8 +30,10 @@ public class Water : Gimmick
         if (submergedRate <= 0f) return; //음수라면 잠기지 않은것이므로 return
 
         float floatingForce = floatingPower * submergedRate;
+        Vector3 floatVector =  Vector3.up * floatingForce * Time.deltaTime;
+        if (float.IsNaN(floatVector.x)) return;
 
-        balloon.GetComponent<Rigidbody>().AddForce(Time.deltaTime * Vector3.up * floatingForce);
+        balloon.GetComponent<Rigidbody>().AddForce(floatVector);
     }
 
     /// <summary>
@@ -50,6 +52,8 @@ public class Water : Gimmick
                              (streamVector.magnitude -
                               Vector3.Dot(balloonVelocity, streamVector) / streamVector.magnitude);
         pushVector.y = 0;
+        //check pushvector is Nan vector
+        if (float.IsNaN(pushVector.x)) return;
 
         playerRigid.AddForce(Time.deltaTime * pushVector);
     }

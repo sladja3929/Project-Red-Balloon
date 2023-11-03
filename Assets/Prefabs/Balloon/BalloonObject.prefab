@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 658201702062812452}
   - component: {fileID: 658201702062812453}
   - component: {fileID: 3078912786121558992}
+  - component: {fileID: 5628091487686409406}
   m_Layer: 0
   m_Name: Main Camera(TPS)
   m_TagString: MainCamera
@@ -215,6 +216,19 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &5628091487686409406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658201702062812455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b5dcfef3b671045a518045cda48c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pivot: {x: 0, y: 0, z: -10}
 --- !u!1 &658201702184869412
 GameObject:
   m_ObjectHideFlags: 0

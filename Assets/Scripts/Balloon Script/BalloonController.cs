@@ -78,7 +78,8 @@ public class BalloonController : MonoBehaviour
 	private IEnumerator Aim()
 	{
 		Debug.Log("Aim State");
-		
+
+		_rigidbody.isKinematic = true;
 		_showArrow?.Show();
 		//카메라 컨트롤 타입 드래그로 변경
 		CameraController.instance.onControll = CameraController.ControllType.Drag;

@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
         _balloonObj = GameObject.FindWithTag("Player");
+        SetBalloon(SceneManager.GetActiveScene(), LoadSceneMode.Single);
         //records = new List<float>();
 
         SceneManager.sceneLoaded += SetBalloon;
@@ -23,6 +24,7 @@ public class GameManager : Singleton<GameManager>
 
         _balloonRigid = _balloonObj.GetComponent<Rigidbody>();
         _balloonSpawn = _balloonObj.GetComponent<Respawn>();
+        Debug.Log("asd");
     }
 
     public static bool isPause
