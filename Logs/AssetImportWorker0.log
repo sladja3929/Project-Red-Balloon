@@ -15,7 +15,7 @@ D:/unity/Project Red Balloon
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-63261
+57060
 Successfully changed project path to: D:/unity/Project Red Balloon
 D:/unity/Project Red Balloon
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ D:/unity/Project Red Balloon
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 109.40 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 95.97 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.6f1 (7da38d85baf6)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Resources/UnitySubsystems
@@ -66,50 +66,50 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56952
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56600
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.012255 seconds.
+Registered in 0.008269 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 121.92 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 93.26 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.755 seconds
+- Completed reload, in  0.536 seconds
 Domain Reload Profiling:
-	ReloadAssembly (756ms)
-		BeginReloadAssembly (122ms)
+	ReloadAssembly (537ms)
+		BeginReloadAssembly (67ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (489ms)
-			LoadAssemblies (117ms)
+		EndReloadAssembly (372ms)
+			LoadAssemblies (63ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (105ms)
+			SetupTypeCache (73ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (24ms)
-			SetupLoadedEditorAssemblies (296ms)
+			RebuildScriptCaches (21ms)
+			SetupLoadedEditorAssemblies (234ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (8ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (122ms)
+				RefreshPlugins (93ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (120ms)
-				ProcessInitializeOnLoadMethodAttributes (45ms)
+				ProcessInitializeOnLoadAttributes (96ms)
+				ProcessInitializeOnLoadMethodAttributes (37ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.009152 seconds.
+Registered in 0.007247 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 122.20 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 97.15 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 System.Exception: Error! Visual Scripting: couldn't find visual scripting package
   at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
@@ -129,46 +129,46 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
 Mono: successfully reloaded assembly
-- Completed reload, in  2.335 seconds
+- Completed reload, in  1.419 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2336ms)
-		BeginReloadAssembly (162ms)
+	ReloadAssembly (1420ms)
+		BeginReloadAssembly (97ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (7ms)
+			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (26ms)
-		EndReloadAssembly (2017ms)
-			LoadAssemblies (143ms)
+			CreateAndSetChildDomain (16ms)
+		EndReloadAssembly (1226ms)
+			LoadAssemblies (78ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (540ms)
+			SetupTypeCache (240ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (84ms)
-			SetupLoadedEditorAssemblies (1207ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (826ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (122ms)
-				BeforeProcessingInitializeOnLoad (125ms)
-				ProcessInitializeOnLoadAttributes (845ms)
-				ProcessInitializeOnLoadMethodAttributes (93ms)
-				AfterProcessingInitializeOnLoad (16ms)
+				RefreshPlugins (97ms)
+				BeforeProcessingInitializeOnLoad (104ms)
+				ProcessInitializeOnLoadAttributes (547ms)
+				ProcessInitializeOnLoadMethodAttributes (61ms)
+				AfterProcessingInitializeOnLoad (12ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (10ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 10.11 ms, found 5 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 2.44 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5500 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 47 unused Assets / (1.6 MB). Loaded Objects now: 5982.
-Memory consumption went from 258.5 MB to 256.9 MB.
-Total: 51.428000 ms (FindLiveObjects: 1.307000 ms CreateObjectMapping: 0.453000 ms MarkObjects: 49.041600 ms  DeleteObjects: 0.624900 ms)
+Unloading 5499 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 47 unused Assets / (1.6 MB). Loaded Objects now: 5981.
+Memory consumption went from 257.6 MB to 256.0 MB.
+Total: 19.537500 ms (FindLiveObjects: 0.816000 ms CreateObjectMapping: 0.339200 ms MarkObjects: 17.762600 ms  DeleteObjects: 0.618600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -182,7 +182,55 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 15109.254189 seconds.
-  path: Assets/Art/Shaders/Lava.shader
-  artifactKey: Guid(cc426f19157b9d54db2261c4d154e373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/Lava.shader using Guid(cc426f19157b9d54db2261c4d154e373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e74d2176383c6c05a605bf2d8e955e6') in 0.588718 seconds 
+  Time since last request: 3140.799765 seconds.
+  path: Assets/Art/Shaders/Test.shadergraph
+  artifactKey: Guid(d634383a13c9ee94992d4c677a2e96c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/Test.shadergraph using Guid(d634383a13c9ee94992d4c677a2e96c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df3326da8c4c1ea1856d46a7df358503') in 0.053760 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.920834 seconds.
+  path: Assets/Art/Shaders/New Custom Render Texture.shader
+  artifactKey: Guid(8d8d0ef82f1e8de43afaed6a7cbba1a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/New Custom Render Texture.shader using Guid(8d8d0ef82f1e8de43afaed6a7cbba1a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6326c2f93ca06d826c098b4dbd19cabb') in 0.005423 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.347863 seconds.
+  path: Assets/Art/Shaders/Test.shader
+  artifactKey: Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/Test.shader using Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e08f50dbf7155dc7c4e655533a93c82d') in 0.002502 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 21.053624 seconds.
+  path: Assets/Art/Shaders/Test.shader
+  artifactKey: Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/Test.shader using Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41e0687f8d0964197fcc231a58ea16bc') in 0.006533 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.337190 seconds.
+  path: Assets/Art/Shaders/Test.shader
+  artifactKey: Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/Test.shader using Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50ecec3566dad8469823271ae9bac068') in 0.002349 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 34.647870 seconds.
+  path: Assets/Art/Shaders/Test.shader
+  artifactKey: Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/Test.shader using Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '942fbc39e399fb32db105fb7c5220038') in 0.002283 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 45.709881 seconds.
+  path: Assets/Art/Shaders/Test.shader
+  artifactKey: Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/Test.shader using Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77f2653931d2151d649cacecad5e2947') in 0.002515 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.809109 seconds.
+  path: Assets/Art/Shaders/Test.shader
+  artifactKey: Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/Test.shader using Guid(50513914078e4d9469d0292a8831be13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83f29639daf8f98d97773078bcc7160c') in 0.002453 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 37.726803 seconds.
+  path: Assets/Art/Shaders/albedo.jpg
+  artifactKey: Guid(a5594e23d057a1b4a9fd38aed3343087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/albedo.jpg using Guid(a5594e23d057a1b4a9fd38aed3343087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '416a91a69abe4ce0a1e72123df85d53b') in 0.037679 seconds 
