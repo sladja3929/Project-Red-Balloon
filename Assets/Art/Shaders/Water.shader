@@ -1,15 +1,22 @@
-Shader "Unlit/Water"
+Shader "lit/Water"
 {
     Properties
     {
-        _WaterScrollSpeed ("WaterScrollSpeed", float) = 0.2
-        _NoiseScale("NoiseScale", float) = 0.2
-        _WindDirection("WindDirection", Vector) = (0, 0, 0, 0)
-        
+        _DepthFade ("Depth Fade", float) = 0        
+        _WindDirection("Wind Direction", Vector) = (0, 0, 0, 0)
+        _ShallowColor("Shallow Color", color) = (0, 0, 0, 1)
+        _DeepColor("Deep Color", color) = (0, 0.674, 0.835, 1)
+        _SmoothPercent("Smooth Percent", range(0, 1)) = 0
+        _WaterHeight("Water Height", range(0, 3)) = 0
+        _WaterScrollSpeed ("Water Scroll Speed", range(0, 4)) = 0.2
+        _NoiseScale("Noise Scale", range(0, 10)) = 0.2
+        _FoamColor("Foam Color", color) = (0, 0, 0, 1)
+        _FoamWidth("Foam Width", float) = 0        
     }
+    
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent" }
         LOD 100
 
         Pass
@@ -20,18 +27,28 @@ Shader "Unlit/Water"
 
             #include "UnityCG.cginc"
 
-            struct appdata
+            struct vertexIN
             {
                 float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
             };
 
-            struct v2f
+            struct vertexOUT
             {
-                float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
+                float4 depth : TEXCOORD0;
             };
 
+            fixed _DepthFade;
+            fixed4 _WindDirection;
+            fixed4 _ShallowColor;
+            fixed4 _DeepColor;
+            fixed _SmoothPercent;
+            fixed _WaterHeight;
+            fixed _WaterScrollSpeed;
+            fixed _NoiseScale;
+            fixed4 _FoamColor;
+            fixed _FoamWidth;
+            
             float2 unity_gradientNoise_dir(float2 p)
             {
                 p = p % 289;
@@ -68,27 +85,42 @@ Shader "Unlit/Water"
                 return (1.0-t)*a + (t*b);
             }
             
-            fixed _WaterScrollSpeed;
-            fixed _NoiseScale;
-            fixed4 _WindDirection;
-            
-            float OceanNoise(float octaveFactor, appdata v)
+            float OceanNoise(float octaveFactor, vertexIN v)
             {
                 float gradientNoiseOut;
-                Unity_GradientNoise_float(v.vertex.xz + _Time.y * normalize(_WindDirection.xy) * _WaterScrollSpeed * octaveFactor, _NoiseScale / octaveFactor, gradientNoiseOut);
+                float2 UV = v.vertex.xz;
+                float2 tiling = float2(1, 1);
+                float2 offset = _Time.y * normalize(_WindDirection.xy) * _WaterScrollSpeed * octaveFactor;
+                Unity_GradientNoise_float(UV * tiling + offset, _NoiseScale / octaveFactor, gradientNoiseOut);
                 return gradientNoiseOut * octaveFactor;
             }
           
-            v2f vert (appdata v)
+            vertexOUT vert (vertexIN v)
             {
-                v2f o;
+                float octaveNoise = 0;
+                float i = 1;
+                while(i <= 32)
+                {
+                    octaveNoise += OceanNoise(i, v);
+                    i = i * 2;
+                }
+
+                float3 worldPos = mul(unity_ObjectToWorld, v.vertex.xyz);                
+                v.vertex.xyz = octaveNoise * _WaterHeight + worldPos;
+                
+                vertexOUT o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
+                o.depth = ComputeGrabScreenPos(o.vertex);
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 frag (vertexOUT i) : SV_Target
             {
-                //return col;
+                float sceneDepth = LinearEyeDepth(UNITY_SAMPLE_DEPTH (i.depth));
+                float4 screenPos = i.depth / i.depth.w;
+                float4 baseColor = lerp(_ShallowColor, _DeepColor, saturate(sceneDepth - screenPos / _DepthFade));
+                fixed4 col = baseColor;
+                return col;
             }
             ENDCG
         }

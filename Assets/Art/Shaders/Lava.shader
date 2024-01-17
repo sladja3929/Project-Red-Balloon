@@ -27,7 +27,7 @@ Shader "Unlit/Lava"
             #pragma fragment frag
 
             // vertex shader inputs
-            struct appdata
+            struct vertexIN
             {
                 float4 vertex : POSITION; // vertex position
                 float2 uv : TEXCOORD0; // texture coordinate
@@ -36,7 +36,7 @@ Shader "Unlit/Lava"
             };
 
             // vertex shader outputs ("vertex to fragment")
-            struct v2f
+            struct vertexOUT
             {
                 float2 uv : TEXCOORD0; // texture coordinate
                 float4 vertex : SV_POSITION; // clip space position
@@ -126,9 +126,9 @@ Shader "Unlit/Lava"
             fixed _FloatAmount;
             fixed4 _Tiling;
             // vertex shader
-            v2f vert (appdata v)
+            vertexOUT vert (vertexIN v)
             {
-                v2f o;
+                vertexOUT o;
                 // transform position to clip space
                 // (multiply with model*view*projection matrix)
                 o.vertex = UnityObjectToClipPos(v.vertex);
@@ -151,7 +151,7 @@ Shader "Unlit/Lava"
 
             // pixel shader; returns low precision ("fixed4" type)
             // color ("SV_Target" semantic)
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 frag (vertexOUT i) : SV_Target
             {
                 float2 tiling = _Tiling.xy;
                 //base lava

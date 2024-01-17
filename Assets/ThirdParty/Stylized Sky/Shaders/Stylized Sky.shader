@@ -55,29 +55,29 @@
             float3 _SkyGradientBottom;
             float _SkyGradientExponent;
 
-            struct appdata
+            struct vertexIN
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
             };
 
-            struct v2f
+            struct vertexOUT
             {
                 float4 vertex : SV_POSITION;
                 float2 uv : TEXCOORD0;
                 float3 worldPosition : TEXCOORD1;
             };
 
-            v2f vert (appdata v)
+            vertexOUT vert (vertexIN v)
             {
-                v2f o;
+                vertexOUT o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = v.uv;
                 o.worldPosition = mul(unity_ObjectToWorld, v.vertex).xyz;
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 frag (vertexOUT i) : SV_Target
             {
                 // Masks.
                 float maskHorizon = dot(normalize(i.worldPosition), float3(0, 1, 0));
