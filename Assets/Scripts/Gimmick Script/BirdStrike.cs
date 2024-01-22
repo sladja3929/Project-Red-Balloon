@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BirdStrike : Gimmick
 {
-    [SerializeField] private Transform balloonTransform;
+    [Header("Setting")]
     [SerializeField] private float birdDistance;
     [SerializeField] private float birdFlyTime;
+    
+    [Header("Debugging")]
+    [SerializeField] private Transform balloonTransform;
     [SerializeField] private bool birdFlying;
     private void Awake()
     {
