@@ -13,7 +13,7 @@ public class SharkEffect : DeathEffect
         gameObject.SetActive(true);
 
         _currentTime = 0;
-        SetStartPos(position - Vector3.forward * (moveDistance * 0.5f));
+        SetStartPos(position);
 
         StartCoroutine(MoveCoroutine());
     }
