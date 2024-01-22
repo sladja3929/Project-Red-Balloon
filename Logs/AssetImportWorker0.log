@@ -1,0 +1,1042 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.6f1 (7da38d85baf6) revision 8233869'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'ko' Physical Memory: 32449 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.6f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/User/Desktop/Unity/Project-Red-Balloon
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+59329
+Successfully changed project path to: C:/Users/User/Desktop/Unity/Project-Red-Balloon
+C:/Users/User/Desktop/Unity/Project-Red-Balloon
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 83.42 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.6f1 (7da38d85baf6)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/User/Desktop/Unity/Project-Red-Balloon/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4070 (ID=0x2786)
+    Vendor:   NVIDIA
+    VRAM:     12026 MB
+    Driver:   31.0.15.3640
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56476
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002596 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 70.44 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.384 seconds
+Domain Reload Profiling:
+	ReloadAssembly (384ms)
+		BeginReloadAssembly (39ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (0ms)
+		EndReloadAssembly (285ms)
+			LoadAssemblies (38ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (59ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (15ms)
+			SetupLoadedEditorAssemblies (180ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (70ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (73ms)
+				ProcessInitializeOnLoadMethodAttributes (32ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.004408 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 73.86 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x00032] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:48 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.999 seconds
+Domain Reload Profiling:
+	ReloadAssembly (999ms)
+		BeginReloadAssembly (63ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (13ms)
+		EndReloadAssembly (872ms)
+			LoadAssemblies (51ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (201ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (562ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (2ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (74ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (362ms)
+				ProcessInitializeOnLoadMethodAttributes (39ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (3ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.97 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5497 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 50 unused Assets / (1.9 MB). Loaded Objects now: 5934.
+Memory consumption went from 224.4 MB to 222.4 MB.
+Total: 9.857200 ms (FindLiveObjects: 0.312200 ms CreateObjectMapping: 0.122000 ms MarkObjects: 9.037300 ms  DeleteObjects: 0.385400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 82171.727947 seconds.
+  path: Assets/Bounce.physicMaterial
+  artifactKey: Guid(76fa82ad8def007419c884ab6e3ab811) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Bounce.physicMaterial using Guid(76fa82ad8def007419c884ab6e3ab811) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0204a7142ac22cc83812dd668382de1') in 0.022027 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 205.248348 seconds.
+  path: Assets/Prefabs
+  artifactKey: Guid(05420f8924756634e90c161068e90b14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs using Guid(05420f8924756634e90c161068e90b14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1be7a5d66503720ece4a842344e4626') in 0.005088 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.654726 seconds.
+  path: Assets/Prefabs/14_ani_loop.fbx
+  artifactKey: Guid(39306db539c8a3547a1566ddbd3e3ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/14_ani_loop.fbx using Guid(39306db539c8a3547a1566ddbd3e3ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '786c64f543922bb1a9a1590cb0730a86') in 1.359491 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.410234 seconds.
+  path: Assets/Prefabs/Gimmik
+  artifactKey: Guid(8e757cbcf160f1d4185f0cb7b59e2690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik using Guid(8e757cbcf160f1d4185f0cb7b59e2690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bf9d14a6f419eee396815a78b70d7d1') in 0.005457 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.240748 seconds.
+  path: Assets/Scripts
+  artifactKey: Guid(33a8d04a463d01f49949471b7a57d608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts using Guid(33a8d04a463d01f49949471b7a57d608) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ece6f3604f0af2ad7218b93917cf0e0') in 0.005105 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.160420 seconds.
+  path: Assets/Scripts/Dummy File
+  artifactKey: Guid(321217f8c8bd69041a805122ce6fc078) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Dummy File using Guid(321217f8c8bd69041a805122ce6fc078) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d13f88b3b4b90451d012b395c2fb754') in 0.006257 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.635576 seconds.
+  path: Assets/Scripts/Gimmick Script
+  artifactKey: Guid(fcb827225106e154884c12c951649fb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Gimmick Script using Guid(fcb827225106e154884c12c951649fb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7050762afe52b927d40903bbecdea785') in 0.006045 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 19.670879 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(6ea315d0fd7389c41b19996891e99ae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(6ea315d0fd7389c41b19996891e99ae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc172811d573b296104adb4d2728db37') in 0.004994 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.253703 seconds.
+  path: Assets/Scenes/TestOrSamPleScenes
+  artifactKey: Guid(996136b1e27c59d47a77c96216076646) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/TestOrSamPleScenes using Guid(996136b1e27c59d47a77c96216076646) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcfcee2d77751f3ad1fc1b4351c735f6') in 0.004861 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.108992 seconds.
+  path: Assets/Scenes/TestOrSamPleScenes/bird_ani.fbx
+  artifactKey: Guid(e050f99394971e044bea08bc5a97ec94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/TestOrSamPleScenes/bird_ani.fbx using Guid(e050f99394971e044bea08bc5a97ec94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cf9230368c5dcba604b632ea8969c0b') in 0.018305 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.440630 seconds.
+  path: Assets/Scenes/TestOrSamPleScenes/Volcano Test Scene.unity
+  artifactKey: Guid(6117a6c578f894d42bd7401270831b73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/TestOrSamPleScenes/Volcano Test Scene.unity using Guid(6117a6c578f894d42bd7401270831b73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9a56bd17204088f393ce72a68825e92') in 0.004831 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 39.412478 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79842766b460edbeab6a34051e857a80') in 0.004825 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 25.062848 seconds.
+  path: Assets/SeaFly.controller
+  artifactKey: Guid(d58edf038b4e97a448997a3ebe763988) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SeaFly.controller using Guid(d58edf038b4e97a448997a3ebe763988) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '951195b93c3af2ca99ef4265bfea0f4c') in 0.006654 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.143615 seconds.
+  path: Assets/Resources
+  artifactKey: Guid(595e24322a45f1d4a99dbb683dc8a527) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources using Guid(595e24322a45f1d4a99dbb683dc8a527) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37b7cdab4fa708e9b556ff2788218bbd') in 0.005069 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.188541 seconds.
+  path: Assets/Resources/DeathEffects
+  artifactKey: Guid(4ac54f6454ad1b345a22061d51fb48b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/DeathEffects using Guid(4ac54f6454ad1b345a22061d51fb48b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eaf7b6b5d4944dbd2980b53033474010') in 0.005118 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.064365 seconds.
+  path: Assets/Resources/DeathEffects/Shark.prefab
+  artifactKey: Guid(8be86d75ce8471c4597ad00e2bc77987) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/DeathEffects/Shark.prefab using Guid(8be86d75ce8471c4597ad00e2bc77987) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be8756024e29f542ea3ee67ffc6c21c0') in 0.007465 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 29.183176 seconds.
+  path: Assets/Prefabs/14_ani_loop.fbx
+  artifactKey: Guid(39306db539c8a3547a1566ddbd3e3ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/14_ani_loop.fbx using Guid(39306db539c8a3547a1566ddbd3e3ca6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b380de24a245a68ba30b031843c1052') in 0.045389 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004196 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.948 seconds
+Domain Reload Profiling:
+	ReloadAssembly (949ms)
+		BeginReloadAssembly (101ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (795ms)
+			LoadAssemblies (48ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (187ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (373ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (60ms)
+				ProcessInitializeOnLoadAttributes (251ms)
+				ProcessInitializeOnLoadMethodAttributes (50ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 2.17 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5323 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 43 unused Assets / (1.9 MB). Loaded Objects now: 6029.
+Memory consumption went from 231.5 MB to 229.6 MB.
+Total: 9.929800 ms (FindLiveObjects: 0.288500 ms CreateObjectMapping: 0.075900 ms MarkObjects: 9.191000 ms  DeleteObjects: 0.374100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004159 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.94 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.926 seconds
+Domain Reload Profiling:
+	ReloadAssembly (926ms)
+		BeginReloadAssembly (99ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (773ms)
+			LoadAssemblies (44ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (162ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (374ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (57ms)
+				ProcessInitializeOnLoadAttributes (255ms)
+				ProcessInitializeOnLoadMethodAttributes (49ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 2.14 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5324 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 43 unused Assets / (1.9 MB). Loaded Objects now: 6033.
+Memory consumption went from 231.6 MB to 229.7 MB.
+Total: 8.805300 ms (FindLiveObjects: 0.304700 ms CreateObjectMapping: 0.086200 ms MarkObjects: 7.995300 ms  DeleteObjects: 0.418500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004887 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.95 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.932 seconds
+Domain Reload Profiling:
+	ReloadAssembly (933ms)
+		BeginReloadAssembly (96ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		EndReloadAssembly (779ms)
+			LoadAssemblies (50ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (168ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (30ms)
+			SetupLoadedEditorAssemblies (369ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (56ms)
+				ProcessInitializeOnLoadAttributes (251ms)
+				ProcessInitializeOnLoadMethodAttributes (50ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 2.08 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5324 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 43 unused Assets / (1.9 MB). Loaded Objects now: 6037.
+Memory consumption went from 231.6 MB to 229.7 MB.
+Total: 10.318200 ms (FindLiveObjects: 0.350100 ms CreateObjectMapping: 0.105100 ms MarkObjects: 9.270000 ms  DeleteObjects: 0.592600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 141.574824 seconds.
+  path: Assets/Prefabs/Gimmik/BGMFadeOut.prefab
+  artifactKey: Guid(7d6ccd0c001d1514b9297768ae16c7ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/BGMFadeOut.prefab using Guid(7d6ccd0c001d1514b9297768ae16c7ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '797581ef399e8ce3f97cfef61e973d1d') in 0.025834 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Prefabs/Gimmik/ExplosionCube.prefab
+  artifactKey: Guid(bb67742d769a10e4c9c5a2f0f8b02c0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/ExplosionCube.prefab using Guid(bb67742d769a10e4c9c5a2f0f8b02c0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6adc7e5fd22de7308582636068c17f0') in 0.005881 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000009 seconds.
+  path: Assets/Prefabs/Gimmik/Sea Fly.prefab
+  artifactKey: Guid(63f674f9f093a8143941da0e730c8cb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/Sea Fly.prefab using Guid(63f674f9f093a8143941da0e730c8cb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '126199d2d3eba6b2fdbb843746b52e76') in 0.107256 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Prefabs/Gimmik/Tornado 1.prefab
+  artifactKey: Guid(633abb5405e15f34cb65a5b082b33375) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/Tornado 1.prefab using Guid(633abb5405e15f34cb65a5b082b33375) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '105e4152200ec33e66d4f4b966bf4311') in 0.352017 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/Gimmik/FallingStone.prefab
+  artifactKey: Guid(06bc244ecdb0720479b83a2b2444181f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/FallingStone.prefab using Guid(06bc244ecdb0720479b83a2b2444181f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eddd56d29f2bc29ea49c4c4d4347afc0') in 0.609140 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/Gimmik/Fire Wall.prefab
+  artifactKey: Guid(54918a6e39fda21449e539e40bd705ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/Fire Wall.prefab using Guid(54918a6e39fda21449e539e40bd705ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02f73281f2befe18d52860371f5ee7b8') in 0.621672 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/Gimmik/Hot Ground.prefab
+  artifactKey: Guid(e145adc06d6b98140a79c1055e5514b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/Hot Ground.prefab using Guid(e145adc06d6b98140a79c1055e5514b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70ff17494f33063b296dc8cd087d63b7') in 0.009888 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Prefabs/Gimmik/RollingStone.prefab
+  artifactKey: Guid(b696f41a7bdb29d418d27c33a9a4366e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/RollingStone.prefab using Guid(b696f41a7bdb29d418d27c33a9a4366e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20b8ac4ac6dfaa302f42f7f0a234c432') in 0.009650 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Assets/Prefabs/Gimmik/Die Effect.prefab
+  artifactKey: Guid(0d0bf04644db61d4c8459ac285442859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/Die Effect.prefab using Guid(0d0bf04644db61d4c8459ac285442859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '071a67d8dbf5b03629c8b286bbd2ca49') in 0.012039 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Prefabs/Gimmik/TutorialCutScene.prefab
+  artifactKey: Guid(680d6241dbc8d2248946d75fbd162034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/TutorialCutScene.prefab using Guid(680d6241dbc8d2248946d75fbd162034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c758e5ea2c0878ae539751d21fca821') in 0.005788 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000009 seconds.
+  path: Assets/Prefabs/Gimmik/Water_Colllider.prefab
+  artifactKey: Guid(c413e092e4685664584f720a5c639a98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/Water_Colllider.prefab using Guid(c413e092e4685664584f720a5c639a98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f4f6664906210835cf1146514069980') in 0.057902 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Prefabs/Gimmik/Tornado.prefab
+  artifactKey: Guid(ed8f222bd97f2dc449f9dc422412945f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/Tornado.prefab using Guid(ed8f222bd97f2dc449f9dc422412945f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38d8e04326f4cade8232d35c07b44f5b') in 0.028720 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Prefabs/Gimmik/Wind_Push_Area.prefab
+  artifactKey: Guid(5e18fed64f645554087b5c9cd8a9a3d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/Wind_Push_Area.prefab using Guid(5e18fed64f645554087b5c9cd8a9a3d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '044e8b69b422684dfd7a199943e49184') in 0.026653 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Prefabs/Gimmik/mushroom.prefab
+  artifactKey: Guid(6a41c91d8f8f916449193d2b7da31b2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/mushroom.prefab using Guid(6a41c91d8f8f916449193d2b7da31b2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79328a0db5ab22b313134db084425b4f') in 0.011506 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Gimmik/Palmtree_Save.prefab
+  artifactKey: Guid(72f64d90faac79b4ab0f8fe7b21b3489) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Gimmik/Palmtree_Save.prefab using Guid(72f64d90faac79b4ab0f8fe7b21b3489) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55625ad184037b07131dfbc0955d0ddb') in 0.551295 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 28.498820 seconds.
+  path: Assets/Prefabs/FX/Wind_Flow.prefab
+  artifactKey: Guid(c7bd9c3dbb0f4094cbca5e073b24b150) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FX/Wind_Flow.prefab using Guid(c7bd9c3dbb0f4094cbca5e073b24b150) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cc2fd69603c51a84a1e1b514dfa7ca1') in 0.056404 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 51.320969 seconds.
+  path: Assets/TerrainData/Stage 0/TutorialWaterfallPlane.fbx
+  artifactKey: Guid(148d83ce363711845ac141a9e83f9303) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData/Stage 0/TutorialWaterfallPlane.fbx using Guid(148d83ce363711845ac141a9e83f9303) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11e3660144e595cb31d4f29c2354f954') in 0.043581 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.834426 seconds.
+  path: Assets/Art/Meshes/FX/Tornado.fbx
+  artifactKey: Guid(881d5f3f3ccf73d4badc53f0bc1d7de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/FX/Tornado.fbx using Guid(881d5f3f3ccf73d4badc53f0bc1d7de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed2b055ae51cd1905204570829c25cd4') in 0.029434 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.375856 seconds.
+  path: Assets/Art/Meshes/Balloon/BalloonDeath.fbx
+  artifactKey: Guid(74d202a4e9691f649974a92d2c8b214d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/Balloon/BalloonDeath.fbx using Guid(74d202a4e9691f649974a92d2c8b214d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3efd27d713ec1459e313fd051d17b800') in 0.140269 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.262251 seconds.
+  path: Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Building Elements/Meshes/Wood_House.fbx
+  artifactKey: Guid(1d439cf7f0a63e04db3f7d727bb40ab0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Building Elements/Meshes/Wood_House.fbx using Guid(1d439cf7f0a63e04db3f7d727bb40ab0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5dbe6ea0ec7958113338ddb92021789') in 0.123590 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.043510 seconds.
+  path: Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Props/Meshes/WoodenChest_01.fbx
+  artifactKey: Guid(2bf0eb28acc4b214991c3748c3267581) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Props/Meshes/WoodenChest_01.fbx using Guid(2bf0eb28acc4b214991c3748c3267581) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65b59f2a5054a2f5d059f4669cab390d') in 0.038153 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.459358 seconds.
+  path: Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Building Elements/Meshes/Stones&Woodbeams.fbx
+  artifactKey: Guid(3dc2900cacc558e4c8c6301db0b90f8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Building Elements/Meshes/Stones&Woodbeams.fbx using Guid(3dc2900cacc558e4c8c6301db0b90f8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cbdeeb9215ab3672bd9a80705eb6903') in 0.140032 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.565731 seconds.
+  path: Assets/Art/Meshes/Vegetation/Wood_01.fbx
+  artifactKey: Guid(10bca05c05948754aadbff694dfa77e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/Vegetation/Wood_01.fbx using Guid(10bca05c05948754aadbff694dfa77e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '310677369ec0e4ac9ddf01c98319a315') in 0.012654 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.466349 seconds.
+  path: Assets/Art/Meshes/Vegetation/Twiner_06.fbx
+  artifactKey: Guid(c343d259f3c1760489480c40cb47eb77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/Vegetation/Twiner_06.fbx using Guid(c343d259f3c1760489480c40cb47eb77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '217602fe74b607468efd18d5677a6dc8') in 0.012134 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.019756 seconds.
+  path: Assets/Art/Meshes/Vegetation/Twiner_02.fbx
+  artifactKey: Guid(51606ba1fed90534c9be10090b6f45fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/Vegetation/Twiner_02.fbx using Guid(51606ba1fed90534c9be10090b6f45fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70ec9fa0c0cd2456417aec1ab0051563') in 0.012829 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/TerrainData/Stage 0/TutorialTerrain_edit.fbx
+  artifactKey: Guid(1bf7d1bd866ee3f41b29c4efb1ddff54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TerrainData/Stage 0/TutorialTerrain_edit.fbx using Guid(1bf7d1bd866ee3f41b29c4efb1ddff54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36cefe3040db998e268510617f3edeea') in 0.013692 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.012319 seconds.
+  path: Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Building Elements/Meshes/TowerGate.fbx
+  artifactKey: Guid(a1a4bbb562bb539418add6419721eaf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Building Elements/Meshes/TowerGate.fbx using Guid(a1a4bbb562bb539418add6419721eaf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '533d1d2d1cd2f6986d4789806771d193') in 0.244442 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.660367 seconds.
+  path: Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Building Elements/Meshes/Tombstone_01_Moss_Detail.fbx
+  artifactKey: Guid(4d0dca6df0592084f8cabdeb6fbee6de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Building Elements/Meshes/Tombstone_01_Moss_Detail.fbx using Guid(4d0dca6df0592084f8cabdeb6fbee6de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '767535511285e8564817b8b389d695e7') in 0.013881 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.008149 seconds.
+  path: Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Building Elements/Meshes/Ruin_Bricks&Tiles.fbx
+  artifactKey: Guid(457a2af4b89de4b4290b9b47aae14f28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Building Elements/Meshes/Ruin_Bricks&Tiles.fbx using Guid(457a2af4b89de4b4290b9b47aae14f28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c24394f3257e9d23dd29e48b2deefaf') in 0.243972 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.315533 seconds.
+  path: Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Props/Meshes/Table_01.fbx
+  artifactKey: Guid(65c989e9ad9ce6747b407bd82899d5ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Props/Meshes/Table_01.fbx using Guid(65c989e9ad9ce6747b407bd82899d5ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f816aa0ec898f3bf5ebcf80ac912b307') in 0.106082 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.029236 seconds.
+  path: Assets/ThirdParty/BIG_Environment_Pack_LP/FX/Meshes/SunRay_01.fbx
+  artifactKey: Guid(291f6400d7fd36740835a56af2335e19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/BIG_Environment_Pack_LP/FX/Meshes/SunRay_01.fbx using Guid(291f6400d7fd36740835a56af2335e19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c13427139906b38f7eccce28af6ff2c') in 0.115993 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.221682 seconds.
+  path: Assets/Art/Meshes/Stone/Small_Stones.fbx
+  artifactKey: Guid(12a033e26c87dcb4d839c2df73ff0072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/Stone/Small_Stones.fbx using Guid(12a033e26c87dcb4d839c2df73ff0072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c94b388d68df07ccf5e908f9bac1dfb1') in 0.046063 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.179721 seconds.
+  path: Assets/Art/Meshes/Stone/Stone_04_Detail_Moss.fbx
+  artifactKey: Guid(4446a1fb652b66a4f85d401c6705f47f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/Stone/Stone_04_Detail_Moss.fbx using Guid(4446a1fb652b66a4f85d401c6705f47f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc154b7257778818ec116477d3254e99') in 0.013829 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.924708 seconds.
+  path: Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Props/Materials/Candle 1.mat
+  artifactKey: Guid(998e7740ea3452a4eabc7f7bda441756) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Props/Materials/Candle 1.mat using Guid(998e7740ea3452a4eabc7f7bda441756) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dd29edabf8b9cf5837447e18afbe2e0') in 0.557094 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.348494 seconds.
+  path: Assets/ThirdParty/Stylized Sky/Materials/Day1.mat
+  artifactKey: Guid(9aa8ed67591432941bb76f12eb23ff91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/Stylized Sky/Materials/Day1.mat using Guid(9aa8ed67591432941bb76f12eb23ff91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1084fdb901893e7096603c4b561cec89') in 0.010409 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.012263 seconds.
+  path: Assets/ThirdParty/Stylized Sky/Materials/Day2.mat
+  artifactKey: Guid(5c80d49013691df48ac94280337e88ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/Stylized Sky/Materials/Day2.mat using Guid(5c80d49013691df48ac94280337e88ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af9cc7519515678901b3d40ea73ab6e6') in 0.010157 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.021939 seconds.
+  path: Assets/ThirdParty/Stylized Sky/Materials/Day4.mat
+  artifactKey: Guid(5c57bb9da366e944a8f4ae9be4f413ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/Stylized Sky/Materials/Day4.mat using Guid(5c57bb9da366e944a8f4ae9be4f413ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e4ffd686680a1f9e35ce0f7507db302') in 0.010035 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.010568 seconds.
+  path: Assets/ThirdParty/Stylized Sky/Materials/Day6.mat
+  artifactKey: Guid(bbbcd551076325545ba102ba8c308520) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/Stylized Sky/Materials/Day6.mat using Guid(bbbcd551076325545ba102ba8c308520) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dce6debbdc94bc77e77769982483c29a') in 0.009300 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.028135 seconds.
+  path: Assets/Test/Shader_CartoonBalloon/Default-Material.mat
+  artifactKey: Guid(7fcd7c0d1e84c894e92eb19175d3f4a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Test/Shader_CartoonBalloon/Default-Material.mat using Guid(7fcd7c0d1e84c894e92eb19175d3f4a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ec668b1cca8948e590efd52bcfffcd7') in 0.008604 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.011089 seconds.
+  path: Assets/Art/Shaders/새 폴더/지형1.obj
+  artifactKey: Guid(cc30a8a42ac60a744897805d7a27057a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/새 폴더/지형1.obj using Guid(cc30a8a42ac60a744897805d7a27057a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8dbcb15c144bbe7b0993b5f52dcbe6d') in 0.022165 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.269309 seconds.
+  path: Assets/Art/Shaders/새 폴더/종유석2.obj
+  artifactKey: Guid(c6bf08764ae28654ea2497d0e42c9473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/새 폴더/종유석2.obj using Guid(c6bf08764ae28654ea2497d0e42c9473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4806fe7403d051468c4b364029204f1') in 0.019236 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.007680 seconds.
+  path: Assets/Art/Shaders/새 폴더/지형5.obj
+  artifactKey: Guid(91f4a6a3000202941b2892979c2e836d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/새 폴더/지형5.obj using Guid(91f4a6a3000202941b2892979c2e836d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fc741bdf0b5120db56e8855b6007f04') in 0.017515 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Props/Materials/Door&Windows.mat
+  artifactKey: Guid(edff781655a297f4f92dd7da4ff8591e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Props/Materials/Door&Windows.mat using Guid(edff781655a297f4f92dd7da4ff8591e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed606db212de25f00d58d72f68ef8c48') in 0.008847 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.005173 seconds.
+  path: Assets/Art/Materials/Vegetation/Dry_Vegitation_Col.mat
+  artifactKey: Guid(e16c7f7cd74fa33488036143046e50bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Vegetation/Dry_Vegitation_Col.mat using Guid(e16c7f7cd74fa33488036143046e50bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd33c970f373b72be71b454d0d3dc48e1') in 0.009753 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.008550 seconds.
+  path: Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Props/Materials/fire_wood_col.mat
+  artifactKey: Guid(d2cba7eace4a9944db0991e5b4dd10c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ThirdParty/BIG_Environment_Pack_LP/Environment/Props/Materials/fire_wood_col.mat using Guid(d2cba7eace4a9944db0991e5b4dd10c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '011b3ca70e824326dc42ef85cc9eae58') in 0.592572 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Art/Materials/Vegetation/Ivy_2.mat
+  artifactKey: Guid(7f08648a71ecc6640999f82392d5595f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Vegetation/Ivy_2.mat using Guid(7f08648a71ecc6640999f82392d5595f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2df82a57d37009dff27b2f4c6b102235') in 0.011302 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Art/Meshes/Vegetation/G_Wood_Root.fbx
+  artifactKey: Guid(04a879e7d8ac3044295d492cfe90a958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/Vegetation/G_Wood_Root.fbx using Guid(04a879e7d8ac3044295d492cfe90a958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c7b3dabc4abe09c447dd3e4396df870') in 0.032863 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-BoldItalic.ttf
+  artifactKey: Guid(dfb97a9307a577a41bcacba34b9a7e32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-BoldItalic.ttf using Guid(dfb97a9307a577a41bcacba34b9a7e32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac16c537858ac8957a3fd890e4b8d8f0') in 0.018524 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000010 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Light.ttf
+  artifactKey: Guid(2a29e27936eb547458f646f71125b264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-Light.ttf using Guid(2a29e27936eb547458f646f71125b264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aeea09a686199bede68713b531e74c51') in 0.009904 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-LightItalic.ttf
+  artifactKey: Guid(5e63515167650a541b309ba3bfd4db3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.searcher/Editor/Resources/FlatSkin/Font/Roboto-LightItalic.ttf using Guid(5e63515167650a541b309ba3bfd4db3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4658c662e5ba9156038596f309ab80ce') in 0.010293 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.616073 seconds.
+  path: Assets/Art/Materials/Terrian/Beach_Tile 2.mat
+  artifactKey: Guid(8d379228db608a043bb60edfd2b89e1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Terrian/Beach_Tile 2.mat using Guid(8d379228db608a043bb60edfd2b89e1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7835d67f825d930dc43bafd65e960a7c') in 0.017476 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Art/Materials/Terrian/Ocean_MainMenu.mat
+  artifactKey: Guid(e93fd6d6104883544ab8b48e3578a46b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Terrian/Ocean_MainMenu.mat using Guid(e93fd6d6104883544ab8b48e3578a46b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdd2d8618b51ef6583d0c5c489dbe276') in 1.192678 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Art/Materials/Terrian/Terrian_Stage1.mat
+  artifactKey: Guid(765f4632a6f2641448f9eb39abd9763f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Terrian/Terrian_Stage1.mat using Guid(765f4632a6f2641448f9eb39abd9763f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0dfeb6367008645ca83b763ebe236c1') in 0.009251 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Art/Materials/Terrian/Terrain_Tutorial.mat
+  artifactKey: Guid(c136d353ac5539f4f96afbb5d86275e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Terrian/Terrain_Tutorial.mat using Guid(c136d353ac5539f4f96afbb5d86275e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd453f70ff862358c7f10cc41b9a52c26') in 0.010003 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Art/Materials/Terrian/Lava_Valley1_2.mat
+  artifactKey: Guid(ac6a79a82d1d10d44a7cce97a30cd287) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Terrian/Lava_Valley1_2.mat using Guid(ac6a79a82d1d10d44a7cce97a30cd287) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b0677197dd9e67262733434714535eb') in 0.730882 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 22.815845 seconds.
+  path: Assets/Art/Materials/New Material.mat
+  artifactKey: Guid(ed0c7d060770d474a91198f27497fb5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/New Material.mat using Guid(ed0c7d060770d474a91198f27497fb5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1722b7cd4f6286f593d1b51592cc3c35') in 0.534802 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.873885 seconds.
+  path: Assets/Art/Materials/FX/Tornado.mat
+  artifactKey: Guid(ca40d889204951443892822eb4d3e80f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/FX/Tornado.mat using Guid(ca40d889204951443892822eb4d3e80f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d23c04fd3f19d03e4c886216c54e03a') in 0.019334 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Art/Materials/FX/Wind_Flow.mat
+  artifactKey: Guid(25a2d7f49e57a404c94aefaa86ba6d44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/FX/Wind_Flow.mat using Guid(25a2d7f49e57a404c94aefaa86ba6d44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f617d06db6bd37b7c26e8c7efff9887') in 0.030283 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.005264 seconds.
+  path: Assets/Art/Texture/Terrain/Lava005_2K-PNG_NormalDX.png
+  artifactKey: Guid(c98e35eafd313534daee79db4b7a3788) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Texture/Terrain/Lava005_2K-PNG_NormalDX.png using Guid(c98e35eafd313534daee79db4b7a3788) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0f5a6d4929c62e3d1e0e7541f8810cd') in 0.014356 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 43.634605 seconds.
+  path: Assets/Art/Materials/Terrian/Lava_River.mat
+  artifactKey: Guid(ffa28c083df813541bbe61b0b7927d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Materials/Terrian/Lava_River.mat using Guid(ffa28c083df813541bbe61b0b7927d6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a7ad944da5b2b2b700acf8f29162d44') in 0.707089 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 132.041277 seconds.
+  path: Assets/Scripts/Gimmick Script/Volcano/Flames.prefab
+  artifactKey: Guid(ff995765c698ee1478326e204ae9cf32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Gimmick Script/Volcano/Flames.prefab using Guid(ff995765c698ee1478326e204ae9cf32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b26eccd21d4d0acc93995369290cd0c6') in 0.012529 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Scripts/Gimmick Script/Volcano/Sphere.prefab
+  artifactKey: Guid(437055318e2d3bc44853c5ea0acfa1d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Gimmick Script/Volcano/Sphere.prefab using Guid(437055318e2d3bc44853c5ea0acfa1d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd17f4aef35389c60e0d84e717c23067') in 0.477771 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003961 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.879 seconds
+Domain Reload Profiling:
+	ReloadAssembly (879ms)
+		BeginReloadAssembly (103ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (722ms)
+			LoadAssemblies (48ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (168ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (27ms)
+			SetupLoadedEditorAssemblies (319ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (51ms)
+				ProcessInitializeOnLoadAttributes (214ms)
+				ProcessInitializeOnLoadMethodAttributes (42ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 1.81 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5327 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 45 unused Assets / (1.9 MB). Loaded Objects now: 6096.
+Memory consumption went from 235.8 MB to 233.9 MB.
+Total: 8.656100 ms (FindLiveObjects: 0.278700 ms CreateObjectMapping: 0.090100 ms MarkObjects: 7.844700 ms  DeleteObjects: 0.442100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003824 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.92 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in C:\Users\User\Desktop\Unity\Project-Red-Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  0.849 seconds
+Domain Reload Profiling:
+	ReloadAssembly (849ms)
+		BeginReloadAssembly (98ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (694ms)
+			LoadAssemblies (44ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (158ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (320ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (51ms)
+				ProcessInitializeOnLoadAttributes (217ms)
+				ProcessInitializeOnLoadMethodAttributes (40ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 1.91 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5324 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 43 unused Assets / (1.9 MB). Loaded Objects now: 6100.
+Memory consumption went from 235.4 MB to 233.5 MB.
+Total: 8.522800 ms (FindLiveObjects: 0.313400 ms CreateObjectMapping: 0.100200 ms MarkObjects: 7.720000 ms  DeleteObjects: 0.388800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
