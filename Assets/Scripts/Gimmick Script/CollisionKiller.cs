@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class CollisionKiller : Gimmick
 {
+    public EffectType effectType;
+    
     public override void Execute()
     {
         if (!isGimmickEnable) return;
@@ -21,6 +23,9 @@ public class CollisionKiller : Gimmick
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+        
+        //play effect
+        EffectManager.instance.ShowDeathEffect(effectType, other.transform.position);
         Execute();
     }
 }

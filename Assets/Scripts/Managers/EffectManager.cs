@@ -10,6 +10,8 @@ public class EffectManager : Singleton<EffectManager>
     //public method that instantiate death effect
     public void ShowDeathEffect(EffectType type, Vector3 position)
     {
+        if(type == EffectType.None) return;
+        
         //find type equals to type in list of death effects
         DeathEffect effect = _deathEffects.Find(x => x.GetEffectType() == type);
         //if type is not found, instantiate new death effect and add it to list

@@ -12,6 +12,7 @@ public abstract class DeathEffect : MonoBehaviour
 
 public enum EffectType
 {
+    None,
     Shark,
     Explosion,
     Blood
