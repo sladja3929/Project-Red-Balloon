@@ -15,7 +15,7 @@ D:/unity/Project Red Balloon
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-50673
+58831
 Successfully changed project path to: D:/unity/Project Red Balloon
 D:/unity/Project Red Balloon
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ D:/unity/Project Red Balloon
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 99.51 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 104.07 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.6f1 (7da38d85baf6)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Resources/UnitySubsystems
@@ -66,50 +66,50 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56356
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56740
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.008552 seconds.
+Registered in 0.007984 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 96.05 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 100.14 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.544 seconds
+- Completed reload, in  0.543 seconds
 Domain Reload Profiling:
-	ReloadAssembly (544ms)
-		BeginReloadAssembly (66ms)
+	ReloadAssembly (543ms)
+		BeginReloadAssembly (65ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (379ms)
-			LoadAssemblies (63ms)
+		EndReloadAssembly (382ms)
+			LoadAssemblies (62ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (73ms)
+			SetupTypeCache (76ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (21ms)
-			SetupLoadedEditorAssemblies (239ms)
+			SetupLoadedEditorAssemblies (241ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (96ms)
+				RefreshPlugins (100ms)
 				BeforeProcessingInitializeOnLoad (1ms)
 				ProcessInitializeOnLoadAttributes (97ms)
-				ProcessInitializeOnLoadMethodAttributes (37ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007011 seconds.
+Registered in 0.006943 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 97.38 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 101.01 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 System.Exception: Error! Visual Scripting: couldn't find visual scripting package
   at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
@@ -129,46 +129,46 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.424 seconds
+- Completed reload, in  1.462 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1424ms)
-		BeginReloadAssembly (97ms)
+	ReloadAssembly (1462ms)
+		BeginReloadAssembly (94ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (1226ms)
-			LoadAssemblies (78ms)
+			CreateAndSetChildDomain (17ms)
+		EndReloadAssembly (1269ms)
+			LoadAssemblies (74ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (240ms)
+			SetupTypeCache (230ms)
 			ReleaseScriptCaches (1ms)
 			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (829ms)
+			SetupLoadedEditorAssemblies (884ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (97ms)
+				RefreshPlugins (101ms)
 				BeforeProcessingInitializeOnLoad (101ms)
-				ProcessInitializeOnLoadAttributes (555ms)
-				ProcessInitializeOnLoadMethodAttributes (60ms)
-				AfterProcessingInitializeOnLoad (11ms)
+				ProcessInitializeOnLoadAttributes (570ms)
+				ProcessInitializeOnLoadMethodAttributes (91ms)
+				AfterProcessingInitializeOnLoad (16ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 1.98 ms, found 5 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 1.89 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5506 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 47 unused Assets / (1.6 MB). Loaded Objects now: 5990.
-Memory consumption went from 259.6 MB to 258.0 MB.
-Total: 19.668300 ms (FindLiveObjects: 0.755400 ms CreateObjectMapping: 0.296000 ms MarkObjects: 18.096200 ms  DeleteObjects: 0.519600 ms)
+Unloading 5507 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 47 unused Assets / (1.6 MB). Loaded Objects now: 5991.
+Memory consumption went from 255.0 MB to 253.4 MB.
+Total: 19.388700 ms (FindLiveObjects: 0.910800 ms CreateObjectMapping: 0.438000 ms MarkObjects: 17.515100 ms  DeleteObjects: 0.523400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -183,52 +183,76 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 5842.312527 seconds.
-  path: Assets/Scenes/Stage0.unity
-  artifactKey: Guid(1e2933a6f2b419e4998e57ace970e331) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Stage0.unity using Guid(1e2933a6f2b419e4998e57ace970e331) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6192abc4134910fbad7ad4715440aa95') in 0.013460 seconds 
+  Time since last request: 17269.499855 seconds.
+  path: Assets/Prefabs/Props/Fences.prefab
+  artifactKey: Guid(00959ca4e8b6c384fa8cfcc659fc0240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/Fences.prefab using Guid(00959ca4e8b6c384fa8cfcc659fc0240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7df6d8f2f99ca6bf5ebe479ca3e25792') in 0.288945 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 17.471024 seconds.
-  path: Assets/Prefabs/Gimmik/Fire Wall.prefab
-  artifactKey: Guid(54918a6e39fda21449e539e40bd705ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Gimmik/Fire Wall.prefab using Guid(54918a6e39fda21449e539e40bd705ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7c1c4209c8a2d3145bec3a5930dff91') in 0.201550 seconds 
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/Props/road_sign_child_stop.prefab
+  artifactKey: Guid(bc26d215290e24b4e8f9ba642515fc3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/road_sign_child_stop.prefab using Guid(bc26d215290e24b4e8f9ba642515fc3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24756f6dfe6f00101fcf4ec9a239b53c') in 0.874388 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 194.479879 seconds.
-  path: Assets/Art/Shaders/새 폴더/종유석1.obj
-  artifactKey: Guid(ed29556ff51ae364e9fab9314d99a8b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/새 폴더/종유석1.obj using Guid(ed29556ff51ae364e9fab9314d99a8b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25d5d4a3909b9a622202298d50fa389e') in 0.065236 seconds 
+  Time since last request: 0.000044 seconds.
+  path: Assets/Prefabs/Props/road_sign_bus_stop.prefab
+  artifactKey: Guid(8e83eb4cffc2f114eb4d648421ac9092) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/road_sign_bus_stop.prefab using Guid(8e83eb4cffc2f114eb4d648421ac9092) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd899f7c418b51bc751aeb1bf665118fa') in 0.015762 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefabs/Props/RubberDuck_White.prefab
+  artifactKey: Guid(d97d87f9f66e8084ab86c72588bf6d09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/RubberDuck_White.prefab using Guid(d97d87f9f66e8084ab86c72588bf6d09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31cdfe979a5c22dbbe447ec31b67a7dc') in 0.806061 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Props/RoadSign_LongStone.prefab
+  artifactKey: Guid(7e98fd55f50e5544288d75c777c0101e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/RoadSign_LongStone.prefab using Guid(7e98fd55f50e5544288d75c777c0101e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95deee1116be0fd71e5f812567e4b59d') in 0.013456 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000025 seconds.
-  path: Assets/Art/Shaders/새 폴더/지형5.obj
-  artifactKey: Guid(91f4a6a3000202941b2892979c2e836d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/새 폴더/지형5.obj using Guid(91f4a6a3000202941b2892979c2e836d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fc741bdf0b5120db56e8855b6007f04') in 0.028644 seconds 
+  path: Assets/Prefabs/Props/road_sign_60_limit.prefab
+  artifactKey: Guid(aa9af19bb181d0d4f97c9b229fa06f7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/road_sign_60_limit.prefab using Guid(aa9af19bb181d0d4f97c9b229fa06f7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '116d079288054c547ae56ef24f781440') in 0.012457 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Art/Shaders/새 폴더/지형2.obj
-  artifactKey: Guid(33446aade4e35ee42ae5a4ca844aa28c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/새 폴더/지형2.obj using Guid(33446aade4e35ee42ae5a4ca844aa28c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c09eb94968dd6e5b4f057cb59fe27390') in 0.025625 seconds 
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/Props/road_sign_stop_3.prefab
+  artifactKey: Guid(d3813246ce33ea04db585f0d3d6e5567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/road_sign_stop_3.prefab using Guid(d3813246ce33ea04db585f0d3d6e5567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '735734133cbe80d8ca649292bccf3e5e') in 0.012510 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000063 seconds.
-  path: Assets/Art/Shaders/새 폴더/주상절리.fbx
-  artifactKey: Guid(4a2e43c5ab7ec1a4ca7bfdf87f5e672d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/새 폴더/주상절리.fbx using Guid(4a2e43c5ab7ec1a4ca7bfdf87f5e672d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b473790e24a97d3c3821cea66ae4453') in 0.023279 seconds 
+  Time since last request: 0.000024 seconds.
+  path: Assets/Prefabs/Props/road sign_left.prefab
+  artifactKey: Guid(7051f5708d2baff4c985b8b2612fe980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/road sign_left.prefab using Guid(7051f5708d2baff4c985b8b2612fe980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e320cd93f917b8e104ffb959fb0851d4') in 0.012907 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Art/Shaders/새 폴더/종유석3.obj
-  artifactKey: Guid(e23c7cd228b7c2e4ab0ecd9cdfd7fafe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/새 폴더/종유석3.obj using Guid(e23c7cd228b7c2e4ab0ecd9cdfd7fafe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '942f33f1b52a423f5aeb78b84286bc4a') in 0.023368 seconds 
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Props/road sign_iron_road_stop.prefab
+  artifactKey: Guid(4852076755d15154e9d1da5b2a9cac83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/road sign_iron_road_stop.prefab using Guid(4852076755d15154e9d1da5b2a9cac83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3aa0f1012c8884f2f0ca700a1679976') in 0.015649 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.071089 seconds.
-  path: Assets/Art/Shaders/SubGraph/Water_Noise.shadersubgraph
-  artifactKey: Guid(715b7bc6c5de92a40959b1f473446703) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Shaders/SubGraph/Water_Noise.shadersubgraph using Guid(715b7bc6c5de92a40959b1f473446703) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acb778559de510fcf52de729ae78bb05') in 0.002774 seconds 
+  Time since last request: 0.000026 seconds.
+  path: Assets/Prefabs/Props/RubberDuck_Yellow.prefab
+  artifactKey: Guid(47eccfdaaa8490246bb90d54bab6ccbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/RubberDuck_Yellow.prefab using Guid(47eccfdaaa8490246bb90d54bab6ccbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e8916e591c7f1b8691949514e6ae301') in 0.009301 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Props/road_sign_metal_pole.prefab
+  artifactKey: Guid(ea4a3e3ba7c6d694d84c84b4e28c9b6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/road_sign_metal_pole.prefab using Guid(ea4a3e3ba7c6d694d84c84b4e28c9b6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6dcfd1be99716f8d111dbcc7283c7ddf') in 0.012420 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Prefabs/Props/Umbrella_1.prefab
+  artifactKey: Guid(0a57273401feb6f4595604b38068f100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Props/Umbrella_1.prefab using Guid(0a57273401feb6f4595604b38068f100) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72387198cf59ea8c827ec1179c4474b7') in 0.782989 seconds 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting
