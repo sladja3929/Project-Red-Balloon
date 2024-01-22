@@ -370,7 +370,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -562,7 +562,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -769,6 +769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48e71db00feecf44cbada65f971cc317, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5098643981903120470, guid: 48e71db00feecf44cbada65f971cc317, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -952,6 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
+  effectType: 0
 --- !u!1 &832031375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,7 +1423,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1605,6 +1610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
+  effectType: 0
 --- !u!1 &1525157796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5098643981903120470, guid: 48e71db00feecf44cbada65f971cc317, type: 3}
@@ -1748,6 +1754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
+  effectType: 0
 --- !u!1 &1676213476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2758494954294917232, guid: 48e71db00feecf44cbada65f971cc317, type: 3}
@@ -1995,6 +2002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
+  effectType: 0
 --- !u!1 &1846626020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,7 +2019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!220 &1846626021
 LightProbeGroup:
   m_ObjectHideFlags: 0
