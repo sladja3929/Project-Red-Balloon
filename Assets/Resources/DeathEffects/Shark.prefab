@@ -72,7 +72,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2939058340176763004}
-  - component: {fileID: 2502331017051501223}
   - component: {fileID: 2243779595882273311}
   - component: {fileID: 8402395777008125070}
   m_Layer: 0
@@ -99,21 +98,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &2502331017051501223
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2558732133402329798}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 1827226128182048838, guid: ce3f21c0c31d9c24983db7008c27408f, type: 3}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &2243779595882273311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +143,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  moveTime: 2
+  moveTime: 4
   moveDistance: 25
   testPosition: {x: 0, y: 0, z: 0}
 --- !u!95 &8402395777008125070
