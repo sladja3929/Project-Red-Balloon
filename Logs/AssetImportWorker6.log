@@ -9,11 +9,11 @@ C:\Program Files\Unity\Hub\Editor\2021.3.6f1\Editor\Unity.exe
 -batchMode
 -noUpm
 -name
-AssetImportWorker2
+AssetImportWorker6
 -projectPath
 D:/unity/Project Red Balloon
 -logFile
-Logs/AssetImportWorker2.log
+Logs/AssetImportWorker6.log
 -srvPort
 60664
 Successfully changed project path to: D:/unity/Project Red Balloon
@@ -47,7 +47,7 @@ D:/unity/Project Red Balloon
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 101.07 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 111.13 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.6f1 (7da38d85baf6)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Resources/UnitySubsystems
@@ -66,50 +66,50 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56164
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56300
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.008987 seconds.
+Registered in 0.007566 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 96.72 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 96.81 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.559 seconds
+- Completed reload, in  0.538 seconds
 Domain Reload Profiling:
-	ReloadAssembly (560ms)
-		BeginReloadAssembly (70ms)
+	ReloadAssembly (539ms)
+		BeginReloadAssembly (66ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (386ms)
-			LoadAssemblies (67ms)
+		EndReloadAssembly (376ms)
+			LoadAssemblies (63ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (79ms)
+			SetupTypeCache (75ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (21ms)
-			SetupLoadedEditorAssemblies (240ms)
+			SetupLoadedEditorAssemblies (236ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (97ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (99ms)
-				ProcessInitializeOnLoadMethodAttributes (36ms)
+				ProcessInitializeOnLoadAttributes (96ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007564 seconds.
+Registered in 0.007232 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 102.37 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 97.11 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 System.Exception: Error! Visual Scripting: couldn't find visual scripting package
   at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
@@ -129,30 +129,30 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.529 seconds
+- Completed reload, in  1.424 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1530ms)
-		BeginReloadAssembly (108ms)
+	ReloadAssembly (1424ms)
+		BeginReloadAssembly (98ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (1312ms)
-			LoadAssemblies (89ms)
+			CreateAndSetChildDomain (17ms)
+		EndReloadAssembly (1230ms)
+			LoadAssemblies (78ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
 			SetupTypeCache (243ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (53ms)
-			SetupLoadedEditorAssemblies (902ms)
+			RebuildScriptCaches (46ms)
+			SetupLoadedEditorAssemblies (833ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (102ms)
-				BeforeProcessingInitializeOnLoad (105ms)
-				ProcessInitializeOnLoadAttributes (611ms)
-				ProcessInitializeOnLoadMethodAttributes (66ms)
-				AfterProcessingInitializeOnLoad (13ms)
+				RefreshPlugins (97ms)
+				BeforeProcessingInitializeOnLoad (102ms)
+				ProcessInitializeOnLoadAttributes (555ms)
+				ProcessInitializeOnLoadMethodAttributes (63ms)
+				AfterProcessingInitializeOnLoad (12ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (5ms)
@@ -162,13 +162,13 @@ Worker process is ready to serve import requests
 Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 2.24 ms, found 5 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 2.30 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5507 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 47 unused Assets / (1.6 MB). Loaded Objects now: 5991.
-Memory consumption went from 255.0 MB to 253.4 MB.
-Total: 21.275800 ms (FindLiveObjects: 0.855100 ms CreateObjectMapping: 0.277400 ms MarkObjects: 19.625700 ms  DeleteObjects: 0.516500 ms)
+Memory consumption went from 255.0 MB to 253.5 MB.
+Total: 19.710300 ms (FindLiveObjects: 0.711400 ms CreateObjectMapping: 0.241100 ms MarkObjects: 18.255800 ms  DeleteObjects: 0.500900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -183,68 +183,423 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 18950.648503 seconds.
-  path: Assets/Art/Meshes/Stone/Rock_01.fbx
-  artifactKey: Guid(896ea82a4e0d5f046b48e55f77185c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Stone/Rock_01.fbx using Guid(896ea82a4e0d5f046b48e55f77185c78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae1c86776758a0d7902378d3f66b0836') in 0.580833 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Art/Meshes/Stone/Stone_Pile_04.fbx
-  artifactKey: Guid(c2e08ea44ecdbf643943cfaf55ce359b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Stone/Stone_Pile_04.fbx using Guid(c2e08ea44ecdbf643943cfaf55ce359b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b984096e56c0192b11ea861afd9db13a') in 0.060200 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Art/Meshes/Stone/Chalk_Rock_01.fbx
-  artifactKey: Guid(7e70b943ca2e26b4794809f4223fc57c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Stone/Chalk_Rock_01.fbx using Guid(7e70b943ca2e26b4794809f4223fc57c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10788073bf7ff16afe8229c3b4169953') in 0.056701 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Art/Meshes/Stone/Small_Stones.fbx
-  artifactKey: Guid(12a033e26c87dcb4d839c2df73ff0072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Stone/Small_Stones.fbx using Guid(12a033e26c87dcb4d839c2df73ff0072) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83f4feb0f99a49cb7571327f043c669d') in 0.085102 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Art/Meshes/Stone/Stone_04_Detail_Moss.fbx
-  artifactKey: Guid(4446a1fb652b66a4f85d401c6705f47f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Stone/Stone_04_Detail_Moss.fbx using Guid(4446a1fb652b66a4f85d401c6705f47f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26fb7c702c7ed506e19f9c21b91996bd') in 0.046739 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Art/Meshes/Stone/Stone_Grps.fbx
-  artifactKey: Guid(6ab8ac8b5083a2d4ebb6756d58528c6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Stone/Stone_Grps.fbx using Guid(6ab8ac8b5083a2d4ebb6756d58528c6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2122675e464e570d9f0eb385f706948') in 0.092856 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/Art/Meshes/Stone/Stone_Pile_02.fbx
-  artifactKey: Guid(28d202b8cf5871b4182fdff45a13d454) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Stone/Stone_Pile_02.fbx using Guid(28d202b8cf5871b4182fdff45a13d454) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15c35861cf62141c5dcc282bb25f7e10') in 0.051408 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Art/Meshes/Stone/Rock_02.fbx
-  artifactKey: Guid(ab6aeff7cc775014ca0b9668e5dc55b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Stone/Rock_02.fbx using Guid(ab6aeff7cc775014ca0b9668e5dc55b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8714d785dd2b5634fac4e98123164d0') in 0.047775 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Art/Meshes/Stone/Rock_04.fbx
-  artifactKey: Guid(53409d666b5efa040b82083f2dadb35f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Stone/Rock_04.fbx using Guid(53409d666b5efa040b82083f2dadb35f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f95589f8afdf58b9324a6dd55e89a02c') in 0.053551 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Art/Meshes/Stone/Stone_Pile_01.fbx
-  artifactKey: Guid(0287472ecae72d04484a9048131b6d05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Stone/Stone_Pile_01.fbx using Guid(0287472ecae72d04484a9048131b6d05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c442424f992373e92e9f0e5678698df4') in 0.053146 seconds 
+  Time since last request: 19950.009533 seconds.
+  path: Assets/Art/Texture/Terrain/Stage2_Terrain_Texture.png
+  artifactKey: Guid(b8ca6c56267fc73478a7f387dbfdcc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Texture/Terrain/Stage2_Terrain_Texture.png using Guid(b8ca6c56267fc73478a7f387dbfdcc77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59c313a5699e5d2b2cb8c9c93a77dc95') in 0.068175 seconds 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.007769 seconds.
+Registered in 0.007117 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.29 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.462 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1463ms)
+		BeginReloadAssembly (155ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (51ms)
+		EndReloadAssembly (1209ms)
+			LoadAssemblies (89ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (277ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (573ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (84ms)
+				ProcessInitializeOnLoadAttributes (392ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (13ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 4.03 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5314 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 5997.
+Memory consumption went from 240.8 MB to 239.3 MB.
+Total: 22.724900 ms (FindLiveObjects: 1.155300 ms CreateObjectMapping: 0.400700 ms MarkObjects: 20.733400 ms  DeleteObjects: 0.434300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006138 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.21 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.337 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1337ms)
+		BeginReloadAssembly (152ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (49ms)
+		EndReloadAssembly (1084ms)
+			LoadAssemblies (88ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (237ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (526ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (82ms)
+				ProcessInitializeOnLoadAttributes (348ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (16ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 4.57 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5314 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6001.
+Memory consumption went from 240.8 MB to 239.3 MB.
+Total: 18.185600 ms (FindLiveObjects: 0.661900 ms CreateObjectMapping: 0.372900 ms MarkObjects: 16.759500 ms  DeleteObjects: 0.390000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006700 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.17 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.369 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1370ms)
+		BeginReloadAssembly (142ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (43ms)
+		EndReloadAssembly (1136ms)
+			LoadAssemblies (85ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (252ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (549ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (92ms)
+				ProcessInitializeOnLoadAttributes (359ms)
+				ProcessInitializeOnLoadMethodAttributes (70ms)
+				AfterProcessingInitializeOnLoad (13ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 4.86 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5314 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6005.
+Memory consumption went from 240.8 MB to 239.3 MB.
+Total: 18.466300 ms (FindLiveObjects: 0.824400 ms CreateObjectMapping: 0.460400 ms MarkObjects: 16.801100 ms  DeleteObjects: 0.378800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007167 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.15 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.340 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1341ms)
+		BeginReloadAssembly (143ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (44ms)
+		EndReloadAssembly (1111ms)
+			LoadAssemblies (80ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (245ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (537ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (89ms)
+				ProcessInitializeOnLoadAttributes (354ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (13ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 4.36 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5314 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6009.
+Memory consumption went from 240.9 MB to 239.3 MB.
+Total: 21.344700 ms (FindLiveObjects: 0.888900 ms CreateObjectMapping: 0.534300 ms MarkObjects: 19.457600 ms  DeleteObjects: 0.462500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 497.714453 seconds.
+  path: Assets/Prefabs/Terrain/Fog.prefab
+  artifactKey: Guid(4c15b5c7d27bdfa47a617d009a4d98e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Terrain/Fog.prefab using Guid(4c15b5c7d27bdfa47a617d009a4d98e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b046f14d81d540c069995ac319fa7cdf') in 0.220686 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.167637 seconds.
+  path: Assets/Prefabs/Terrain/Ocean_Mesh.prefab
+  artifactKey: Guid(75620711bd3fd8449b6d4e67ffc986b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Terrain/Ocean_Mesh.prefab using Guid(75620711bd3fd8449b6d4e67ffc986b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ff565dd4a58c33d7c814446bd146f63') in 0.032694 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.957914 seconds.
+  path: Assets/Prefabs/Terrain/OceanPlane.prefab
+  artifactKey: Guid(6a5bef54c733eaa459c0c735a07be661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Terrain/OceanPlane.prefab using Guid(6a5bef54c733eaa459c0c735a07be661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3f668811b708df30d102cbb3dc1bbfa') in 0.011533 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 230.671872 seconds.
+  path: Assets/Art/Shaders/test.mat
+  artifactKey: Guid(f9a0f17a7f1e22341bee437741c9e729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Shaders/test.mat using Guid(f9a0f17a7f1e22341bee437741c9e729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4424076251cbc8775283cb1ed502b61') in 0.105802 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006933 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.15 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.288 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1288ms)
+		BeginReloadAssembly (149ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (49ms)
+		EndReloadAssembly (1053ms)
+			LoadAssemblies (79ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (219ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (509ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (335ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (14ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 4.49 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5321 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6099.
+Memory consumption went from 248.4 MB to 246.9 MB.
+Total: 21.294300 ms (FindLiveObjects: 0.717400 ms CreateObjectMapping: 0.412500 ms MarkObjects: 19.720600 ms  DeleteObjects: 0.442700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007551 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
@@ -269,350 +624,30 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.516 seconds
+- Completed reload, in  1.280 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1517ms)
-		BeginReloadAssembly (162ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (52ms)
-		EndReloadAssembly (1259ms)
-			LoadAssemblies (91ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (283ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (45ms)
-			SetupLoadedEditorAssemblies (591ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (13ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (90ms)
-				ProcessInitializeOnLoadAttributes (402ms)
-				ProcessInitializeOnLoadMethodAttributes (72ms)
-				AfterProcessingInitializeOnLoad (13ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (10ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 5.03 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5321 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6085.
-Memory consumption went from 248.5 MB to 246.9 MB.
-Total: 19.426900 ms (FindLiveObjects: 0.814000 ms CreateObjectMapping: 0.395000 ms MarkObjects: 17.818300 ms  DeleteObjects: 0.398400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007473 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.22 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-System.Exception: Error! Visual Scripting: couldn't find visual scripting package
-  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
-  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
-  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
-  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
-  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
-  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
-  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
-  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
-  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
-  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Completed reload, in  1.381 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1382ms)
-		BeginReloadAssembly (150ms)
+	ReloadAssembly (1281ms)
+		BeginReloadAssembly (145ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (44ms)
-		EndReloadAssembly (1144ms)
-			LoadAssemblies (96ms)
+		EndReloadAssembly (1053ms)
+			LoadAssemblies (82ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (253ms)
+			SetupTypeCache (226ms)
 			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (38ms)
-			SetupLoadedEditorAssemblies (545ms)
+			RebuildScriptCaches (39ms)
+			SetupLoadedEditorAssemblies (502ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
+				InitializePlatformSupportModulesInManaged (11ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (82ms)
-				ProcessInitializeOnLoadAttributes (369ms)
-				ProcessInitializeOnLoadMethodAttributes (69ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (335ms)
+				ProcessInitializeOnLoadMethodAttributes (61ms)
 				AfterProcessingInitializeOnLoad (13ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (11ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 4.34 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5321 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6089.
-Memory consumption went from 248.4 MB to 246.9 MB.
-Total: 21.254100 ms (FindLiveObjects: 1.278300 ms CreateObjectMapping: 0.359400 ms MarkObjects: 19.203400 ms  DeleteObjects: 0.411300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007628 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.26 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-System.Exception: Error! Visual Scripting: couldn't find visual scripting package
-  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
-  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
-  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
-  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
-  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
-  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
-  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
-  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
-  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
-  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Completed reload, in  1.533 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1533ms)
-		BeginReloadAssembly (149ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (45ms)
-		EndReloadAssembly (1286ms)
-			LoadAssemblies (84ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (276ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (50ms)
-			SetupLoadedEditorAssemblies (619ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (12ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (98ms)
-				ProcessInitializeOnLoadAttributes (421ms)
-				ProcessInitializeOnLoadMethodAttributes (74ms)
-				AfterProcessingInitializeOnLoad (13ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (11ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 4.66 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5321 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6093.
-Memory consumption went from 248.4 MB to 246.9 MB.
-Total: 22.137900 ms (FindLiveObjects: 0.959000 ms CreateObjectMapping: 0.453600 ms MarkObjects: 20.276600 ms  DeleteObjects: 0.447200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 95.873157 seconds.
-  path: Assets/Scenes/Stage2En.unity
-  artifactKey: Guid(91061600e5da5a44087facaf9a04e61a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Stage2En.unity using Guid(91061600e5da5a44087facaf9a04e61a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3a01361943af29f5f6eb5a99b2f1e58') in 0.008633 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 17.905085 seconds.
-  path: Assets/Scenes/Stage1.unity
-  artifactKey: Guid(2c98225c2f3f95f489c7515a7f8a52e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Stage1.unity using Guid(2c98225c2f3f95f489c7515a7f8a52e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6403d097afe21986cc16f625925a8fe1') in 0.001020 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006312 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.46 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-System.Exception: Error! Visual Scripting: couldn't find visual scripting package
-  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
-  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
-  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
-  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
-  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
-  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
-  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
-  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
-  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
-  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Completed reload, in  1.437 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1438ms)
-		BeginReloadAssembly (148ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (45ms)
-		EndReloadAssembly (1202ms)
-			LoadAssemblies (80ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (225ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (35ms)
-			SetupLoadedEditorAssemblies (618ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (13ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (2ms)
-				BeforeProcessingInitializeOnLoad (94ms)
-				ProcessInitializeOnLoadAttributes (415ms)
-				ProcessInitializeOnLoadMethodAttributes (80ms)
-				AfterProcessingInitializeOnLoad (13ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (11ms)
-Platform modules already initialized, skipping
-Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 4.89 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5321 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6097.
-Memory consumption went from 248.4 MB to 246.9 MB.
-Total: 56.859800 ms (FindLiveObjects: 0.749600 ms CreateObjectMapping: 0.351800 ms MarkObjects: 55.199700 ms  DeleteObjects: 0.557300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006653 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.12 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-System.Exception: Error! Visual Scripting: couldn't find visual scripting package
-  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
-  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
-  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
-  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
-  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
-  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
-  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
-  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
-  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
-  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Completed reload, in  1.332 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1332ms)
-		BeginReloadAssembly (148ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (45ms)
-		EndReloadAssembly (1082ms)
-			LoadAssemblies (91ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (257ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (43ms)
-			SetupLoadedEditorAssemblies (499ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (84ms)
-				ProcessInitializeOnLoadAttributes (334ms)
-				ProcessInitializeOnLoadMethodAttributes (60ms)
-				AfterProcessingInitializeOnLoad (10ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (9ms)
@@ -620,12 +655,12 @@ Platform modules already initialized, skipping
 Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 4.12 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 4.60 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5321 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6101.
-Memory consumption went from 248.4 MB to 246.9 MB.
-Total: 18.917500 ms (FindLiveObjects: 0.693800 ms CreateObjectMapping: 0.238300 ms MarkObjects: 17.577900 ms  DeleteObjects: 0.406200 ms)
+Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6103.
+Memory consumption went from 248.4 MB to 246.8 MB.
+Total: 19.402900 ms (FindLiveObjects: 0.778400 ms CreateObjectMapping: 0.668900 ms MarkObjects: 17.578400 ms  DeleteObjects: 0.376200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -639,236 +674,14 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 349.605417 seconds.
-  path: Assets/Art/Meshes/FX/Fog.fbx
-  artifactKey: Guid(25e88518fa9f6e749ba32c6a38d906bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/FX/Fog.fbx using Guid(25e88518fa9f6e749ba32c6a38d906bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0220c16e2859300bd7e7da3af3bddd29') in 0.234854 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 44.043557 seconds.
-  path: Assets/Art/Meshes/FX/Fog.fbx
-  artifactKey: Guid(25e88518fa9f6e749ba32c6a38d906bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/FX/Fog.fbx using Guid(25e88518fa9f6e749ba32c6a38d906bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98dd1b27c7af782c06d4a87d20205c63') in 0.044370 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.551063 seconds.
-  path: Assets/Art/Meshes/FX/Tornado.fbx
-  artifactKey: Guid(881d5f3f3ccf73d4badc53f0bc1d7de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/FX/Tornado.fbx using Guid(881d5f3f3ccf73d4badc53f0bc1d7de6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a5daab5ad8f741f172659162f98f5ce') in 0.052328 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.715712 seconds.
-  path: Assets/Art/Meshes/FX/TornadoUVEdit.fbx
-  artifactKey: Guid(e3b8e87db08493f499dcb2d32efd7e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/FX/TornadoUVEdit.fbx using Guid(e3b8e87db08493f499dcb2d32efd7e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fed1aaa86fdad744150fbe6cfd95dc24') in 0.012752 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.052714 seconds.
-  path: Assets/Art/Meshes/Props/Barrel_02.fbx
-  artifactKey: Guid(5398116c209083d469df4c6a9e0da3af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Props/Barrel_02.fbx using Guid(5398116c209083d469df4c6a9e0da3af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5582029ffa93ccbc7de7bf5bdccd5482') in 0.156889 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Art/Meshes/Props/road sign_main.FBX
-  artifactKey: Guid(6bc7e05dab329b342bb5b49fd33a3674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Props/road sign_main.FBX using Guid(6bc7e05dab329b342bb5b49fd33a3674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '198c301c03e67a9c19ff0f064e3ad40c') in 0.057831 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Art/Meshes/Props/road_sign_60_limit.FBX
-  artifactKey: Guid(01b96bf7e7765b24fb324bc72c7e8afe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Props/road_sign_60_limit.FBX using Guid(01b96bf7e7765b24fb324bc72c7e8afe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3d4124b8cb89b9a3616537cb4b71f24') in 0.029317 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Art/Meshes/Props/road_sign_crosswalk.FBX
-  artifactKey: Guid(765cda34d3484d6488a9276da5cc1935) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Props/road_sign_crosswalk.FBX using Guid(765cda34d3484d6488a9276da5cc1935) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c83fd54f687191b624367f039f9c1cb') in 0.023947 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Art/Meshes/Props/road_sign_metal_pole.FBX
-  artifactKey: Guid(4b8b7b6d567b6ae4ebe8df13d9057761) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Props/road_sign_metal_pole.FBX using Guid(4b8b7b6d567b6ae4ebe8df13d9057761) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0edff464444e366e14294984bd58eed') in 0.038895 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Art/Meshes/Props/road_sign_stop_1.FBX
-  artifactKey: Guid(998ab9d2486e9df4486cb6e5454aacec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Props/road_sign_stop_1.FBX using Guid(998ab9d2486e9df4486cb6e5454aacec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cd1d50f57a4c374fc0264f058b6171a') in 0.025232 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/Art/Meshes/Props/Fences.fbx
-  artifactKey: Guid(04388f721fb35d64ba11dd0c947e008c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Props/Fences.fbx using Guid(04388f721fb35d64ba11dd0c947e008c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55f3643e026aded5951d29e9644e9753') in 0.236753 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 7.869520 seconds.
-  path: Assets/Art/Meshes/Vegetation/Beech_11_LP.fbx
-  artifactKey: Guid(eb022a1b28df7e74a9553e7204522c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Beech_11_LP.fbx using Guid(eb022a1b28df7e74a9553e7204522c9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da1ed927ff4611460f48309c0a588795') in 0.068774 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Art/Meshes/Vegetation/Bush03_01_LP.fbx
-  artifactKey: Guid(b3f9ab1896bf9084bac4fc9a994bd06a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Bush03_01_LP.fbx using Guid(b3f9ab1896bf9084bac4fc9a994bd06a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8be5352aa5408998da34e2b5da447cca') in 0.061865 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Art/Meshes/Vegetation/Bush01_01_LP.fbx
-  artifactKey: Guid(acfef1701f2527b48925b9cf33f79904) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Bush01_01_LP.fbx using Guid(acfef1701f2527b48925b9cf33f79904) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '700d9907a8d18e289078a622e04446b0') in 0.069622 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Art/Meshes/Vegetation/Bush06_02_LP.fbx
-  artifactKey: Guid(b17e9a47c52c274478bd1d130632562d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Bush06_02_LP.fbx using Guid(b17e9a47c52c274478bd1d130632562d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f52660b026211da78161510bb06f6853') in 0.066203 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Art/Meshes/Vegetation/Bush03_07_LP.fbx
-  artifactKey: Guid(301085d57d5334b4187a1d52c6fa3a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Bush03_07_LP.fbx using Guid(301085d57d5334b4187a1d52c6fa3a43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a66409a6d478e8fedcac5994b3c7ffd1') in 0.054443 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Art/Meshes/Vegetation/Ivy_tendril_hang_03.fbx
-  artifactKey: Guid(28515e4823604594e8f190e2c1b75b7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Ivy_tendril_hang_03.fbx using Guid(28515e4823604594e8f190e2c1b75b7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '570742f35b0db7a4454a06f372901cbf') in 0.079888 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Art/Meshes/Vegetation/Bush06_03_LP.fbx
-  artifactKey: Guid(d0436e5ab733bd44d904dc6b4fb3fa5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Bush06_03_LP.fbx using Guid(d0436e5ab733bd44d904dc6b4fb3fa5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52320796c994415298e2b631d09a00c1') in 0.055273 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Art/Meshes/Vegetation/Fern_01_LP.fbx
-  artifactKey: Guid(b3fa116c49d48db47b0b1a529f61cdbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Fern_01_LP.fbx using Guid(b3fa116c49d48db47b0b1a529f61cdbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc79db8cba230fe4b37b5c164cfdc926') in 0.058334 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Art/Meshes/Vegetation/Twiner_04.fbx
-  artifactKey: Guid(d9890a1466509b74fa21ffb84f521009) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Twiner_04.fbx using Guid(d9890a1466509b74fa21ffb84f521009) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ccd2f5edbbc76478feffc72e9a6c20f') in 0.024607 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Art/Meshes/Vegetation/Wood_02_dry.fbx
-  artifactKey: Guid(40cae1aa7d4255e41b8842c6f7305d30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Wood_02_dry.fbx using Guid(40cae1aa7d4255e41b8842c6f7305d30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e1d4200c9da048cf9c8a7d372043c45') in 0.031753 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000036 seconds.
-  path: Assets/Art/Meshes/Vegetation/Bush_02_05_LP.fbx
-  artifactKey: Guid(3ba774a8b0a5b0344980a6fc49ebe43b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Bush_02_05_LP.fbx using Guid(3ba774a8b0a5b0344980a6fc49ebe43b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '413d225666ec3435d0d70832e99aa188') in 0.048558 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Art/Meshes/Vegetation/Bush01_04_LP.fbx
-  artifactKey: Guid(cea7a727386631046b2627522cdd43a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Bush01_04_LP.fbx using Guid(cea7a727386631046b2627522cdd43a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86e39c91d45037cf1dccbc6ad6402c5f') in 0.047315 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000036 seconds.
-  path: Assets/Art/Meshes/Vegetation/Plant_01_LP.fbx
-  artifactKey: Guid(e3ed69f86acc5e545bc0f17b2d553dc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Plant_01_LP.fbx using Guid(e3ed69f86acc5e545bc0f17b2d553dc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fd2c4916e6ca9d76e5a5a0c10090e5b') in 0.049801 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Art/Meshes/Vegetation/Conifer_02_LP.fbx
-  artifactKey: Guid(518bb3ee1336eb34096765fe11530ed3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Conifer_02_LP.fbx using Guid(518bb3ee1336eb34096765fe11530ed3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf2d6cb09159c36bb801cd22ba727dba') in 0.044858 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Art/Meshes/Vegetation/Bush06_05_LP.fbx
-  artifactKey: Guid(41e1a3c6dc8ca53449324eda06c066d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Bush06_05_LP.fbx using Guid(41e1a3c6dc8ca53449324eda06c066d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6f4682ff1efde1018a907b6c2330fe7') in 0.042734 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Art/Meshes/Vegetation/Ivy_tendril_hang_02.fbx
-  artifactKey: Guid(835f72027c1a3ee4bb3ca2508a52c4bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Ivy_tendril_hang_02.fbx using Guid(835f72027c1a3ee4bb3ca2508a52c4bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50c87f1b783b4089ff24a8b9361d5375') in 0.058466 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Art/Meshes/Vegetation/Grass_Tutorial.obj
-  artifactKey: Guid(89624c6463474bf4a8d5d0b4ea83ea97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Grass_Tutorial.obj using Guid(89624c6463474bf4a8d5d0b4ea83ea97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d8be110a1924d58f1ce78c327bbbaf8') in 0.038509 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000042 seconds.
-  path: Assets/Art/Meshes/Vegetation/붉은사슴뿔버섯01.obj
-  artifactKey: Guid(e90da73b40283644f9daa0f4e76fd0cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/붉은사슴뿔버섯01.obj using Guid(e90da73b40283644f9daa0f4e76fd0cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06176b1bfa01e30288d48e61792814d8') in 0.037415 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Art/Meshes/Vegetation/Wood_01.fbx
-  artifactKey: Guid(10bca05c05948754aadbff694dfa77e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Wood_01.fbx using Guid(10bca05c05948754aadbff694dfa77e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77db61c0486de898fbb989e0d6c0c0ce') in 0.022799 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Art/Meshes/Vegetation/Ivy_Tendril_L_02.fbx
-  artifactKey: Guid(c7eb1a3813e2dc147bfeaab76ad7323f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Ivy_Tendril_L_02.fbx using Guid(c7eb1a3813e2dc147bfeaab76ad7323f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ec716090f0ef09f6da06bf8604559fe') in 0.061664 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000074 seconds.
-  path: Assets/Art/Meshes/Vegetation/Conifer_01_LP.fbx
-  artifactKey: Guid(0f1665dd99bdda14c8917c7e6d8e97cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Conifer_01_LP.fbx using Guid(0f1665dd99bdda14c8917c7e6d8e97cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dd4fb21ae80540ffccb9fb55bf932ad') in 0.041104 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Art/Meshes/Vegetation/Ivy_Tendril_R_02.fbx
-  artifactKey: Guid(a81be1d4b3903e046997268b16ef1bd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Ivy_Tendril_R_02.fbx using Guid(a81be1d4b3903e046997268b16ef1bd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cd6f9e83c6b0882c938260aa8ee1b79') in 0.068917 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Art/Meshes/Vegetation/Clover_01_LP.fbx
-  artifactKey: Guid(ca38b3d58a8c89245a55355f40786394) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Clover_01_LP.fbx using Guid(ca38b3d58a8c89245a55355f40786394) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9905273f969fbbae1f015ccb37cfdb92') in 0.057556 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Art/Meshes/Vegetation/Dead_Tree_03_LP.fbx
-  artifactKey: Guid(5ba14d50999d6f049b1c9f01daa4363c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Dead_Tree_03_LP.fbx using Guid(5ba14d50999d6f049b1c9f01daa4363c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e86a3790adb65794aef613da057c1ef') in 0.056237 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Art/Meshes/Vegetation/Conifer_03_LP.fbx
-  artifactKey: Guid(47caf529aef1a284c84dcf43515969da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Conifer_03_LP.fbx using Guid(47caf529aef1a284c84dcf43515969da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a8b2a640b4598eacfdc78a30444add2') in 0.043247 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Art/Meshes/Vegetation/Bush_02_01_LP.fbx
-  artifactKey: Guid(c8a3e87d1a64e33469f1fe84e77c7895) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Meshes/Vegetation/Bush_02_01_LP.fbx using Guid(c8a3e87d1a64e33469f1fe84e77c7895) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6e0602f8eed0cd4a1effae65b3e2d4e') in 0.044211 seconds 
-========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.007828 seconds.
+Registered in 0.006929 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.32 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 1.23 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 System.Exception: Error! Visual Scripting: couldn't find visual scripting package
   at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
@@ -888,43 +701,43 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.571 seconds
+- Completed reload, in  1.386 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1571ms)
-		BeginReloadAssembly (166ms)
+	ReloadAssembly (1387ms)
+		BeginReloadAssembly (141ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (9ms)
+			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (52ms)
-		EndReloadAssembly (1308ms)
-			LoadAssemblies (92ms)
+			CreateAndSetChildDomain (44ms)
+		EndReloadAssembly (1162ms)
+			LoadAssemblies (81ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (277ms)
-			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (49ms)
-			SetupLoadedEditorAssemblies (624ms)
+			SetupTypeCache (252ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (555ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (14ms)
+				InitializePlatformSupportModulesInManaged (11ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (101ms)
-				ProcessInitializeOnLoadAttributes (420ms)
-				ProcessInitializeOnLoadMethodAttributes (74ms)
-				AfterProcessingInitializeOnLoad (13ms)
+				BeforeProcessingInitializeOnLoad (94ms)
+				ProcessInitializeOnLoadAttributes (366ms)
+				ProcessInitializeOnLoadMethodAttributes (71ms)
+				AfterProcessingInitializeOnLoad (12ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (12ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
 Platform modules already initialized, skipping
 Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
 Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
-Refreshing native plugins compatible for Editor in 4.41 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 4.62 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5321 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6145.
-Memory consumption went from 248.8 MB to 247.3 MB.
-Total: 35.427000 ms (FindLiveObjects: 12.109100 ms CreateObjectMapping: 0.732200 ms MarkObjects: 22.194600 ms  DeleteObjects: 0.389000 ms)
+Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6107.
+Memory consumption went from 248.4 MB to 246.8 MB.
+Total: 18.839100 ms (FindLiveObjects: 0.680200 ms CreateObjectMapping: 0.211700 ms MarkObjects: 17.504800 ms  DeleteObjects: 0.441100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -937,6 +750,113 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006785 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.21 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+System.Exception: Error! Visual Scripting: couldn't find visual scripting package
+  at Unity.VisualScripting.PackageVersionUtility.get_version () [0x00043] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\PackageVersionUtility.cs:31 
+  at Unity.VisualScripting.BoltCoreManifest.get_version () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugin\BoltCoreManifest.cs:11 
+  at Unity.VisualScripting.PluginManifest.get_currentVersion () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:33 
+  at Unity.VisualScripting.PluginManifest.get_versionMismatch () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginManifest.cs:48 
+  at Unity.VisualScripting.PluginContainer.Initialize () [0x00525] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:208 
+  at Unity.VisualScripting.PluginContainer.InitializeOnLoad () [0x00009] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Plugins\PluginContainer.cs:32 
+  at Unity.VisualScripting.VSUsageUtility.DoInitializeOnLoadCalls () [0x00034] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:76 
+  at Unity.VisualScripting.VSUsageUtility.set_isVisualScriptingUsed (System.Boolean value) [0x0002c] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:114 
+  at Unity.VisualScripting.VSUsageUtility.CheckAndSetIsVisualScriptingUsed () [0x0000d] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:33 
+  at Unity.VisualScripting.VSUsageUtility..cctor () [0x00000] in D:\unity\Project Red Balloon\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Utilities\VSUsageUtility.cs:22 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.354 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1354ms)
+		BeginReloadAssembly (143ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (41ms)
+		EndReloadAssembly (1118ms)
+			LoadAssemblies (83ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (232ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (539ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (86ms)
+				ProcessInitializeOnLoadAttributes (361ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (12ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field Overlay': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Shader 'TextMeshPro/Distance Field SSD': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+Refreshing native plugins compatible for Editor in 4.41 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5321 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 40 unused Assets / (1.5 MB). Loaded Objects now: 6111.
+Memory consumption went from 248.4 MB to 246.9 MB.
+Total: 18.785700 ms (FindLiveObjects: 0.660000 ms CreateObjectMapping: 0.234300 ms MarkObjects: 17.324900 ms  DeleteObjects: 0.565400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1721.274531 seconds.
+  path: Assets/Art/Meshes/새 폴더/jusang.mat
+  artifactKey: Guid(cb29664f8c48f64448a57d0faac771c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/새 폴더/jusang.mat using Guid(cb29664f8c48f64448a57d0faac771c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7f497920c0052488b0d7da0b6c566b1') in 0.174279 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Art/Meshes/새 폴더/지형4.obj
+  artifactKey: Guid(6e91f96483749454f9ebffe7f3b1cfb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/새 폴더/지형4.obj using Guid(6e91f96483749454f9ebffe7f3b1cfb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dac6820d4559e735b23c3b74e11dcdc3') in 0.065717 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Art/Meshes/새 폴더/종유석3.obj
+  artifactKey: Guid(e23c7cd228b7c2e4ab0ecd9cdfd7fafe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/새 폴더/종유석3.obj using Guid(e23c7cd228b7c2e4ab0ecd9cdfd7fafe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72384d19e0b05aa771ac3079e181fbae') in 0.061918 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Art/Meshes/새 폴더/지형2.obj
+  artifactKey: Guid(33446aade4e35ee42ae5a4ca844aa28c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/새 폴더/지형2.obj using Guid(33446aade4e35ee42ae5a4ca844aa28c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fdafd33eb84c36cc0e1290152a3d14c') in 0.054072 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Art/Meshes/새 폴더/주상절리.fbx
+  artifactKey: Guid(4a2e43c5ab7ec1a4ca7bfdf87f5e672d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Meshes/새 폴더/주상절리.fbx using Guid(4a2e43c5ab7ec1a4ca7bfdf87f5e672d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2db6a2cb400eb98aac0af4fc62425e97') in 0.023056 seconds 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting
