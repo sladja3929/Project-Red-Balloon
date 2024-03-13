@@ -25,6 +25,7 @@ Material:
   m_ValidKeywords:
   - _EMISSION
   - _FADING_ON
+  - _RECEIVE_SHADOWS_OFF
   - _SOFTPARTICLES_ON
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords:
@@ -158,7 +159,7 @@ Material:
     - _BlendOp: 0
     - _BumpScale: 1
     - _BumpScale2: 1
-    - _CameraFadingEnabled: 1
+    - _CameraFadingEnabled: 0
     - _CameraFarFadeDistance: 0
     - _CameraNearFadeDistance: 249.6
     - _ColorMode: 0
@@ -236,7 +237,7 @@ Material:
     - _QueueOffset: 0
     - _RainIntensity: 1
     - _RainIntensityFromGlobal: 0
-    - _ReceiveShadows: 1
+    - _ReceiveShadows: 0
     - _Refraction: 0.02
     - _RefractionBumpScale: 0.5
     - _RefractionChromaticAberration: 0
@@ -324,10 +325,10 @@ Material:
     - maxDist: 10
     - minDist: 1
     m_Colors:
-    - _BaseColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 0.4627451}
+    - _BaseColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 0.5686275}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
-    - _CameraFadeParams: {r: 249.6, g: -0.00400641, b: 0, a: 0}
-    - _Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 0.4627451}
+    - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
+    - _Color: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 0.5686275}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
     - _CurvatureMultOffset: {r: 0, g: 0, b: 0, a: 0}
     - _CutoffEdgeGlow: {r: 0, g: 0, b: 0, a: 0.02}

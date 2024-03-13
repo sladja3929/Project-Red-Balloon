@@ -6,108 +6,88 @@ using UnityEngine;
 
 internal enum FireWallState
 {
-    Up,
-    Top,
-    Down,
-    Bottom
+    On,
+    Off,
 }
 
 public class FireWall : Gimmick
 {
-    [SerializeField]
-    private float moveTime;
+    private const float SOME_THRESHOLD = 0.1f;
 
-    [SerializeField] private float stayTime;
+    public ParticleSystem particle;
+
+    public float coolDown;
+    public float duration;
 
     [Header("For Debugging")]
-    
     [SerializeField]
     private FireWallState curState;
     
     [SerializeField]
     private float timer;
-    
-    [SerializeField]
-    private float totalLength;
-    
-    [SerializeField]private float _startHeight;
 
     private void Awake()
     {
         var tsf = transform;
         
         timer = 0;
-        curState = FireWallState.Bottom;
-        totalLength = tsf.localScale.y;
-        _startHeight = tsf.position.y - (totalLength * 0.5f);
+        curState = FireWallState.Off;
+        particle = GetComponent<ParticleSystem>();
     }
     
     private void Update()
     {
-        var tsf = transform;
-        if (isGimmickEnable is false)
-        {
-            var s = tsf.localScale;
-            s.y = 0;
-            tsf.localScale = s;
-            
-            return;
+        switch (curState)
+        { 
+            case FireWallState.On:
+            {
+                timer += Time.deltaTime;
+                if (timer >= duration)
+                {
+                    curState = FireWallState.Off;
+                    particle.Stop();
+                    timer = 0;
+                }
+
+                break;
+            }
+            case FireWallState.Off:
+            {
+                timer += Time.deltaTime;
+                if (timer >= coolDown)
+                {
+                    curState = FireWallState.On;
+                    particle.Play();
+                    timer = 0;
+                }
+
+                break;
+            }
+            default:
+                throw new ArgumentOutOfRangeException();
         }
-        
-        if ((timer -= Time.deltaTime) <= 0)
+    }
+    
+    void OnParticleTrigger()
+    {
+        // ParticleSystem의 트리거 이벤트가 발생했을 때 호출됩니다.
+        // 이 함수 내에서는 트리거 이벤트를 처리하는 로직을 작성합니다.
+
+        // 예를 들어, 플레이어가 파티클 시스템의 트리거 영역에 들어왔을 때 게임 매니저의 KillBalloon 함수를 호출하도록 할 수 있습니다.
+        List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
+        int numEnter = particle.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
+
+        for (int i = 0; i < numEnter; i++)
         {
-            switch (curState)
-            { 
-                case FireWallState.Bottom:
-                    timer = moveTime;
-                    curState = FireWallState.Up;
-                    break;
-                case FireWallState.Up:
-                    timer = stayTime;
-                    curState = FireWallState.Top;
-                    break;
-                case FireWallState.Top:
-                    timer = moveTime;
-                    curState = FireWallState.Down;
-                    break;
-                case FireWallState.Down:
-                    timer = stayTime;
-                    curState = FireWallState.Bottom;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+            ParticleSystem.Particle p = enter[i];
+            if (Vector3.Distance(p.position, player.transform.position) < SOME_THRESHOLD)
+            {
+                GameManager.instance.KillBalloon();
+                break;
             }
         }
-
-        var curLength = curState switch
-        {
-            FireWallState.Bottom => 0,
-            FireWallState.Top => totalLength,
-            FireWallState.Down => Mathf.Lerp(0, totalLength, timer / moveTime),
-            FireWallState.Up => Mathf.Lerp(totalLength, 0, timer / moveTime),
-            _ => throw new ArgumentOutOfRangeException()
-        };
-        var middlePosition = _startHeight + curLength * 0.5f;
-
-        var pos = tsf.position;
-        var scale = tsf.localScale;
-
-        pos.y = middlePosition;
-        scale.y = curLength;
-
-        tsf.position = pos;
-        tsf.localScale = scale;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Player") is false) return; 
-        GameManager.instance.KillBalloon();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player") is false) return; 
-        GameManager.instance.KillBalloon();
     }
 }

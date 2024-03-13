@@ -17,6 +17,8 @@ public class CollisionKiller : Gimmick
     private void OnCollisionEnter(Collision other)
     {
         if (!other.collider.CompareTag("Player")) return;
+        
+        EffectManager.instance.ShowDeathEffect(effectType, other.transform.position);
         Execute();
     }
 
