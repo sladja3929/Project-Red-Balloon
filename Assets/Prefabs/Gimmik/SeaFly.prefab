@@ -161,7 +161,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4555458673467112728}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.05
@@ -492,10 +492,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  flyTime: 2
-  flyLength: 10
-  flyHeight: 5
-  coolDown: 0
+  flyTime: 1.5
+  flyLength: 90
+  flyHeight: 60
+  coolDown: 1
 --- !u!114 &4555458674146977359
 MonoBehaviour:
   m_ObjectHideFlags: 0
