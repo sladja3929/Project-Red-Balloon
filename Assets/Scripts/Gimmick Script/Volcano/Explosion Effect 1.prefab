@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2026848036800496713}
   - component: {fileID: 4404782216355639974}
   - component: {fileID: 2703478819813537577}
+  - component: {fileID: 8622436076439159475}
   m_Layer: 0
   m_Name: Explosion Effect 1
   m_TagString: Untagged
@@ -114,7 +115,7 @@ MonoBehaviour:
   isGimmickEnable: 1
   explosionPower: 100
   explosionTime: 0.1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 557dfb11cea02674f986cdc550f0e2c7, type: 3}
 --- !u!54 &2703478819813537577
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -130,4 +131,17 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
+--- !u!114 &8622436076439159475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038084939975550187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69904f28e49b9745b975f2465ddf6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 0.5
