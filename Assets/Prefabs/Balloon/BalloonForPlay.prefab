@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -3299518666821889227}
   - component: {fileID: 7725434210765982043}
   - component: {fileID: 8207029611085120323}
+  - component: {fileID: 1968744810210670419}
   m_Layer: 0
   m_Name: BalloonForPlay
   m_TagString: Player
@@ -191,3 +192,16 @@ MonoBehaviour:
   dieSound: {fileID: 0}
   respawnTime: 0
   dieKey: 0
+--- !u!114 &1968744810210670419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271042181040711083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae4c09dd76c04147a2c0d9ac08264fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSize: 1

@@ -161,7 +161,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4555458673467112728}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.05
@@ -431,7 +431,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4555458674146977344}
   - component: {fileID: 4555458674146977358}
-  - component: {fileID: 4555458674146977359}
   m_Layer: 0
   m_Name: SeaFly
   m_TagString: Untagged
@@ -448,7 +447,7 @@ Transform:
   m_GameObject: {fileID: 4555458674146977345}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalScale: {x: 18, y: 18, z: 18}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4555458673467112935}
@@ -492,24 +491,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  flyTime: 1.5
+  flyTime: 1
   flyLength: 90
-  flyHeight: 60
+  flyHeight: 50
   coolDown: 1
---- !u!114 &4555458674146977359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555458674146977345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bacd27f0091e3b84c8721ae03e7a56b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGimmickEnable: 1
-  effectType: 0
 --- !u!1 &4555458674173169822
 GameObject:
   m_ObjectHideFlags: 0
