@@ -37,7 +37,7 @@ public class FallingGround : Gimmick
     }
 
     /// <summary>
-    /// 본인의 오브젝트를 복사하여 중력을 활성화 하여 떨어뜨리고, 전역변수 respawnTime이후에 다시 활성화 된다.
+    /// 본인의 오브젝트를 복사하여 중력을 활성화 하여 떨어뜨리고, 변수 respawnTime이후에 다시 활성화 된다.
     /// </summary>
     private void Fall()
     {

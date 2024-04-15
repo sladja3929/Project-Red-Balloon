@@ -7,9 +7,15 @@ using UnityEngine;
 public class GimmickTrigger : Gimmick
 {
     [SerializeField] private List<Command> commands;
+    [SerializeField] private bool debug = false;
     public override void Execute()
     {
         if (!isGimmickEnable) return;
+        
+        if (debug)
+        {
+            Debug.Log("Gimmick Trigger Call");
+        }
 
         foreach (var command in commands)
         {
