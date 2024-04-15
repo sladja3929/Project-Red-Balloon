@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Tornado_Wind
-  m_Shader: {fileID: -6465566751694194690, guid: 6370e25f6d406f448b394351f003f612, type: 3}
+  m_Shader: {fileID: 4800000, guid: c60ed0bc7de58464db67545775779458, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -120,6 +120,10 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _TwirlAmount: 5
+    - _WobbleAmount: 0.1
+    - _WobbleFrequency: 2
+    - _WobbleIntensity: 1
+    - _WobbleSpeed: 4
     - _WombbleAmount: 0.1
     - _WombbleFrequency: 1
     - _WombbleIntensity: 0.1
@@ -130,9 +134,10 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _NoiseColor: {r: 0.1764706, g: 0.28235295, b: 0.36862746, a: 1}
+    - _NoiseColor: {r: 0.5971282, g: 0.621168, b: 0.6415094, a: 1}
     - _NoiseSpeed: {r: 0, g: -1, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _TopEdgeSize: {r: -3, g: 1, b: 0, a: 0}
     - _TwirlCenter: {r: 0.5, g: 0, b: 0, a: 0}
     - _TwirlSpeed: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
