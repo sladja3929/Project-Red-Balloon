@@ -66,4 +66,9 @@ public class ResolutionController : MonoBehaviour
     {
         _fullScreen = fullScreenToggle;
     }
+
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
 }
