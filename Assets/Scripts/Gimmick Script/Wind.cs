@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Wind : Gimmick
 {
-    public Vector3 windDirection;
     public float windPower;
     
     private AudioSource _windSound;
@@ -18,7 +17,7 @@ public class Wind : Gimmick
         
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<Rigidbody>().AddForce(windPower * Time.deltaTime * windDirection.normalized);
+            other.GetComponent<Rigidbody>().AddForce(windPower * Time.deltaTime * -transform.right);
         }
     }
     

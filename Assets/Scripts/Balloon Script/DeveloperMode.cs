@@ -2,24 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Quaternion = System.Numerics.Quaternion;
 
 public class DeveloperMode : MonoBehaviour
 {
     public float moveSpeed = 30;
 
     private Rigidbody _rigidbody;
-    private CinemachineController _controller;
+    private CameraController _controller;
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _controller = GameObject.Find("CM FreeLook1").GetComponent<CinemachineController>();
+        _controller = GameObject.Find("Viewer").GetComponent<CameraController>();
     }
 
     void Start()
     {
         _rigidbody.useGravity = false;
-        _controller.onControll = CinemachineController.ControllType.LookAround;
+        _controller.onControll = CameraController.ControllType.LookAround;
     }
     
     // Update is called once per frame
@@ -55,7 +54,7 @@ public class DeveloperMode : MonoBehaviour
             transform.position -= Vector3.up * (moveSpeed * Time.deltaTime);
         }
 
-        transform.rotation = UnityEngine.Quaternion.LookRotation(transform.position - _controller.GetPosition());
+        transform.rotation = _controller.GetRotation();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -68,6 +67,6 @@ public class DeveloperMode : MonoBehaviour
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.useGravity = true;
 
-        _controller.onControll = CinemachineController.ControllType.Stop;
+        _controller.onControll = CameraController.ControllType.Stop;
     }
 }

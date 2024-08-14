@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 903d15e84ce270345aef455b1ca311b1, type: 2}
+  - {fileID: 2100000, guid: 7ecbeb34b512fa7448f255495697db87, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,9 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1be0afdf2461f04b86f72623073e3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGimmickEnable: 0
-  windDirection: {x: 0, y: 0, z: 0}
-  windPower: 0
+  isGimmickEnable: 1
+  windDirection: {x: 0, y: -1, z: 0}
+  windPower: 5
 --- !u!82 &5385658432835485583
 AudioSource:
   m_ObjectHideFlags: 0
@@ -122,12 +122,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7863477814294021879}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a812f571a6b6cec409896fef5b274ef0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.135
+  m_Volume: 0.455
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -136,9 +136,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 10
-  MaxDistance: 1000
+  MaxDistance: 250
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -281,6 +281,10 @@ PrefabInstance:
     - target: {fileID: 9203686212067360622, guid: 362866523059f164c95fec65995f5cdf, type: 3}
       propertyPath: m_Name
       value: Wind Particle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203686212067360622, guid: 362866523059f164c95fec65995f5cdf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 362866523059f164c95fec65995f5cdf, type: 3}

@@ -82,7 +82,7 @@ public class BalloonController : MonoBehaviour
 		_rigidbody.isKinematic = true;
 		_showArrow?.Show();
 		//카메라 컨트롤 타입 드래그로 변경
-		CinemachineController.instance.onControll = CinemachineController.ControllType.Drag;
+		CameraController.instance.onControll = CameraController.ControllType.Drag;
 		_dragRotation.onControll = true;
 
 		while (true)
@@ -96,7 +96,7 @@ public class BalloonController : MonoBehaviour
 			yield return null;
 		}
 
-		CinemachineController.instance.onControll = CinemachineController.ControllType.Stop;
+		CameraController.instance.onControll = CameraController.ControllType.Stop;
 		_dragRotation.onControll = false;
 
 		ChangeState(BalloonState.Charge);
@@ -141,7 +141,8 @@ public class BalloonController : MonoBehaviour
 		_balloonShoot.SetMoveDirection(rotatedDirVec);
 		if (_balloonShoot.StartMove(chargeGauge))
 		{
-			CinemachineController.instance.onControll = CinemachineController.ControllType.Drag;
+			CameraController.instance.onControll = 
+				CameraController.ControllType.Drag;
 			chargeGauge = 0f;
 		}
 
