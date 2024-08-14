@@ -82,6 +82,7 @@ public class BalloonController : MonoBehaviour
 		ui.SetChargeUI(0);
 
 		_rigidbody.isKinematic = true;
+		// ReSharper disable once Unity.NoNullPropagation
 		_showArrow?.Show();
 		//카메라 컨트롤 타입 드래그로 변경
 		CameraController.instance.onControll = CameraController.ControllType.Drag;

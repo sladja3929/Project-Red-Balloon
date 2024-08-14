@@ -7,21 +7,22 @@ public class Shake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            StartCoroutine(ShakeCamera(1f, 0.4f));
-        }
+    }
+    
+    public void ShakeCamera(float amount, float time)
+    {
+        StartCoroutine(ShakeCameraRoutine(amount, time));
     }
 
-    private IEnumerator ShakeCamera(float f, float f1)
+    private IEnumerator ShakeCameraRoutine(float amount, float time)
     {
         Vector3 originalPos = transform.localPosition;
         float elapsed = 0.0f;
 
-        while (elapsed < f1)
+        while (elapsed < time)
         {
-            float x = Random.Range(-1f, 1f) * f;
-            float y = Random.Range(-1f, 1f) * f;
+            float x = Random.Range(-1f, 1f) * amount;
+            float y = Random.Range(-1f, 1f) * amount;
 
             transform.localPosition = new Vector3(x, y, originalPos.z);
 

@@ -69,10 +69,14 @@ public class ExplosionEffect : Gimmick
          time += dt;
          if (time  > explosionTime) break;
             
-         playerRigid.AddForce(direction * explosionPower);
+         playerRigid.AddForce(direction * explosionPower, ForceMode.Acceleration);
          yield return new WaitForSeconds(dt);
       }
       
+      // playerRigid.AddExplosionForce(explosionPower, transform.position, 10f, 0.5f, ForceMode.Impulse);
+      
       _isExploding = false;
+
+      yield break;
    }
 }
