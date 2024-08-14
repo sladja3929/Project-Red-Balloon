@@ -20,6 +20,7 @@ public class BalloonController : MonoBehaviour
 	[SerializeField] private float chargeGauge;
 	[SerializeField] private KeyCode chargeKey;
 	[SerializeField] private float chargeSpeed;
+	[SerializeField] private ChargeUI ui;
 
 	[SerializeField] private AudioClip balloonShootSound;
 	[SerializeField] private AudioClip balloonChargeSound;
@@ -78,6 +79,7 @@ public class BalloonController : MonoBehaviour
 	private IEnumerator Aim()
 	{
 		Debug.Log("Aim State");
+		ui.SetChargeUI(0);
 
 		_rigidbody.isKinematic = true;
 		_showArrow?.Show();
@@ -116,6 +118,8 @@ public class BalloonController : MonoBehaviour
 			{
 				chargeGauge += chargeSpeed * Time.deltaTime;
 				if (chargeGauge > 1f) chargeGauge = 1f;
+				
+				ui.SetChargeUI(chargeGauge);
 			}
 			else break;
 

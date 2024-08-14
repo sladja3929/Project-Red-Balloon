@@ -1,23 +1,31 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResolutionController : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown resolutionDropdown;
 
-    //Resolution Setting
+    //====================Resolution Setting====================
     private Resolution[] _resolutions;
     private List<Resolution> _filteredResolutions;
 
     private float _currentRefreshRate;
     private int _currentResolutionIndex = 0;
 
-    // Start is called before the first frame update
-    private void Start()
+    public void SetResolution(int resolutionIndex)
     {
+        var resolution = _filteredResolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, _fullScreen);
+    }
+
+    public void SetupResolution()
+    {
+        
         _resolutions = Screen.resolutions;
         _filteredResolutions = new List<Resolution>();
 
@@ -55,20 +63,44 @@ public class ResolutionController : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
     }
 
-    public void SetResolution(int resolutionIndex)
-    {
-        var resolution = _filteredResolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, _fullScreen);
-    }
-
+    //=======================Full Screen Setting=======================
     private bool _fullScreen;
-    public void SetFullScreen(bool fullScreenToggle)
+    public Toggle fullScreenToggle;
+    public Toggle windowedToggle;
+
+    private void ReloadToggle()
     {
-        _fullScreen = fullScreenToggle;
+        _fullScreen = Screen.fullScreen;
+        
+        fullScreenToggle.isOn = _fullScreen;
+        windowedToggle.isOn = !_fullScreen;
     }
 
-    public void SetQuality(int qualityIndex)
+    private void SetupFullScreen()
     {
-        QualitySettings.SetQualityLevel(qualityIndex);
+        windowedToggle.onValueChanged.AddListener(SetWindowed);
+        fullScreenToggle.onValueChanged.AddListener(SetFullScreen);
+    }
+
+    private void SetFullScreen(bool arg0)
+    {
+        _fullScreen = arg0;
+        Screen.fullScreen = _fullScreen;
+        
+        ReloadToggle();
+    }
+    private void SetWindowed(bool arg0)
+    {
+        _fullScreen = !arg0;
+        Screen.fullScreen = _fullScreen;
+        
+        ReloadToggle();
+    }
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        SetupResolution();
+        SetupFullScreen();
     }
 }
