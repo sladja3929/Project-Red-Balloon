@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class StoneFall : Gimmick
@@ -10,12 +11,23 @@ public class StoneFall : Gimmick
     
     public float squareHeight = 10f;
     public float squareWidth = 1f;
-
+    public float force = 1f;
+    
+    private Rigidbody rb;
+    private bool isActive = false;
+    
+    private void Start()
+    {
+        rb = stone.GetComponent<Rigidbody>();
+    }
+    
     public void Update()
     {
-        if (DetectBalloon())
+        if (!isActive && DetectBalloon())
         {
-            stone.GetComponent<Rigidbody>().isKinematic = false;
+            isActive = true;
+            rb.isKinematic = false;
+            rb.AddForce(-transform.up * force, ForceMode.Impulse);
         }
     }
     

@@ -85,7 +85,7 @@ public class BalloonController : MonoBehaviour
 		// ReSharper disable once Unity.NoNullPropagation
 		_showArrow?.Show();
 		//카메라 컨트롤 타입 드래그로 변경
-		CameraController.instance.onControll = CameraController.ControllType.Drag;
+		CinemachineController.instance.onControll = CinemachineController.ControllType.Drag;
 		_dragRotation.onControll = true;
 
 		while (true)
@@ -99,7 +99,7 @@ public class BalloonController : MonoBehaviour
 			yield return null;
 		}
 
-		CameraController.instance.onControll = CameraController.ControllType.Stop;
+		CinemachineController.instance.onControll = CinemachineController.ControllType.Stop;
 		_dragRotation.onControll = false;
 
 		ChangeState(BalloonState.Charge);
@@ -146,8 +146,7 @@ public class BalloonController : MonoBehaviour
 		_balloonShoot.SetMoveDirection(rotatedDirVec);
 		if (_balloonShoot.StartMove(chargeGauge))
 		{
-			CameraController.instance.onControll = 
-				CameraController.ControllType.Drag;
+			CinemachineController.instance.onControll = CinemachineController.ControllType.Drag;
 			chargeGauge = 0f;
 		}
 
