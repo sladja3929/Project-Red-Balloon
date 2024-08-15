@@ -25,7 +25,11 @@ public class ExplosionEffect : Gimmick
       
       if (col.gameObject.CompareTag("Player") && !_isExploding)
       {
-         StartCoroutine(Explode(col.gameObject));            
+         StartCoroutine(Explode(col.gameObject));   
+         if (fxSound != null)
+         {
+            SoundManager.instance.SfxPlay("explodeSound", fxSound, transform.position);
+         }         
       }
    }
 
@@ -46,6 +50,8 @@ public class ExplosionEffect : Gimmick
    private bool _isExploding;
    private IEnumerator Explode(GameObject player)
    {
+      Debug.Log("Start Explode");
+      
       _isExploding = true;
       
       Rigidbody playerRigid = player.GetComponent<Rigidbody>();
@@ -59,14 +65,18 @@ public class ExplosionEffect : Gimmick
       
       while (true)
       {
-         float dt = 0.01f;
+         const float dt = 0.01f;
          time += dt;
          if (time  > explosionTime) break;
             
-         playerRigid.AddForce(direction * explosionPower);
+         playerRigid.AddForce(direction * explosionPower, ForceMode.Acceleration);
          yield return new WaitForSeconds(dt);
       }
       
+      // playerRigid.AddExplosionForce(explosionPower, transform.position, 10f, 0.5f, ForceMode.Impulse);
+      
       _isExploding = false;
+
+      yield break;
    }
 }
