@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Shake : MonoBehaviour
 {
-    // Update is called once per frame
-    void Update()
-    {
-    }
-    
     public void ShakeCamera(float amount, float time)
     {
         StartCoroutine(ShakeCameraRoutine(amount, time));
