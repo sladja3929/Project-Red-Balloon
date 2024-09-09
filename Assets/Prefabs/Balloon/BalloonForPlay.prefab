@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7725434210765982043}
   - component: {fileID: 8207029611085120323}
   - component: {fileID: 1968744810210670419}
+  - component: {fileID: 624605302480310107}
   m_Layer: 0
   m_Name: BalloonForPlay
   m_TagString: Player
@@ -32,9 +33,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3271042181040711083}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 5, z: -5}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,7 +48,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3271042181040711083}
-  m_Mesh: {fileID: 4729104733280329583, guid: 7e35dd5a4e0d8b84c93adea45ae2f3ac, type: 3}
+  m_Mesh: {fileID: 6740441130372897478, guid: 7330be382f9e3c140892263891b52758, type: 3}
 --- !u!23 &3919802900618904702
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -68,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4504875206402336086, guid: 7e35dd5a4e0d8b84c93adea45ae2f3ac, type: 3}
+  - {fileID: 2100000, guid: be51b29e3f529ed418c01b578673dcfb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,7 +104,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!64 &2424197026275296753
@@ -119,7 +120,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4729104733280329583, guid: 7e35dd5a4e0d8b84c93adea45ae2f3ac, type: 3}
+  m_Mesh: {fileID: 6740441130372897478, guid: 7330be382f9e3c140892263891b52758, type: 3}
 --- !u!114 &2424197026275296755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,12 +154,12 @@ MonoBehaviour:
   chargeKey: 32
   chargeSpeed: 1
   ui: {fileID: 0}
-  balloonShootSound: {fileID: 0}
+  balloonShootSound: {fileID: 8300000, guid: 9bccbd9c6983dac499c43800dcfee40e, type: 3}
   balloonChargeSound: {fileID: 0}
-  balloonBoundSound: {fileID: 0}
-  rayToBottomLength: 1
+  balloonBoundSound: {fileID: 8300000, guid: 9bccbd9c6983dac499c43800dcfee40e, type: 3}
+  rayToBottomLength: 2
   isGamePaused: 0
-  flyKey: 0
+  flyKey: 282
 --- !u!114 &7725434210765982043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,9 +191,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePoint: {x: 0, y: 0, z: 0}
   dieEffect: {fileID: 1116091231520297433, guid: 3903ad2d1ea915948b2dab0fffbfd9b4, type: 3}
-  dieSound: {fileID: 0}
-  respawnTime: 0
-  dieKey: 0
+  dieSound: {fileID: 8300000, guid: 48fceb0a6fc53254db8fdd775bd9b0c9, type: 3}
+  respawnTime: 2
+  dieKey: 286
 --- !u!114 &1968744810210670419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,3 +207,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSize: 1
+--- !u!114 &624605302480310107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271042181040711083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab1bd4f8eef21d4b8bca919d2749e73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrow: {fileID: 0}

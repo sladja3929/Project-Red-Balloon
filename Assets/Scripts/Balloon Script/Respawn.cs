@@ -60,7 +60,7 @@ public class Respawn : MonoBehaviour
     private void Spawn()
     {
         transform.position = savePoint;
-        transform.rotation = quaternion.Euler(90, 0, 0);
+        transform.rotation = quaternion.Euler(180, 0, 0);
         _rigidbody.position = savePoint;
         _rigidbody.velocity = Vector3.zero;
 
@@ -76,12 +76,12 @@ public class Respawn : MonoBehaviour
         var curScale = Vector3.one;
         for (int i = 0; i < 100; i++)
         {
-            transform.localScale = curScale * (1 * i) ;
+            transform.localScale = curScale * (0.01f * i) ;
             transform.position = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
             yield return new WaitForSeconds(0.01f);
         }
 
-        transform.localScale = new Vector3(100, 100, 100);
+        transform.localScale = new Vector3(1, 1, 1);
         _rigidbody.isKinematic = false;
     }
 }
