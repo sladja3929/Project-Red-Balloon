@@ -49,7 +49,7 @@ public class Respawn : MonoBehaviour
         gameObject.SetActive(false);
         
         var transform1 = transform;
-        var effect = Instantiate(dieEffect, transform1.position, Quaternion.identity);
+        var effect = Instantiate(dieEffect, transform1.position, transform1.rotation);
         
         AudioSource.PlayClipAtPoint(dieSound, transform.position);
         

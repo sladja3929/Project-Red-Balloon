@@ -26,7 +26,7 @@ public class GimmickTrigger : Gimmick
     private void OnTriggerEnter(Collider col)
     {
         if (!col.CompareTag("Player")) return;
-
+        
         Execute();
     }
 }
