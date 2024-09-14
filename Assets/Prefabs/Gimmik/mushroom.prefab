@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5053717955404285186
 Transform:
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1695841675134466970, guid: fec536e819a53ba46a6e7d66bf76cd0b, type: 3}
+  - {fileID: 2100000, guid: c676baded7bf8024391d9ecb5970af2a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,6 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 0.1
+  explosionPower: 10
   explosionTime: 1
-  fxSound: {fileID: 0}
+  fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}

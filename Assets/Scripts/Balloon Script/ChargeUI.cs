@@ -12,7 +12,7 @@ public class ChargeUI : MonoBehaviour
     {
         Transform tsf = transform;
         // tsf.localPosition = Vector3.Lerp(start, end, 0.5f);
-        tsf.localScale = new Vector3(0.1f, 0.1f, 0);
+        tsf.localScale = new Vector3(0.11f, 0.11f, 0);
         start = tsf.localPosition - new Vector3(0, 0, (maxLength * 0.5f));
         end = tsf.localPosition + new Vector3(0, 0, (maxLength * 0.5f));
     }

@@ -7,12 +7,13 @@ public class SharkEffect : DeathEffect
     [SerializeField] private AnimationCurve trajectory;
     [SerializeField] private float moveTime;
     [SerializeField] private float moveDistance;
-
+    [SerializeField] private Vector3 positionPreset;
     public override void Show(Vector3 position)
     {
         gameObject.SetActive(true);
 
         _currentTime = 0;
+        position += positionPreset;
         SetStartPos(position);
 
         StartCoroutine(MoveCoroutine());
