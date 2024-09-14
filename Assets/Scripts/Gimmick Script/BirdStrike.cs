@@ -50,6 +50,8 @@ public class BirdStrike : Gimmick
             tsf.position += birdDirection * (birdSpeed * Time.deltaTime);
             yield return null;
         }
+        
+        birdFlying = false;
     }
 
     private void OnTriggerEnter(Collider col)
