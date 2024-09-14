@@ -23,6 +23,12 @@ public class EffectManager : Singleton<EffectManager>
         //show death effect
         effect.Show(position);
     }
+
+    public IEnumerator ShowDeathEffectCoroutine(EffectType type, Vector3 position, float t)
+    {
+        yield return new WaitForSeconds(t);
+        ShowDeathEffect(type, position);
+    }
     
     //public method that hide death effect
     public void HideDeathEffect(DeathEffect effect)
