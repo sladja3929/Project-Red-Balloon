@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BalloonController : MonoBehaviour
 {
-    private enum BalloonState { Aim, Charge, Fly, Fall, DeveloperMode }
+    private enum BalloonState { Aim, Charge, Fly, Fall, Freeze, DeveloperMode }
 	
 	private BalloonState _balloonState;
 
@@ -62,6 +62,11 @@ public class BalloonController : MonoBehaviour
 		ChangeState(BalloonState.Fall);
 	}
 
+	public void SetFreezeState()
+	{
+		ChangeState(BalloonState.Freeze);
+	}
+	
 	/// <summary>
 	/// 풍선 아래에 뭔가 있는지 확인하는 함수
 	/// </summary>
@@ -83,10 +88,10 @@ public class BalloonController : MonoBehaviour
 
 		_rigidbody.isKinematic = true;
 		// ReSharper disable once Unity.NoNullPropagation
+		_dragRotation.ResetDirection();
 		_showArrow?.Show();
 		//카메라 컨트롤 타입 드래그로 변경
 		CameraController.instance.onControll = CameraController.ControllType.Drag;
-		_dragRotation.ResetDirection();
 		_dragRotation.onControll = true;
 
 		while (true)
@@ -179,7 +184,17 @@ public class BalloonController : MonoBehaviour
 		
 		ChangeState(BalloonState.Aim);
 	}
+	
+	private IEnumerator Freeze()
+	{
+		Debug.Log("Freeze state");
+		_showArrow?.Hide();
+		
+		_rigidbody.isKinematic = true;
 
+		yield return null;
+	}
+	
 	private IEnumerator DeveloperMode()
 	{
 		yield return new WaitForSeconds(0.5f);

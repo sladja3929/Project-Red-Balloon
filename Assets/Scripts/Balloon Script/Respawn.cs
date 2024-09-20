@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq.Expressions;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -13,13 +14,17 @@ public class Respawn : MonoBehaviour
 
     private Rigidbody _rigidbody;
     private BalloonController _controller;
-
+    private MeshRenderer _meshRenderer;
+    private MeshCollider _meshCollider;
+    
     public KeyCode dieKey;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _controller = GetComponent<BalloonController>();
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _meshCollider = GetComponent<MeshCollider>();
     }
 
     private void Start()
@@ -46,12 +51,17 @@ public class Respawn : MonoBehaviour
         //폭발 이펙트를 남기고 죽음
         //n초후 저장된 리스폰 포인트에 부활함
         //부활할때 특정 이펙트나 연출이 있을 수 있으니 부활은 함수로 처리
-        gameObject.SetActive(false);
+
+        _meshCollider.enabled = false;
+        _meshRenderer.enabled = false;
+        _rigidbody.useGravity = false;
+        _rigidbody.isKinematic = true;
+        _controller.SetFreezeState();
         
         var transform1 = transform;
         var effect = Instantiate(dieEffect, transform1.position, transform1.rotation);
         
-        AudioSource.PlayClipAtPoint(dieSound, transform.position);
+        SoundManager.instance.SfxPlay("BalloonPop", dieSound, transform.position);
         
         Destroy(effect, respawnTime);
         Invoke(nameof(Spawn), respawnTime);
@@ -63,9 +73,12 @@ public class Respawn : MonoBehaviour
         transform.rotation = quaternion.Euler(180, 0, 0);
         _rigidbody.position = savePoint;
         _rigidbody.velocity = Vector3.zero;
-
-        gameObject.SetActive(true);
-        _controller.SetBasicState();
+        
+        _meshCollider.enabled = true;
+        _meshRenderer.enabled = true;
+        _rigidbody.useGravity = true;
+        _rigidbody.isKinematic = false;
+        _controller.enabled = true;
 
         StartCoroutine(SpawnCoroutine());
     }
@@ -83,5 +96,6 @@ public class Respawn : MonoBehaviour
 
         transform.localScale = new Vector3(1, 1, 1);
         _rigidbody.isKinematic = false;
+        _controller.SetBasicState();
     }
 }

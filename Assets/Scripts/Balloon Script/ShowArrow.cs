@@ -7,11 +7,19 @@ public class ShowArrow : MonoBehaviour
     public GameObject arrow;
     public void Show()
     {
-        arrow.SetActive(true);
+        var meshes = arrow.GetComponentsInChildren<MeshRenderer>();
+        foreach (var mesh in meshes)
+        {
+            mesh.enabled = true;
+        }
     }
 
     public void Hide()
     {
-        arrow.SetActive(false);
+        var meshes = arrow.GetComponentsInChildren<MeshRenderer>();
+        foreach (var mesh in meshes)
+        {
+            mesh.enabled = false;
+        }
     }
 }
