@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,5 +49,10 @@ public class DragRotation : MonoBehaviour
     public Quaternion GetDirection()
     {
         return direction.transform.rotation;
+    }
+
+    public void ResetDirection()
+    {
+        direction.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

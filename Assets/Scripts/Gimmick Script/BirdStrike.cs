@@ -43,19 +43,15 @@ public class BirdStrike : Gimmick
         //rotate bird y 90
         tsf.Rotate(0, 90, 0);
         
-        #if UNITY_EDITOR
-
-        EditorApplication.isPaused = true;
-        
-        #endif
-        
-        var totalMovedDistance = 0f;
+        float totalMovedDistance = 0f;
         while (totalMovedDistance < maxDistance)
         {
             totalMovedDistance += birdSpeed * Time.deltaTime;
             tsf.position += birdDirection * (birdSpeed * Time.deltaTime);
             yield return null;
         }
+        
+        birdFlying = false;
     }
 
     private void OnTriggerEnter(Collider col)

@@ -13,12 +13,19 @@ public class HotGround : Gimmick
     {
         balloonDebuff.Heat(heatSpeed * Time.deltaTime);
     }
-
-    private void OnCollisionStay(Collision other)
+    
+    private void OnCollisionExit(Collision other)
     {
         if (!other.collider.CompareTag("Player")) return;
 
-        balloonDebuff ??= other.collider.GetComponent<BalloonDebuff>();
+        balloonDebuff = null;
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        balloonDebuff ??= other.GetComponent<BalloonDebuff>();
         
         Execute();
     }
