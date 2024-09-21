@@ -70,16 +70,12 @@ public class Respawn : MonoBehaviour
     private void Spawn()
     {
         transform.position = savePoint;
-        transform.rotation = quaternion.Euler(180, 0, 0);
-        _rigidbody.position = savePoint;
-        _rigidbody.velocity = Vector3.zero;
-        
-        _meshCollider.enabled = true;
+        transform.rotation = Quaternion.Euler(180, 0, 0);
         _meshRenderer.enabled = true;
-        _rigidbody.useGravity = true;
-        _rigidbody.isKinematic = false;
-        _controller.enabled = true;
-
+        
+        //_rigidbody.position = savePoint;
+        //_rigidbody.velocity = Vector3.zero;
+        
         StartCoroutine(SpawnCoroutine());
     }
 
@@ -87,15 +83,21 @@ public class Respawn : MonoBehaviour
     {
         _rigidbody.isKinematic = true;
         var curScale = Vector3.one;
+        float yPos = savePoint.y;
+        
         for (int i = 0; i < 100; i++)
         {
             transform.localScale = curScale * (0.01f * i) ;
-            transform.position = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
+            transform.position = new Vector3(savePoint.x, yPos -= 0.01f, savePoint.z);
             yield return new WaitForSeconds(0.01f);
         }
-
         transform.localScale = new Vector3(1, 1, 1);
+
+        _meshCollider.enabled = true;
         _rigidbody.isKinematic = false;
+        _rigidbody.useGravity = true;
+        _controller.enabled = true;
+
         _controller.SetBasicState();
     }
 }

@@ -12,6 +12,8 @@ public class LongStone : Gimmick
     [Range(1 ,3)]
     [SerializeField] private float lengthBetDirPos; //롱스톤이 튀어나오는 정도, 작을수록 많이나옴
 
+    private ParticleSystem _particle;
+    
     private Vector3 initPos;
     private Quaternion initRot;
     
@@ -19,6 +21,7 @@ public class LongStone : Gimmick
 
     private void Start()
     {
+        _particle = transform.parent.GetComponentInChildren<ParticleSystem>();
         canAttack = true;
         initPos = transform.position;
         initRot = transform.rotation;
@@ -44,13 +47,14 @@ public class LongStone : Gimmick
         dir.x = 0;
         dir = transform.TransformPoint(dir);
         transform.LookAt(dir);
-
+        
         while (Vector3.Distance(transform.position, dir) > lengthBetDirPos)
         {
             transform.position = (transform.position + transform.forward * attackSpeed * Time.deltaTime);
             yield return null;
         }
-
+        
+        _particle.Stop();
         yield return new WaitForSeconds(reloadDelay);
         StartCoroutine(Reload());
     }
@@ -67,6 +71,7 @@ public class LongStone : Gimmick
         transform.rotation = initRot;
 
         yield return new WaitForSeconds(attackDelay);
+        _particle.Play();
         canAttack = true;
     }
     
