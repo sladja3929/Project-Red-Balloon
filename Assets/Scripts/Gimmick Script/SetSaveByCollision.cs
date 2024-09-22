@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class SetSaveByCollision : Gimmick
 {
-    [SerializeField] private Transform savePoint;
     public override void Execute()
     {
         if (!isGimmickEnable) return;
-        
-        GameManager.instance.SetSavePoint(savePoint.position);
+
+        GameManager.instance.SetSavePoint(transform.position);
     }
 
     private void OnCollisionEnter(Collision other)

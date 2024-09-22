@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5241221001014157858}
   - component: {fileID: 5241221001014157861}
+  - component: {fileID: 3475069185573481129}
+  - component: {fileID: 7504359703188630505}
   m_Layer: 0
   m_Name: Volcano
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5241221001014157857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7444001358597600547}
@@ -45,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cccace9c8d583284082e8cf0e71cf7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGimmickEnable: 0
+  isGimmickEnable: 1
   stonePrefab: {fileID: 2311042037980891708, guid: 437055318e2d3bc44853c5ea0acfa1d0, type: 3}
   gasEffect: {fileID: 7314047718409115375}
   degree: 45
