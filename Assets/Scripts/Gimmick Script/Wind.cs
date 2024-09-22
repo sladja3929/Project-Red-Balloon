@@ -29,8 +29,6 @@ public class Wind : Gimmick
 
     private void Update()
     {
-        _windSound.volume = SoundManager.instance.GetSfxSoundVolume() + 0.5f;
-        if (_windSound.volume > 1) _windSound.volume = 1;
         _windEffect.gameObject.SetActive(isGimmickEnable);
     }
 }

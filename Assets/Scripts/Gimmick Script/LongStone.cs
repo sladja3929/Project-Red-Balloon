@@ -61,7 +61,7 @@ public class LongStone : Gimmick
 
     private IEnumerator Reload()
     {
-        while ((transform.position - initPos).z > 0)
+        while (Mathf.Abs((transform.position - initPos).z) > 0)
         {
             transform.position = (transform.position - transform.forward * attackSpeed / 10 * Time.deltaTime);
             yield return null;

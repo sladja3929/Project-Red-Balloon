@@ -85,7 +85,7 @@ public class CutScene : MonoBehaviour
 
         fadingInfo.playTime = 5;
         void FadeIn() => SceneChangeManager.instance.FadeIn(fadingInfo);
-        //SceneChangeManager.instance.LoadSceneAsync("stage1", onFinish : FadeIn);
+        SceneChangeManager.instance.LoadSceneAsync("stage1", onFinish : FadeIn);
     }
 
     enum CameraState

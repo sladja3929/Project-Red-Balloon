@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DeveloperMode : MonoBehaviour
 {
-    public float moveSpeed = 30;
+    public float moveSpeed = 60;
 
     private Rigidbody _rigidbody;
     private CameraController _controller;
@@ -58,7 +58,7 @@ public class DeveloperMode : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            moveSpeed = (moveSpeed += 10) % 50;
+            moveSpeed = (moveSpeed += 20) % 100;
         }
     }
 

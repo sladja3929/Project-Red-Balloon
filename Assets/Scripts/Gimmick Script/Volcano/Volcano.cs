@@ -20,6 +20,8 @@ public class Volcano : Gimmick
     [SerializeField] private AudioClip explosionSound;
     [SerializeField] private AudioClip shakeGroundSound;
 
+    private Vector3 balloonPos;
+    
     private bool isSpawning = false;
     
     private float t;
@@ -53,6 +55,8 @@ public class Volcano : Gimmick
             StartCoroutine(ShakeCamera(virtualCamera.transform, 0.5f, 1.0f)); // Adjust the amount and time as needed
         }
         
+        balloonPos = GameManager.instance.GetBalloonPosition();
+        
         SoundManager.instance.SfxPlay("Volcano sound", explosionSound, transform, int.MaxValue, int.MaxValue);
         SoundManager.instance.SfxPlay("Shake ground sound", shakeGroundSound, transform, int.MaxValue, int.MaxValue);
     }
@@ -65,9 +69,6 @@ public class Volcano : Gimmick
     [ContextMenu("돌떨어져유")]
     private void SpawnSingleStone()
     {
-
-        // balloon 좌표 가져오기
-        Vector3 balloonPos = GameManager.instance.GetBalloonPosition();
         Vector3 volcanoPosition = transform.position;
 
         // balloon과 화산의 좌표 연산해서 날아오는 방향 계산하기

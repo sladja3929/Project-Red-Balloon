@@ -24,7 +24,6 @@ public class GameManager : Singleton<GameManager>
 
         _balloonRigid = _balloonObj.GetComponent<Rigidbody>();
         _balloonSpawn = _balloonObj.GetComponent<Respawn>();
-        Debug.Log("asd");
     }
 
     public static bool IsPause

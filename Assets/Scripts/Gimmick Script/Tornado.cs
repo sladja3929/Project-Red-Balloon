@@ -11,6 +11,12 @@ public class Tornado : Gimmick
     [Range(0, 90)] public float rotationDegree;
 
     private Coroutine _tornado;
+    private AudioSource _audio;
+
+    private void Awake()
+    {
+        _audio = transform.GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider col)
     {
@@ -49,5 +55,10 @@ public class Tornado : Gimmick
             x.GetComponent<Rigidbody>().AddForce(rotatedForeDir * Time.deltaTime);
             yield return refreshRate;
         }
+    }
+
+    private void Update()
+    {
+        _audio.volume = SoundManager.instance.GetSfxSoundVolume();
     }
 }

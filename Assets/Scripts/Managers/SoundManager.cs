@@ -29,7 +29,8 @@ public class SoundManager : Singleton<SoundManager>
     {
         base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
-        
+        audioMixer.SetFloat("SfxVolume", Mathf.Log10(sfxVolume) * 20);
+        //audioMixer.SetFloat("BgmVolume", Mathf.Log10(bgmVolume) * 20);
         //수정필요 - 사운드매니저가 시작시작화면에 들어가면 해결
         foreach (AudioClip t in backgroundSoundList)
         {

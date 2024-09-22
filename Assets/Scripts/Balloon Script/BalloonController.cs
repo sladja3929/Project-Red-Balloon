@@ -15,7 +15,7 @@ public class BalloonController : MonoBehaviour
 	private Rigidbody _rigidbody;
 
 	private float _time;
-
+	
 	[SerializeField] private float stopCriterionVelocity;
 	[SerializeField] private float chargeGauge;
 	[SerializeField] private KeyCode chargeKey;
@@ -218,7 +218,7 @@ public class BalloonController : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.layer.Equals(3))
+		if (collision.gameObject.layer.Equals(3) && (_balloonState == BalloonState.Fall) )
 		{
 			SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound, transform.position);
 		}

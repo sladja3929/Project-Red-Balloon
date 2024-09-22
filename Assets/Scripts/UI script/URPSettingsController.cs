@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class UrpSettingsController : MonoBehaviour
+public class URPSettingsController : MonoBehaviour
 {
     public UniversalRenderPipelineAsset currentAsset;
     

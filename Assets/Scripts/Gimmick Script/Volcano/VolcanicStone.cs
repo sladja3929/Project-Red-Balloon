@@ -24,8 +24,6 @@ public class VolcanicStone : MonoBehaviour
         _rigidbody.velocity = direction * speed;
         Transform transform1;
         (transform1 = transform).LookAt(transform.position + direction);
-        
-        SoundManager.instance.SfxPlay("Volcanic stone sound", sound, transform1);
     }
     
     private void Update()
@@ -41,6 +39,7 @@ public class VolcanicStone : MonoBehaviour
         if (_hasExploded) return;
 
         _hasExploded = true;
+        SoundManager.instance.SfxPlay("Volcanic stone sound", sound, transform.position);
         Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
