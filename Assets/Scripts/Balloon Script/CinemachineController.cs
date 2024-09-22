@@ -27,7 +27,7 @@ public class CinemachineController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.isPause) return;
+        if (GameManager.IsPause) return;
         
     }
 

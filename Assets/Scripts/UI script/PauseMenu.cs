@@ -2,33 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject backGround;
-    [SerializeField] private GameObject menuUI;
+    [FormerlySerializedAs("pannels")] 
+    [SerializeField] private GameObject[] panels;
 
     [SerializeField] private Slider sfxVolumeSlider;
     [SerializeField] private Slider musicVolumeSlider;
+    
+    [Space(10)]
+    [SerializeField] private Slider mouseSensitivitySlider;
+    [SerializeField] private Slider camSensitivitySlider;
+    
+    private DragRotation _dragRotation;
+    private CameraController _cameraController;
 
     private void OpenPauseMenu()
     {
         backGround.SetActive(true);
-        menuUI.SetActive(true);
+        foreach (GameObject panel in panels)
+        {
+            panel.SetActive(true);
+        }
 
-        GameManager.isPause = true;
+        GameManager.IsPause = true;
 
         sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();
         musicVolumeSlider.value = SoundManager.instance.GetBackgroundVolume();
+        
+        mouseSensitivitySlider.value = _dragRotation.GetRotationSpeedRate();
+        camSensitivitySlider.value = _cameraController.GetDpiRate();
     }
 
     public void ClosePauseMenu()
     {
         backGround.SetActive(false);
-        menuUI.SetActive(false);
+        foreach (GameObject pannel in panels)
+        {
+            pannel.SetActive(false);
+        }
 
-        GameManager.isPause = false;
+        GameManager.IsPause = false;
     }
 
     public void SetSfxVolume()
@@ -41,16 +59,6 @@ public class PauseMenu : MonoBehaviour
     {
         float value = musicVolumeSlider.value;
         SoundManager.instance.SetBackgroundVolume(value);
-    }
-
-    public void SetQuality(int level)
-    {
-        //todo: level에 따라 지정된 그래픽 수준 변경하기 (높음, 중간, 낮음)
-    }
-
-    public void SetResolution()
-    {
-        //todo: 해상도 조정하는법 익히고 코드 작성하기
     }
 
     public void QuitGame()
@@ -68,10 +76,33 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (menuUI.activeSelf)
+            if (backGround.activeSelf)
                 ClosePauseMenu();
             else 
                 OpenPauseMenu();
         }
+    }
+    
+    private void Awake()
+    {
+        ClosePauseMenu();
+        
+        _dragRotation = FindObjectOfType<DragRotation>();
+        _cameraController = FindObjectOfType<CameraController>();
+        
+        camSensitivitySlider.onValueChanged.AddListener(delegate { SetControllerSensitivity(); });
+        mouseSensitivitySlider.onValueChanged.AddListener(delegate { SetMouseSensitivity(); });
+    }
+    
+    public void SetMouseSensitivity()
+    {
+        float value = mouseSensitivitySlider.value;
+        _dragRotation.SetRotationSpeedRate(value);
+    }
+    
+    public void SetControllerSensitivity()
+    {
+        float value = camSensitivitySlider.value;
+        _cameraController.SetDpiRate(value);
     }
 }

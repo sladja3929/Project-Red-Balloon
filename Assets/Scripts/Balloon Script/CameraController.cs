@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.isPause) return;
+        if (GameManager.IsPause) return;
         
         if (Input.GetMouseButton(1))
         {
@@ -62,5 +62,15 @@ public class CameraController : MonoBehaviour
     public Quaternion GetRotation()
     {
         return viewerTransform.rotation;
+    }
+    
+    public void SetDpiRate(float rate)
+    {
+        dpi = Mathf.Lerp(0.1f, 10, rate);
+    }
+    
+    public float GetDpiRate()
+    {
+        return (dpi - 0.1f) / (10 - 0.1f);
     }
 }
