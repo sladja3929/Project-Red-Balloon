@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Volcano : Gimmick
 {
@@ -51,8 +53,8 @@ public class Volcano : Gimmick
             StartCoroutine(ShakeCamera(virtualCamera.transform, 0.5f, 1.0f)); // Adjust the amount and time as needed
         }
         
-        SoundManager.instance.SfxPlay("Volcano sound", explosionSound, transform);
-        SoundManager.instance.SfxPlay("Shake ground sound", shakeGroundSound, transform);
+        SoundManager.instance.SfxPlay("Volcano sound", explosionSound, transform, int.MaxValue, int.MaxValue);
+        SoundManager.instance.SfxPlay("Shake ground sound", shakeGroundSound, transform, int.MaxValue, int.MaxValue);
     }
     
     private void GasEffect()
