@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
@@ -19,6 +20,8 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] private float backgroundVolume;
     [SerializeField] private float sfxVolume;
     [SerializeField] private float delayTime = 2;
+    
+    [SerializeField] private AudioMixer audioMixer;
 
     //싱글톤 처리
 
@@ -111,11 +114,16 @@ public class SoundManager : Singleton<SoundManager>
     {
         backgroundVolume = volume;
         backgroundSound.volume = backgroundVolume;
+        
+        // audioMixer.SetFloat("BackgroundVolume", Mathf.Log10(volume) * 20);
     }
 
     public void SetSfxSoundVolume(float volume)
     {
         sfxVolume = volume;
+
+        if (volume == 0) volume = 0.0001f;
+        audioMixer.SetFloat("SfxVolume", Mathf.Log10(volume) * 20);
     }
 
     public float GetBackgroundVolume() => backgroundVolume;
