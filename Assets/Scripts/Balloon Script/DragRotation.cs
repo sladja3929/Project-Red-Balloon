@@ -9,9 +9,7 @@ public class DragRotation : MonoBehaviour
 {
     public bool onControll = false;
     
-    public float rotationSpeed = 10f;
-    public float minSpeed = 1f;
-    public float maxSpeed = 100f;
+    public float rotationSpeed = StaticSensitivity.mouseSensitivity;
 
     public Camera cam;
 
@@ -61,15 +59,5 @@ public class DragRotation : MonoBehaviour
     public void ResetDirection()
     {
         direction.transform.localRotation = cam.transform.localRotation;
-    }
-    
-    public void SetRotationSpeedRate(float rate)
-    {
-        rotationSpeed = Mathf.Lerp(minSpeed, maxSpeed, rate);
-    }
-    
-    public float GetRotationSpeedRate()
-    {
-        return (rotationSpeed - minSpeed) / (maxSpeed - minSpeed);
     }
 }

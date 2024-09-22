@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class MainOption : MonoBehaviour
 {
     [SerializeField] private GameObject backGround;
     [FormerlySerializedAs("pannels")] 
@@ -18,7 +18,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Slider mouseSensitivitySlider;
     [SerializeField] private Slider camSensitivitySlider;
 
-    private void OpenPauseMenu()
+    public void OpenPauseMenu()
     {
         backGround.SetActive(true);
         foreach (GameObject panel in panels)
@@ -26,13 +26,8 @@ public class PauseMenu : MonoBehaviour
             panel.SetActive(true);
         }
 
-        GameManager.IsPause = true;
-
         sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();
         musicVolumeSlider.value = SoundManager.instance.GetBackgroundVolume();
-
-        mouseSensitivitySlider.value = StaticSensitivity.GetMouseSensitivityRate();
-        camSensitivitySlider.value = StaticSensitivity.GetCamSensitivityRate();
     }
 
     public void ClosePauseMenu()
@@ -42,8 +37,6 @@ public class PauseMenu : MonoBehaviour
         {
             pannel.SetActive(false);
         }
-
-        GameManager.IsPause = false;
     }
 
     public void SetSfxVolume()
@@ -63,23 +56,6 @@ public class PauseMenu : MonoBehaviour
         GameManager.instance.QuitGame();
     }
 
-    public void BackToMainMenu()
-    {
-        GameManager.GoToMainMenu();
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (backGround.activeSelf)
-                ClosePauseMenu();
-            else 
-                OpenPauseMenu();
-        }
-    }
-    
     private void Awake()
     {
         ClosePauseMenu();

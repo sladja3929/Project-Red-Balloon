@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     }
 
     [SerializeField] private Transform viewerTransform;
-    [SerializeField] private float dpi;
+    private static float DPI => StaticSensitivity.camSensitivity;
 
     public enum ControllType
     {
@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
     private void LookAround()
     {
         Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-        mouseDelta *= dpi;
+        mouseDelta *= DPI;
         Vector3 camAngle = viewerTransform.rotation.eulerAngles;
 
         float x = camAngle.x - mouseDelta.y;
@@ -62,15 +62,5 @@ public class CameraController : MonoBehaviour
     public Quaternion GetRotation()
     {
         return viewerTransform.rotation;
-    }
-    
-    public void SetDpiRate(float rate)
-    {
-        dpi = Mathf.Lerp(0.1f, 10, rate);
-    }
-    
-    public float GetDpiRate()
-    {
-        return (dpi - 0.1f) / (10 - 0.1f);
     }
 }

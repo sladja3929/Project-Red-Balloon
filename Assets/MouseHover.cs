@@ -36,4 +36,16 @@ public class MouseHover : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
         // _image.sprite = defaultSprite;
         transform.localScale = new Vector3(_originalScale, _originalScale, 1);
     }
+    
+    public void OnDisable()
+    {
+        transform.localScale = new Vector3(_originalScale, _originalScale, 1);
+        _image.sprite = defaultSprite;
+    }
+    
+    public void OnEnable()
+    {
+        transform.localScale = new Vector3(_originalScale, _originalScale, 1);
+        _image.sprite = defaultSprite;
+    }
 }

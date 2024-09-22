@@ -54,18 +54,22 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Quit");
     }
 
-    public GameObject optionMenu; 
+    public MainOption optionMenu; 
     public GameObject mainMenu;
     
     public void MainToOption()
     {
-        optionMenu.SetActive(true);
-        mainMenu.SetActive (false);
+        optionMenu.OpenPauseMenu();
+        
+        Debug.Log("MainToOption");
+        gameObject.SetActive(false);
     }
 
     public void OptionToMain()
     {
-        mainMenu.SetActive   (true);
-        optionMenu.SetActive(false);
+        gameObject.SetActive(true);
+        
+        Debug.Log("OptionToMain");
+        optionMenu.ClosePauseMenu();
     }
 }
