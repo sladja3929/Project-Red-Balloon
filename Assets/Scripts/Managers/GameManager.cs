@@ -27,7 +27,7 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("asd");
     }
 
-    public static bool isPause
+    public static bool IsPause
     {
         get => Time.timeScale == 0;
         set => Time.timeScale = value ? 0 : 1;
@@ -73,7 +73,7 @@ public class GameManager : Singleton<GameManager>
 
         record = "score: " + $"{t.Hours:D2} h {t.Minutes:D2} m {t.Seconds:D2} s";
 
-        isPause = true;
+        IsPause = true;
         endCanvas.SetActive(true);
     }
     public static void GoToMainMenu()
@@ -81,7 +81,7 @@ public class GameManager : Singleton<GameManager>
         SceneChangeManager.instance.LoadSceneAsync("MainMenu");
         //
         // SceneChangeManager.instance.StartCoroutine(nameof(FinishGame), "MainMenu");
-        isPause = false;
+        IsPause = false;
     }
 
     public Vector3 GetBalloonPosition()
