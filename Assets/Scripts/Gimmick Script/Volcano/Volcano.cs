@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Volcano : Gimmick
 {
@@ -14,6 +15,9 @@ public class Volcano : Gimmick
     [SerializeField] private float fallingDelay;
     
     [SerializeField] private float spawnInterval;
+    
+    [SerializeField] private AudioClip explosionSound;
+    [SerializeField] private AudioClip shakeGroundSound;
 
     private bool isSpawning = false;
     
@@ -47,6 +51,9 @@ public class Volcano : Gimmick
         {
             StartCoroutine(ShakeCamera(virtualCamera.transform, 0.5f, 1.0f)); // Adjust the amount and time as needed
         }
+        
+        SoundManager.instance.SfxPlay("Volcano sound", explosionSound, transform);
+        SoundManager.instance.SfxPlay("Shake ground sound", shakeGroundSound, transform);
     }
     
     private void GasEffect()
