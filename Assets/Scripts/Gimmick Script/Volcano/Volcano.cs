@@ -12,7 +12,7 @@ public class Volcano : Gimmick
     [SerializeField] private float fallingDelay;
     
     [SerializeField] private float spawnInterval;
-
+    
     private bool isSpawning = false;
     
     private float t;

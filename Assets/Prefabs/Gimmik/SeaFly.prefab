@@ -108,7 +108,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4555458673467112935}
   - component: {fileID: 4555458673467112933}
-  - component: {fileID: 4555458673467112932}
   m_Layer: 0
   m_Name: SeaFly
   m_TagString: Untagged
@@ -124,8 +123,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4555458673467112728}
   m_LocalRotation: {x: -0.122787856, y: 0.6963643, z: -0.122787856, w: 0.6963643}
-  m_LocalPosition: {x: 0.098056436, y: 0.015856773, z: -0.05822307}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 0.09805644, y: 0.015856767, z: -0.05822304}
+  m_LocalScale: {x: 10, y: 10.000001, z: 9.999998}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4555458673858200706}
@@ -153,19 +152,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &4555458673467112932
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4555458673467112728}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.05
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4555458673634492757
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4555458674146977344}
   - component: {fileID: 4555458674146977358}
+  - component: {fileID: 5194989080546295479}
   m_Layer: 0
   m_Name: SeaFly
   m_TagString: Untagged
@@ -495,6 +482,20 @@ MonoBehaviour:
   flyLength: 90
   flyHeight: 50
   coolDown: 1
+  pushPower: 5
+--- !u!135 &5194989080546295479
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555458674146977345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8024294
+  m_Center: {x: 0.13021728, y: 0, z: -0.18410012}
 --- !u!1 &4555458674173169822
 GameObject:
   m_ObjectHideFlags: 0

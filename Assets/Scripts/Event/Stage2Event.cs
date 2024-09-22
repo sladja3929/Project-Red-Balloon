@@ -12,16 +12,19 @@ using System.Collections.Generic;
     [SerializeField] private VolumeProfile volume;
     [SerializeField] private float fadeTime;
     [SerializeField] private Vector3 shadMidRGB = new Vector3(1, 0.65f, 0.65f);
+    [SerializeField] ParticleSystem volcanoSmoke;
     [SerializeField] private bool debug;
-    private ShadowsMidtonesHighlights shadMid;
+    
+    private ShadowsMidtonesHighlights _shadMid;
     private Vector4 initValue;
     private bool isChange = false;
     
     // Start is called before the first frame update
     void Start()
     {
-        volume.TryGet<ShadowsMidtonesHighlights>(out shadMid);
-        initValue = shadMid.shadows.value;
+        volcanoSmoke.Stop();
+        volume.TryGet<ShadowsMidtonesHighlights>(out _shadMid);
+        initValue = _shadMid.shadows.value;
         if (debug) SunSet();
     }
 
@@ -36,8 +39,9 @@ using System.Collections.Generic;
     private void SunSet()
     {
         isChange = true;
-        shadMid.shadows.overrideState = true;
-        shadMid.midtones.overrideState = true;
+        volcanoSmoke.Play();
+        _shadMid.shadows.overrideState = true;
+        _shadMid.midtones.overrideState = true;
         StartCoroutine(SunSetCoroutine(initValue));
     }
     
@@ -50,17 +54,17 @@ using System.Collections.Generic;
             sun.GetComponent<Light>().intensity = Mathf.Lerp(1, 0.1f, time / fadeTime);
             value.y = Mathf.Lerp(initValue.y, shadMidRGB.y, time / fadeTime);
             value.z = Mathf.Lerp(initValue.z, shadMidRGB.z, time / fadeTime);
-            shadMid.shadows.SetValue(new UnityEngine.Rendering.Vector4Parameter(value));
-            shadMid.midtones.SetValue(new UnityEngine.Rendering.Vector4Parameter(value));
+            _shadMid.shadows.SetValue(new UnityEngine.Rendering.Vector4Parameter(value));
+            _shadMid.midtones.SetValue(new UnityEngine.Rendering.Vector4Parameter(value));
             yield return null;
         }
     }
 
     private void OnDestroy()
     {
-        shadMid.shadows.overrideState = false;
-        shadMid.midtones.overrideState = false;
-        shadMid.shadows.SetValue(new UnityEngine.Rendering.Vector4Parameter(initValue));
-        shadMid.midtones.SetValue(new UnityEngine.Rendering.Vector4Parameter(initValue));
+        _shadMid.shadows.overrideState = false;
+        _shadMid.midtones.overrideState = false;
+        _shadMid.shadows.SetValue(new UnityEngine.Rendering.Vector4Parameter(initValue));
+        _shadMid.midtones.SetValue(new UnityEngine.Rendering.Vector4Parameter(initValue));
     }
 }

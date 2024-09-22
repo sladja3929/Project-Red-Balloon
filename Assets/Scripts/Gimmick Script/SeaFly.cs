@@ -1,5 +1,6 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.Collections.Generic;using Unity.VisualScripting;
 using UnityEngine;
 
 public class SeaFly : Gimmick
@@ -10,7 +11,7 @@ public class SeaFly : Gimmick
     public float flyHeight;
 
     public float coolDown;
-
+    public float pushPower;
 
     private Vector3 _startPosition;
     private Vector3 _forward;
@@ -55,6 +56,14 @@ public class SeaFly : Gimmick
             transform.position = _startPosition;
 
             yield return new WaitForSeconds(coolDown);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("Player"))
+        {
+            other.rigidbody.AddForce(transform.forward * pushPower);
         }
     }
 }
