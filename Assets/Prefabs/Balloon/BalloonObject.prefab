@@ -62,7 +62,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624605303690046440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.5}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 0.31, y: 0.31, z: 0.801}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +76,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624605303690046440}
-  m_Mesh: {fileID: -7929139438592967118, guid: 87441e96f2adf214d9860908da67c355, type: 3}
+  m_Mesh: {fileID: -7929139438592967118, guid: a68a95a998e5b7045a9b3a72ee021338, type: 3}
 --- !u!23 &624605303690046438
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b847ece0648cf144a9b9c1be38e71cb, type: 2}
+  - {fileID: 2100000, guid: 87462adac144ba549a918c0cec0fe44b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -420,7 +420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659888985134775758}
   m_LocalRotation: {x: -0.10452837, y: -0, z: -0, w: 0.9945219}
-  m_LocalPosition: {x: 561.35, y: 30.94, z: 126.990005}
+  m_LocalPosition: {x: 0, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -584,7 +584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8927972546992512372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.5}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -598,7 +598,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8927972546992512372}
-  m_Mesh: {fileID: -7929139438592967118, guid: 87441e96f2adf214d9860908da67c355, type: 3}
+  m_Mesh: {fileID: -7929139438592967118, guid: a68a95a998e5b7045a9b3a72ee021338, type: 3}
 --- !u!23 &2195335122614184077
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -652,6 +652,10 @@ PrefabInstance:
       propertyPath: ui
       value: 
       objectReference: {fileID: 1573481869815518039}
+    - target: {fileID: -3299518666821889227, guid: 45543031cacacb045ae43c2b1e430bc1, type: 3}
+      propertyPath: stopCriterionVelocity
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 624605302480310107, guid: 45543031cacacb045ae43c2b1e430bc1, type: 3}
       propertyPath: arrow
       value: 
