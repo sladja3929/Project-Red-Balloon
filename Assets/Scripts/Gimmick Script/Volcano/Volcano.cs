@@ -6,7 +6,9 @@ public class Volcano : Gimmick
 {
     private const float FALLING_TIME = 3.2f;
     [SerializeField] private GameObject stonePrefab;
-
+    [SerializeField] private ParticleSystem gasEffect;
+    
+    [Space(10)]
     [SerializeField] private float degree;
     [SerializeField] private float fallingSpeed;
     [SerializeField] private float fallingDelay;
@@ -33,6 +35,7 @@ public class Volcano : Gimmick
             isSpawning = true;
             
             ShakeCamera();
+            GasEffect();
             Invoke(nameof(SpawnSingleStone), fallingDelay);
         }
     }
@@ -44,6 +47,11 @@ public class Volcano : Gimmick
         {
             StartCoroutine(ShakeCamera(virtualCamera.transform, 0.5f, 1.0f)); // Adjust the amount and time as needed
         }
+    }
+    
+    private void GasEffect()
+    {
+        gasEffect.Play();
     }
 
     [ContextMenu("돌떨어져유")]

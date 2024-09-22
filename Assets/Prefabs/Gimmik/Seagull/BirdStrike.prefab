@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 272003954416969199}
   - component: {fileID: 1749247492}
   - component: {fileID: 1749247493}
+  - component: {fileID: 2045451407}
   m_Layer: 0
   m_Name: BirdStrike
   m_TagString: Untagged
@@ -277,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 1082891367808194744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 678.599, y: 0, z: 1427.331}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 24013362663975631}
@@ -352,8 +353,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.22178833, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.38910595, z: 0}
+--- !u!114 &2045451407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082891367808194744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bacd27f0091e3b84c8721ae03e7a56b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGimmickEnable: 1
+  effectType: 2
 --- !u!1 &1124087723822764594
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ public class BirdStrike : Gimmick
 
     private void OnTriggerEnter(Collider col)
     {
-        Debug.Log("닿았다");
+        Debug.Log($"닿았다, { col.tag}");
         
         if (!col.CompareTag("Player")) return;
         
@@ -67,7 +67,7 @@ public class BirdStrike : Gimmick
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("닿았다");
+        Debug.Log($"닿았다, { other.gameObject.tag}");
         
         if (!other.gameObject.CompareTag("Player")) return;
         
