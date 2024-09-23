@@ -55,7 +55,6 @@ public class Respawn : MonoBehaviour
         _meshCollider.enabled = false;
         _meshRenderer.enabled = false;
         _rigidbody.useGravity = false;
-        _rigidbody.isKinematic = true;
         _controller.SetFreezeState();
         
         var transform1 = transform;
@@ -81,7 +80,6 @@ public class Respawn : MonoBehaviour
 
     private IEnumerator SpawnCoroutine()
     {
-        _rigidbody.isKinematic = true;
         var curScale = Vector3.one;
         float yPos = savePoint.y;
         
@@ -94,9 +92,7 @@ public class Respawn : MonoBehaviour
         transform.localScale = new Vector3(1, 1, 1);
 
         _meshCollider.enabled = true;
-        _rigidbody.isKinematic = false;
         _rigidbody.useGravity = true;
-        _controller.enabled = true;
 
         _controller.SetBasicState();
     }

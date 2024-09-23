@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BalloonController : MonoBehaviour
 {
-    public enum BalloonState { Aim, Charge, Fly, Fall, Freeze, DeveloperMode }
+    public enum BalloonState { Aim, Charge, Fly, Fall, Freeze, Cinematic, DeveloperMode }
 	
 	private BalloonState _balloonState;
 
@@ -70,6 +70,11 @@ public class BalloonController : MonoBehaviour
 	public void SetFreezeState()
 	{
 		ChangeState(BalloonState.Freeze);
+	}
+	
+	public void SetCinematicState()
+	{
+		ChangeState(BalloonState.Cinematic);
 	}
 	
 	/// <summary>
@@ -190,13 +195,27 @@ public class BalloonController : MonoBehaviour
 		ChangeState(BalloonState.Aim);
 	}
 	
-	private IEnumerator Freeze()
+	private IEnumerator Freeze()  //스크립트로만 진입, 탈출
 	{
 		Debug.Log("Freeze state");
-		_showArrow?.Hide();
 		
+		_showArrow?.Hide();
 		_rigidbody.isKinematic = true;
-
+		CameraController.instance.onControll = CameraController.ControllType.Drag;
+		_dragRotation.onControll = false;
+		
+		yield return null;
+	}
+	
+	private IEnumerator Cinematic()  //스크립트로만 진입, 탈출
+	{
+		Debug.Log("Cinematic state");
+		
+		_showArrow?.Hide();
+		_rigidbody.isKinematic = false;
+		CameraController.instance.onControll = CameraController.ControllType.Stop;
+		_dragRotation.onControll = false;
+		
 		yield return null;
 	}
 	
