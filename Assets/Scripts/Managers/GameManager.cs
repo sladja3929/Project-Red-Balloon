@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager>
 
         _balloonRigid = _balloonObj.GetComponent<Rigidbody>();
         _balloonSpawn = _balloonObj.GetComponent<Respawn>();
+        _balloonController = _balloonObj.GetComponent<BalloonController>();
     }
 
     public static bool IsPause
@@ -44,6 +45,8 @@ public class GameManager : Singleton<GameManager>
     private GameObject _balloonObj;
     private Rigidbody _balloonRigid;
     private Respawn _balloonSpawn;
+    private BalloonController _balloonController;
+    
     public void SetSavePoint(Vector3 point) 
     {
         savePoint = point;
@@ -86,5 +89,20 @@ public class GameManager : Singleton<GameManager>
     public Vector3 GetBalloonPosition()
     {
         return _balloonObj.transform.position;
+    }
+
+    public bool CanBalloonMove()
+    {
+        if (_balloonController.GetBalloonState() == BalloonController.BalloonState.Aim ||
+            _balloonController.GetBalloonState() == BalloonController.BalloonState.Charge)
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    public void FreezeBalloon()
+    {
+        _balloonController.SetFreezeState();
     }
 }

@@ -9,73 +9,90 @@ using Cinemachine;
 public class CutScene : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera cutSceneCamera;
+    [SerializeField] private CinemachineVirtualCamera cutSceneCamera2;
     [SerializeField] private CinemachineDollyCart dollyCart;
     [SerializeField] private ParticleSystem particleObject;
     [SerializeField] private float timeToMove;
+    [SerializeField] private bool hasToStay;
 
     WaitUntil waitingFadeFinish;
     private float _curTime;
     private Vector3[] _curvePoints;
-    private bool _isRotation;    
-
-    private void Start()
+    private bool _isRotation;
+    
+    private Coroutine myCoroutine;
+    private bool hasExecuted;
+    private void Awake()
     {
         waitingFadeFinish = new WaitUntil(SceneChangeManager.instance.FinishFade);
-        //cutSceneCamera.Priority = priority;
         dollyCart.m_Speed = 1f / timeToMove;
         dollyCart.enabled = false;
+        hasExecuted = false;
     }
 
     // Start is called before the first frame update
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && hasToStay && !hasExecuted)
         {
-            StartCoroutine(SceneManager.GetActiveScene().name + "CutScene");
+            if (GameManager.instance.CanBalloonMove())
+            {
+                myCoroutine = StartCoroutine(SceneManager.GetActiveScene().name + "CutScene");
+                hasExecuted = true;
+                GameManager.instance.FreezeBalloon();
+            }
         }
     }
-
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player") && !hasToStay)
+        {
+            myCoroutine = StartCoroutine(SceneManager.GetActiveScene().name + "CutScene");  
+        }
+    }
+    
     private IEnumerator Stage1CutScene()
     {
-        FadingInfo fadingInfo = new FadingInfo(1, 0, 1, 0);
+        FadingInfo fadingInfo = new FadingInfo(1f, 0, 1, 0);
         SceneChangeManager.instance.FadeOut(fadingInfo);
-        particleObject.Play();
         yield return waitingFadeFinish;
-
+        
         SceneChangeManager.instance.FadeIn(fadingInfo);
+        cutSceneCamera.Priority = 14;
         _isRotation = true;
-        //StartCoroutine(CameraMovingCoroutine());
-        
-        yield return new WaitUntil(() => _cutSceneCameraState is CameraState.Stop or CameraState.AlmostFinish);
+        dollyCart.enabled = true;
+        //particleObject.Play();
+        yield return new WaitForSeconds(timeToMove - 1f);
 
         SceneChangeManager.instance.FadeOut(fadingInfo);
         yield return waitingFadeFinish;
-
         
-        fadingInfo.delayTime = 1;
         SceneChangeManager.instance.FadeIn(fadingInfo);
-        yield return waitingFadeFinish;
-
-        fadingInfo.delayTime = 5;
+        cutSceneCamera2.Priority = 16;
+        yield return new WaitForSeconds(1f);
+        
+        yield return new WaitForSeconds(1f);
+        
         SceneChangeManager.instance.FadeOut(fadingInfo);
         yield return waitingFadeFinish;
-
-        fadingInfo.delayTime = 0;
-        fadingInfo.playTime = 4;
+        
+        fadingInfo.playTime = 5;
         void FadeIn() => SceneChangeManager.instance.FadeIn(fadingInfo);
         SceneChangeManager.instance.LoadSceneAsync("stage2", onFinish: FadeIn);
     }
 
     private IEnumerator Stage0CutScene()
     {
+        Debug.Log("cut0");
         FadingInfo fadingInfo = new FadingInfo(1, 0, 1, 0);
         SceneChangeManager.instance.FadeOut(fadingInfo);
         yield return waitingFadeFinish;
-
+        
         fadingInfo.delayTime = 0.5f;
         SceneChangeManager.instance.FadeIn(fadingInfo);
-        _isRotation = true;
         cutSceneCamera.Priority = 14;
+        _isRotation = true;
         dollyCart.enabled = true;
         yield return new WaitForSeconds(timeToMove - 0.5f);
 

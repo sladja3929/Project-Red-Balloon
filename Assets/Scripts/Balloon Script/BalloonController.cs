@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BalloonController : MonoBehaviour
 {
-    private enum BalloonState { Aim, Charge, Fly, Fall, Freeze, DeveloperMode }
+    public enum BalloonState { Aim, Charge, Fly, Fall, Freeze, DeveloperMode }
 	
 	private BalloonState _balloonState;
 
@@ -57,6 +57,11 @@ public class BalloonController : MonoBehaviour
 		StartCoroutine(_balloonState.ToString());
 	}
 
+	public BalloonState GetBalloonState()
+	{
+		return _balloonState;
+	}
+	
 	public void SetBasicState()
 	{
 		ChangeState(BalloonState.Fall);
