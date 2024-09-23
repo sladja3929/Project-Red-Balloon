@@ -21,11 +21,11 @@ public class HotGround : Gimmick
         balloonDebuff = null;
     }
     
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (!other.collider.CompareTag("Player")) return;
 
-        balloonDebuff ??= other.GetComponent<BalloonDebuff>();
+        balloonDebuff ??= other.collider.GetComponent<BalloonDebuff>();
         
         Execute();
     }
