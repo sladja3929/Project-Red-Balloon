@@ -10,7 +10,7 @@ public class DragRotation : MonoBehaviour
     public bool onControll = false;
     
     public float rotationSpeed = StaticSensitivity.mouseSensitivity;
-
+    
     public Camera cam;
 
     public GameObject direction;
@@ -24,15 +24,18 @@ public class DragRotation : MonoBehaviour
         {
             //cam = Camera.main;
             //direction = transform.parent.GetChild(2).gameObject;
-            //마우스 움직임 변화값을 Input으로 받아옴
+
             float rotx = Input.GetAxis("Mouse X") * rotationSpeed;
             float roty = Input.GetAxis("Mouse Y") * rotationSpeed;
-            
-            Vector3 right = Vector3.Cross(cam.transform.up, direction.transform.position - cam.transform.position);
-            Vector3 up = Vector3.Cross(direction.transform.position - cam.transform.position, right);
 
-            direction.transform.rotation = Quaternion.AngleAxis(-rotx, up) * direction.transform.rotation;
-            direction.transform.rotation = Quaternion.AngleAxis(roty, right) * direction.transform.rotation;
+            // Calculate rotation axes using a more stable approach
+            Vector3 right = Vector3.Cross(cam.transform.up, direction.transform.forward);
+            Vector3 up = cam.transform.up;
+
+            // Apply rotations using Quaternions to avoid gimbal lock
+            Quaternion xRotation = Quaternion.AngleAxis(-rotx, up);
+            Quaternion yRotation = Quaternion.AngleAxis(roty, right);
+            direction.transform.rotation = yRotation * xRotation * direction.transform.rotation;
         }
         
         

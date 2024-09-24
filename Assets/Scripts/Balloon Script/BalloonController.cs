@@ -97,6 +97,9 @@ public class BalloonController : MonoBehaviour
 		ui.SetChargeUI(0);
 
 		_rigidbody.isKinematic = true;
+		_rigidbody.velocity = Vector3.zero;
+		_rigidbody.angularVelocity = Vector3.zero;
+		
 		// ReSharper disable once Unity.NoNullPropagation
 		_dragRotation.ResetDirection();
 		_showArrow?.Show();

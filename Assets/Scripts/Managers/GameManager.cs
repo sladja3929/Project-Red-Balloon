@@ -101,6 +101,11 @@ public class GameManager : Singleton<GameManager>
         else return false;
     }
 
+    public void CinematicMode()
+    {
+        _balloonController.SetCinematicState();
+    }
+    
     public void FreezeBalloon()
     {
         _balloonController.SetFreezeState();
