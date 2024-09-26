@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,8 @@ public class HotGround : Gimmick
     
     [Header("Property")]
     public float heatSpeed;
-    
+
+    private float ss = 1f;
     public override void Execute()
     {
         balloonDebuff.Heat(heatSpeed * Time.deltaTime);

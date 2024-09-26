@@ -4181,6 +4181,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 428206495}
     m_Modifications:
+    - target: {fileID: 1756111931727494026, guid: be3fb4f117d38554c8ac9f4ef954360b, type: 3}
+      propertyPath: TriggerModule.primitives.Array.data[0]
+      value: 
+      objectReference: {fileID: 1423699606}
     - target: {fileID: 1914071696974092358, guid: be3fb4f117d38554c8ac9f4ef954360b, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -5230,6 +5234,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 870788aeba1509142973bded059e334b, type: 3}
+--- !u!4 &1423699606 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3352305479158755404, guid: 69a8f557847384c449e0d0105468b203, type: 3}
+  m_PrefabInstance: {fileID: 2060754108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1432575362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6879,10 +6888,6 @@ PrefabInstance:
       propertyPath: coolDown
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1756111931727494026, guid: be3fb4f117d38554c8ac9f4ef954360b, type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1914071696974092358, guid: be3fb4f117d38554c8ac9f4ef954360b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -8501,7 +8506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 624605302720945880, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1659888985134775744, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8920,7 +8925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 624605302720945880, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1659888985134775744, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_LocalPosition.x
