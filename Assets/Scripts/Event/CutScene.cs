@@ -57,7 +57,6 @@ public class CutScene : MonoBehaviour
                 balloon = other.gameObject;
                 GameManager.instance.FreezeBalloon();
                 hasExecuted = true;
-                Debug.Log("parent");
             }
         }
     }

@@ -57,6 +57,8 @@ public class Respawn : MonoBehaviour
         _rigidbody.useGravity = false;
         _controller.SetFreezeState();
         
+        GameManager.instance.BalloonDeadEvent();
+        
         var transform1 = transform;
         var effect = Instantiate(dieEffect, transform1.position, transform1.rotation);
         

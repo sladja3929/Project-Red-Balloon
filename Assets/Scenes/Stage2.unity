@@ -123,6 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2490650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5528772536304611778, guid: 816602049879f8d4fa0103c18e9a8973, type: 3}
+  m_PrefabInstance: {fileID: 5528772536947916390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2490656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb227fb929d44344a61b594cc4b2366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGimmickEnable: 1
+  heatingPower: 0.002
 --- !u!4 &17089021 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 846922965164707488, guid: 4ee8e6ef9f77e14479ee1408ea55dcb7, type: 3}
@@ -2481,21 +2500,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 79d9d9136d74a4744a8e3bf50bcbc035, type: 3}
   m_PrefabInstance: {fileID: 360935555}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &652424123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652424122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cb227fb929d44344a61b594cc4b2366, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGimmickEnable: 1
-  balloonDebuff: {fileID: 0}
-  heatSpeed: 0
 --- !u!64 &652424124
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2510,7 +2514,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3459414481925227320, guid: 79d9d9136d74a4744a8e3bf50bcbc035, type: 3}
---- !u!114 &652424127
+--- !u!114 &652424130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2740,7 +2744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 624605302720945880, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1659888985134775744, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5251,8 +5255,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1914071696974092358, guid: be3fb4f117d38554c8ac9f4ef954360b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914071696974092358, guid: be3fb4f117d38554c8ac9f4ef954360b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914071696974092358, guid: be3fb4f117d38554c8ac9f4ef954360b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914071696974092358, guid: be3fb4f117d38554c8ac9f4ef954360b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -198.3
+      value: -196.43
       objectReference: {fileID: 0}
     - target: {fileID: 1914071696974092358, guid: be3fb4f117d38554c8ac9f4ef954360b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5260,7 +5276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1914071696974092358, guid: be3fb4f117d38554c8ac9f4ef954360b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 539.9
+      value: 555.49
       objectReference: {fileID: 0}
     - target: {fileID: 1914071696974092358, guid: be3fb4f117d38554c8ac9f4ef954360b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8506,7 +8522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 624605302720945880, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1659888985134775744, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9323,6 +9339,10 @@ PrefabInstance:
     - target: {fileID: 5528772537079733035, guid: 816602049879f8d4fa0103c18e9a8973, type: 3}
       propertyPath: m_Name
       value: Stage2Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 5879478416067753529, guid: 816602049879f8d4fa0103c18e9a8973, type: 3}
+      propertyPath: heatingPower
+      value: 0.002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 816602049879f8d4fa0103c18e9a8973, type: 3}

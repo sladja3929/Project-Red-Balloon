@@ -61,6 +61,8 @@ public class DragRotation : MonoBehaviour
 
     public void ResetDirection()
     {
-        direction.transform.localRotation = cam.transform.localRotation;
+        Vector3 dir = cam.transform.localRotation.eulerAngles;
+        dir.x -= 30f;
+        direction.transform.localRotation = Quaternion.Euler(dir);
     }
 }

@@ -5,30 +5,45 @@ using UnityEngine;
 
 public class HotGround : Gimmick
 {
-    public BalloonDebuff balloonDebuff = null;
-    
-    [Header("Property")]
-    public float heatSpeed;
+    [SerializeField] private float heatingPower;
+    private BalloonDebuff balloonDebuff = null;
 
-    private float ss = 1f;
     public override void Execute()
     {
-        balloonDebuff.Heat(heatSpeed * Time.deltaTime);
+        
     }
-    
+
     private void OnCollisionExit(Collision other)
     {
         if (!other.collider.CompareTag("Player")) return;
 
-        balloonDebuff = null;
+        balloonDebuff.ColdBalloon();
     }
-    
+
     private void OnCollisionEnter(Collision other)
     {
         if (!other.collider.CompareTag("Player")) return;
 
         balloonDebuff ??= other.collider.GetComponent<BalloonDebuff>();
         
-        Execute();
+        balloonDebuff.enabled = true;
+        balloonDebuff.HeatBalloon(heatingPower);
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        balloonDebuff.ColdBalloon();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        balloonDebuff ??= other.GetComponent<BalloonDebuff>();
+        
+        balloonDebuff.enabled = true;
+        balloonDebuff.HeatBalloon(heatingPower);
     }
 }

@@ -20,7 +20,6 @@ public class Stage1CutScene : CutScene
         
         if (hasExecuted && !isPlayed)
         {
-            Debug.Log("child");
             myCoroutine = StartCoroutine("PlayCutScene");
             isPlayed = true;
         }

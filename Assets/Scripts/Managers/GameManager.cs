@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Application = UnityEngine.Application;
 using System;
+using UnityEngine.Events;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -109,5 +110,13 @@ public class GameManager : Singleton<GameManager>
     public void FreezeBalloon()
     {
         _balloonController.SetFreezeState();
+    }
+
+    [HideInInspector]
+    public UnityEvent onBalloonDead;
+
+    public void BalloonDeadEvent()
+    {
+        onBalloonDead?.Invoke();
     }
 }
