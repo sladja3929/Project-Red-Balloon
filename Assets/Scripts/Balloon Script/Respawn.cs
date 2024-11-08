@@ -8,8 +8,11 @@ public class Respawn : MonoBehaviour
 {
     [SerializeField] private Vector3 savePoint;
     [SerializeField] private GameObject dieEffect;
+    [SerializeField] private GameObject deathUI;
     [SerializeField] private AudioClip dieSound;
     [SerializeField] private float respawnTime;
+
+    private int deathCount;
 
     private Rigidbody _rigidbody;
     private BalloonController _controller;
@@ -20,12 +23,15 @@ public class Respawn : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _controller = GetComponent<BalloonController>();
+        deathUI.SetActive(false);
     }
 
     private void Start()
     {
         //임시 세이브
         SetSavePoint(transform.position);
+        deathCount = PlayerPrefs.GetInt("death_count", 0);
+
     }
 
     private void Update()
@@ -46,19 +52,23 @@ public class Respawn : MonoBehaviour
         //폭발 이펙트를 남기고 죽음
         //n초후 저장된 리스폰 포인트에 부활함
         //부활할때 특정 이펙트나 연출이 있을 수 있으니 부활은 함수로 처리
+        //죽을 때마다 사망 횟수 1회 추가 후 플레이어프리팹에 저장
         gameObject.SetActive(false);
-        
+
+        deathUI.SetActive(true);
+
         var transform1 = transform;
         var effect = Instantiate(dieEffect, transform1.position, transform1.rotation);
-        
+
         AudioSource.PlayClipAtPoint(dieSound, transform.position);
-        
+
         Destroy(effect, respawnTime);
         Invoke(nameof(Spawn), respawnTime);
     }
-    
+
     private void Spawn()
     {
+        deathUI.SetActive(false);//deathUI비활성화
         transform.position = savePoint;
         transform.rotation = quaternion.Euler(180, 0, 0);
         _rigidbody.position = savePoint;
@@ -76,7 +86,7 @@ public class Respawn : MonoBehaviour
         var curScale = Vector3.one;
         for (int i = 0; i < 100; i++)
         {
-            transform.localScale = curScale * (0.01f * i) ;
+            transform.localScale = curScale * (0.01f * i);
             transform.position = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
             yield return new WaitForSeconds(0.01f);
         }
