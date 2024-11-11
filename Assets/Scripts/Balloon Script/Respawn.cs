@@ -11,6 +11,7 @@ public class Respawn : MonoBehaviour
     [SerializeField] private GameObject deathUI;
     [SerializeField] private AudioClip dieSound;
     [SerializeField] private float respawnTime;
+    [SerializeField] private float deleteDeathUITime;
 
     private int deathCount;
 
@@ -52,10 +53,7 @@ public class Respawn : MonoBehaviour
         //폭발 이펙트를 남기고 죽음
         //n초후 저장된 리스폰 포인트에 부활함
         //부활할때 특정 이펙트나 연출이 있을 수 있으니 부활은 함수로 처리
-        //죽을 때마다 사망 횟수 1회 추가 후 플레이어프리팹에 저장
         gameObject.SetActive(false);
-
-        deathUI.SetActive(true);
 
         var transform1 = transform;
         var effect = Instantiate(dieEffect, transform1.position, transform1.rotation);
@@ -68,7 +66,9 @@ public class Respawn : MonoBehaviour
 
     private void Spawn()
     {
-        deathUI.SetActive(false);//deathUI비활성화
+        deathUI.SetActive(true);
+        Invoke("DeleteDeathUI", deleteDeathUITime);
+
         transform.position = savePoint;
         transform.rotation = quaternion.Euler(180, 0, 0);
         _rigidbody.position = savePoint;
@@ -94,4 +94,9 @@ public class Respawn : MonoBehaviour
         transform.localScale = new Vector3(1, 1, 1);
         _rigidbody.isKinematic = false;
     }
+    void DeleteDeathUI()
+    {
+        deathUI.SetActive(false);
+    }
+
 }
