@@ -2,12 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 
 public class DeathUIManager : MonoBehaviour
 {
     public Text deathMessageText;
     public Text TeabaggingText;
-    public Text deathCountText;
+    public TextMeshProUGUI deathCountText;
     public RawImage balloonImage; // 이미지 스프라이트를 위한 Image 컴포넌트
 
     private List<string> deathMessages = new List<string>();
@@ -89,7 +90,8 @@ public class DeathUIManager : MonoBehaviour
     {
         deathCountText.gameObject.SetActive(true);
         IncreaseDeathCount();
-        deathCountText.text = $"X{deathCount}";
+        deathCountText.text = $"<sprite=0> × {deathCount}";
+        StartCoroutine(FadeIn(deathCountText));
         Invoke("HideDeathCount", ShowedTime);
     }
 
