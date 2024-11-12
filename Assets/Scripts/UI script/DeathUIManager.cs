@@ -9,7 +9,6 @@ public class DeathUIManager : MonoBehaviour
     public Text deathMessageText;
     public Text TeabaggingText;
     public TextMeshProUGUI deathCountText;
-    public RawImage balloonImage; // 이미지 스프라이트를 위한 Image 컴포넌트
 
     private List<string> deathMessages = new List<string>();
     private List<string> teabaggingMessages = new List<string>();
@@ -76,11 +75,9 @@ public class DeathUIManager : MonoBehaviour
             else
             {
                 deathMessageText.gameObject.SetActive(true);
-                balloonImage.gameObject.SetActive(true); // 이미지 스프라이트 활성화
                 string randomMessage = GetRandomDeathMessage();
                 deathMessageText.text = randomMessage;
                 StartCoroutine(FadeIn(deathMessageText));
-                StartCoroutine(FadeIn(balloonImage)); // 이미지 스프라이트 페이드 인
             }
             Invoke("HideDeathMessage", ShowedTime);
         }
@@ -151,7 +148,6 @@ public class DeathUIManager : MonoBehaviour
     private void HideDeathCount()
     {
         StartCoroutine(FadeOut(deathCountText));
-        StartCoroutine(FadeOut(balloonImage)); // 이미지 스프라이트 페이드 아웃
     }
 
     private void HideDeathMessage()
