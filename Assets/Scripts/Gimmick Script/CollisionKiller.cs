@@ -34,7 +34,7 @@ public class CollisionKiller : Gimmick
         if (activating) return;
 
         activating = true;
-        StartCoroutine(EffectManager.instance.ShowDeathEffectCoroutine(effectType, other.transform.position, effectDelay));
+        StartCoroutine(EffectManager.instance.ShowDeathEffectCoroutine(effectType, effectDelay));
         Invoke("Execute", deathDelay);
     }
 
@@ -44,7 +44,7 @@ public class CollisionKiller : Gimmick
         if (activating) return;
         
         activating = true;
-        StartCoroutine(EffectManager.instance.ShowDeathEffectCoroutine(effectType, other.transform.position, effectDelay));
+        StartCoroutine(EffectManager.instance.ShowDeathEffectCoroutine(effectType, effectDelay));
         Invoke("Execute", deathDelay);
     }
 }

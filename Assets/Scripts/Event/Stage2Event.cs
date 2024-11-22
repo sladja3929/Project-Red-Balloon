@@ -8,12 +8,11 @@ using System.Collections.Generic;
 
  public class Stage2Event : MonoBehaviour
 {
-    [SerializeField] private GameObject sun;
+    [SerializeField] private Light sun;
     [SerializeField] private VolumeProfile volume;
     [SerializeField] private float fadeTime;
     [SerializeField] private Vector3 shadMidRGB = new Vector3(1, 0.65f, 0.65f);
     [SerializeField] private ParticleSystem volcanoEffect;
-    [SerializeField] private bool debug;
     
     private ShadowsMidtonesHighlights _shadMid;
     private Vector4 initValue;
@@ -22,36 +21,51 @@ using System.Collections.Generic;
     // Start is called before the first frame update
     void Start()
     {
-        volcanoEffect.Stop();
         volume.TryGet<ShadowsMidtonesHighlights>(out _shadMid);
-        initValue = _shadMid.shadows.value;
-        if (debug) SunSet();
+        InitSettings();
     }
 
+    private void InitSettings()
+    {
+        initValue = _shadMid.shadows.value;
+        volcanoEffect.Stop();
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !isChange)
         {
-            SunSet();
+            StartCoroutine(SunSetEvent(initValue));
         }
     }
 
-    private void SunSet()
+    private void SunSetForced()
     {
         isChange = true;
         volcanoEffect.Play();
         _shadMid.shadows.overrideState = true;
         _shadMid.midtones.overrideState = true;
-        StartCoroutine(SunSetCoroutine(initValue));
+        sun.intensity = 0.1f;
+        
+        Vector4 value = initValue;
+        value.y = shadMidRGB.y;
+        value.z = shadMidRGB.z;
+        _shadMid.shadows.SetValue(new UnityEngine.Rendering.Vector4Parameter(value));
+        _shadMid.midtones.SetValue(new UnityEngine.Rendering.Vector4Parameter(value));
     }
     
-    private IEnumerator SunSetCoroutine(Vector4 value)
+    private IEnumerator SunSetEvent(Vector4 value)
     {
+        isChange = true;
+        volcanoEffect.Play();
+        _shadMid.shadows.overrideState = true;
+        _shadMid.midtones.overrideState = true;
+        
         float time = 0;
         while (time < fadeTime)
         {
             time += Time.deltaTime;
-            sun.GetComponent<Light>().intensity = Mathf.Lerp(1, 0.1f, time / fadeTime);
+            sun.intensity = Mathf.Lerp(1, 0.1f, time / fadeTime);
             value.y = Mathf.Lerp(initValue.y, shadMidRGB.y, time / fadeTime);
             value.z = Mathf.Lerp(initValue.z, shadMidRGB.z, time / fadeTime);
             _shadMid.shadows.SetValue(new UnityEngine.Rendering.Vector4Parameter(value));

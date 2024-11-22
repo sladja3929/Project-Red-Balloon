@@ -42,6 +42,7 @@ public class FallingGround : Gimmick
     private void Fall()
     {
         _isBreaking = true;
+        GameManager.instance.AimToFallForced();
         
         //오브젝트 복사 후 SetPrefabMode함수 호출
         Instantiate(_groundThatWillFall, transform.position, Quaternion.identity)

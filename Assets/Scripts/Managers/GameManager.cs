@@ -102,6 +102,11 @@ public class GameManager : Singleton<GameManager>
         else return false;
     }
 
+    public void AimToFallForced()
+    {
+        _balloonController.SetBasicState();
+    }
+    
     public void CinematicMode()
     {
         _balloonController.SetCinematicState();

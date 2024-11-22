@@ -65,9 +65,10 @@ public class BalloonController : MonoBehaviour
 	
 	public void SetBasicState()
 	{
+		isOnPlatform = false;
 		ChangeState(BalloonState.Fall);
 	}
-
+	
 	public void SetFreezeState()
 	{
 		ChangeState(BalloonState.Freeze);

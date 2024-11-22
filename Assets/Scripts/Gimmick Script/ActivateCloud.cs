@@ -21,8 +21,11 @@ public class ActivateCloud : MonoBehaviour
         }
     }
     
-    Material skybox;
-
+    private Material skybox;
+    private MeshRenderer _meshRenderer;
+    private int countTrigger;
+    private bool isIn;
+    
     [SerializeField] private atmosphereAtttribute sunny = new atmosphereAtttribute(
         new Color(58,207,224), new Color(59, 166, 233), 0.0005f, 0.5f);
 
@@ -36,7 +39,10 @@ public class ActivateCloud : MonoBehaviour
     private void Start()
     {
         skybox = RenderSettings.skybox;
+        _meshRenderer = transform.GetComponent<MeshRenderer>();
         InitSettings(sunny);
+        countTrigger = 0;
+        isIn = false;
     }
 
     private void InitSettings(atmosphereAtttribute attr)
@@ -61,7 +67,7 @@ public class ActivateCloud : MonoBehaviour
         {
             currentColor = Color.Lerp(end.skyColor * 0.9f, end.skyColor, progress);
             skybox.SetColor("_SkyGradientTop", currentColor);
-            RenderSettings.fogColor = currentColor;
+            //RenderSettings.fogColor = currentColor;
             
             currentColor = Color.Lerp(end.seaColor * 0.9f, end.seaColor, progress);
             skybox.SetColor("_SkyGradientBottom", currentColor);
@@ -82,7 +88,14 @@ public class ActivateCloud : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(ChangeAtmosphere(sunny, cloud));
+            ++countTrigger;
+            
+            if (!isIn)
+            {
+                isIn = true;
+                _meshRenderer.enabled = false;
+                StartCoroutine(ChangeAtmosphere(sunny, cloud));
+            }
         }
     }
     
@@ -90,7 +103,15 @@ public class ActivateCloud : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(ChangeAtmosphere(cloud, sunny));
+            --countTrigger;
+            if (countTrigger < 0) countTrigger = 0;
+
+            if (isIn)
+            {
+                isIn = false;
+                _meshRenderer.enabled = true;
+                StartCoroutine(ChangeAtmosphere(cloud, sunny));
+            }
         }
     }
 
