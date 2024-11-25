@@ -61,6 +61,8 @@ public class ResolutionController : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = _currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        
+        resolutionDropdown.onValueChanged.AddListener(SetResolution);
     }
 
     //=======================Full Screen Setting=======================
@@ -78,27 +80,18 @@ public class ResolutionController : MonoBehaviour
 
     private void SetupFullScreen()
     {
-        windowedToggle.onValueChanged.AddListener(SetWindowed);
-        fullScreenToggle.onValueChanged.AddListener(SetFullScreen);
+        ReloadToggle();
     }
 
-    private void SetFullScreen(bool arg0)
+    public void SetFullScreen(bool arg0)
     {
         _fullScreen = arg0;
-        Screen.fullScreen = _fullScreen;
-        
-        ReloadToggle();
-    }
-    private void SetWindowed(bool arg0)
-    {
-        _fullScreen = !arg0;
-        Screen.fullScreen = _fullScreen;
+        Screen.SetResolution(Screen.width, Screen.height, _fullScreen);
         
         ReloadToggle();
     }
 
-    // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         SetupResolution();
         SetupFullScreen();

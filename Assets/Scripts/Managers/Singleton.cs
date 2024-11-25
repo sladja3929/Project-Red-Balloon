@@ -19,7 +19,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             
             //찾아도 없으면 오브젝트 생성
             //var obj = new GameObject(typeof(T).Name, typeof(T));
-            var obj = Instantiate(Resources.Load<T>("Singleton/" + typeof(T)));
+            T obj = Instantiate(Resources.Load<T>("Singleton/" + typeof(T)));
             _instance = obj.GetComponent<T>();
 
             return _instance;
@@ -31,6 +31,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         if(_instance != null)
         {
             Destroy(gameObject);
+            return;
         }
 
         if (transform.parent != null && transform.root != null)
