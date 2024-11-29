@@ -63,14 +63,4 @@ public class CameraController : MonoBehaviour
     {
         return viewerTransform.rotation;
     }
-    
-    public void SetDpiRate(float rate)
-    {
-        dpi = Mathf.Lerp(0.1f, 10, rate);
-    }
-    
-    public float GetDpiRate()
-    {
-        return (dpi - 0.1f) / (10 - 0.1f);
-    }
 }

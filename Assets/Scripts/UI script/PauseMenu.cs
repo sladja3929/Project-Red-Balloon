@@ -34,8 +34,8 @@ public class PauseMenu : MonoBehaviour
         sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();
         musicVolumeSlider.value = SoundManager.instance.GetBackgroundVolume();
         
-        mouseSensitivitySlider.value = _dragRotation.GetRotationSpeedRate();
-        camSensitivitySlider.value = _cameraController.GetDpiRate();
+        //mouseSensitivitySlider.value = _dragRotation.GetRotationSpeedRate();
+        //camSensitivitySlider.value = _cameraController.GetDpiRate();
     }
 
     public void ClosePauseMenu()
@@ -97,12 +97,12 @@ public class PauseMenu : MonoBehaviour
     public void SetMouseSensitivity()
     {
         float value = mouseSensitivitySlider.value;
-        _dragRotation.SetRotationSpeedRate(value);
+        //_dragRotation.SetRotationSpeedRate(value);
     }
     
     public void SetControllerSensitivity()
     {
         float value = camSensitivitySlider.value;
-        _cameraController.SetDpiRate(value);
+        //_cameraController.SetDpiRate(value);
     }
 }

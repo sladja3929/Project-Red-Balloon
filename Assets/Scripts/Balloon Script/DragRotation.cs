@@ -65,14 +65,4 @@ public class DragRotation : MonoBehaviour
         dir.x -= 30f;
         direction.transform.localRotation = Quaternion.Euler(dir);
     }
-    
-    public void SetRotationSpeedRate(float rate)
-    {
-        rotationSpeed = Mathf.Lerp(minSpeed, maxSpeed, rate);
-    }
-    
-    public float GetRotationSpeedRate()
-    {
-        return (rotationSpeed - minSpeed) / (maxSpeed - minSpeed);
-    }
 }
