@@ -57,22 +57,19 @@ public class Respawn : MonoBehaviour
         //폭발 이펙트를 남기고 죽음
         //n초후 저장된 리스폰 포인트에 부활함
         //부활할때 특정 이펙트나 연출이 있을 수 있으니 부활은 함수로 처리
-        gameObject.SetActive(false);
-
 
         _meshCollider.enabled = false;
         _meshRenderer.enabled = false;
         _rigidbody.useGravity = false;
-        _rigidbody.isKinematic = true;
         _controller.SetFreezeState();
         
         GameManager.instance.BalloonDeadEvent();
         
         var transform1 = transform;
         var effect = Instantiate(dieEffect, transform1.position, transform1.rotation);
-
-        AudioSource.PlayClipAtPoint(dieSound, transform.position);
-
+        
+        SoundManager.instance.SfxPlay("BalloonPop", dieSound, transform.position);
+        
         Destroy(effect, respawnTime);
         Invoke(nameof(Spawn), respawnTime);
     }
@@ -103,7 +100,6 @@ public class Respawn : MonoBehaviour
             transform.position = new Vector3(savePoint.x, yPos -= 0.01f, savePoint.z);
             yield return new WaitForSeconds(0.01f);
         }
-
         transform.localScale = new Vector3(1, 1, 1);
 
         _meshCollider.enabled = true;
