@@ -173,6 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onControll: 0
+  minSpeed: 1
+  maxSpeed: 100
   rotationSpeed: 10
   cam: {fileID: 0}
   direction: {fileID: 0}
@@ -191,8 +193,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePoint: {x: 0, y: 0, z: 0}
   dieEffect: {fileID: 1116091231520297433, guid: 3903ad2d1ea915948b2dab0fffbfd9b4, type: 3}
+  deathUI: {fileID: 5379979746046742559, guid: 569a296f5818dc343a3b8b20a8ae876b, type: 3}
   dieSound: {fileID: 8300000, guid: 48fceb0a6fc53254db8fdd775bd9b0c9, type: 3}
   respawnTime: 2
+  deleteDeathUITime: 0
   dieKey: 286
 --- !u!114 &1968744810210670419
 MonoBehaviour:
