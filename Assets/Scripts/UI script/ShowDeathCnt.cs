@@ -6,7 +6,7 @@ using TMPro;
 
 public class ShowDeathCnt : MonoBehaviour
 {
-    public TextMeshProUGUI deathCountText;
+    public TextMeshPro deathCountText;
     [SerializeField] private int deathCount;
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,7 @@ public class ShowDeathCnt : MonoBehaviour
     {
         deathCountText.text = $"<sprite=0> × {deathCount}";
     }
+    // 죽은 횟수 값 불러오는 방법 추후 수정 필요
     private void LoadDeathCount()
     {
         deathCount = PlayerPrefs.GetInt("death_count", 0);

@@ -7,6 +7,7 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     [SerializeField] private Vector3 savePoint;
+    [SerializeField] private GameObject deathSign;
     [SerializeField] private GameObject dieEffect;
     [SerializeField] private GameObject deathUI;
     [SerializeField] private AudioClip dieSound;
@@ -14,9 +15,11 @@ public class Respawn : MonoBehaviour
     [SerializeField] private float deleteDeathUITime;
 
     private int deathCount;
+    private bool isSavePointeReached;
 
     private Rigidbody _rigidbody;
     private BalloonController _controller;
+    private Transform _signTransform;
 
     public KeyCode dieKey;
 
@@ -24,6 +27,7 @@ public class Respawn : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _controller = GetComponent<BalloonController>();
+        _signTransform = deathSign.transform;
         deathUI.SetActive(false);
     }
 
@@ -32,7 +36,7 @@ public class Respawn : MonoBehaviour
         //임시 세이브
         SetSavePoint(transform.position);
         deathCount = PlayerPrefs.GetInt("death_count", 0);
-
+        isSavePointeReached = false;
     }
 
     private void Update()
@@ -46,6 +50,11 @@ public class Respawn : MonoBehaviour
     public void SetSavePoint(Vector3 point)
     {
         savePoint = point;
+    }
+
+    public void SetSavePointReached(bool isReached)
+    {
+        isSavePointeReached = isReached;
     }
 
     public void Die()
@@ -66,6 +75,12 @@ public class Respawn : MonoBehaviour
 
     private void Spawn()
     {
+        if(isSavePointeReached)
+        {
+            _signTransform.position = savePoint;
+            _signTransform.position = new Vector3(_signTransform.position.x + 4, _signTransform.position.y - 3.5f, _signTransform.position.z - 1);
+            isSavePointeReached = false;
+        }
         deathUI.SetActive(true);
         Invoke("DeleteDeathUI", deleteDeathUITime);
 

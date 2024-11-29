@@ -10,6 +10,12 @@ public class SetSaveByCollision : Gimmick
         if (!isGimmickEnable) return;
         
         GameManager.instance.SetSavePoint(savePoint.position);
+        Respawn respawn = FindObjectOfType<Respawn>();
+        if (respawn != null)
+        {
+            respawn.SetSavePoint(savePoint.position);
+            respawn.SetSavePointReached(true);
+        }
     }
 
     private void OnCollisionEnter(Collision other)

@@ -6,21 +6,28 @@ using TMPro;
 
 public class DeathUIManager : MonoBehaviour
 {
-    public Text deathMessageText;
-    public Text TeabaggingText;
-    public TextMeshProUGUI deathCountText;
+    public TextMeshProUGUI deathMessageText;
+    public TextMeshProUGUI TeabaggingText;
+    //public TextMeshProUGUI deathCountText;
+    //public Image TextBackground; // 배경 이미지 추가
 
     private List<string> deathMessages = new List<string>();
     private List<string> teabaggingMessages = new List<string>();
     [SerializeField] private int deathCount;
     [SerializeField] private float ShowedTime = 5.0f;
-    [SerializeField] private float fadetime = 1.0f; // 사망 시 팁/티배깅 메시지 출력되는 시간
+    [SerializeField] private float fadetime = 0.5f; // 사망 시 팁/티배깅 메시지 출력되는 시간
+    //[SerializeField] private float fadeInImage = 0.2f; // 배경 이미지 페이드 인 시간
 
+    private void Start()
+    {
+        //TextBackground.type = Image.Type.Sliced;
+    }
     void OnEnable()
     {
         LoadDeathCount();
         LoadMessages();
-        ShowDeathCount();
+        //ShowDeathCount();
+        IncreaseDeathCount();
         ShowDeathMessage();
     }
 
@@ -28,7 +35,8 @@ public class DeathUIManager : MonoBehaviour
     {
         deathMessageText.gameObject.SetActive(false);
         TeabaggingText.gameObject.SetActive(false);
-        deathCountText.gameObject.SetActive(false);
+        //deathCountText.gameObject.SetActive(false);
+        //TextBackground.gameObject.SetActive(false);
     }
 
     private void LoadMessages()
@@ -53,7 +61,7 @@ public class DeathUIManager : MonoBehaviour
             Debug.LogError("teabaggingMessages.txt 파일을 찾을 수 없습니다!");
         }
     }
-
+    // 죽은 횟수 값 불러오는 방법 추후 수정 필요
     private void LoadDeathCount()
     {
         deathCount = PlayerPrefs.GetInt("death_count", 0);
@@ -70,27 +78,33 @@ public class DeathUIManager : MonoBehaviour
                 TeabaggingText.gameObject.SetActive(true);
                 string randomMessage = GetRandomTeabaggingMessage();
                 TeabaggingText.text = randomMessage;
-                StartCoroutine(FadeIn(TeabaggingText));
+                //TextBackground.gameObject.SetActive(true);
+                //AdjustBackgroundSize(TeabaggingText, TextBackground);
+                //StartCoroutine(FadeInBackground(TextBackground));
+                StartCoroutine(FadeInText(TeabaggingText));
             }
             else
             {
                 deathMessageText.gameObject.SetActive(true);
                 string randomMessage = GetRandomDeathMessage();
                 deathMessageText.text = randomMessage;
-                StartCoroutine(FadeIn(deathMessageText));
+                //TextBackground.gameObject.SetActive(true);
+                //AdjustBackgroundSize(deathMessageText, TextBackground);
+                //StartCoroutine(FadeInBackground(TextBackground));
+                StartCoroutine(FadeInText(deathMessageText));
             }
             Invoke("HideDeathMessage", ShowedTime);
         }
     }
 
-    private void ShowDeathCount()
-    {
-        deathCountText.gameObject.SetActive(true);
-        IncreaseDeathCount();
-        deathCountText.text = $"<sprite=0> × {deathCount}";
-        StartCoroutine(FadeIn(deathCountText));
-        Invoke("HideDeathCount", ShowedTime);
-    }
+    //private void ShowDeathCount()
+    //{
+    //    deathCountText.gameObject.SetActive(true);
+    //    IncreaseDeathCount();
+    //    deathCountText.text = $"<sprite=0> × {deathCount}";
+    //    StartCoroutine(FadeIn(deathCountText));
+    //    Invoke("HideDeathCount", ShowedTime);
+    //}
 
     private void IncreaseDeathCount()
     {
@@ -111,7 +125,7 @@ public class DeathUIManager : MonoBehaviour
         return teabaggingMessages[randomIndex].Trim();
     }
 
-    private IEnumerator FadeIn(Graphic graphic)
+    private IEnumerator FadeInText(Graphic graphic)
     {
         Color color = graphic.color;
         color.a = 0;
@@ -127,17 +141,32 @@ public class DeathUIManager : MonoBehaviour
         color.a = 1;
         graphic.color = color;
     }
+    //private IEnumerator FadeInBackground(Image background)
+    //{
+    //    Color color = background.color;
+    //    color.a = 0.5f; // 반투명하게 설정
+    //    background.color = color;
+    //    float elapsedTime = 0f;
+    //    while (elapsedTime < fadeInImage)
+    //    {
+    //        elapsedTime += Time.deltaTime;
+    //        color.a = Mathf.Clamp01(elapsedTime / fadeInImage * 0.5f); // 반투명하게 페이드 인
+    //        background.color = color;
+    //        yield return null;
+    //    }
+    //    color.a = 0.5f;
+    //    background.color = color;
+    //}
 
     private IEnumerator FadeOut(Graphic graphic)
     {
         Color color = graphic.color;
-        color.a = 1;
-        graphic.color = color;
+        float startAlpha = color.a; // 현재 투명도 상태 저장
         float elapsedTime = 0f;
         while (elapsedTime < fadetime)
         {
             elapsedTime += Time.deltaTime;
-            color.a = 1 - Mathf.Clamp01(elapsedTime / fadetime);
+            color.a = Mathf.Lerp(startAlpha, 0, elapsedTime / fadetime); // 현재 투명도에서 0으로 페이드 아웃
             graphic.color = color;
             yield return null;
         }
@@ -145,10 +174,10 @@ public class DeathUIManager : MonoBehaviour
         graphic.color = color;
     }
 
-    private void HideDeathCount()
-    {
-        StartCoroutine(FadeOut(deathCountText));
-    }
+    //private void HideDeathCount()
+    //{
+    //    StartCoroutine(FadeOut(deathCountText));
+    //}
 
     private void HideDeathMessage()
     {
@@ -158,6 +187,33 @@ public class DeathUIManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(FadeOut(deathMessageText));        }
+            StartCoroutine(FadeOut(deathMessageText));
+        }
+            //StartCoroutine(FadeOut(TextBackground));
     }
+    //private void AdjustBackgroundSize(TextMeshProUGUI text, Image background)
+    //{
+    //    RectTransform textRect = text.GetComponent<RectTransform>();
+    //    RectTransform backgroundRect = background.GetComponent<RectTransform>();
+
+    //    ContentSizeFitter fitter = text.gameObject.GetComponent<ContentSizeFitter>();
+    //    if (fitter == null)
+    //    {
+    //        fitter = text.gameObject.AddComponent<ContentSizeFitter>();
+    //    }
+    //    fitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
+    //    fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+    //    LayoutElement layoutElement = text.gameObject.GetComponent<LayoutElement>();
+    //    if (layoutElement == null)
+    //    {
+    //        layoutElement = text.gameObject.AddComponent<LayoutElement>();
+    //    }
+
+    //    // 텍스트 크기에 맞게 배경 크기 조정
+    //    LayoutRebuilder.ForceRebuildLayoutImmediate(textRect);
+    //    backgroundRect.sizeDelta = new Vector2(textRect.rect.width + 50, textRect.rect.height + 30);
+    //    background.pixelsPerUnitMultiplier = 1;
+    //    background.fillCenter = true;
+    //}
 }

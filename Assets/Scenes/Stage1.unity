@@ -15491,6 +15491,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1885552299}
     - target: {fileID: 8740979745492913182, guid: 69a8f557847384c449e0d0105468b203, type: 3}
+      propertyPath: deathSign
+      value: 
+      objectReference: {fileID: 1824896315}
+    - target: {fileID: 8740979745492913182, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: respawnTime
       value: 3
       objectReference: {fileID: 0}
@@ -16699,6 +16703,11 @@ MeshFilter:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2020203309608228357, guid: 7ee6d62a55107d644ad399c930177e9e, type: 3}
   m_PrefabInstance: {fileID: 1495571594}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1824896315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4877691668118047312, guid: e61bd1d14f0a89f46b9639b3401f6495, type: 3}
+  m_PrefabInstance: {fileID: 2120487737}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1826117846 stripped
 GameObject:
@@ -18953,7 +18962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4877691668118047312, guid: e61bd1d14f0a89f46b9639b3401f6495, type: 3}
       propertyPath: m_Name
-      value: TempWoodenSign
+      value: DeathCntSign
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e61bd1d14f0a89f46b9639b3401f6495, type: 3}
