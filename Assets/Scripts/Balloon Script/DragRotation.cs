@@ -72,4 +72,9 @@ public class DragRotation : MonoBehaviour
     {
         return (rotationSpeed - minSpeed) / (maxSpeed - minSpeed);
     }
+
+    public void SetRotationSpeedRate(float value)
+    {
+        rotationSpeed = Mathf.Lerp(minSpeed, maxSpeed, value);
+    }
 }
