@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Application = UnityEngine.Application;
 using System;
+using UnityEngine.Events;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -24,6 +25,7 @@ public class GameManager : Singleton<GameManager>
 
         _balloonRigid = _balloonObj.GetComponent<Rigidbody>();
         _balloonSpawn = _balloonObj.GetComponent<Respawn>();
+        _balloonController = _balloonObj.GetComponent<BalloonController>();
     }
 
     public static bool IsPause
@@ -44,6 +46,8 @@ public class GameManager : Singleton<GameManager>
     private GameObject _balloonObj;
     private Rigidbody _balloonRigid;
     private Respawn _balloonSpawn;
+    private BalloonController _balloonController;
+    
     public void SetSavePoint(Vector3 point) 
     {
         savePoint = point;
@@ -91,5 +95,47 @@ public class GameManager : Singleton<GameManager>
     public Vector3 GetBalloonPosition()
     {
         return _balloonObj.transform.position;
+    }
+
+    public bool CanBalloonMove()
+    {
+        if (_balloonController.GetBalloonState() == BalloonController.BalloonState.Aim ||
+            _balloonController.GetBalloonState() == BalloonController.BalloonState.Charge)
+        {
+            return true;
+        }
+        else return false;
+    }
+    
+    /// <summary>
+    /// 플랫폼에서 떨어지지 않을 경우 FallToAimForced 함수와 같이 사용할것
+    /// </summary>
+    public void AimToFallForced()
+    {
+        _balloonController.SetOnPlatform(false);
+        _balloonController.SetBasicState();
+    }
+
+    public void FallToAimForced()
+    {
+        _balloonController.SetOnPlatform(true);
+    }
+    
+    public void CinematicMode()
+    {
+        _balloonController.SetCinematicState();
+    }
+    
+    public void FreezeBalloon()
+    {
+        _balloonController.SetFreezeState();
+    }
+
+    [HideInInspector]
+    public UnityEvent onBalloonDead;
+
+    public void BalloonDeadEvent()
+    {
+        onBalloonDead?.Invoke();
     }
 }

@@ -33,6 +33,7 @@ public class Tornado : Gimmick
         {
             StopCoroutine(_tornado);
             _tornado = null;
+            GameManager.instance.KillBalloon();
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BalloonController : MonoBehaviour
 {
-    private enum BalloonState { Aim, Charge, Fly, Fall, Freeze, DeveloperMode }
+    public enum BalloonState { Aim, Charge, Fly, Fall, Freeze, Cinematic, DeveloperMode }
 	
 	private BalloonState _balloonState;
 
@@ -15,6 +15,8 @@ public class BalloonController : MonoBehaviour
 	private Rigidbody _rigidbody;
 
 	private float _time;
+	private bool isOnPlatform = false;
+	private int countCollision = 0;
 	
 	[SerializeField] private float stopCriterionVelocity;
 	[SerializeField] private float chargeGauge;
@@ -36,7 +38,7 @@ public class BalloonController : MonoBehaviour
 		_dragRotation = GetComponent<DragRotation>();
 		_balloonShoot = GetComponent<BalloonShoot>();
 		_rigidbody = GetComponent<Rigidbody>();
-		//_slider = GameObject.FindWithTag("ChargeSlider").GetComponent<Slider>();
+		isOnPlatform = false;
 	}
 
 	private void Start()
@@ -57,28 +59,52 @@ public class BalloonController : MonoBehaviour
 		StartCoroutine(_balloonState.ToString());
 	}
 
+	public BalloonState GetBalloonState()
+	{
+		return _balloonState;
+	}
+	
 	public void SetBasicState()
 	{
 		ChangeState(BalloonState.Fall);
 	}
-
+	
 	public void SetFreezeState()
 	{
 		ChangeState(BalloonState.Freeze);
+	}
+	
+	public void SetCinematicState()
+	{
+		ChangeState(BalloonState.Cinematic);
 	}
 	
 	/// <summary>
 	/// 풍선 아래에 뭔가 있는지 확인하는 함수
 	/// </summary>
 	/// <returns></returns>
-	private bool SomethingUnderBalloon()
-	{
-		var position = transform.position;
-		Debug.DrawRay(position, Vector3.down, Color.blue);
-		
-		LayerMask wallLayer = LayerMask.GetMask("Platform");
 
-		return Physics.Raycast(position, Vector3.down, rayToBottomLength, wallLayer);
+	private void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.layer.Equals(3))
+		{
+			++countCollision;
+			isOnPlatform = true;
+			if(_balloonState == BalloonState.Fall && _rigidbody.velocity.magnitude > stopCriterionVelocity)
+			{
+				SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound, transform.position);
+			}
+			
+		}
+	}
+	
+	private void OnCollisionExit(Collision collision)
+	{
+		if (collision.gameObject.layer.Equals(3))
+		{
+			--countCollision;
+			if(countCollision == 0) isOnPlatform = false;
+		}
 	}
 	
 	private IEnumerator Aim()
@@ -86,7 +112,10 @@ public class BalloonController : MonoBehaviour
 		Debug.Log("Aim State");
 		ui.SetChargeUI(0);
 
-		_rigidbody.isKinematic = true;
+		_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+		_rigidbody.velocity = Vector3.zero;
+		_rigidbody.angularVelocity = Vector3.zero;
+		
 		// ReSharper disable once Unity.NoNullPropagation
 		_dragRotation.ResetDirection();
 		_showArrow?.Show();
@@ -97,7 +126,7 @@ public class BalloonController : MonoBehaviour
 		while (true)
 		{
 			if (Input.GetKey(chargeKey)) break;
-			if (!SomethingUnderBalloon())
+			if (!isOnPlatform)
 			{
 				ChangeState(BalloonState.Fall);
 			}
@@ -142,7 +171,7 @@ public class BalloonController : MonoBehaviour
 	{
 		Debug.Log("Fly State");
 		_showArrow?.Hide();
-		_rigidbody.isKinematic = false;
+		_rigidbody.constraints = RigidbodyConstraints.None;
 		
 		//SoundManager.instance.SfxPlay("BalloonShoot", balloonShootSound);
 
@@ -167,14 +196,14 @@ public class BalloonController : MonoBehaviour
 		Debug.Log("Fall state");
 		_showArrow?.Hide();
 		
-		_rigidbody.isKinematic = false;
+		_rigidbody.constraints = RigidbodyConstraints.None;
 		_time = 0;
 		
 		while (true)
 		{
 			_time += Time.deltaTime;
 			if (_rigidbody.velocity.magnitude <= stopCriterionVelocity &&
-			    SomethingUnderBalloon() && !isGamePaused) 
+			    isOnPlatform && !isGamePaused) 
 			{
 				break;
 			}
@@ -185,13 +214,27 @@ public class BalloonController : MonoBehaviour
 		ChangeState(BalloonState.Aim);
 	}
 	
-	private IEnumerator Freeze()
+	private IEnumerator Freeze()  //스크립트로만 진입, 탈출
 	{
 		Debug.Log("Freeze state");
-		_showArrow?.Hide();
 		
-		_rigidbody.isKinematic = true;
-
+		_showArrow?.Hide();
+		_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+		CameraController.instance.onControll = CameraController.ControllType.Drag;
+		_dragRotation.onControll = false;
+		
+		yield return null;
+	}
+	
+	private IEnumerator Cinematic()  //스크립트로만 진입, 탈출
+	{
+		Debug.Log("Cinematic state");
+		
+		_showArrow?.Hide();
+		_rigidbody.constraints = RigidbodyConstraints.None;
+		CameraController.instance.onControll = CameraController.ControllType.Stop;
+		_dragRotation.onControll = false;
+		
 		yield return null;
 	}
 	
@@ -211,17 +254,14 @@ public class BalloonController : MonoBehaviour
 		ChangeState(BalloonState.Fall);
 	}
 
+	public void SetOnPlatform(bool value)
+	{
+		isOnPlatform = value;
+	}
+	
 	public float GetChargeGauge()
 	{
 		return chargeGauge;
-	}
-
-	private void OnCollisionEnter(Collision collision)
-	{
-		if (collision.gameObject.layer.Equals(3) && (_balloonState == BalloonState.Fall) )
-		{
-			SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound, transform.position);
-		}
 	}
 
 	public KeyCode flyKey;

@@ -66,6 +66,8 @@ public class Respawn : MonoBehaviour
         _rigidbody.isKinematic = true;
         _controller.SetFreezeState();
         
+        GameManager.instance.BalloonDeadEvent();
+        
         var transform1 = transform;
         var effect = Instantiate(dieEffect, transform1.position, transform1.rotation);
 
@@ -74,7 +76,7 @@ public class Respawn : MonoBehaviour
         Destroy(effect, respawnTime);
         Invoke(nameof(Spawn), respawnTime);
     }
-
+    
     private void Spawn()
     {
         deathUI.SetActive(true);
@@ -92,23 +94,20 @@ public class Respawn : MonoBehaviour
 
     private IEnumerator SpawnCoroutine()
     {
-        _rigidbody.isKinematic = true;
         var curScale = Vector3.one;
         float yPos = savePoint.y;
         
         for (int i = 0; i < 100; i++)
         {
-            transform.localScale = curScale * (0.01f * i);
-            transform.position = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
+            transform.localScale = curScale * (0.01f * i) ;
+            transform.position = new Vector3(savePoint.x, yPos -= 0.01f, savePoint.z);
             yield return new WaitForSeconds(0.01f);
         }
 
         transform.localScale = new Vector3(1, 1, 1);
 
         _meshCollider.enabled = true;
-        _rigidbody.isKinematic = false;
         _rigidbody.useGravity = true;
-        _controller.enabled = true;
 
         _controller.SetBasicState();
     }

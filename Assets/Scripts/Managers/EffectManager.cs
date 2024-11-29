@@ -8,7 +8,7 @@ public class EffectManager : Singleton<EffectManager>
     private readonly List<DeathEffect> _deathEffects = new ();
 
     //public method that instantiate death effect
-    public void ShowDeathEffect(EffectType type, Vector3 position)
+    public void ShowDeathEffect(EffectType type)
     {
         if(type == EffectType.None) return;
         
@@ -21,13 +21,13 @@ public class EffectManager : Singleton<EffectManager>
             _deathEffects.Add(effect);
         }
         //show death effect
-        effect.Show(position);
+        effect.Show(GameManager.instance.GetBalloonPosition());
     }
 
-    public IEnumerator ShowDeathEffectCoroutine(EffectType type, Vector3 position, float t)
+    public IEnumerator ShowDeathEffectCoroutine(EffectType type,  float t)
     {
         yield return new WaitForSeconds(t);
-        ShowDeathEffect(type, position);
+        ShowDeathEffect(type);
     }
     
     //public method that hide death effect

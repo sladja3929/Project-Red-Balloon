@@ -101,7 +101,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 0.001
   m_Drag: 0.8
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5d3628e0b8ee1479b2fdc9574115ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopCriterionVelocity: 0.1
+  stopCriterionVelocity: 0.3
   chargeGauge: 0
   chargeKey: 32
   chargeSpeed: 1
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae4c09dd76c04147a2c0d9ac08264fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSize: 1
+  maxSize: 1.5
 --- !u!114 &624605302480310107
 MonoBehaviour:
   m_ObjectHideFlags: 0

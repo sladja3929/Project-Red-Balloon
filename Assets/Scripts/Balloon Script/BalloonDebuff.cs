@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,28 +10,60 @@ public class BalloonDebuff : MonoBehaviour
     
     [SerializeField]
     private float maxSize;
-
-    void Awake()
-    {
-        _originalScale = transform.localScale;
-    }
+    
+    private float heatingSpeed;
+    
+    private bool isHeated;
 
     void Start()
     {
-        _gauge = 0;
+        _originalScale = transform.localScale;
+        GameManager.instance.onBalloonDead.AddListener(InitSettings);
+        InitSettings();
     }
 
-    public void Heat(float heatGauge)
+    private void InitSettings()
     {
-        _gauge += heatGauge;
-        _gauge = Mathf.Clamp01(_gauge);
-
+        transform.localScale = _originalScale;
+        heatingSpeed = 0;
+        _gauge = 0;
+        isHeated = false;
+        this.enabled = false;
+    }
+    
+    private void FixedUpdate()
+    {
         transform.localScale = _originalScale * (1 + maxSize * _gauge);
 
-        if (_gauge > 1)
+        if (isHeated)
         {
-            GameManager.instance.KillBalloon();
-            _gauge = 0;
+            _gauge += heatingSpeed;
+            
+            if (_gauge > 1)
+            {
+                GameManager.instance.KillBalloon();
+            }
         }
+
+        else
+        {
+            _gauge -= heatingSpeed;
+            
+            if (_gauge < 0)
+            {
+                InitSettings();
+            }
+        }
+    }
+
+    public void HeatBalloon(float heatingPower)
+    {
+        heatingSpeed = heatingPower;
+        isHeated = true;
+    }
+
+    public void ColdBalloon()
+    {
+        isHeated = false;
     }
 }
