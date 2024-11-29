@@ -66,11 +66,13 @@ public class CameraController : MonoBehaviour
     
     public void SetDpiRate(float rate)
     {
-        dpi = Mathf.Lerp(0.1f, 10, rate);
+        float dpi = Mathf.Lerp(0.1f, 10, rate);
+        
+        StaticSensitivity.SetCamSensitivity(rate);
     }
     
     public float GetDpiRate()
     {
-        return (dpi - 0.1f) / (10 - 0.1f);
+        return (DPI - 0.1f) / (10 - 0.1f);
     }
 }
