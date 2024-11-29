@@ -17,6 +17,9 @@ public class PauseMenu : MonoBehaviour
     [Space(10)]
     [SerializeField] private Slider mouseSensitivitySlider;
     [SerializeField] private Slider camSensitivitySlider;
+    
+    private DragRotation _dragRotation;
+    private CameraController _cameraController;
 
     private void OpenPauseMenu()
     {
@@ -30,9 +33,9 @@ public class PauseMenu : MonoBehaviour
 
         sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();
         musicVolumeSlider.value = SoundManager.instance.GetBackgroundVolume();
-
-        mouseSensitivitySlider.value = StaticSensitivity.GetMouseSensitivityRate();
-        camSensitivitySlider.value = StaticSensitivity.GetCamSensitivityRate();
+        
+        mouseSensitivitySlider.value = _dragRotation.GetRotationSpeedRate();
+        camSensitivitySlider.value = _cameraController.GetDpiRate();
     }
 
     public void ClosePauseMenu()
@@ -84,22 +87,22 @@ public class PauseMenu : MonoBehaviour
     {
         ClosePauseMenu();
         
+        _dragRotation = FindObjectOfType<DragRotation>();
+        _cameraController = FindObjectOfType<CameraController>();
+        
         camSensitivitySlider.onValueChanged.AddListener(delegate { SetControllerSensitivity(); });
         mouseSensitivitySlider.onValueChanged.AddListener(delegate { SetMouseSensitivity(); });
-        
-        sfxVolumeSlider.onValueChanged.AddListener(delegate { SetSfxVolume(); });
-        musicVolumeSlider.onValueChanged.AddListener(delegate { SetBackgroundVolume(); });
     }
     
     public void SetMouseSensitivity()
     {
         float value = mouseSensitivitySlider.value;
-        StaticSensitivity.SetMouseSensitivity(value);
+        _dragRotation.SetRotationSpeedRate(value);
     }
     
     public void SetControllerSensitivity()
     {
         float value = camSensitivitySlider.value;
-        StaticSensitivity.SetCamSensitivity(value);
+        _cameraController.SetDpiRate(value);
     }
 }
