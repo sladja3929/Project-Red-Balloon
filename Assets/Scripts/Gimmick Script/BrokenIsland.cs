@@ -57,16 +57,19 @@ public class BrokenIsland : Gimmick
 
         if (isOn)
         {
-            GameManager.instance.AimToFallForced();
             Debug.Log("sss");
+            GameManager.instance.AimToFallForced();
+            
         }
         
         yield return StartCoroutine(MoveToPosition(targetPos, moveDuration));
+        GameManager.instance.FallToAimForced();
         
         yield return new WaitForSeconds(wait);
+        GameManager.instance.AimToFallForced();
         
         yield return StartCoroutine(MoveToPosition(originalPos, moveDuration));
-
+        GameManager.instance.FallToAimForced();
         isMoving = false;
     }
 

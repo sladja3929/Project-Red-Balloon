@@ -101,10 +101,19 @@ public class GameManager : Singleton<GameManager>
         }
         else return false;
     }
-
+    
+    /// <summary>
+    /// 플랫폼에서 떨어지지 않을 경우 FallToAimForced 함수와 같이 사용할것
+    /// </summary>
     public void AimToFallForced()
     {
+        _balloonController.SetOnPlatform(false);
         _balloonController.SetBasicState();
+    }
+
+    public void FallToAimForced()
+    {
+        _balloonController.SetOnPlatform(true);
     }
     
     public void CinematicMode()

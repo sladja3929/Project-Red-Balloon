@@ -16,6 +16,7 @@ public class BalloonController : MonoBehaviour
 
 	private float _time;
 	private bool isOnPlatform = false;
+	private int countCollision = 0;
 	
 	[SerializeField] private float stopCriterionVelocity;
 	[SerializeField] private float chargeGauge;
@@ -65,7 +66,6 @@ public class BalloonController : MonoBehaviour
 	
 	public void SetBasicState()
 	{
-		isOnPlatform = false;
 		ChangeState(BalloonState.Fall);
 	}
 	
@@ -88,6 +88,7 @@ public class BalloonController : MonoBehaviour
 	{
 		if (collision.gameObject.layer.Equals(3))
 		{
+			++countCollision;
 			isOnPlatform = true;
 			if(_balloonState == BalloonState.Fall && _rigidbody.velocity.magnitude > stopCriterionVelocity)
 			{
@@ -101,7 +102,8 @@ public class BalloonController : MonoBehaviour
 	{
 		if (collision.gameObject.layer.Equals(3))
 		{
-			isOnPlatform = false;
+			--countCollision;
+			if(countCollision == 0) isOnPlatform = false;
 		}
 	}
 	
@@ -252,6 +254,11 @@ public class BalloonController : MonoBehaviour
 		ChangeState(BalloonState.Fall);
 	}
 
+	public void SetOnPlatform(bool value)
+	{
+		isOnPlatform = value;
+	}
+	
 	public float GetChargeGauge()
 	{
 		return chargeGauge;

@@ -3,8 +3,10 @@ Shader "Unlit/Gradient_Outline"
     Properties
     {
         [HDR]_Color("Color", Color) = (1, 1, 1, 1)
-        [HDR]_OutlineColor("OutlineColor", Color) = (0, 0, 0, 1)  
+        [HDR]_OutlineColor("OutlineColor", Color) = (0, 0, 0, 1)
+        [HDR]_ChargeColor("ChargeColor", Color) = (1, 1, 1, 1)
         _OutlineThickness("OutlineThickness", Range(0.0, 1.0)) = 0.02
+        _ChargeRate("ChargeRate", Float) = 0
     }
     SubShader
     {
@@ -18,7 +20,9 @@ Shader "Unlit/Gradient_Outline"
             #include "UnityCG.cginc"
 
             fixed4 _Color;
-
+            fixed4 _ChargeColor;
+            fixed _ChargeRate;
+            
             struct appdata
             {
                 float4 vertex : POSITION;
@@ -48,6 +52,11 @@ Shader "Unlit/Gradient_Outline"
                 fixed4 invertedColor = fixed4(0,0,0,1);//fixed4(1.0 - _Color.rgb, _Color.a);
                 fixed4 col = lerp(_Color, invertedColor, t);
 
+                if(i.uv.y <= _ChargeRate)
+                {
+                    col = _ChargeColor;
+                }
+                
                 return col;
             }
             ENDCG

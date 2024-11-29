@@ -9,12 +9,12 @@ public class CaveEndEvent : MonoBehaviour
     [SerializeField] private float intensity;
     [SerializeField] private float fadeTime;
 
-    private Light light;
+    private Light _light;
     private float baseIntensity;
     private void Start()
     {
-        light = ambientLight.GetComponent<Light>();
-        baseIntensity = light.intensity;
+        _light = ambientLight.GetComponent<Light>();
+        baseIntensity = _light.intensity;
         ambientLight.SetActive(false);
     }
 
@@ -34,7 +34,7 @@ public class CaveEndEvent : MonoBehaviour
         while (time < fadeTime)
         {
             time += Time.deltaTime;
-            light.intensity = Mathf.Lerp(baseIntensity, intensity, time / fadeTime);
+            _light.intensity = Mathf.Lerp(baseIntensity, intensity, time / fadeTime);
             yield return null;
         }
     }
@@ -42,6 +42,6 @@ public class CaveEndEvent : MonoBehaviour
     private void SetAmbientLightForced()
     {
         ambientLight.SetActive(true);
-        light.intensity = intensity;
+        _light.intensity = intensity;
     }
 }
