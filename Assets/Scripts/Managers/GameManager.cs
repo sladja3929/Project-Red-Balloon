@@ -55,7 +55,7 @@ public class GameManager : Singleton<GameManager>
         
         SaveManager.instance.Stage = SceneManager.GetActiveScene().buildIndex;
         SaveManager.instance.Position = point;
-        SaveManager.instance.ResetFlag(SaveFlag.NewSave);
+        SaveManager.instance.RemoveFlag(SaveFlag.NewSave);
         SaveManager.instance.Save();
     }
 
