@@ -9,14 +9,13 @@ public class SetSignPos : MonoBehaviour
     private int currentSignPosIndex = 0;
     public bool shouldUpdateSignPos = false;
     private int nextSignPosIndex = 0;
+
     void Start()
     {
-        if (signTransforms.Length > 0)
-        {
-            sign.transform.position = signTransforms[0].position;
-            sign.transform.rotation = signTransforms[0].rotation;
-            currentSignPosIndex = 0;
-        }
+        //if (signTransforms.Length > 0)
+        //{
+        //    UpdateSignPosition(1);
+        //}
     }
 
     public bool CheckUpdateSignPos(int index)
@@ -36,19 +35,22 @@ public class SetSignPos : MonoBehaviour
 
         return false;
     }
+
     public void UpdateSignPosition(int index)
     {
-        if(index < 0 || index >= signTransforms.Length)
+        if (index < 0 || index >= signTransforms.Length)
         {
-            return;
-        }
-        if (!shouldUpdateSignPos || nextSignPosIndex < 0 || nextSignPosIndex >= signTransforms.Length)
-        {
+            Debug.Log("Index out of range in UpdateSignPosition");
             return;
         }
 
-        sign.transform.position = signTransforms[index].position;
-        sign.transform.rotation = signTransforms[index].rotation;
+        if (!shouldUpdateSignPos || nextSignPosIndex < 0 || nextSignPosIndex >= signTransforms.Length)
+        {
+            Debug.Log("Invalid state for updating sign position");
+            return;
+        }
+        Debug.Log("UpdateSignPosition called");
+        sign.transform.SetPositionAndRotation(signTransforms[index].position, signTransforms[index].rotation);
         currentSignPosIndex = nextSignPosIndex;
         shouldUpdateSignPos = false;
     }
@@ -58,3 +60,5 @@ public class SetSignPos : MonoBehaviour
         return sign.transform;
     }
 }
+
+

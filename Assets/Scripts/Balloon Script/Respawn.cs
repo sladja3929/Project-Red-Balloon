@@ -103,7 +103,11 @@ public class Respawn : MonoBehaviour
 
         if (isSavePointReached && setSignPos != null)
         {
-            setSignPos.UpdateSignPosition(signPosIndex);
+            if (setSignPos.CheckUpdateSignPos(signPosIndex))
+            {
+                Debug.Log("UpdateSignPosition called");
+                setSignPos.UpdateSignPosition(signPosIndex);
+            }
             isSavePointReached = false;
         }
     }

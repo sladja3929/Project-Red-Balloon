@@ -5,8 +5,8 @@ using UnityEngine;
 public class TempSignManager : Singleton<TempSignManager>
 {
     private int savePointIndex = 0;
-    // Start is called before the first frame update
-    private new void Awake()
+
+    protected override void Awake()
     {
         base.Awake();
     }

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SetSaveByCollision : Gimmick
 {
-    private int originalIndex;
-
     private void Start()
     {
+        if (TempSignManager.instance == null)
+        {
+            new GameObject("TempSignManager", typeof(TempSignManager));
+        }
     }
     public override void Execute()
     {
@@ -21,28 +23,23 @@ public class SetSaveByCollision : Gimmick
             GameManager.instance.SetSavePoint(newSavePoint);
 
             Respawn respawn = FindObjectOfType<Respawn>();
-            if (TempSignManager.instance != null)
+            if (respawn != null)
             {
-                originalIndex = TempSignManager.instance.GetSavePointIndex();
+                Debug.Log("세이브포인트 변경");
+                respawn.SetSavePoint(newSavePoint);
+                respawn.SetSavePointReached(true);
                 TempSignManager.instance.IncrementSavePointIndex();
-                Debug.Log("SavePointIndex: " + TempSignManager.instance.GetSavePointIndex() + " Original: " + originalIndex);
-                if (respawn != null)
-                {
-                    respawn.SetSavePoint(newSavePoint);
-                    respawn.SetSavePointReached(true);
-                    respawn.SetSignPosIndex(TempSignManager.instance.GetSavePointIndex());
-                }
-
-                SetSignPos setSignPos = FindObjectOfType<SetSignPos>();
-                if (setSignPos != null)
-                {
-                    if (!setSignPos.CheckUpdateSignPos(TempSignManager.instance.GetSavePointIndex()))
-                        TempSignManager.instance.DecrementSavePointIndex();
-                }
+                respawn.SetSignPosIndex(TempSignManager.instance.GetSavePointIndex());
             }
-            else
+
+            SetSignPos setSignPos = FindObjectOfType<SetSignPos>();
+            if (setSignPos != null)
             {
-                Debug.LogError("TempSignManager instance is null.");
+                if (!setSignPos.CheckUpdateSignPos(TempSignManager.instance.GetSavePointIndex()))
+                {
+                    Debug.Log("세이브포인트 복구");
+                    TempSignManager.instance.DecrementSavePointIndex();
+                }
             }
         }
     }
