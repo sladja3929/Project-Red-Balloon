@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TempSignManager : Singleton<TempSignManager>
 {
-    private int savePointIndex = 0;
+    private int savePointIndex = 0;//각 scene별 첫 세이브포인트의 인덱스
 
     protected override void Awake()
     {

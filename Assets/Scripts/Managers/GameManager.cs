@@ -59,7 +59,7 @@ public class GameManager : Singleton<GameManager>
         //SaveManager.instance.Save();
     }
 
-    public Vector3 GetSavePoint()
+    public Vector3 GetSavePoint()//기존 세이브포인트 반환
     {
         return savePoint;
     }

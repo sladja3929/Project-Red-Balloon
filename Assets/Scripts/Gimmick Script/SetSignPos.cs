@@ -20,12 +20,12 @@ public class SetSignPos : MonoBehaviour
 
     public bool CheckUpdateSignPos(int index)
     {
-        if (index < 0 || index >= signTransforms.Length)
+        if (index < 0 || index >= signTransforms.Length)//index값 예외처리
         {
             return false;
         }
 
-        if (currentSignPosIndex != index)
+        if (currentSignPosIndex != index)//현재 세이브포인트와 다를 경우 표지판위치 업데이트해야 함
         {
             nextSignPosIndex = index;
             shouldUpdateSignPos = true;
@@ -38,12 +38,12 @@ public class SetSignPos : MonoBehaviour
 
     public void UpdateSignPosition(int index)
     {
-        if (index < 0 || index >= signTransforms.Length)
+        if (index < 0 || index >= signTransforms.Length)//index값 예외처리
         {
             Debug.Log("Index out of range in UpdateSignPosition");
             return;
         }
-
+        //표지판 위치 업데이트해야하는지 + index값 예외처리
         if (!shouldUpdateSignPos || nextSignPosIndex < 0 || nextSignPosIndex >= signTransforms.Length)
         {
             Debug.Log("Invalid state for updating sign position");

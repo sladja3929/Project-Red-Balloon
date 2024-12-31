@@ -55,7 +55,7 @@ public class Respawn : MonoBehaviour
     {
         savePoint = point;
     }
-    public void SetSavePointReached(bool isReached)
+    public void SetSavePointReached(bool isReached)//세이브포인트 도달 여부 설정, 이후 스폰 시 사용
     {
         isSavePointReached = isReached;
     }
@@ -101,7 +101,7 @@ public class Respawn : MonoBehaviour
         
         StartCoroutine(SpawnCoroutine());
 
-        if (isSavePointReached && setSignPos != null)
+        if (isSavePointReached && setSignPos != null)//세이브포인트 도달했을 때 스폰하면서 표지판 위치 업데이트
         {
             if (setSignPos.CheckUpdateSignPos(signPosIndex))
             {
