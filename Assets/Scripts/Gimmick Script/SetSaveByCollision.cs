@@ -4,11 +4,47 @@ using UnityEngine;
 
 public class SetSaveByCollision : Gimmick
 {
+    private int originalIndex;
+
+    private void Start()
+    {
+    }
     public override void Execute()
     {
         if (!isGimmickEnable) return;
 
-        GameManager.instance.SetSavePoint(transform.position);
+        Vector3 newSavePoint = transform.position;
+        Vector3 currentSavePoint = GameManager.instance.GetSavePoint();
+
+        if (newSavePoint != currentSavePoint)
+        {
+            GameManager.instance.SetSavePoint(newSavePoint);
+
+            Respawn respawn = FindObjectOfType<Respawn>();
+            if (TempSignManager.instance != null)
+            {
+                originalIndex = TempSignManager.instance.GetSavePointIndex();
+                TempSignManager.instance.IncrementSavePointIndex();
+                Debug.Log("SavePointIndex: " + TempSignManager.instance.GetSavePointIndex() + " Original: " + originalIndex);
+                if (respawn != null)
+                {
+                    respawn.SetSavePoint(newSavePoint);
+                    respawn.SetSavePointReached(true);
+                    respawn.SetSignPosIndex(TempSignManager.instance.GetSavePointIndex());
+                }
+
+                SetSignPos setSignPos = FindObjectOfType<SetSignPos>();
+                if (setSignPos != null)
+                {
+                    if (!setSignPos.CheckUpdateSignPos(TempSignManager.instance.GetSavePointIndex()))
+                        TempSignManager.instance.DecrementSavePointIndex();
+                }
+            }
+            else
+            {
+                Debug.LogError("TempSignManager instance is null.");
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision other)
