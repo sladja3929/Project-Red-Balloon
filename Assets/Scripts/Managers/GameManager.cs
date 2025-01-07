@@ -59,6 +59,10 @@ public class GameManager : Singleton<GameManager>
         SaveManager.instance.Save();
     }
 
+    public Vector3 GetSavePoint()//기존 세이브포인트 반환
+    {
+        return savePoint;
+    }
     public void KillBalloon()
     {
         _balloonSpawn.Die();

@@ -11,31 +11,35 @@ public class Respawn : MonoBehaviour
     [SerializeField] private GameObject deathUI;
     [SerializeField] private AudioClip dieSound;
     [SerializeField] private float respawnTime;
-    [SerializeField] private float deleteDeathUITime;
 
-    private int deathCount;
+    private bool isSavePointReached;
+    private int signPosIndex;
 
     private Rigidbody _rigidbody;
     private BalloonController _controller;
     private MeshRenderer _meshRenderer;
     private MeshCollider _meshCollider;
-    
+
+    private SetSignPos setSignPos;
+    private SetSaveByCollision setSaveByCollision;
+
     public KeyCode dieKey;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _controller = GetComponent<BalloonController>();
-        deathUI.SetActive(false);
         _meshRenderer = GetComponent<MeshRenderer>();
         _meshCollider = GetComponent<MeshCollider>();
+        
+        setSignPos = FindObjectOfType<SetSignPos>();
+        setSaveByCollision = FindObjectOfType<SetSaveByCollision>();
     }
 
     private void Start()
     {
         //임시 세이브
         SetSavePoint(transform.position);
-        deathCount = PlayerPrefs.GetInt("death_count", 0);
 
     }
 
@@ -50,6 +54,15 @@ public class Respawn : MonoBehaviour
     public void SetSavePoint(Vector3 point)
     {
         savePoint = point;
+    }
+    public void SetSavePointReached(bool isReached)//세이브포인트 도달 여부 설정, 이후 스폰 시 사용
+    {
+        isSavePointReached = isReached;
+    }
+
+    public void SetSignPosIndex(int index)
+    {
+        signPosIndex = index;
     }
 
     public void Die()
@@ -72,12 +85,12 @@ public class Respawn : MonoBehaviour
         
         Destroy(effect, respawnTime);
         Invoke(nameof(Spawn), respawnTime);
+
     }
     
     private void Spawn()
     {
         deathUI.SetActive(true);
-        Invoke("DeleteDeathUI", deleteDeathUITime);
 
         transform.position = savePoint;
         transform.rotation = Quaternion.Euler(180, 0, 0);
@@ -87,6 +100,16 @@ public class Respawn : MonoBehaviour
         //_rigidbody.velocity = Vector3.zero;
         
         StartCoroutine(SpawnCoroutine());
+
+        if (isSavePointReached && setSignPos != null)//세이브포인트 도달했을 때 스폰하면서 표지판 위치 업데이트
+        {
+            if (setSignPos.CheckUpdateSignPos(signPosIndex))
+            {
+                Debug.Log("UpdateSignPosition called");
+                setSignPos.UpdateSignPosition(signPosIndex);
+            }
+            isSavePointReached = false;
+        }
     }
 
     private IEnumerator SpawnCoroutine()
@@ -107,9 +130,4 @@ public class Respawn : MonoBehaviour
 
         _controller.SetBasicState();
     }
-    void DeleteDeathUI()
-    {
-        deathUI.SetActive(false);
-    }
-
 }

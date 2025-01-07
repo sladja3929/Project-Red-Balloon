@@ -30,6 +30,12 @@ public class SaveManager : Singleton<SaveManager>
         set => curInfo.position = value;
     }
 
+    public int DeathCount
+    {
+        get => curInfo.deathCount;
+        set => curInfo.deathCount = value;
+    }
+
     private new void Awake()
     {
         base.Awake();
@@ -60,7 +66,8 @@ public class SaveManager : Singleton<SaveManager>
         {
             SaveInfo ret = new SaveInfo
             {
-                flagInfo = SaveFlag.NewSave
+                flagInfo = SaveFlag.NewSave,
+                deathCount = 0
             };
 
             return ret;
@@ -110,4 +117,5 @@ public struct SaveInfo
     public int stage;
     public Vector3 position;
     public SaveFlag flagInfo;
+    public int deathCount;
 }

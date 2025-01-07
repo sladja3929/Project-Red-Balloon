@@ -28,6 +28,6 @@ public class ShowDeathCnt : MonoBehaviour
     // 죽은 횟수 값 불러오는 방법 추후 수정 필요
     private void LoadDeathCount()
     {
-        deathCount = PlayerPrefs.GetInt("death_count", 0);
+        deathCount = PlayerPrefs.GetInt("DeathCount");
     }
 }
