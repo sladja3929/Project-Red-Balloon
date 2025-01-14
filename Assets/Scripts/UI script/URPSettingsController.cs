@@ -6,6 +6,10 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
+#if UNITY_EDITOR
+using UnityEditor.Rendering;
+#endif
+
 public class URPSettingsController : MonoBehaviour
 {
     public UniversalRenderPipelineAsset currentAsset;
@@ -52,8 +56,10 @@ public class URPSettingsController : MonoBehaviour
                 "Error: Invalid Quality Level"
                 )
         };
-        
         currentAsset = (UniversalRenderPipelineAsset)GraphicsSettings.renderPipelineAsset;
+        
+        QualitySettings.renderPipeline = currentAsset;
+        
         ReloadText();
     }
 
