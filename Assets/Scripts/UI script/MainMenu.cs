@@ -3,12 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using Button = UnityEngine.UI.Button;
 
 public class MainMenu : MonoBehaviour
 {
     public bool starting = false;
-    public void PlayGame()
+    
+    public void NewGame()
     {
+        if (starting) return;
+        starting = true;
+
+        SaveManager.instance.ResetSave();
+        StartCoroutine(PlayGameCoroutine());
+    }
+    
+    public void ContinueGame()
+    {
+        if (SaveManager.instance.IsNewSave()) return;
+        
         if (starting) return;
         starting = true;
 
@@ -17,7 +31,12 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator PlayGameCoroutine()
     {
-        FadingInfo startGameFadingInfo = new FadingInfo(1.5f, 0, 1, 0);
+        FadingInfo startGameFadingInfo = new (
+            1.5f, 
+            0, 
+            1, 
+            0
+            );
         SceneChangeManager.instance.FadeOut(startGameFadingInfo);
         yield return new WaitUntil(() => SceneChangeManager.instance.FinishFade());
 
@@ -29,30 +48,84 @@ public class MainMenu : MonoBehaviour
         }
         
         SceneChangeManager.instance.LoadSceneAsync
-        ($"Stage{stage}", () => { SceneChangeManager.instance.FadeIn(startGameFadingInfo); });
+        ($"Stage{stage}", () =>
+        {
+            SceneChangeManager.instance.FadeIn(startGameFadingInfo);
+        });
     }
     public void QuitGame()
     {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
         Application.Quit();
-        Debug.Log("Quit");
+        #endif
     }
 
     public MainOption optionMenu; 
     public GameObject mainMenu;
-    
-    public void MainToOption()
+    public GameObject credits;
+    public GameObject howToPlay;
+    public Button continueButton;
+    public GameObject titleText;
+
+    public void Awake()
     {
+        if (SaveManager.instance.IsNewSave())
+        {
+            // 클릭 불가능하게 만들기
+            continueButton.interactable = false;
+            
+            // 색상 (255, 255, 255, 125)로 만들기
+            ColorBlock cb = continueButton.colors;
+            cb.normalColor = new Color(1, 1, 1, 0.5f);
+            
+            // mouse hover 오브젝트 끄기
+            if (continueButton.TryGetComponent(out MouseHover mouseHover))
+            {
+                mouseHover.enabled = false;
+            }
+        }
+        
+        
+    }
+    
+    public void OpenPauseMenu()
+    {
+        if (gameObject.activeSelf == false) return;
         optionMenu.OpenPauseMenu();
         
         Debug.Log("MainToOption");
         gameObject.SetActive(false);
+        titleText.SetActive(false);
     }
 
-    public void OptionToMain()
+    public void OpenCredits()
+    {
+        if (gameObject.activeSelf == false) return;
+        
+        credits.SetActive(true);
+        mainMenu.SetActive(false);
+        titleText.SetActive(false);
+    }
+    
+    public void OpenHowToPlay()
+    {
+        if (gameObject.activeSelf == false) return;
+        
+        howToPlay.SetActive(true);
+        mainMenu.SetActive(false);
+        titleText.SetActive(false);
+    }
+
+    public void BackToMenu()
     {
         gameObject.SetActive(true);
+        titleText.SetActive(true);
         
         Debug.Log("OptionToMain");
         optionMenu.ClosePauseMenu();
+        credits.SetActive(false);
+        howToPlay.SetActive(false);
     }
 }

@@ -56,9 +56,11 @@ public class MainOption : MonoBehaviour
         GameManager.instance.QuitGame();
     }
 
-    private void Awake()
+    private bool _initialized = false;
+    private void OnEnable()
     {
-        ClosePauseMenu();
+        if (_initialized) return;
+        _initialized = true;
         
         camSensitivitySlider.onValueChanged.AddListener(delegate { SetControllerSensitivity(); });
         mouseSensitivitySlider.onValueChanged.AddListener(delegate { SetMouseSensitivity(); });

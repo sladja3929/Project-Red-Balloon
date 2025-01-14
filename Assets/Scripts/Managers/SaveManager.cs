@@ -43,6 +43,11 @@ public class SaveManager : Singleton<SaveManager>
         curInfo = Load();
     }
     
+    public bool IsNewSave()
+    {
+        return CheckFlag(SaveFlag.NewSave);
+    }
+    
     // save Info를 JsonData로 저장합니다.
     public void Save()
     { 
@@ -55,9 +60,15 @@ public class SaveManager : Singleton<SaveManager>
         return curInfo;
     }
 
-    public static void ResetSave()
+    public void ResetSave()
     {
         File.Delete(SAVE_PATH);
+        
+        curInfo = new SaveInfo
+        {
+            flagInfo = SaveFlag.NewSave,
+            deathCount = 0
+        };
     }
 
     private static SaveInfo Load()
@@ -93,6 +104,14 @@ public class SaveManager : Singleton<SaveManager>
     {
         curInfo.flagInfo &= ~flag;
     }
+    
+    // ==================== Developer Function ====================
+    
+    [ContextMenu("Save Immediately")]
+    public void SaveImmediately()
+    {
+        Save();
+    }
 }
 
 [System.Flags, System.Serializable]
@@ -103,8 +122,8 @@ public enum SaveFlag
     CutsceneStage2 = 1 << 2,
     CutsceneStage3 = 1 << 3,
     
-    Scene2Bloom        = 1 << 3,
-    Scene2Volcano = 1 << 4,
+    Scene2Bloom   = 1 << 4,
+    Scene2Volcano = 1 << 5,
     
     //. .
     //. .

@@ -33,8 +33,9 @@ public class MouseHover : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        // _image.sprite = defaultSprite;
+        _image.sprite = defaultSprite;
         transform.localScale = new Vector3(_originalScale, _originalScale, 1);
+        
     }
     
     public void OnDisable()
