@@ -9,7 +9,7 @@ public class Wind : Gimmick
     public float windPower;
     
     private AudioSource _windSound;
-    private ParticleSystem _windEffect;
+    private ParticleSystem[] _windEffects;
 
     private void OnTriggerStay(Collider other)
     {
@@ -24,11 +24,14 @@ public class Wind : Gimmick
     private void Awake()
     {
         _windSound = GetComponent<AudioSource>();
-        _windEffect = GetComponentInChildren<ParticleSystem>();
+        _windEffects = GetComponentsInChildren<ParticleSystem>();
     }
 
     private void Update()
     {
-        _windEffect.gameObject.SetActive(isGimmickEnable);
+        foreach (var windEffect in _windEffects)
+        {
+            windEffect.gameObject.SetActive(isGimmickEnable);
+        }
     }
 }

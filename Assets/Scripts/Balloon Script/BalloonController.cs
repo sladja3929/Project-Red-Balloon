@@ -93,9 +93,14 @@ public class BalloonController : MonoBehaviour
 		{
 			++countCollision;
 			isOnPlatform = true;
-			if(_balloonState == BalloonState.Fall && _rigidbody.velocity.magnitude > stopCriterionVelocity)
+			float magnitude = _rigidbody.velocity.magnitude;
+			
+			if(_balloonState == BalloonState.Fall && magnitude > stopCriterionVelocity + 0.5f)
 			{
-				SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound, transform.position);
+				Debug.Log(magnitude);
+				magnitude = Mathf.Clamp(magnitude, 1, 10);
+				magnitude = Mathf.InverseLerp(1, 10, magnitude);
+				SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound, transform.position, magnitude);
 			}
 			
 		}
