@@ -10,6 +10,12 @@ public class MainMenu : MonoBehaviour
 {
     public bool starting = false;
     
+    public MainOption optionMenu; 
+    public GameObject mainMenu;
+    public GameObject credits;
+    public Button continueButton;
+    public GameObject titleText;
+    
     public void NewGame()
     {
         if (starting) return;
@@ -37,6 +43,7 @@ public class MainMenu : MonoBehaviour
             1, 
             0
             );
+        
         SceneChangeManager.instance.FadeOut(startGameFadingInfo);
         yield return new WaitUntil(() => SceneChangeManager.instance.FinishFade());
 
@@ -62,13 +69,6 @@ public class MainMenu : MonoBehaviour
         #endif
     }
 
-    public MainOption optionMenu; 
-    public GameObject mainMenu;
-    public GameObject credits;
-    public GameObject howToPlay;
-    public Button continueButton;
-    public GameObject titleText;
-
     public void Awake()
     {
         if (SaveManager.instance.IsNewSave())
@@ -76,14 +76,11 @@ public class MainMenu : MonoBehaviour
             // 클릭 불가능하게 만들기
             continueButton.interactable = false;
             
-            // 색상 (255, 255, 255, 125)로 만들기
-            ColorBlock cb = continueButton.colors;
-            cb.normalColor = new Color(1, 1, 1, 0.5f);
-            
-            // mouse hover 오브젝트 끄기
-            if (continueButton.TryGetComponent(out MouseHover mouseHover))
+            // 이미지 바꾸기
+            Image image = continueButton.targetGraphic as Image;
+            if (image != null)
             {
-                mouseHover.enabled = false;
+                image.color = new Color(1, 1, 1, 0.5f);
             }
         }
         
@@ -113,7 +110,6 @@ public class MainMenu : MonoBehaviour
     {
         if (gameObject.activeSelf == false) return;
         
-        howToPlay.SetActive(true);
         mainMenu.SetActive(false);
         titleText.SetActive(false);
     }
@@ -126,6 +122,5 @@ public class MainMenu : MonoBehaviour
         Debug.Log("OptionToMain");
         optionMenu.ClosePauseMenu();
         credits.SetActive(false);
-        howToPlay.SetActive(false);
     }
 }
