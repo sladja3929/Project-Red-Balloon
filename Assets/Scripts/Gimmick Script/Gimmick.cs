@@ -6,7 +6,7 @@ public abstract class Gimmick : MonoBehaviour
 {
     [SerializeField] protected bool isGimmickEnable;
 
-    public void GimmickOn() => isGimmickEnable = true;
+    public virtual void GimmickOn() => isGimmickEnable = true;
     public void GimmickOff() => isGimmickEnable = false;
     public void GimmickSwitch() => isGimmickEnable = !isGimmickEnable;
     public virtual void Execute()

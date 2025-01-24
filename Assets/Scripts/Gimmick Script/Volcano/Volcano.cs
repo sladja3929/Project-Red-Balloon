@@ -28,6 +28,7 @@ public class Volcano : Gimmick
 
     private void Start()
     {
+        isGimmickEnable = SaveManager.instance.CheckFlag(SaveFlag.Scene2Volcano);
         t = 0;
     }
     
@@ -109,5 +110,13 @@ public class Volcano : Gimmick
         }
 
         cameraTransform.localPosition = originalPos;
+    }
+    
+    public override void GimmickOn()
+    {
+        isGimmickEnable = true;
+        
+        SaveManager.instance.SetFlag(SaveFlag.Scene2Volcano);
+        SaveManager.instance.Save();
     }
 }
