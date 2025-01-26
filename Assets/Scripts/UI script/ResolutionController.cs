@@ -66,29 +66,43 @@ public class ResolutionController : MonoBehaviour
     }
 
     //=======================Full Screen Setting=======================
+    [Header("Full Screen Setting")]
     private bool _fullScreen;
-    public Toggle fullScreenToggle;
-    public Toggle windowedToggle;
+    public Button fullScreenToggle;
+    public Button windowedToggle;
 
-    private void ReloadToggle()
+    [Space(10)]
+    public Sprite fullScreenOn;
+    public Sprite fullScreenOff;
+    public Image fullScreenImage;
+    
+    [Space(10)]
+    public Sprite windowedOn;
+    public Sprite windowedOff;
+    public Image windowedImage;
+
+    private void ReloadToggle(bool isFullScreen)
     {
-        _fullScreen = Screen.fullScreen;
+        fullScreenToggle.interactable = !isFullScreen;
+        windowedToggle.interactable = isFullScreen;
         
-        fullScreenToggle.isOn = _fullScreen;
-        windowedToggle.isOn = !_fullScreen;
+        fullScreenImage.sprite = isFullScreen ? fullScreenOn : fullScreenOff;
+        windowedImage.sprite = isFullScreen ? windowedOff : windowedOn;
     }
 
     private void SetupFullScreen()
     {
-        ReloadToggle();
+        ReloadToggle(Screen.fullScreen);
     }
 
     public void SetFullScreen(bool arg0)
     {
-        _fullScreen = arg0;
-        Screen.SetResolution(Screen.width, Screen.height, _fullScreen);
+        Debug.Log("SetFullScreen : " + arg0);
         
-        ReloadToggle();
+        _fullScreen = arg0;
+        Screen.SetResolution(Screen.width, Screen.height, _fullScreen ? FullScreenMode.FullScreenWindow :  FullScreenMode.Windowed);
+
+        ReloadToggle(_fullScreen);
     }
 
     private void Awake()
