@@ -71,6 +71,7 @@ public class Respawn : MonoBehaviour
         //n초후 저장된 리스폰 포인트에 부활함
         //부활할때 특정 이펙트나 연출이 있을 수 있으니 부활은 함수로 처리
 
+        GameManager.instance.AimToFallForced();
         _meshCollider.enabled = false;
         _meshRenderer.enabled = false;
         _rigidbody.useGravity = false;
@@ -85,11 +86,11 @@ public class Respawn : MonoBehaviour
         
         Destroy(effect, respawnTime);
         Invoke(nameof(Spawn), respawnTime);
-
     }
     
     private void Spawn()
     {
+        GameManager.instance.BalloonRespawnEvent();
         deathUI.SetActive(true);
 
         transform.position = savePoint;

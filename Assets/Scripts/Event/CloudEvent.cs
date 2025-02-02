@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class CloudEvent : MonoBehaviour
@@ -27,7 +28,6 @@ public class CloudEvent : MonoBehaviour
     
     private Material skybox;
     private CinemachineVirtualCamera virtualCamera;
-    private float originalFarPlane;
     
     [SerializeField] private atmosphereAtttribute sunny = new atmosphereAtttribute(
         new Color(14,180,252), new Color(195,208,217), 0.003f, 0.5f, 5000f);
@@ -41,10 +41,11 @@ public class CloudEvent : MonoBehaviour
     private void Start()
     {
         skybox = RenderSettings.skybox;
-        virtualCamera = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera as CinemachineVirtualCamera;
-        originalFarPlane = virtualCamera.m_Lens.FarClipPlane;
-        sunny.cameraFarPlane = originalFarPlane;
-        InitSettings(sunny);
+        //virtualCamera = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera as CinemachineVirtualCamera;
+        virtualCamera = GameObject.FindWithTag("Player").transform.parent
+            .GetComponentInChildren<CinemachineVirtualCamera>();
+        ChangeSettings(sunny);
+        GameManager.instance.onBalloonRespawn.AddListener(InitSettings);
     }
 
     private void Awake()
@@ -53,7 +54,12 @@ public class CloudEvent : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    private void InitSettings(atmosphereAtttribute attr)
+    private void InitSettings()
+    {
+        ChangeSettings(sunny);
+    }
+    
+    private void ChangeSettings(atmosphereAtttribute attr)
     {
         skybox.SetColor("_SkyGradientTop", attr.skyColor);
         skybox.SetColor("_SkyGradientBottom", attr.seaColor);
@@ -102,13 +108,13 @@ public class CloudEvent : MonoBehaviour
             yield return new WaitForSeconds(smoothness);
         }
 
-        InitSettings(end);
+        ChangeSettings(end);
     }
     
     private void OnDestroy()
     {
-        InitSettings(sunny);
-        SetFarPlane(originalFarPlane);
+        ChangeSettings(sunny);
+        GameManager.instance.onBalloonRespawn.RemoveListener(InitSettings);
     }
     
     public void EnterCloud()

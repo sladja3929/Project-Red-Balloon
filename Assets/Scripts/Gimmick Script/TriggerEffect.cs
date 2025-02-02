@@ -11,7 +11,12 @@ public class TriggerEffect : Gimmick
         _particle = transform.GetComponent<ParticleSystem>();
     }
 
-    public override void Execute()
+    public override void GimmickOn()
+    {
+        if(true) _particle.Play();
+    }
+    
+    public override void GimmickOff()
     {
         if(_particle.isPlaying) _particle.Stop();
     }

@@ -13,8 +13,8 @@ public class ActivateCloud : Gimmick
     private void Start()
     {
         _meshRenderer = transform.GetComponent<MeshRenderer>();
-        countTrigger = 0;
-        isIn = false;
+        InitSettings();
+        GameManager.instance.onBalloonRespawn.AddListener(InitSettings);
     }
     
     private void OnTriggerEnter(Collider other)
@@ -41,10 +41,21 @@ public class ActivateCloud : Gimmick
 
             if (countTrigger == 0 && isIn)
             {
-                isIn = false;
-                _meshRenderer.enabled = true;
+                InitSettings();
                 CloudEvent.Instance.ExitCloud();
             }
         }
+    }
+
+    private void InitSettings()
+    {
+        countTrigger = 0;
+        isIn = false;
+        _meshRenderer.enabled = true;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.onBalloonRespawn.RemoveListener(InitSettings);
     }
 }

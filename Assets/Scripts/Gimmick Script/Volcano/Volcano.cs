@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 using Random = UnityEngine.Random;
 
 public class Volcano : Gimmick
@@ -16,6 +17,7 @@ public class Volcano : Gimmick
     [SerializeField] private float fallingDelay;
     
     [SerializeField] private float spawnInterval;
+    [SerializeField] private float CameraShakeAmount;
     
     [SerializeField] private AudioClip explosionSound;
     [SerializeField] private AudioClip shakeGroundSound;
@@ -28,7 +30,8 @@ public class Volcano : Gimmick
 
     private void Start()
     {
-        isGimmickEnable = SaveManager.instance.CheckFlag(SaveFlag.Scene2Volcano);
+        //isGimmickEnable = SaveManager.instance.CheckFlag(SaveFlag.Scene2Volcano);
+        isGimmickEnable = false;
         t = 0;
     }
     
@@ -50,16 +53,16 @@ public class Volcano : Gimmick
 
     private void ShakeCamera()
     {
-        var virtualCamera = GameObject.Find("CM vcam1");
+        CinemachineVirtualCamera virtualCamera = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera as CinemachineVirtualCamera;
         if (virtualCamera != null)
         {
-            StartCoroutine(ShakeCamera(virtualCamera.transform, 0.5f, 1.0f)); // Adjust the amount and time as needed
+            StartCoroutine(ShakeCamera(virtualCamera.transform, CameraShakeAmount, 1.0f)); // Adjust the amount and time as needed
         }
         
         balloonPos = GameManager.instance.GetBalloonPosition();
         
-        SoundManager.instance.SfxPlay("Volcano sound", explosionSound, transform, int.MaxValue, int.MaxValue);
-        SoundManager.instance.SfxPlay("Shake ground sound", shakeGroundSound, transform, int.MaxValue, int.MaxValue);
+        SoundManager.instance.SfxPlay("Volcano sound", explosionSound, transform, 1f, int.MaxValue, int.MaxValue);
+        //SoundManager.instance.SfxPlay("Shake ground sound", shakeGroundSound, transform, int.MaxValue, int.MaxValue);
     }
     
     private void GasEffect()
@@ -102,7 +105,7 @@ public class Volcano : Gimmick
             float x = Random.Range(-1f, 1f) * amount;
             float y = Random.Range(-1f, 1f) * amount;
 
-            cameraTransform.localPosition = new Vector3(x, y, originalPos.z);
+            cameraTransform.localPosition = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
 
             elapsed += Time.deltaTime;
 
@@ -118,5 +121,11 @@ public class Volcano : Gimmick
         
         SaveManager.instance.SetFlag(SaveFlag.Scene2Volcano);
         SaveManager.instance.Save();
+    }
+
+    public void CutSceneEvent()
+    {
+        ShakeCamera();
+        GasEffect();
     }
 }

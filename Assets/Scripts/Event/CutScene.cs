@@ -19,6 +19,7 @@ public class CutScene : MonoBehaviour
     [SerializeField] protected CameraMovement[] cameraMovements;
     [SerializeField] protected ParticleSystem[] particleObject;
     [SerializeField] protected AudioClip[] soundEffect;
+    [SerializeField] protected Command[] commands;
     [SerializeField] protected bool hasToStay;
 
     protected WaitUntil waitingFadeFinish;

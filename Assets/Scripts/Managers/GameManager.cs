@@ -142,4 +142,12 @@ public class GameManager : Singleton<GameManager>
     {
         onBalloonDead?.Invoke();
     }
+    
+    [HideInInspector]
+    public UnityEvent onBalloonRespawn;
+
+    public void BalloonRespawnEvent()
+    {
+        onBalloonRespawn?.Invoke();
+    }
 }

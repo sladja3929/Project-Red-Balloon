@@ -53,7 +53,7 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
     // private float _lightAlpha;     //알파 비율 0 ~ 1
     // private float _thickAlpha;
     [SerializeField] private FadingInfo basicInfo;
-
+    
     //씬 로드
     public void LoadSceneAsync(string nextSceneName, Action onFinish = null)
     {
