@@ -20,6 +20,7 @@ public class Stage1CutScene : CutScene
         
         if (hasExecuted && !isPlayed)
         {
+            SoundManager.instance.FadeOutBackgroundVolume();
             myCoroutine = StartCoroutine("PlayCutScene");
             isPlayed = true;
         }
@@ -45,12 +46,12 @@ public class Stage1CutScene : CutScene
         
         SceneChangeManager.instance.FadeIn(fadingInfo);
         cameraMovements[1].cutSceneCamera.Priority = 16;
-        SoundManager.instance.SfxPlay("windcut1", soundEffect[0], cameraMovements[0].dollyCart.transform.position, 1, 50, 50);
+        SoundManager.instance.SfxPlay("windcut1", soundEffect[0], cameraMovements[0].dollyCart.transform.position, 0.9f, 50, 50);
 
         yield return new WaitForSeconds(3f);
         
         balloon.GetComponent<Rigidbody>().AddForce((Vector3.right + Vector3.up) * windPower, ForceMode.Impulse);
-        yield return new WaitForSeconds(cameraMovements[0].timeToMove - 3f);
+        yield return new WaitForSeconds(cameraMovements[1].timeToMove - 3f);
         
         SceneChangeManager.instance.FadeOut(fadingInfo);
         yield return waitingFadeFinish;

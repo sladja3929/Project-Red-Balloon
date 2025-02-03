@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Stage2CutScene : CutScene
 {
+    [SerializeField] private AudioSource LavaCreator;
+    
     private bool isPlayed;
-
+    
     protected override void Awake()
     {
         base.Awake();
@@ -19,6 +21,7 @@ public class Stage2CutScene : CutScene
         
         if (hasExecuted && !isPlayed)
         {
+            SoundManager.instance.FadeOutBackgroundVolume();
             myCoroutine = StartCoroutine("PlayCutScene");
             isPlayed = true;
         }
@@ -38,7 +41,8 @@ public class Stage2CutScene : CutScene
         cameraMovements[0].dollyCart.enabled = true;
         StartCoroutine(RotateCamera(cameraMovements[0].timeToMove));
         yield return new WaitForSeconds(cameraMovements[0].timeToMove - 1f);
-
+        
+        LavaCreator.Stop();
         SceneChangeManager.instance.FadeOut(fadingInfo);
         yield return waitingFadeFinish;
         
