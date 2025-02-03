@@ -73,12 +73,12 @@ public class BalloonController : MonoBehaviour
 	{
 		ChangeState(BalloonState.Fall);
 		
-		if (SaveManager.instance.IsNewSave() is false && 
+		/*if (SaveManager.instance.IsNewSave() is false && 
 		    SaveManager.instance.BuildIndex == SceneManager.GetActiveScene().buildIndex)
 		{
 			// move to saved point
 			transform.position = SaveManager.instance.Position;
-		}
+		}*/
 	}
 	
 	public void SetFreezeState()

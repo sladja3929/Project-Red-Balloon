@@ -3,11 +3,13 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
+using System;
 
 public class DeathUIManager : MonoBehaviour
 {
     public TextMeshProUGUI deathMessageText;
     public TextMeshProUGUI TeabaggingText;
+    public Image background;
 
     private List<string> deathMessages = new List<string>();
     private List<string> teabaggingMessages = new List<string>();
@@ -33,6 +35,7 @@ public class DeathUIManager : MonoBehaviour
     {
         deathMessageText.gameObject.SetActive(false);
         TeabaggingText.gameObject.SetActive(false);
+        background.gameObject.SetActive(false);
     }
 
     private void LoadMessages()
@@ -74,6 +77,9 @@ public class DeathUIManager : MonoBehaviour
                 TeabaggingText.gameObject.SetActive(true);
                 string randomMessage = GetRandomTeabaggingMessage();
                 TeabaggingText.text = randomMessage;
+                background.gameObject.SetActive(true);
+                AdjustBackgroundSize(TeabaggingText, background);
+                StartCoroutine(FadeInBackground(background));
                 StartCoroutine(FadeInText(TeabaggingText));
             }
             else
@@ -81,6 +87,9 @@ public class DeathUIManager : MonoBehaviour
                 deathMessageText.gameObject.SetActive(true);
                 string randomMessage = GetRandomDeathMessage();
                 deathMessageText.text = randomMessage;
+                background.gameObject.SetActive(true);
+                AdjustBackgroundSize(deathMessageText, background);
+                StartCoroutine(FadeInBackground(background));
                 StartCoroutine(FadeInText(deathMessageText));
             }
             Invoke("HideDeathMessage", ShowedTime);
@@ -98,13 +107,13 @@ public class DeathUIManager : MonoBehaviour
 
     private string GetRandomDeathMessage()
     {
-        int randomIndex = Random.Range(0, deathMessages.Count);
+        int randomIndex = UnityEngine.Random.Range(0, deathMessages.Count);
         return deathMessages[randomIndex].Trim();
     }
 
     private string GetRandomTeabaggingMessage()
     {
-        int randomIndex = Random.Range(0, teabaggingMessages.Count);
+        int randomIndex = UnityEngine.Random.Range(0, teabaggingMessages.Count);
         return teabaggingMessages[randomIndex].Trim();
     }
 
@@ -151,10 +160,55 @@ public class DeathUIManager : MonoBehaviour
         {
             StartCoroutine(FadeOut(deathMessageText));
         }
+        StartCoroutine(FadeOut(background));
     }
 
     void DeleteDeathUI()
     {
         gameObject.SetActive(false);
     }
+
+    private IEnumerator FadeInBackground(Image background)
+    {
+        Color color = background.color;
+        color.a = 0.5f; // 반투명하게 설정
+        background.color = color;
+        float elapsedTime = 0f;
+        while (elapsedTime < fadetime)
+        {
+            elapsedTime += Time.deltaTime;
+            color.a = Mathf.Clamp01(elapsedTime / fadetime * 0.5f); // 반투명하게 페이드 인
+            background.color = color;
+            yield return null;
+        }
+        color.a = 0.5f;
+        background.color = color;
+    }
+    private void AdjustBackgroundSize(TextMeshProUGUI text, Image background)
+    {
+        RectTransform textRect = text.GetComponent<RectTransform>();
+        RectTransform backgroundRect = background.GetComponent<RectTransform>();
+
+        ContentSizeFitter fitter = text.gameObject.GetComponent<ContentSizeFitter>();
+        if (fitter == null)
+        {
+            fitter = text.gameObject.AddComponent<ContentSizeFitter>();
+        }
+        fitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
+        fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+        LayoutElement layoutElement = text.gameObject.GetComponent<LayoutElement>();
+        if (layoutElement == null)
+        {
+            layoutElement = text.gameObject.AddComponent<LayoutElement>();
+        }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(textRect);
+        backgroundRect.sizeDelta = new Vector2(textRect.rect.width + 1000, textRect.rect.height + 30);
+        background.pixelsPerUnitMultiplier = 1;
+        background.fillCenter = true;
+
+        Canvas.ForceUpdateCanvases();
+    }
 }
+
