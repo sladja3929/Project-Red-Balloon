@@ -47,15 +47,15 @@ public class MainMenu : MonoBehaviour
         SceneChangeManager.instance.FadeOut(startGameFadingInfo);
         yield return new WaitUntil(() => SceneChangeManager.instance.FinishFade());
 
-        int stage = SaveManager.instance.Stage - 1;
-        if (stage == -1)
+        int bIndex = SaveManager.instance.BuildIndex;
+        if (SaveManager.instance.IsNewSave())
         {
-            stage = 0;
-            SaveManager.instance.Stage = stage;
+            bIndex = 1;
+            SaveManager.instance.BuildIndex = bIndex;
         }
         
         SceneChangeManager.instance.LoadSceneAsync
-        ($"Stage{stage}", () =>
+        ($"Stage{bIndex - 1}", () =>
         {
             SceneChangeManager.instance.FadeIn(startGameFadingInfo);
         });
