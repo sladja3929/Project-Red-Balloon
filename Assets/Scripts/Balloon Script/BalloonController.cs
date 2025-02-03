@@ -21,7 +21,8 @@ public class BalloonController : MonoBehaviour
 	private float _time;
 	private bool isOnPlatform = false;
 	private int countCollision = 0;
-	
+
+	[SerializeField] private bool isDebug = false;
 	[SerializeField] private float stopCriterionVelocity;
 	[SerializeField] private float chargeGauge;
 	[SerializeField] private KeyCode chargeKey;
@@ -42,14 +43,14 @@ public class BalloonController : MonoBehaviour
 		_dragRotation = GetComponent<DragRotation>();
 		_balloonShoot = GetComponent<BalloonShoot>();
 		_rigidbody = GetComponent<Rigidbody>();
+		isOnPlatform = false;
 		
 		if (SaveManager.instance.IsNewSave() is false &&
 		    SaveManager.instance.BuildIndex == SceneManager.GetActiveScene().buildIndex)
 		{
-			// move to saved point
-			transform.position = SaveManager.instance.Position;
+			// 릴리즈면 무조건 실행, 디버그면 isDebug에 따라
+			if(!Debug.isDebugBuild || !isDebug) transform.position = SaveManager.instance.Position;
 		}
-		isOnPlatform = false;
 	}
 
 	private void Start()
@@ -106,7 +107,6 @@ public class BalloonController : MonoBehaviour
 			
 			if(_balloonState == BalloonState.Fall && magnitude > stopCriterionVelocity + 0.5f)
 			{
-				Debug.Log(magnitude);
 				magnitude = Mathf.Clamp(magnitude, 1, 10);
 				magnitude = Mathf.InverseLerp(1, 10, magnitude);
 				SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound, transform.position, magnitude);
@@ -254,6 +254,19 @@ public class BalloonController : MonoBehaviour
 		
 		yield return null;
 	}
+
+	public void SetOnPlatform(bool value)
+	{
+		isOnPlatform = value;
+	}
+	
+	public float GetChargeGauge()
+	{
+		return chargeGauge;
+	}
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+	public KeyCode flyKey;
 	
 	private IEnumerator DeveloperMode()
 	{
@@ -270,18 +283,7 @@ public class BalloonController : MonoBehaviour
 
 		ChangeState(BalloonState.Fall);
 	}
-
-	public void SetOnPlatform(bool value)
-	{
-		isOnPlatform = value;
-	}
 	
-	public float GetChargeGauge()
-	{
-		return chargeGauge;
-	}
-
-	public KeyCode flyKey;
 	private void Update()
 	{
 		if (Input.GetKeyDown(flyKey) && _balloonState != BalloonState.DeveloperMode)
@@ -289,4 +291,5 @@ public class BalloonController : MonoBehaviour
 			ChangeState(BalloonState.DeveloperMode);
 		}
 	}
+#endif
 }

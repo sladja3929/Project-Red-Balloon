@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class CloudEvent : MonoBehaviour
 {
-    public static CloudEvent Instance;
+    public static CloudEvent instance;
     [Serializable] private struct atmosphereAtttribute
     {
         public Color skyColor;
@@ -50,7 +50,7 @@ public class CloudEvent : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (instance == null) instance = this;
         else Destroy(gameObject);
     }
 

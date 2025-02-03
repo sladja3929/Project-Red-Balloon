@@ -7,37 +7,41 @@ using System;
 
 public class DeathUIManager : MonoBehaviour
 {
+    public GameObject canvas;
     public TextMeshProUGUI deathMessageText;
     public TextMeshProUGUI TeabaggingText;
     public Image background;
 
+    [SerializeField] private int deathMessageCount = 5;
+    [SerializeField] private int teabaggingMessageCount = 10; //ëª‡ë²ˆì§¸ ì£½ìŒë§ˆë‹¤ ì¶œë ¥í•  ê±´ì§€
+    [SerializeField] private float ShowedTime = 5.0f;
+    [SerializeField] private float fadetime = 0.5f; // ì‚¬ë§ ì‹œ íŒ/í‹°ë°°ê¹… ë©”ì‹œì§€ ì¶œë ¥ë˜ëŠ” ì‹œê°„
+    [SerializeField] private float deleteDeathUITime = 6.0f;
+    
     private List<string> deathMessages = new List<string>();
     private List<string> teabaggingMessages = new List<string>();
-    [SerializeField] private int deathCount;
-    [SerializeField] private float ShowedTime = 5.0f;
-    [SerializeField] private float fadetime = 0.5f; // »ç¸Á ½Ã ÆÁ/Æ¼¹è±ë ¸Ş½ÃÁö Ãâ·ÂµÇ´Â ½Ã°£
-    [SerializeField] private float deleteDeathUITime = 6.0f;
 
-    private void Awake()
+    private void Start()
     {
-        gameObject.SetActive(false);
-    }
-    void OnEnable()
-    {
-        LoadDeathCount();
         LoadMessages();
-        IncreaseDeathCount();
+        GameManager.instance.onBalloonRespawn.AddListener(EnableDeathUI);
+        canvas.gameObject.SetActive(false);
+    }
+    private void EnableDeathUI()
+    {
+        canvas.gameObject.SetActive(true);
         ShowDeathMessage();
         Invoke("DeleteDeathUI", deleteDeathUITime);
     }
 
-    private void OnDisable()
+    private void DisableDeathUI()
     {
+        canvas.gameObject.SetActive(false);
         deathMessageText.gameObject.SetActive(false);
         TeabaggingText.gameObject.SetActive(false);
         background.gameObject.SetActive(false);
     }
-
+    
     private void LoadMessages()
     {
         TextAsset deathTextAsset = Resources.Load<TextAsset>("deathMessages");
@@ -48,7 +52,7 @@ public class DeathUIManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("deathMessages.txt ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù!");
+            Debug.LogError("deathMessages.txt íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
         }
 
         if (teabaggingTextAsset != null)
@@ -57,22 +61,17 @@ public class DeathUIManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("teabaggingMessages.txt ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù!");
+            Debug.LogError("teabaggingMessages.txt íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
         }
     }
-    // Á×Àº È½¼ö °ª ºÒ·¯¿À´Â ¹æ¹ı ÃßÈÄ ¼öÁ¤ ÇÊ¿ä
-    private void LoadDeathCount()
-    {
-        deathCount = PlayerPrefs.GetInt("DeathCount", 0);
-    }
 
-    // 5*n¹øÂ° »ç¸ÁÇÒ ¶§¸¶´Ù Æ¼¹è±ë¿ë ¸àÆ® Ãâ·Â
-    // ¸àÆ® Ãâ·Â½Ã °¢ txtÆÄÀÏ¿¡¼­ ·£´ıÀ¸·Î ¸àÆ® ¼±Á¤
+    // në²ˆì§¸ ì‚¬ë§í•  ë•Œë§ˆë‹¤ í‹°ë°°ê¹…ìš© ë©˜íŠ¸ ì¶œë ¥
+    // ë©˜íŠ¸ ì¶œë ¥ì‹œ ê° txtíŒŒì¼ì—ì„œ ëœë¤ìœ¼ë¡œ ë©˜íŠ¸ ì„ ì •
     public void ShowDeathMessage()
     {
         if (deathMessages.Count > 0)
         {
-            if (deathCount % 5 == 0)
+            if (SaveManager.instance.DeathCount % teabaggingMessageCount == 0)
             {
                 TeabaggingText.gameObject.SetActive(true);
                 string randomMessage = GetRandomTeabaggingMessage();
@@ -82,7 +81,7 @@ public class DeathUIManager : MonoBehaviour
                 StartCoroutine(FadeInBackground(background));
                 StartCoroutine(FadeInText(TeabaggingText));
             }
-            else
+            else if (SaveManager.instance.DeathCount % deathMessageCount == 0)
             {
                 deathMessageText.gameObject.SetActive(true);
                 string randomMessage = GetRandomDeathMessage();
@@ -94,15 +93,6 @@ public class DeathUIManager : MonoBehaviour
             }
             Invoke("HideDeathMessage", ShowedTime);
         }
-    }
-
-    private void IncreaseDeathCount()
-    {
-        deathCount++;
-        //SaveManager.instance.DeathCount = deathCount;
-        //SaveManager.instance.Save();
-        PlayerPrefs.SetInt("DeathCount", deathCount);
-        PlayerPrefs.Save();
     }
 
     private string GetRandomDeathMessage()
@@ -137,12 +127,12 @@ public class DeathUIManager : MonoBehaviour
     private IEnumerator FadeOut(Graphic graphic)
     {
         Color color = graphic.color;
-        float startAlpha = color.a; // ÇöÀç Åõ¸íµµ »óÅÂ ÀúÀå
+        float startAlpha = color.a; // í˜„ì¬ íˆ¬ëª…ë„ ìƒíƒœ ì €ì¥
         float elapsedTime = 0f;
         while (elapsedTime < fadetime)
         {
             elapsedTime += Time.deltaTime;
-            color.a = Mathf.Lerp(startAlpha, 0, elapsedTime / fadetime); // ÇöÀç Åõ¸íµµ¿¡¼­ 0À¸·Î ÆäÀÌµå ¾Æ¿ô
+            color.a = Mathf.Lerp(startAlpha, 0, elapsedTime / fadetime); // í˜„ì¬ íˆ¬ëª…ë„ì—ì„œ 0ìœ¼ë¡œ í˜ì´ë“œ ì•„ì›ƒ
             graphic.color = color;
             yield return null;
         }
@@ -152,11 +142,11 @@ public class DeathUIManager : MonoBehaviour
 
     private void HideDeathMessage()
     {
-        if (deathCount % 5 == 0)
+        if (SaveManager.instance.DeathCount % teabaggingMessageCount == 0)
         {
             StartCoroutine(FadeOut(TeabaggingText));
         }
-        else
+        else if (SaveManager.instance.DeathCount % deathMessageCount == 0)
         {
             StartCoroutine(FadeOut(deathMessageText));
         }
@@ -165,19 +155,19 @@ public class DeathUIManager : MonoBehaviour
 
     void DeleteDeathUI()
     {
-        gameObject.SetActive(false);
+        canvas.gameObject.SetActive(false);
     }
 
     private IEnumerator FadeInBackground(Image background)
     {
         Color color = background.color;
-        color.a = 0.5f; // ¹İÅõ¸íÇÏ°Ô ¼³Á¤
+        color.a = 0.5f; // ë°˜íˆ¬ëª…í•˜ê²Œ ì„¤ì •
         background.color = color;
         float elapsedTime = 0f;
         while (elapsedTime < fadetime)
         {
             elapsedTime += Time.deltaTime;
-            color.a = Mathf.Clamp01(elapsedTime / fadetime * 0.5f); // ¹İÅõ¸íÇÏ°Ô ÆäÀÌµå ÀÎ
+            color.a = Mathf.Clamp01(elapsedTime / fadetime * 0.5f); // ë°˜íˆ¬ëª…í•˜ê²Œ í˜ì´ë“œ ì¸
             background.color = color;
             yield return null;
         }
@@ -209,6 +199,11 @@ public class DeathUIManager : MonoBehaviour
         background.fillCenter = true;
 
         Canvas.ForceUpdateCanvases();
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.onBalloonRespawn.RemoveListener(EnableDeathUI);
     }
 }
 

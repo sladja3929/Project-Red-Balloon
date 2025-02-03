@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlatformChecker : MonoBehaviour
@@ -70,4 +71,12 @@ public class PlatformChecker : MonoBehaviour
             }
         }
     }
+    
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    public bool isDebug;
+    private void Awake()
+    {
+        if (isDebug) deathTimer = 9999f;
+    }
+#endif
 }
