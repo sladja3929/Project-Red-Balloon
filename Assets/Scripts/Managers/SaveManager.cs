@@ -18,7 +18,7 @@ public class SaveManager : Singleton<SaveManager>
     [SerializeField]
     private SaveInfo curInfo;
 
-    public int Stage
+    public int BuildIndex
     {
         get => curInfo.stage;
         set => curInfo.stage = value;
