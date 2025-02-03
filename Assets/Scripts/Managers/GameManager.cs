@@ -115,9 +115,12 @@ public class GameManager : Singleton<GameManager>
         _balloonController.SetOnPlatform(true);
     }
     
+    public bool IsCinematic = false;
+    
     public void CinematicMode()
     {
         _balloonController.SetCinematicState();
+        IsCinematic = true;
     }
     
     public void FreezeBalloon()
@@ -131,5 +134,13 @@ public class GameManager : Singleton<GameManager>
     public void BalloonDeadEvent()
     {
         onBalloonDead?.Invoke();
+    }
+    
+    [HideInInspector]
+    public UnityEvent onBalloonRespawn;
+
+    public void BalloonRespawnEvent()
+    {
+        onBalloonRespawn?.Invoke();
     }
 }

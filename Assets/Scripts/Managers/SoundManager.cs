@@ -52,7 +52,7 @@ public class SoundManager : Singleton<SoundManager>
         }
     }
     
-    public void SfxPlay(string sfxName, AudioClip clip, Vector3 position, float volume = 1, int minDistance = 10, int maxDistance = 20)
+    public void SfxPlay(string sfxName, AudioClip clip, Vector3 position, float volume = 1f, int minDistance = 10, int maxDistance = 20)
     {
         if (clip == null) return;
         GameObject go = new GameObject(sfxName + "Sound");
@@ -68,7 +68,7 @@ public class SoundManager : Singleton<SoundManager>
         Destroy(go, clip.length);
     }
 
-    public void SfxPlay(string sfxName, AudioClip clip, Transform parent, float volume = 1, int minDistance = 10, int maxDistance = 20)
+    public void SfxPlay(string sfxName, AudioClip clip, Transform parent, float volume = 1f, int minDistance = 10, int maxDistance = 20)
     {
         if (clip == null) return;
         GameObject go = new GameObject(sfxName + "Sound");

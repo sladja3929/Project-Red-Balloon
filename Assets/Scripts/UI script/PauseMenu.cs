@@ -80,7 +80,7 @@ public class PauseMenu : MonoBehaviour
         {
             if (backGround.activeSelf)
                 ClosePauseMenu();
-            else 
+            else if(!GameManager.instance.IsCinematic)
                 OpenPauseMenu();
         }
     }

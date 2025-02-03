@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8207029611085120323}
   - component: {fileID: 1968744810210670419}
   - component: {fileID: 624605302480310107}
+  - component: {fileID: 9068594527744626752}
   m_Layer: 0
   m_Name: BalloonForPlay
   m_TagString: Player
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5d3628e0b8ee1479b2fdc9574115ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopCriterionVelocity: 0.3
+  stopCriterionVelocity: 0.5
   chargeGauge: 0
   chargeKey: 32
   chargeSpeed: 1
@@ -196,8 +197,7 @@ MonoBehaviour:
   deathUI: {fileID: 5379979746046742559, guid: 569a296f5818dc343a3b8b20a8ae876b, type: 3}
   dieSound: {fileID: 8300000, guid: 48fceb0a6fc53254db8fdd775bd9b0c9, type: 3}
   respawnTime: 2
-  deleteDeathUITime: 0
-  dieKey: 286
+  dieKey: 114
 --- !u!114 &1968744810210670419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,3 +224,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 0}
+--- !u!81 &9068594527744626752
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271042181040711083}
+  m_Enabled: 1

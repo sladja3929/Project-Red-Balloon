@@ -300,7 +300,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1659888985134775744}
   - component: {fileID: 1659888985134775747}
-  - component: {fileID: 1659888985134775746}
   - component: {fileID: 1659888985134775757}
   - component: {fileID: 1659888985134775756}
   - component: {fileID: 1659888985134775759}
@@ -318,8 +317,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659888985134775758}
-  m_LocalRotation: {x: -0.077513024, y: 0.66721916, z: 0.07012736, w: 0.7374908}
-  m_LocalPosition: {x: 209.27489, y: 853.8, z: 752.60297}
+  m_LocalRotation: {x: -0.10452837, y: -0, z: -0, w: 0.9945219}
+  m_LocalPosition: {x: 524.39, y: 18.925, z: 305.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -350,7 +349,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.2
-  far clip plane: 1000
+  far clip plane: 5000
   field of view: 60
   orthographic: 0
   orthographic size: 10
@@ -369,14 +368,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1659888985134775746
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659888985134775758}
-  m_Enabled: 1
 --- !u!114 &1659888985134775757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,10 +555,6 @@ PrefabInstance:
       propertyPath: ui
       value: 
       objectReference: {fileID: 5707696614180465972}
-    - target: {fileID: -3299518666821889227, guid: 45543031cacacb045ae43c2b1e430bc1, type: 3}
-      propertyPath: stopCriterionVelocity
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 624605302480310107, guid: 45543031cacacb045ae43c2b1e430bc1, type: 3}
       propertyPath: arrow
       value: 

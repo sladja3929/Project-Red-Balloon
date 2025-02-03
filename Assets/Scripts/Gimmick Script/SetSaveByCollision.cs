@@ -15,8 +15,8 @@ public class SetSaveByCollision : Gimmick
     {
         if (!isGimmickEnable) return;
 
-        Vector3 newSavePoint = transform.position;//»õ·Î¿î ¼¼ÀÌºêÆ÷ÀÎÆ®
-        Vector3 currentSavePoint = GameManager.instance.GetSavePoint();//±âÁ¸ ¼¼ÀÌºêÆ÷ÀÎÆ®
+        Vector3 newSavePoint = transform.position;//ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+        Vector3 currentSavePoint = GameManager.instance.GetSavePoint();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 
         if (newSavePoint != currentSavePoint)
         {
@@ -25,19 +25,19 @@ public class SetSaveByCollision : Gimmick
             Respawn respawn = FindObjectOfType<Respawn>();
             if (respawn != null)
             {
-                Debug.Log("¼¼ÀÌºêÆ÷ÀÎÆ® º¯°æ");
-                respawn.SetSavePoint(newSavePoint);//ÀÌ°Å ¾ø¾îµµ µÉ°Å°°Àºµ¥ ÀÛµ¿µÇ´Ï±î ³ÀµÒ
-                respawn.SetSavePointReached(true);//¼¼ÀÌºêÆ÷ÀÎÆ® µµ´Þ ¿©ºÎ ¼³Á¤
-                TempSignManager.instance.IncrementSavePointIndex();//¼¼ÀÌºêÆ÷ÀÎÆ® ÀÎµ¦½º Áõ°¡(´ÙÀ½ À§Ä¡)
-                respawn.SetSignPosIndex(TempSignManager.instance.GetSavePointIndex());//¼¼ÀÌºêÆ÷ÀÎÆ® ÀÎµ¦½º ¼³Á¤
+                Debug.Log("ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½");
+                respawn.SetSavePoint(newSavePoint);//ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½îµµ ï¿½É°Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ûµï¿½ï¿½Ç´Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½
+                respawn.SetSavePointReached(true);//ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+                TempSignManager.instance.IncrementSavePointIndex();//ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡)
+                respawn.SetSignPosIndex(TempSignManager.instance.GetSavePointIndex());//ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             }
 
             SetSignPos setSignPos = FindObjectOfType<SetSignPos>();
             if (setSignPos != null)
             {
-                if (!setSignPos.CheckUpdateSignPos(TempSignManager.instance.GetSavePointIndex()))//¸¸¾à ¾÷µ¥ÀÌÆ® ÇÏ¸é ¾ÈµÇ¸é º¹±¸
+                if (!setSignPos.CheckUpdateSignPos(TempSignManager.instance.GetSavePointIndex()))//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï¸ï¿½ ï¿½ÈµÇ¸ï¿½ ï¿½ï¿½ï¿½ï¿½
                 {
-                    Debug.Log("¼¼ÀÌºêÆ÷ÀÎÆ® º¹±¸");
+                    Debug.Log("ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½");
                     TempSignManager.instance.DecrementSavePointIndex();
                 }
             }

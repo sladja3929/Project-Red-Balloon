@@ -16,6 +16,8 @@ public class CaveEndEvent : MonoBehaviour
         _light = ambientLight.GetComponent<Light>();
         baseIntensity = _light.intensity;
         ambientLight.SetActive(false);
+        
+        if(SaveManager.instance.CheckFlag(SaveFlag.Scene2AmbientLight)) SetAmbientLightForced();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,6 +25,8 @@ public class CaveEndEvent : MonoBehaviour
         if (other.CompareTag("Player") && !ambientLight.activeSelf)
         {
             StartCoroutine(SetAmbientLightEvent());
+            SaveManager.instance.SetFlag(SaveFlag.Scene2AmbientLight);
+            SaveManager.instance.Save();
         }
     }
     

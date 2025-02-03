@@ -66,4 +66,9 @@ public class BalloonDebuff : MonoBehaviour
     {
         isHeated = false;
     }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.onBalloonDead.RemoveListener(InitSettings);
+    }
 }

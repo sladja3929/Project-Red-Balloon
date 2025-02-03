@@ -132,7 +132,7 @@ public enum SaveFlag
     
     Scene2Bloom   = 1 << 4,
     Scene2Volcano = 1 << 5,
-    
+    Scene2AmbientLight = 1 << 6,
     //. .
     //. .
     //. .

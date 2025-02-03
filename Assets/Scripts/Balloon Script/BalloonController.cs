@@ -47,6 +47,7 @@ public class BalloonController : MonoBehaviour
 	private void Start()
 	{
 		ChangeState(BalloonState.Fall);
+		GameManager.instance.IsCinematic = false;
 	}
 
 	/// <summary>
