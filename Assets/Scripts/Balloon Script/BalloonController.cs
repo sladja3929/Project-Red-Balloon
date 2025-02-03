@@ -42,6 +42,13 @@ public class BalloonController : MonoBehaviour
 		_dragRotation = GetComponent<DragRotation>();
 		_balloonShoot = GetComponent<BalloonShoot>();
 		_rigidbody = GetComponent<Rigidbody>();
+		
+		if (SaveManager.instance.IsNewSave() is false &&
+		    SaveManager.instance.BuildIndex == SceneManager.GetActiveScene().buildIndex)
+		{
+			// move to saved point
+			transform.position = SaveManager.instance.Position;
+		}
 		isOnPlatform = false;
 	}
 
@@ -72,13 +79,6 @@ public class BalloonController : MonoBehaviour
 	public void SetBasicState()
 	{
 		ChangeState(BalloonState.Fall);
-		
-		/*if (SaveManager.instance.IsNewSave() is false && 
-		    SaveManager.instance.BuildIndex == SceneManager.GetActiveScene().buildIndex)
-		{
-			// move to saved point
-			transform.position = SaveManager.instance.Position;
-		}*/
 	}
 	
 	public void SetFreezeState()
