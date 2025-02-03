@@ -17,6 +17,16 @@ public class GameManager : Singleton<GameManager>
 
         SceneManager.sceneLoaded += SetBalloon;
     }
+
+    private void Update()
+    {
+        // if not playing continue
+        if (Time.timeScale == 0) return;
+        if (_balloonObj == null) return;
+        if (SceneManager.GetActiveScene().name == "MainMenu") return;
+        
+        SaveManager.instance.PlayTime += Time.deltaTime;
+    }
     
     private void SetBalloon(Scene arg0, LoadSceneMode arg1)
     {
@@ -67,27 +77,7 @@ public class GameManager : Singleton<GameManager>
     {
         _balloonSpawn.Die();
     }
-
-    [SerializeField] private float startTime;
-    //public List<float> records;
-    public string record;
-    public GameObject endCanvas;
-    public void StartGame()
-    {
-        startTime = Time.time;
-    }
-
-    public void FinishGame()
-    {
-        //records.Add(Time.time - startTime);
-        //records.Sort();
-        TimeSpan t = TimeSpan.FromSeconds(Time.time - startTime);
-
-        record = "score: " + $"{t.Hours:D2} h {t.Minutes:D2} m {t.Seconds:D2} s";
-
-        IsPause = true;
-        endCanvas.SetActive(true);
-    }
+    
     public static void GoToMainMenu()
     {
         SceneChangeManager.instance.LoadSceneAsync("MainMenu");

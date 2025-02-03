@@ -6,7 +6,7 @@ public class FinishLine : Gimmick
 {
     public override void Execute()
     {
-        GameManager.instance.FinishGame();
+        // GameManager.instance.FinishGame();
     }
 
     private void OnTriggerEnter(Collider other)

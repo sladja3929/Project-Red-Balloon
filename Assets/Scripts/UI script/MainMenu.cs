@@ -47,7 +47,7 @@ public class MainMenu : MonoBehaviour
         SceneChangeManager.instance.FadeOut(startGameFadingInfo);
         yield return new WaitUntil(() => SceneChangeManager.instance.FinishFade());
 
-        int stage = SaveManager.instance.Stage;
+        int stage = SaveManager.instance.Stage - 1;
         if (stage == -1)
         {
             stage = 0;

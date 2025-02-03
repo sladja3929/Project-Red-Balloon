@@ -83,7 +83,6 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
         }
 
         onFinish?.Invoke();
-        GameManager.instance.StartGame();
     }
     //페이드 인 아웃
     private Image _fadeImage;
