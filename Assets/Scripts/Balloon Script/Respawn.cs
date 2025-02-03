@@ -93,7 +93,7 @@ public class Respawn : MonoBehaviour
     {
         GameManager.instance.BalloonRespawnEvent();
         deathUI.SetActive(true);
-
+        
         transform.position = savePoint;
         transform.rotation = Quaternion.Euler(180, 0, 0);
         _meshRenderer.enabled = true;
