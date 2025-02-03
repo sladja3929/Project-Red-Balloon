@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BalloonController : MonoBehaviour
 {
@@ -71,6 +72,13 @@ public class BalloonController : MonoBehaviour
 	public void SetBasicState()
 	{
 		ChangeState(BalloonState.Fall);
+		
+		if (SaveManager.instance.IsNewSave() is false && 
+		    SaveManager.instance.BuildIndex == SceneManager.GetActiveScene().buildIndex)
+		{
+			// move to saved point
+			transform.position = SaveManager.instance.Position;
+		}
 	}
 	
 	public void SetFreezeState()
