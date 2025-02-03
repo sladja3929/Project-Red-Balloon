@@ -22,7 +22,7 @@ public class ScoreBoard : MonoBehaviour
         //    var go = Instantiate(scoreText, transform).GetComponent<Text>();
         //    go.text = r + "second";
         //}
-        Score.text = GameManager.instance.record;
+        // Score.text = GameManager.instance.record;
     }
 
     private void OnDisable()

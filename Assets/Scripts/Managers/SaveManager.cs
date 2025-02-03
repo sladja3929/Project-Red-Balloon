@@ -35,6 +35,12 @@ public class SaveManager : Singleton<SaveManager>
         get => curInfo.deathCount;
         set => curInfo.deathCount = value;
     }
+    
+    public float PlayTime
+    {
+        get => curInfo.playTime;
+        set => curInfo.playTime = value;
+    }
 
     private new void Awake()
     {
@@ -67,7 +73,8 @@ public class SaveManager : Singleton<SaveManager>
         curInfo = new SaveInfo
         {
             flagInfo = SaveFlag.NewSave,
-            deathCount = 0
+            deathCount = 0,
+            playTime = 0
         };
     }
 
@@ -78,7 +85,8 @@ public class SaveManager : Singleton<SaveManager>
             SaveInfo ret = new SaveInfo
             {
                 flagInfo = SaveFlag.NewSave,
-                deathCount = 0
+                deathCount = 0,
+                playTime = 0
             };
 
             return ret;
@@ -137,4 +145,5 @@ public struct SaveInfo
     public Vector3 position;
     public SaveFlag flagInfo;
     public int deathCount;
+    public float playTime;
 }
