@@ -4,43 +4,36 @@ using UnityEngine;
 
 public class SetSaveByCollision : Gimmick
 {
-    private void Start()
-    {
-        if (TempSignManager.instance == null)
-        {
-            new GameObject("TempSignManager", typeof(TempSignManager));
-        }
-    }
+    [SerializeField] private Transform loadPoint;
+    [SerializeField] private Transform signPoint;
+    
     public override void Execute()
     {
         if (!isGimmickEnable) return;
 
-        Vector3 newSavePoint = transform.position;//새로운 세이브포인트
-        Vector3 currentSavePoint = GameManager.instance.GetSavePoint();//기존 세이브포인트
+        /* 대폭 변경
+         * loadpoint, signpoint 추가
+         * loadPoint: 로드할 때(메인화면에서 continue) 풍선의 위치 -> 진정한 의미의 세이브포인트
+         * signPoint: 표지판이 떨어질 위치
+         * transform.position: 풍선이 리스폰할 때 생성되는 위치
+         */
+        
+        Vector3 newSavePoint = loadPoint.transform.position; //새로운 세이브포인트
+        Vector3 currentSavePoint = GameManager.instance.GetSavePoint(); //기존 세이브포인트
 
         if (newSavePoint != currentSavePoint)
         {
             GameManager.instance.SetSavePoint(newSavePoint);
-
+            Debug.Log("세이브포인트 변경");
+            
             Respawn respawn = FindObjectOfType<Respawn>();
             if (respawn != null)
             {
-                Debug.Log("세이브포인트 변경");
-                respawn.SetSavePoint(newSavePoint);//이거 없어도 될거같은데 작동되니까 냅둠
-                respawn.SetSavePointReached(true);//세이브포인트 도달 여부 설정
-                TempSignManager.instance.IncrementSavePointIndex();//세이브포인트 인덱스 증가(다음 위치)
-                respawn.SetSignPosIndex(TempSignManager.instance.GetSavePointIndex());//세이브포인트 인덱스 설정
+                respawn.SetRespawnPoint(transform.position);
+                respawn.SetSavePointReached(true); //세이브포인트 도달 여부 설정
             }
 
-            SetSignPos setSignPos = FindObjectOfType<SetSignPos>();
-            if (setSignPos != null)
-            {
-                if (!setSignPos.CheckUpdateSignPos(TempSignManager.instance.GetSavePointIndex()))//만약 업데이트 하면 안되면 복구
-                {
-                    Debug.Log("세이브포인트 복구");
-                    TempSignManager.instance.DecrementSavePointIndex();
-                }
-            }
+            SetSignPos.instance.UpdateSignPosition(signPoint);
         }
     }
 

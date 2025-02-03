@@ -8,7 +8,6 @@ public class Respawn : MonoBehaviour
 {
     [SerializeField] private Vector3 savePoint;
     [SerializeField] private GameObject dieEffect;
-    [SerializeField] private GameObject deathUI;
     [SerializeField] private AudioClip dieSound;
     [SerializeField] private float respawnTime;
 
@@ -39,7 +38,7 @@ public class Respawn : MonoBehaviour
     private void Start()
     {
         //임시 세이브
-        SetSavePoint(transform.position);
+        SetRespawnPoint(transform.position);
 
     }
 
@@ -51,7 +50,7 @@ public class Respawn : MonoBehaviour
         }
     }
 
-    public void SetSavePoint(Vector3 point)
+    public void SetRespawnPoint(Vector3 point)
     {
         savePoint = point;
     }
@@ -77,8 +76,8 @@ public class Respawn : MonoBehaviour
         _rigidbody.useGravity = false;
         _controller.SetFreezeState();
         
-        GameManager.instance.BalloonDeadEvent();
         SaveManager.instance.DeathCount++;
+        GameManager.instance.BalloonDeadEvent();
         
         var transform1 = transform;
         var effect = Instantiate(dieEffect, transform1.position, transform1.rotation);
@@ -92,8 +91,7 @@ public class Respawn : MonoBehaviour
     private void Spawn()
     {
         GameManager.instance.BalloonRespawnEvent();
-        deathUI.SetActive(true);
-
+        
         transform.position = savePoint;
         transform.rotation = Quaternion.Euler(180, 0, 0);
         _meshRenderer.enabled = true;
@@ -102,16 +100,6 @@ public class Respawn : MonoBehaviour
         //_rigidbody.velocity = Vector3.zero;
         
         StartCoroutine(SpawnCoroutine());
-
-        if (isSavePointReached && setSignPos != null)//세이브포인트 도달했을 때 스폰하면서 표지판 위치 업데이트
-        {
-            if (setSignPos.CheckUpdateSignPos(signPosIndex))
-            {
-                Debug.Log("UpdateSignPosition called");
-                setSignPos.UpdateSignPosition(signPosIndex);
-            }
-            isSavePointReached = false;
-        }
     }
 
     private IEnumerator SpawnCoroutine()

@@ -61,9 +61,7 @@ public class GameManager : Singleton<GameManager>
     public void SetSavePoint(Vector3 point)
     {
         savePoint = point;
-        _balloonSpawn.SetSavePoint(point);
-        
-        SaveManager.instance.Stage = SceneManager.GetActiveScene().buildIndex;
+        SaveManager.instance.BuildIndex = SceneManager.GetActiveScene().buildIndex;
         SaveManager.instance.Position = point;
         SaveManager.instance.RemoveFlag(SaveFlag.NewSave);
         SaveManager.instance.Save();

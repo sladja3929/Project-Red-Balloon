@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5d3628e0b8ee1479b2fdc9574115ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDebug: 0
   stopCriterionVelocity: 0.5
   chargeGauge: 0
   chargeKey: 32
@@ -194,9 +195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePoint: {x: 0, y: 0, z: 0}
   dieEffect: {fileID: 1116091231520297433, guid: 3903ad2d1ea915948b2dab0fffbfd9b4, type: 3}
-  deathUI: {fileID: 5379979746046742559, guid: 569a296f5818dc343a3b8b20a8ae876b, type: 3}
   dieSound: {fileID: 8300000, guid: 48fceb0a6fc53254db8fdd775bd9b0c9, type: 3}
-  respawnTime: 2
+  respawnTime: 3
   dieKey: 114
 --- !u!114 &1968744810210670419
 MonoBehaviour:

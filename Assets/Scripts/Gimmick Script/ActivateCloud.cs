@@ -27,7 +27,7 @@ public class ActivateCloud : Gimmick
             {
                 isIn = true;
                 _meshRenderer.enabled = false;
-                CloudEvent.Instance.EnterCloud();
+                CloudEvent.instance.EnterCloud();
             }
         }
     }
@@ -42,7 +42,7 @@ public class ActivateCloud : Gimmick
             if (countTrigger == 0 && isIn)
             {
                 InitSettings();
-                CloudEvent.Instance.ExitCloud();
+                CloudEvent.instance.ExitCloud();
             }
         }
     }
