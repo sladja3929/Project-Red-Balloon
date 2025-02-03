@@ -204,7 +204,7 @@ public class DeathUIManager : MonoBehaviour
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(textRect);
-        backgroundRect.sizeDelta = new Vector2(textRect.rect.width + 1000, textRect.rect.height + 30);
+        backgroundRect.sizeDelta = new Vector2(textRect.rect.width + 500, textRect.rect.height + 120);
         background.pixelsPerUnitMultiplier = 1;
         background.fillCenter = true;
 
