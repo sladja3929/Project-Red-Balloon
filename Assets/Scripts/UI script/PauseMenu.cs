@@ -94,8 +94,8 @@ public class PauseMenu : MonoBehaviour
         
         camSensitivitySlider.onValueChanged.AddListener(delegate { SetControllerSensitivity(); });
         mouseSensitivitySlider.onValueChanged.AddListener(delegate { SetMouseSensitivity(); });
-        sfxVolumeSlider.onValueChanged.AddListener(delegate {SetSfxVolume()});
-        musicVolumeSlider.onValueChanged.AddListener(delegate {SetBackgroundVolume()});
+        sfxVolumeSlider.onValueChanged.AddListener(delegate { SetSfxVolume(); });
+        musicVolumeSlider.onValueChanged.AddListener(delegate { SetBackgroundVolume(); });
     }
     
     public void SetMouseSensitivity()
