@@ -57,6 +57,7 @@ public class BalloonController : MonoBehaviour
 	{
 		ChangeState(BalloonState.Fall);
 		GameManager.instance.IsCinematic = false;
+		GameManager.instance.CanSuicide = true;
 	}
 
 	/// <summary>
@@ -84,6 +85,7 @@ public class BalloonController : MonoBehaviour
 	
 	public void SetFreezeState()
 	{
+		GameManager.instance.CanSuicide = false;
 		ChangeState(BalloonState.Freeze);
 	}
 	

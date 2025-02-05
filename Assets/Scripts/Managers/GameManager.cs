@@ -71,6 +71,14 @@ public class GameManager : Singleton<GameManager>
     {
         return savePoint;
     }
+
+    private bool canSuicide = true;
+    public bool CanSuicide
+    {
+        get { return canSuicide; }
+        set { canSuicide = value; }
+    }
+    
     public void KillBalloon()
     {
         _balloonSpawn.Die();

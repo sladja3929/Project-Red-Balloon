@@ -2183,7 +2183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &220028328
@@ -3145,7 +3145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &338975725
@@ -3865,7 +3865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &403767003
@@ -4920,7 +4920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &485667121
@@ -9061,7 +9061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &1098414543
@@ -9408,7 +9408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &1125572058
@@ -11529,7 +11529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &1328388196
@@ -11727,6 +11727,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 5000
       objectReference: {fileID: 0}
+    - target: {fileID: 6529879124690181224, guid: 69a8f557847384c449e0d0105468b203, type: 3}
+      propertyPath: isDebug
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a8f557847384c449e0d0105468b203, type: 3}
 --- !u!1 &1339189827
@@ -11779,7 +11783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &1339189830
@@ -12868,19 +12872,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1659888984123538139, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99452204
+      value: 0.994522
       objectReference: {fileID: 0}
     - target: {fileID: 1659888984123538139, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.104528055
+      value: -0.10452805
       objectReference: {fileID: 0}
     - target: {fileID: 1659888984123538139, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000017881393
+      value: 0.00000020861623
       objectReference: {fileID: 0}
     - target: {fileID: 1659888984123538139, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000014901161
+      value: 0.000000014901159
       objectReference: {fileID: 0}
     - target: {fileID: 1659888985134775744, guid: 69a8f557847384c449e0d0105468b203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14580,7 +14584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &1577514159
@@ -15306,6 +15310,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.0000000016301841
       objectReference: {fileID: 0}
+    - target: {fileID: 6529879124690181224, guid: 69a8f557847384c449e0d0105468b203, type: 3}
+      propertyPath: isDebug
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a8f557847384c449e0d0105468b203, type: 3}
 --- !u!1 &1682122880
@@ -15413,7 +15421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &1688163513
@@ -16767,7 +16775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &1936817640
@@ -18672,7 +18680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!23 &62994013730322449
@@ -19131,7 +19139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!54 &595954694930215858
@@ -19518,7 +19526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!114 &975773682294079938
@@ -19534,7 +19542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!33 &1027175127968860325
@@ -20199,7 +20207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!95 &1646096085865974930
@@ -20392,7 +20400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!4 &1725288911901204808
@@ -20659,7 +20667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!23 &2045584407044786137
@@ -42736,7 +42744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!95 &3012430832288536632
@@ -43197,7 +43205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!54 &3800489868062643274
@@ -43319,7 +43327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!64 &4176064718206892870
@@ -43791,7 +43799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!33 &4324212414625633472
@@ -44103,7 +44111,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
     - target: {fileID: 1137116327774425582, guid: 6a41c91d8f8f916449193d2b7da31b2d, type: 3}
       propertyPath: explosionPower
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5053717955404285186, guid: 6a41c91d8f8f916449193d2b7da31b2d, type: 3}
       propertyPath: m_RootOrder
@@ -44442,7 +44450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!33 &4867010737340588773
@@ -45312,7 +45320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!33 &5613424627006096146
@@ -45336,7 +45344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!95 &5684986392015080749
@@ -45372,7 +45380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!23 &5831708131747846087
@@ -45463,7 +45471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!95 &5891202202993072138
@@ -46053,7 +46061,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1137116327774425582, guid: 6a41c91d8f8f916449193d2b7da31b2d, type: 3}
       propertyPath: explosionPower
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5053717955404285186, guid: 6a41c91d8f8f916449193d2b7da31b2d, type: 3}
       propertyPath: m_RootOrder
@@ -46123,7 +46131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!1 &6843509252039904784
@@ -46229,7 +46237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!1001 &6979156842468753241
@@ -46306,7 +46314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!95 &7007646445318264570
@@ -46652,7 +46660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!33 &7504464763043387580
@@ -46864,7 +46872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!114 &7649231632404301085
@@ -46880,7 +46888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!1 &7673868901202531531
@@ -47205,7 +47213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!4 &7979810559333547643
@@ -47831,7 +47839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 100
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}
 --- !u!23 &8695989789664375109

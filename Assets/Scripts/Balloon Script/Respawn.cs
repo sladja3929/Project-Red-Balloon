@@ -10,7 +10,7 @@ public class Respawn : MonoBehaviour
     [SerializeField] private GameObject dieEffect;
     [SerializeField] private AudioClip dieSound;
     [SerializeField] private float respawnTime;
-
+    
     private bool isSavePointReached;
     private int signPosIndex;
 
@@ -44,7 +44,7 @@ public class Respawn : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(dieKey))
+        if (Input.GetKeyDown(dieKey) && GameManager.instance.CanSuicide)
         {
             Die();
         }
@@ -70,6 +70,7 @@ public class Respawn : MonoBehaviour
         //n초후 저장된 리스폰 포인트에 부활함
         //부활할때 특정 이펙트나 연출이 있을 수 있으니 부활은 함수로 처리
 
+        GameManager.instance.CanSuicide = false;
         GameManager.instance.AimToFallForced();
         _meshCollider.enabled = false;
         _meshRenderer.enabled = false;
@@ -77,6 +78,7 @@ public class Respawn : MonoBehaviour
         _controller.SetFreezeState();
         
         SaveManager.instance.DeathCount++;
+        SaveManager.instance.Save();
         GameManager.instance.BalloonDeadEvent();
         
         var transform1 = transform;
@@ -117,7 +119,7 @@ public class Respawn : MonoBehaviour
 
         _meshCollider.enabled = true;
         _rigidbody.useGravity = true;
-
         _controller.SetBasicState();
+        GameManager.instance.CanSuicide = true;
     }
 }
