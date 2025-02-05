@@ -12,7 +12,7 @@ public class Respawn : MonoBehaviour
     [SerializeField] private float respawnTime;
     
     private bool isSavePointReached;
-    private int signPosIndex;
+    private Vector3 respawnAngle;
 
     private Rigidbody _rigidbody;
     private BalloonController _controller;
@@ -54,14 +54,15 @@ public class Respawn : MonoBehaviour
     {
         savePoint = point;
     }
+
+    public void SetRespawnAngle(Vector3 angle)
+    {
+        respawnAngle = angle;
+    }
+    
     public void SetSavePointReached(bool isReached)//세이브포인트 도달 여부 설정, 이후 스폰 시 사용
     {
         isSavePointReached = isReached;
-    }
-
-    public void SetSignPosIndex(int index)
-    {
-        signPosIndex = index;
     }
 
     public void Die()
@@ -96,6 +97,7 @@ public class Respawn : MonoBehaviour
         
         transform.position = savePoint;
         transform.rotation = Quaternion.Euler(180, 0, 0);
+        CameraController.instance.SetRotation(respawnAngle);
         _meshRenderer.enabled = true;
         
         //_rigidbody.position = savePoint;

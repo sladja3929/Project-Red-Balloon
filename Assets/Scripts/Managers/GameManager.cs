@@ -52,7 +52,7 @@ public class GameManager : Singleton<GameManager>
 
     //현재 Spawn Point를 디버깅하기 위한 변수
     [SerializeField] private Vector3 savePoint;
-
+    
     private GameObject _balloonObj;
     private Rigidbody _balloonRigid;
     private Respawn _balloonSpawn;

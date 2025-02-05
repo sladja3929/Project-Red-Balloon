@@ -17,6 +17,8 @@ public class DeathUIManager : MonoBehaviour
     [SerializeField] private float ShowedTime = 5.0f;
     [SerializeField] private float fadetime = 0.5f; // 사망 시 팁/티배깅 메시지 출력되는 시간
     [SerializeField] private float deleteDeathUITime = 6.0f;
+    [SerializeField] private int backGroundWidthBlank = 200;
+    [SerializeField] private int backGroundHeightBlank = 30;
     
     private List<string> deathMessages = new List<string>();
     private List<string> teabaggingMessages = new List<string>();
@@ -194,7 +196,7 @@ public class DeathUIManager : MonoBehaviour
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(textRect);
-        backgroundRect.sizeDelta = new Vector2(textRect.rect.width + 500, textRect.rect.height + 120);
+        backgroundRect.sizeDelta = new Vector2(textRect.rect.width + backGroundWidthBlank, textRect.rect.height + backGroundHeightBlank);
         background.pixelsPerUnitMultiplier = 1;
         background.fillCenter = true;
 

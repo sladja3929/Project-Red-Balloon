@@ -55,7 +55,6 @@ public class CutScene : MonoBehaviour
         {
             if (GameManager.instance.CanBalloonMove())
             {
-                Debug.Log("sksk");
                 balloon = other.gameObject;
                 GameManager.instance.FreezeBalloon();
                 hasExecuted = true;

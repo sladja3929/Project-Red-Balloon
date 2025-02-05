@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -288,11 +288,13 @@ MonoBehaviour:
   deathMessageText: {fileID: 4094923271909161238}
   TeabaggingText: {fileID: 1334064681134749256}
   background: {fileID: 5028276154944004409}
-  deathMessageCount: 2
-  teabaggingMessageCount: 10
+  deathMessageCount: 1
+  teabaggingMessageCount: 5
   ShowedTime: 5
   fadetime: 0.5
   deleteDeathUITime: 6
+  backGroundWidthBlank: 200
+  backGroundHeightBlank: 30
 --- !u!1 &6392254502199465075
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,8 +388,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -582,7 +584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8224108528922800902
 RectTransform:
   m_ObjectHideFlags: 0

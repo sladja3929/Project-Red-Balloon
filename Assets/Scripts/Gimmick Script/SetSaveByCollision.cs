@@ -6,6 +6,7 @@ public class SetSaveByCollision : Gimmick
 {
     [SerializeField] private Transform loadPoint;
     [SerializeField] private Transform signPoint;
+    [SerializeField] private Vector3 respawnAngle;
     
     public override void Execute()
     {
@@ -17,7 +18,7 @@ public class SetSaveByCollision : Gimmick
          * signPoint: 표지판이 떨어질 위치
          * transform.position: 풍선이 리스폰할 때 생성되는 위치
          */
-        
+        Debug.Log("alalalalaalalal");
         Vector3 newSavePoint = loadPoint.transform.position; //새로운 세이브포인트
         Vector3 currentSavePoint = GameManager.instance.GetSavePoint(); //기존 세이브포인트
 
@@ -30,6 +31,7 @@ public class SetSaveByCollision : Gimmick
             if (respawn != null)
             {
                 respawn.SetRespawnPoint(transform.position);
+                respawn.SetRespawnAngle(respawnAngle);
                 respawn.SetSavePointReached(true); //세이브포인트 도달 여부 설정
             }
 
