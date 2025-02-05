@@ -20,7 +20,6 @@ public class BalloonController : MonoBehaviour
 
 	private float _time;
 	private bool isOnPlatform = false;
-	private int countCollision = 0;
 
 	[SerializeField] private bool isDebug = false;
 	[SerializeField] private float stopCriterionVelocity;
@@ -59,12 +58,12 @@ public class BalloonController : MonoBehaviour
 		ChangeState(BalloonState.Fall);
 		GameManager.instance.IsCinematic = false;
 		GameManager.instance.CanSuicide = true;
-		GameManager.instance.onBalloonRespawn.AddListener(ResetCollisionCount);
+		GameManager.instance.onBalloonDead.AddListener(ResetCollision);
 	}
 
-	private void ResetCollisionCount()
+	private void ResetCollision()
 	{
-		countCollision = 0;
+		isOnPlatform = false;
 	}
 	
 	/// <summary>
@@ -115,7 +114,6 @@ public class BalloonController : MonoBehaviour
 	{
 		if (collision.gameObject.layer.Equals(3))
 		{
-			++countCollision;
 			isOnPlatform = true;
 			float magnitude = _rigidbody.velocity.magnitude;
 			
@@ -131,13 +129,17 @@ public class BalloonController : MonoBehaviour
 	
 	private void OnCollisionExit(Collision collision)
 	{
-		if (collision.gameObject.layer.Equals(3))
+		isOnPlatform = false;
+	}
+
+	private void OnCollisionStay(Collision collision)
+	{
+		if (collision.gameObject.layer.Equals(3) && !isOnPlatform)
 		{
-			--countCollision;
-			if(countCollision == 0) isOnPlatform = false;
+			isOnPlatform = true;
 		}
 	}
-	
+
 	private IEnumerator Aim()
 	{
 		Debug.Log("Aim State");
@@ -282,7 +284,7 @@ public class BalloonController : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		GameManager.instance.onBalloonRespawn.RemoveListener(ResetCollisionCount);
+		GameManager.instance.onBalloonDead.RemoveListener(ResetCollision);
 	}
 	
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
@@ -317,7 +319,7 @@ public class BalloonController : MonoBehaviour
 		if (t >= 2f)
 		{
 			// 실행할 코드 (예: 로그 출력)
-			Debug.Log(isOnPlatform + " " + countCollision);
+			Debug.Log(isOnPlatform);
 
 			// 타이머 초기화 또는 timer -= 2f;로 남은 시간을 반영할 수 있음
 			t = 0f;
