@@ -67,6 +67,7 @@ public class CutScene : MonoBehaviour
         if(other.CompareTag("Player") && !hasToStay)
         {
             balloon = other.gameObject;
+            GameManager.instance.CanSuicide = false;
             hasExecuted = true;
         }
     }

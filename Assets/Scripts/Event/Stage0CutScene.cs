@@ -9,17 +9,21 @@ using Unity.VisualScripting;
 
 public class Stage0CutScene : CutScene
 {
+    private bool isPlayed;
+    
     protected override void Awake()
     {
         base.Awake();
+        isPlayed = false;
     }
     
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
-        if (hasExecuted)
+        if (hasExecuted && !isPlayed)
         {
             myCoroutine = StartCoroutine("PlayCutScene");
+            isPlayed = true;
         }
     }
     

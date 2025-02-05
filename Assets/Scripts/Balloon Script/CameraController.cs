@@ -63,6 +63,11 @@ public class CameraController : MonoBehaviour
     {
         return viewerTransform.rotation;
     }
+
+    public void SetRotation(Vector3 angle)
+    {
+        viewerTransform.rotation = Quaternion.Euler(angle.x, angle.y, viewerTransform.rotation.z);
+    }
     
     public void SetDpiRate(float rate)
     {

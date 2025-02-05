@@ -51,7 +51,7 @@ public class SaveManager : Singleton<SaveManager>
     
     public bool IsNewSave()
     {
-        return CheckFlag(SaveFlag.NewSave);
+        return !File.Exists(SAVE_PATH) || CheckFlag(SaveFlag.NewSave);
     }
     
     // save Info를 JsonData로 저장합니다.

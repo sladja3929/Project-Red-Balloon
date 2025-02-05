@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1261316522131812532}
   - component: {fileID: 3919802900618904702}
   - component: {fileID: 2424197026275296754}
+  - component: {fileID: 336402021904716964}
   - component: {fileID: 2424197026275296753}
   - component: {fileID: 2424197026275296755}
   - component: {fileID: -3299518666821889227}
@@ -108,6 +109,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!64 &336402021904716964
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271042181040711083}
+  m_Material: {fileID: 13400000, guid: 76fa82ad8def007419c884ab6e3ab811, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8079828621704446415, guid: 7e53f32d6d06d3143be7995f08523c4a, type: 3}
 --- !u!64 &2424197026275296753
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -121,7 +136,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 6740441130372897478, guid: 7330be382f9e3c140892263891b52758, type: 3}
+  m_Mesh: {fileID: -6675234811558665474, guid: 7e53f32d6d06d3143be7995f08523c4a, type: 3}
 --- !u!114 &2424197026275296755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5d3628e0b8ee1479b2fdc9574115ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebug: 0
+  isDebug: 1
   stopCriterionVelocity: 0.5
   chargeGauge: 0
   chargeKey: 32
@@ -159,7 +174,7 @@ MonoBehaviour:
   balloonShootSound: {fileID: 8300000, guid: 9bccbd9c6983dac499c43800dcfee40e, type: 3}
   balloonChargeSound: {fileID: 0}
   balloonBoundSound: {fileID: 8300000, guid: 9bccbd9c6983dac499c43800dcfee40e, type: 3}
-  rayToBottomLength: 2
+  rayToBottomLength: 1.4
   isGamePaused: 0
   flyKey: 282
 --- !u!114 &7725434210765982043
