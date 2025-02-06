@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,8 +18,7 @@ public class BalloonController : MonoBehaviour
 	private DragRotation _dragRotation;
 	private BalloonShoot _balloonShoot;
 	private Rigidbody _rigidbody;
-
-	private float _time;
+	
 	private bool isOnPlatform = false;
 
 	[SerializeField] private bool isDebug = false;
@@ -199,8 +199,7 @@ public class BalloonController : MonoBehaviour
 		
 		ChangeState(BalloonState.Fly);
 	}
-
-
+	
 	private IEnumerator Fly()
 	{
 		Debug.Log("Fly State");
@@ -231,17 +230,38 @@ public class BalloonController : MonoBehaviour
 		_showArrow?.Hide();
 		
 		_rigidbody.constraints = RigidbodyConstraints.None;
-		_time = 0;
+		
+		float stuck_t = 0;
+		float rolling_t = 0;
+		float mag;
 		
 		while (true)
 		{
-			_time += Time.deltaTime;
-			if (_rigidbody.velocity.magnitude <= stopCriterionVelocity &&
-			    isOnPlatform && SomethingUnderBalloon() && !isGamePaused) 
+			
+			mag = _rigidbody.velocity.magnitude;
+			/*
+			if (mag == 0) //끼임 체크
 			{
-				break;
+				stuck_t += Time.deltaTime;
+				if (stuck_t >= 3f) break;
+			}
+			
+			else if(isOnPlatform && mag <= 0.7f)
+			{
+				stuck_t = 0;
+				rolling_t += Time.deltaTime;
+				if (rolling_t >= 3f) break;
 			}
 
+			else
+			{
+				stuck_t = 0;
+				rolling_t = 0;
+			}*/
+			
+			if (mag <= stopCriterionVelocity && isOnPlatform && SomethingUnderBalloon() && !isGamePaused) 
+				break;
+			
 			yield return null;
 		}
 		
