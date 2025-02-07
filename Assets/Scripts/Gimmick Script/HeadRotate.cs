@@ -17,10 +17,14 @@ public class HeadRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (target == null) return;
+        
         Vector3 dir = target.transform.position - transform.position;
-        rot.y = Quaternion.LookRotation(dir.normalized).eulerAngles.y + 90;
-        if (100 < rot.y && rot.y < 180) rot.y = 100;
-        else if (180 < rot.y && rot.y < 270) rot.y = 270;
-        transform.rotation = Quaternion.Euler(rot);
+        dir.y = 0f;
+        if (dir.sqrMagnitude < 0.0001f) return;
+        dir.Normalize();
+        
+        float angle = Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg + 180f;
+        transform.rotation = Quaternion.Euler(0f, -angle, 90f);
     }
 }

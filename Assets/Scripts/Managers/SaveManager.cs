@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -95,7 +96,12 @@ public class SaveManager : Singleton<SaveManager>
         string file = File.ReadAllText(SAVE_PATH);
         return JsonUtility.FromJson<SaveInfo>(file);
     }
-    
+
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
+
     // ==================== Flag 관련 함수 ====================
     
     public bool CheckFlag(SaveFlag flag)

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1674081053975589162}
   - component: {fileID: 4203282751675951580}
-  - component: {fileID: 2128850819944560982}
   m_Layer: 0
   m_Name: Conifer_03_LP
   m_TagString: Untagged
@@ -58,20 +57,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 6414505481634346577}
   m_Enabled: 1
---- !u!136 &2128850819944560982
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049233993863097232}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.35879517
-  m_Height: 24.235046
-  m_Direction: 1
-  m_Center: {x: 0.054386377, y: 11.237434, z: 0.053253174}
 --- !u!1 &2049419770120262099
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +151,7 @@ GameObject:
   - component: {fileID: 5889428560706644628}
   - component: {fileID: 2845116579816471617}
   - component: {fileID: 2811105239910328864}
+  - component: {fileID: 5899246873809297136}
   m_Layer: 0
   m_Name: Conifer_01
   m_TagString: Untagged
@@ -238,3 +224,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5899246873809297136
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8294836432120776067}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8679268641823188822, guid: 47caf529aef1a284c84dcf43515969da, type: 3}

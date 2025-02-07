@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,12 +18,10 @@ public class BalloonController : MonoBehaviour
 	private DragRotation _dragRotation;
 	private BalloonShoot _balloonShoot;
 	private Rigidbody _rigidbody;
-
-	private float _time;
+	
 	private bool isOnPlatform = false;
 
 	[SerializeField] private bool isDebug = false;
-	[SerializeField] private float stopCriterionVelocity;
 	[SerializeField] private float chargeGauge;
 	[SerializeField] private KeyCode chargeKey;
 	[SerializeField] private float chargeSpeed;
@@ -162,7 +161,7 @@ public class BalloonController : MonoBehaviour
 			
 			if (!isOnPlatform)
 			{
-				ChangeState(BalloonState.Fall);
+				//ChangeState(BalloonState.Fall);
 			}
 			
 			yield return null;
@@ -199,8 +198,7 @@ public class BalloonController : MonoBehaviour
 		
 		ChangeState(BalloonState.Fly);
 	}
-
-
+	
 	private IEnumerator Fly()
 	{
 		Debug.Log("Fly State");
@@ -228,26 +226,66 @@ public class BalloonController : MonoBehaviour
 	private IEnumerator Fall()
 	{
 		Debug.Log("Fall state");
-		_showArrow?.Hide();
-		
-		_rigidbody.constraints = RigidbodyConstraints.None;
+		isSlow = false;
+		mustStop = false;
 		_time = 0;
 		
-		while (true)
+		_showArrow?.Hide();
+		_rigidbody.constraints = RigidbodyConstraints.None;
+		
+		while (!mustStop)
 		{
-			_time += Time.deltaTime;
-			if (_rigidbody.velocity.magnitude <= stopCriterionVelocity &&
-			    isOnPlatform && SomethingUnderBalloon() && !isGamePaused) 
-			{
-				break;
-			}
-
+			if (isSlow && isOnPlatform && SomethingUnderBalloon() && !isGamePaused)
+				mustStop = true;
+			
 			yield return null;
 		}
 		
 		ChangeState(BalloonState.Aim);
 	}
+
+	private bool isSlow = false;
+	private bool mustStop = false;
+	private float _time;
 	
+	[SerializeField] private float stopCriterionVelocity = 0.5f;
+	[SerializeField] private float stopRollVelocity = 1.5f;
+	[SerializeField] private float stopRollTime = 6f;
+	[SerializeField] private float checkStuckTime = 3f;
+	private void FixedUpdate()
+	{
+		if (!isSlow)
+		{
+			if (_rigidbody.velocity.magnitude < stopCriterionVelocity)
+			{
+				isSlow = true;
+				_time = 0;
+			}
+			
+			else if (_rigidbody.velocity.magnitude < stopCriterionVelocity + stopRollVelocity) //구르기 체크
+			{
+				_time += Time.fixedDeltaTime;
+				if (_time > stopRollTime)
+				{
+					mustStop = true;
+					Debug.LogError("너무구른다");
+				}
+			}
+			
+			else _time = 0;
+		}
+		
+		if (!mustStop && isSlow && _rigidbody.velocity.magnitude == 0) //끼임 체크
+		{
+			_time += Time.fixedDeltaTime;
+			if (_time > checkStuckTime)
+			{
+				mustStop = true;
+				Debug.LogError("끼었다");
+			}
+		}
+	}
+
 	private IEnumerator Freeze()  //스크립트로만 진입, 탈출
 	{
 		Debug.Log("Freeze state");
@@ -319,7 +357,7 @@ public class BalloonController : MonoBehaviour
 		if (t >= 2f)
 		{
 			// 실행할 코드 (예: 로그 출력)
-			Debug.Log(isOnPlatform);
+			//Debug.Log(isOnPlatform);
 
 			// 타이머 초기화 또는 timer -= 2f;로 남은 시간을 반영할 수 있음
 			t = 0f;

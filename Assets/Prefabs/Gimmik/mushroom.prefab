@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 126
   m_IsActive: 1
 --- !u!4 &5053717955404285186
 Transform:
@@ -134,7 +134,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5076798556035486163, guid: fec536e819a53ba46a6e7d66bf76cd0b, type: 3}
 --- !u!114 &1137116327774425582
@@ -150,6 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGimmickEnable: 1
-  explosionPower: 10
+  explosionPower: 50
   explosionTime: 1
   fxSound: {fileID: 8300000, guid: 5e00a8ef21a186f48b9bc10aecfed512, type: 3}

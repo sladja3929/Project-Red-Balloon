@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,13 +15,17 @@ public class ControlTutorial : MonoBehaviour
     private bool _leftClickTrigger = false;
     private bool _spaceTrigger = false;
     
+    private void Start()
+    {
+        GameManager.instance.CanSuicide = false;
+        _spriteRenderer.sprite = _tutorialImages[_index];
+        StartCoroutine(ShowTutorial());
+    }
+
     private void Awake()
     {
         _index = 0;
-        if(TryGetComponent(out _spriteRenderer))
-        {
-            _spriteRenderer.sprite = _tutorialImages[_index];
-        }
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -45,11 +50,6 @@ public class ControlTutorial : MonoBehaviour
         _rightClickTrigger = false;
         _leftClickTrigger = false;
         _spaceTrigger = false;
-    }
-
-    private void Start()
-    {
-        StartCoroutine(ShowTutorial());
     }
 
     private IEnumerator ShowTutorial()
