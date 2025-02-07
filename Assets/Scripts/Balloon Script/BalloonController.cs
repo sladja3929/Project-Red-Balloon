@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
+//using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,7 +31,7 @@ public class BalloonController : MonoBehaviour
 	[SerializeField] private AudioClip balloonChargeSound;
 	[SerializeField] private AudioClip balloonBoundSound;
 
-	[SerializeField] private float rayToBottomLength;
+	public float rayToBottomLength;
 
 	[SerializeField] private bool isGamePaused;
 
@@ -56,7 +56,8 @@ public class BalloonController : MonoBehaviour
 	{
 		ChangeState(BalloonState.Fall);
 		GameManager.instance.IsCinematic = false;
-		GameManager.instance.CanSuicide = true;
+		GameManager.instance.CanDie = true;
+		if(SceneManager.GetActiveScene().name == "Stage0") GameManager.instance.CanDie = false;
 		GameManager.instance.onBalloonDead.AddListener(ResetCollision);
 	}
 
@@ -90,7 +91,6 @@ public class BalloonController : MonoBehaviour
 	
 	public void SetFreezeState()
 	{
-		GameManager.instance.CanSuicide = false;
 		ChangeState(BalloonState.Freeze);
 	}
 	
@@ -108,12 +108,15 @@ public class BalloonController : MonoBehaviour
 		LayerMask wallLayer = LayerMask.GetMask("Platform");
 		return Physics.Raycast(transform.position, Vector3.down, rayToBottomLength, wallLayer);
 	}
+
+	private Vector3 collisionImpulse = Vector3.zero;
 	
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.layer.Equals(3))
 		{
 			isOnPlatform = true;
+			collisionImpulse = collision.impulse;
 			float magnitude = _rigidbody.velocity.magnitude;
 			
 			if(_balloonState == BalloonState.Fall && magnitude > stopCriterionVelocity + 0.5f)
@@ -159,9 +162,9 @@ public class BalloonController : MonoBehaviour
 		{
 			if (Input.GetKey(chargeKey)) break;
 			
-			if (!isOnPlatform)
+			if (!isOnPlatform && !isStuck)
 			{
-				//ChangeState(BalloonState.Fall);
+				ChangeState(BalloonState.Fall);
 			}
 			
 			yield return null;
@@ -228,6 +231,7 @@ public class BalloonController : MonoBehaviour
 		Debug.Log("Fall state");
 		isSlow = false;
 		mustStop = false;
+		isStuck = false;
 		_time = 0;
 		
 		_showArrow?.Hide();
@@ -235,9 +239,6 @@ public class BalloonController : MonoBehaviour
 		
 		while (!mustStop)
 		{
-			if (isSlow && isOnPlatform && SomethingUnderBalloon() && !isGamePaused)
-				mustStop = true;
-			
 			yield return null;
 		}
 		
@@ -246,18 +247,21 @@ public class BalloonController : MonoBehaviour
 
 	private bool isSlow = false;
 	private bool mustStop = false;
+	private bool isStuck = false;
 	private float _time;
 	
 	[SerializeField] private float stopCriterionVelocity = 0.5f;
 	[SerializeField] private float stopRollVelocity = 1.5f;
+	[SerializeField] private float stopImpulse = 0.001f;
 	[SerializeField] private float stopRollTime = 6f;
 	[SerializeField] private float checkStuckTime = 3f;
 	private void FixedUpdate()
 	{
 		if (!isSlow)
 		{
-			if (_rigidbody.velocity.magnitude < stopCriterionVelocity)
+			if (_rigidbody.velocity.magnitude < stopCriterionVelocity && collisionImpulse.magnitude < stopImpulse)
 			{
+				Debug.LogError("느리다");
 				isSlow = true;
 				_time = 0;
 			}
@@ -275,12 +279,19 @@ public class BalloonController : MonoBehaviour
 			else _time = 0;
 		}
 		
+		else if (!mustStop && isOnPlatform && SomethingUnderBalloon() && !isGamePaused)
+		{
+			mustStop = true;
+			Debug.LogError("잘멈췄다");
+		}
+
 		if (!mustStop && isSlow && _rigidbody.velocity.magnitude == 0) //끼임 체크
 		{
 			_time += Time.fixedDeltaTime;
 			if (_time > checkStuckTime)
 			{
 				mustStop = true;
+				isStuck = true;
 				Debug.LogError("끼었다");
 			}
 		}

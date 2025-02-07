@@ -165,8 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5d3628e0b8ee1479b2fdc9574115ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebug: 1
-  stopCriterionVelocity: 0.5
+  isDebug: 0
   chargeGauge: 0
   chargeKey: 32
   chargeSpeed: 1
@@ -176,6 +175,11 @@ MonoBehaviour:
   balloonBoundSound: {fileID: 8300000, guid: 9bccbd9c6983dac499c43800dcfee40e, type: 3}
   rayToBottomLength: 1.4
   isGamePaused: 0
+  stopCriterionVelocity: 0.5
+  stopRollVelocity: 1.5
+  stopImpulse: 0.02
+  stopRollTime: 6
+  checkStuckTime: 3
   flyKey: 282
 --- !u!114 &7725434210765982043
 MonoBehaviour:

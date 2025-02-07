@@ -75,7 +75,6 @@ public class Tornado : Gimmick
         if (col.CompareTag("Player") && isGimmickEnable)
         {
             if (_tornado is not null) return;
-            GameManager.instance.CanSuicide = false;
             GameManager.instance.AimToFallForced();
             _tornado = StartCoroutine(PullObject(col));
         }

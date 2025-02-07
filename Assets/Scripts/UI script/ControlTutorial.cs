@@ -17,7 +17,6 @@ public class ControlTutorial : MonoBehaviour
     
     private void Start()
     {
-        GameManager.instance.CanSuicide = false;
         _spriteRenderer.sprite = _tutorialImages[_index];
         StartCoroutine(ShowTutorial());
     }

@@ -44,9 +44,9 @@ public class Respawn : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(dieKey) && GameManager.instance.CanSuicide)
+        if (Input.GetKeyDown(dieKey))
         {
-            Die();
+            GameManager.instance.KillBalloon();
         }
     }
 
@@ -71,7 +71,7 @@ public class Respawn : MonoBehaviour
         //n초후 저장된 리스폰 포인트에 부활함
         //부활할때 특정 이펙트나 연출이 있을 수 있으니 부활은 함수로 처리
 
-        GameManager.instance.CanSuicide = false;
+        GameManager.instance.CanDie = false;
         GameManager.instance.AimToFallForced();
         _meshCollider.enabled = false;
         _meshRenderer.enabled = false;
@@ -122,6 +122,6 @@ public class Respawn : MonoBehaviour
         _meshCollider.enabled = true;
         _rigidbody.useGravity = true;
         _controller.SetBasicState();
-        GameManager.instance.CanSuicide = true;
+        GameManager.instance.CanDie = true;
     }
 }
