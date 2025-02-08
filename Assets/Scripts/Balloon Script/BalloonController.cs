@@ -1,13 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+//using UnityEditor.Build;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BalloonController : MonoBehaviour
 {
 	public enum BalloonState
 	{
-		Aim, Charge, Fly, Fall, Freeze, Cinematic, DeveloperMode
+		Aim, Charge, Cancel, Fly, Fall, Freeze, Cinematic, DeveloperMode
 	}
 	
 	private BalloonState _balloonState;
@@ -16,14 +18,13 @@ public class BalloonController : MonoBehaviour
 	private DragRotation _dragRotation;
 	private BalloonShoot _balloonShoot;
 	private Rigidbody _rigidbody;
-
-	private float _time;
-	private bool isOnPlatform = false;
-	private int countCollision = 0;
 	
-	[SerializeField] private float stopCriterionVelocity;
+	private bool isOnPlatform = false;
+
+	[SerializeField] private bool isDebug = false;
 	[SerializeField] private float chargeGauge;
 	[SerializeField] private KeyCode chargeKey;
+	[SerializeField] private KeyCode cancelKey;
 	[SerializeField] private float chargeSpeed;
 	[SerializeField] private ChargeUI ui;
 
@@ -31,7 +32,7 @@ public class BalloonController : MonoBehaviour
 	[SerializeField] private AudioClip balloonChargeSound;
 	[SerializeField] private AudioClip balloonBoundSound;
 
-	[SerializeField] private float rayToBottomLength;
+	public float rayToBottomLength;
 
 	[SerializeField] private bool isGamePaused;
 
@@ -42,13 +43,30 @@ public class BalloonController : MonoBehaviour
 		_balloonShoot = GetComponent<BalloonShoot>();
 		_rigidbody = GetComponent<Rigidbody>();
 		isOnPlatform = false;
+		
+		if (SaveManager.instance.IsNewSave() is false &&
+		    SaveManager.instance.BuildIndex == SceneManager.GetActiveScene().buildIndex)
+		{
+			// 릴리즈면 무조건 실행, 디버그면 isDebug에 따라
+			//if(!Debug.isDebugBuild || !isDebug) transform.position = SaveManager.instance.Position;
+			if(!isDebug) transform.position = SaveManager.instance.Position;
+		}
 	}
 
 	private void Start()
 	{
 		ChangeState(BalloonState.Fall);
+		GameManager.instance.IsCinematic = false;
+		GameManager.instance.CanDie = true;
+		if(SceneManager.GetActiveScene().name == "Stage0") GameManager.instance.CanDie = false;
+		GameManager.instance.onBalloonDead.AddListener(ResetCollision);
 	}
 
+	private void ResetCollision()
+	{
+		isOnPlatform = false;
+	}
+	
 	/// <summary>
 	/// 풍선의 행동을 newState로 변경한다.
 	/// </summary>
@@ -86,16 +104,27 @@ public class BalloonController : MonoBehaviour
 	/// 풍선 아래에 뭔가 있는지 확인하는 함수
 	/// </summary>
 	/// <returns></returns>
+	private bool SomethingUnderBalloon()
+	{
+		LayerMask wallLayer = LayerMask.GetMask("Platform");
+		return Physics.Raycast(transform.position, Vector3.down, rayToBottomLength, wallLayer);
+	}
 
+	private Vector3 collisionImpulse = Vector3.zero;
+	
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.layer.Equals(3))
 		{
-			++countCollision;
 			isOnPlatform = true;
-			if(_balloonState == BalloonState.Fall && _rigidbody.velocity.magnitude > stopCriterionVelocity)
+			collisionImpulse = collision.impulse;
+			float magnitude = _rigidbody.velocity.magnitude;
+			
+			if(_balloonState == BalloonState.Fall && magnitude > stopCriterionVelocity + 0.5f)
 			{
-				SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound, transform.position);
+				magnitude = Mathf.Clamp(magnitude, 1, 10);
+				magnitude = Mathf.InverseLerp(1, 10, magnitude);
+				SoundManager.instance.SfxPlay("BalloonBound", balloonBoundSound, transform.position, magnitude);
 			}
 			
 		}
@@ -103,33 +132,40 @@ public class BalloonController : MonoBehaviour
 	
 	private void OnCollisionExit(Collision collision)
 	{
-		if (collision.gameObject.layer.Equals(3))
+		isOnPlatform = false;
+	}
+
+	private void OnCollisionStay(Collision collision)
+	{
+		if (collision.gameObject.layer.Equals(3) && !isOnPlatform)
 		{
-			--countCollision;
-			if(countCollision == 0) isOnPlatform = false;
+			isOnPlatform = true;
 		}
 	}
-	
+
 	private IEnumerator Aim()
 	{
 		Debug.Log("Aim State");
-		ui.SetChargeUI(0);
-
-		_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-		_rigidbody.velocity = Vector3.zero;
-		_rigidbody.angularVelocity = Vector3.zero;
 		
-		// ReSharper disable once Unity.NoNullPropagation
-		_dragRotation.ResetDirection();
-		_showArrow?.Show();
+		if (!isCancel)
+		{
+			ui.SetChargeUI(0);
+			_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+			_rigidbody.velocity = Vector3.zero;
+			_rigidbody.angularVelocity = Vector3.zero;
+			_dragRotation.ResetDirection();
+			_showArrow?.Show();
+		}
+		
 		//카메라 컨트롤 타입 드래그로 변경
 		CameraController.instance.onControll = CameraController.ControllType.Drag;
 		_dragRotation.onControll = true;
-
+	
 		while (true)
 		{
 			if (Input.GetKey(chargeKey)) break;
-			if (!isOnPlatform)
+			
+			if (!isOnPlatform && !isStuck)
 			{
 				ChangeState(BalloonState.Fall);
 			}
@@ -142,34 +178,53 @@ public class BalloonController : MonoBehaviour
 
 		ChangeState(BalloonState.Charge);
 	}
-
 	
 	private IEnumerator Charge()
 	{
 		Debug.Log("Charge State");
 		//SoundManager.instance.SfxPlay("BalloonCharge", balloonChargeSound);
-		
+
+		isCancel = false;
 		chargeGauge = 0f;
 
 		while (true)
 		{
 			if (Input.GetKey(chargeKey))
 			{
-				chargeGauge += chargeSpeed * Time.deltaTime;
-				if (chargeGauge > 1f) chargeGauge = 1f;
-				
-				ui.SetChargeUI(chargeGauge);
+				if (Input.GetMouseButtonDown(0))
+					ChangeState(BalloonState.Cancel);
+
+				else
+				{
+					chargeGauge += chargeSpeed * Time.deltaTime;
+					if (chargeGauge > 1f) chargeGauge = 1f;
+					ui.SetChargeUI(chargeGauge);
+				}
 			}
 			else break;
 
 			yield return null;
 		}
-
 		
 		ChangeState(BalloonState.Fly);
 	}
+	
+	private bool isCancel = false;
+	private IEnumerator Cancel()
+	{
+		Debug.Log("Cancel State");
 
-
+		isCancel = true;
+		ui.SetChargeUI(0);
+		
+		while (!Input.GetKeyUp(chargeKey))
+		{
+			yield return null;
+		}
+		
+		ChangeState(BalloonState.Aim);
+	}
+	
 	private IEnumerator Fly()
 	{
 		Debug.Log("Fly State");
@@ -197,26 +252,75 @@ public class BalloonController : MonoBehaviour
 	private IEnumerator Fall()
 	{
 		Debug.Log("Fall state");
-		_showArrow?.Hide();
-		
-		_rigidbody.constraints = RigidbodyConstraints.None;
+		isSlow = false;
+		mustStop = false;
+		isStuck = false;
 		_time = 0;
 		
-		while (true)
+		_showArrow?.Hide();
+		_rigidbody.constraints = RigidbodyConstraints.None;
+		
+		while (!mustStop)
 		{
-			_time += Time.deltaTime;
-			if (_rigidbody.velocity.magnitude <= stopCriterionVelocity &&
-			    isOnPlatform && !isGamePaused) 
-			{
-				break;
-			}
-
 			yield return null;
 		}
-		
+
+		isCancel = false;
 		ChangeState(BalloonState.Aim);
 	}
+
+	private bool isSlow = false;
+	private bool mustStop = false;
+	private bool isStuck = false;
+	private float _time;
 	
+	[SerializeField] private float stopCriterionVelocity = 0.5f;
+	[SerializeField] private float stopRollVelocity = 1.5f;
+	[SerializeField] private float stopImpulse = 0.001f;
+	[SerializeField] private float stopRollTime = 6f;
+	[SerializeField] private float checkStuckTime = 3f;
+	private void FixedUpdate()
+	{
+		if (!isSlow)
+		{
+			if (_rigidbody.velocity.magnitude < stopCriterionVelocity && collisionImpulse.magnitude < stopImpulse)
+			{
+				Debug.Log("느리다");
+				isSlow = true;
+				_time = 0;
+			}
+			
+			else if (_rigidbody.velocity.magnitude < stopCriterionVelocity + stopRollVelocity) //구르기 체크
+			{
+				_time += Time.fixedDeltaTime;
+				if (_time > stopRollTime)
+				{
+					mustStop = true;
+					Debug.Log("너무구른다");
+				}
+			}
+			
+			else _time = 0;
+		}
+		
+		else if (!mustStop && isOnPlatform && SomethingUnderBalloon() && !isGamePaused)
+		{
+			mustStop = true;
+			Debug.Log("잘멈췄다");
+		}
+
+		if (!mustStop && isSlow && _rigidbody.velocity.magnitude == 0) //끼임 체크
+		{
+			_time += Time.fixedDeltaTime;
+			if (_time > checkStuckTime)
+			{
+				mustStop = true;
+				isStuck = true;
+				Debug.LogError("끼었다");
+			}
+		}
+	}
+
 	private IEnumerator Freeze()  //스크립트로만 진입, 탈출
 	{
 		Debug.Log("Freeze state");
@@ -240,6 +344,24 @@ public class BalloonController : MonoBehaviour
 		
 		yield return null;
 	}
+
+	public void SetOnPlatform(bool value)
+	{
+		isOnPlatform = value;
+	}
+	
+	public float GetChargeGauge()
+	{
+		return chargeGauge;
+	}
+
+	private void OnDestroy()
+	{
+		GameManager.instance.onBalloonDead.RemoveListener(ResetCollision);
+	}
+	
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+	public KeyCode flyKey;
 	
 	private IEnumerator DeveloperMode()
 	{
@@ -257,22 +379,24 @@ public class BalloonController : MonoBehaviour
 		ChangeState(BalloonState.Fall);
 	}
 
-	public void SetOnPlatform(bool value)
-	{
-		isOnPlatform = value;
-	}
+	private float t = 0;
 	
-	public float GetChargeGauge()
-	{
-		return chargeGauge;
-	}
-
-	public KeyCode flyKey;
 	private void Update()
 	{
 		if (Input.GetKeyDown(flyKey) && _balloonState != BalloonState.DeveloperMode)
 		{
 			ChangeState(BalloonState.DeveloperMode);
 		}
+		Debug.DrawRay(transform.position, Vector3.down * rayToBottomLength, Color.blue);
+		t += Time.deltaTime;
+		if (t >= 2f)
+		{
+			// 실행할 코드 (예: 로그 출력)
+			//Debug.Log(isOnPlatform);
+
+			// 타이머 초기화 또는 timer -= 2f;로 남은 시간을 반영할 수 있음
+			t = 0f;
+		}
 	}
+#endif
 }

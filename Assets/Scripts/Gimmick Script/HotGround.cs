@@ -7,7 +7,7 @@ public class HotGround : Gimmick
 {
     [SerializeField] private float heatingPower;
     private BalloonDebuff balloonDebuff = null;
-
+    
     public override void Execute()
     {
         
@@ -16,7 +16,7 @@ public class HotGround : Gimmick
     private void OnCollisionExit(Collision other)
     {
         if (!other.collider.CompareTag("Player")) return;
-
+        
         balloonDebuff.ColdBalloon();
     }
 
@@ -29,7 +29,15 @@ public class HotGround : Gimmick
         balloonDebuff.enabled = true;
         balloonDebuff.HeatBalloon(heatingPower);
     }
-    
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (!other.collider.CompareTag("Player")) return;
+        
+        balloonDebuff ??= other.collider.GetComponent<BalloonDebuff>();
+        balloonDebuff.HeatBalloon(heatingPower);
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) return;

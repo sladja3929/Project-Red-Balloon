@@ -9,20 +9,21 @@ public class DeveloperMode : MonoBehaviour
 
     private Rigidbody _rigidbody;
     private CameraController _controller;
-    void Awake()
+
+    private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _controller = GameObject.Find("Viewer").GetComponent<CameraController>();
     }
 
-    void Start()
+    private void Start()
     {
         _rigidbody.useGravity = false;
         _controller.onControll = CameraController.ControllType.LookAround;
     }
     
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKey(KeyCode.W))
         {

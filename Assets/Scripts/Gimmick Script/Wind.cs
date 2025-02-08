@@ -6,29 +6,47 @@ using UnityEngine;
 
 public class Wind : Gimmick
 {
-    public float windPower;
+    [SerializeField] private float windPower;
     
     private AudioSource _windSound;
-    private ParticleSystem _windEffect;
-
-    private void OnTriggerStay(Collider other)
+    private ParticleSystem[] _windEffects;
+    private Rigidbody playerRb;
+    private bool playerInside = false;
+    
+    private void OnTriggerEnter(Collider other)
     {
-        if (!isGimmickEnable) return;
-        
-        if (other.gameObject.CompareTag("Player"))
+        if(isGimmickEnable && other.CompareTag("Player"))
         {
-            other.GetComponent<Rigidbody>().AddForce(windPower * Time.deltaTime * -transform.right);
+            playerInside = true;
+            playerRb = other.GetComponent<Rigidbody>();
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if(isGimmickEnable && other.CompareTag("Player"))
+        {
+            playerInside = false;
+            playerRb = null;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (playerInside && playerRb != null)
+        {
+            // FixedUpdate에서는 Time.fixedDeltaTime 사용
+            playerRb.AddForce(windPower * Time.fixedDeltaTime * -transform.right, ForceMode.Force);
         }
     }
     
     private void Awake()
     {
         _windSound = GetComponent<AudioSource>();
-        _windEffect = GetComponentInChildren<ParticleSystem>();
-    }
-
-    private void Update()
-    {
-        _windEffect.gameObject.SetActive(isGimmickEnable);
+        _windEffects = GetComponentsInChildren<ParticleSystem>();
+        foreach (var windEffect in _windEffects)
+        {
+            windEffect.gameObject.SetActive(isGimmickEnable);
+        }
     }
 }

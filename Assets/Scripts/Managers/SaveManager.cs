@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +9,7 @@ using UnityEngine.Serialization;
  * SaveManager는 게임의 저장을 담당하는 클래스입니다.
  * 예상 버그 목록
  *    - 저장한것과 다른 이상한 스테이지가 로드되는데요? ==> 저장할때 buildIndex기반합니다. 지켜주세요
- *    
+ *    - ㅇ
  */
 
 public class SaveManager : Singleton<SaveManager>
@@ -18,7 +19,7 @@ public class SaveManager : Singleton<SaveManager>
     [SerializeField]
     private SaveInfo curInfo;
 
-    public int Stage
+    public int BuildIndex
     {
         get => curInfo.stage;
         set => curInfo.stage = value;
@@ -30,11 +31,28 @@ public class SaveManager : Singleton<SaveManager>
         set => curInfo.position = value;
     }
 
+    public int DeathCount
+    {
+        get => curInfo.deathCount;
+        set => curInfo.deathCount = value;
+    }
+    
+    public float PlayTime
+    {
+        get => curInfo.playTime;
+        set => curInfo.playTime = value;
+    }
+
     private new void Awake()
     {
         base.Awake();
         
         curInfo = Load();
+    }
+    
+    public bool IsNewSave()
+    {
+        return !File.Exists(SAVE_PATH) || CheckFlag(SaveFlag.NewSave);
     }
     
     // save Info를 JsonData로 저장합니다.
@@ -49,9 +67,16 @@ public class SaveManager : Singleton<SaveManager>
         return curInfo;
     }
 
-    public static void ResetSave()
+    public void ResetSave()
     {
         File.Delete(SAVE_PATH);
+        
+        curInfo = new SaveInfo
+        {
+            flagInfo = SaveFlag.NewSave,
+            deathCount = 0,
+            playTime = 0
+        };
     }
 
     private static SaveInfo Load()
@@ -60,7 +85,9 @@ public class SaveManager : Singleton<SaveManager>
         {
             SaveInfo ret = new SaveInfo
             {
-                flagInfo = SaveFlag.NewSave
+                flagInfo = SaveFlag.NewSave,
+                deathCount = 0,
+                playTime = 0
             };
 
             return ret;
@@ -69,7 +96,12 @@ public class SaveManager : Singleton<SaveManager>
         string file = File.ReadAllText(SAVE_PATH);
         return JsonUtility.FromJson<SaveInfo>(file);
     }
-    
+
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
+
     // ==================== Flag 관련 함수 ====================
     
     public bool CheckFlag(SaveFlag flag)
@@ -82,22 +114,31 @@ public class SaveManager : Singleton<SaveManager>
         curInfo.flagInfo |= flag;
     }
     
-    public void ResetFlag(SaveFlag flag)
+    public void RemoveFlag(SaveFlag flag)
     {
         curInfo.flagInfo &= ~flag;
+    }
+    
+    // ==================== Developer Function ====================
+    
+    [ContextMenu("Save Immediately")]
+    public void SaveImmediately()
+    {
+        Save();
     }
 }
 
 [System.Flags, System.Serializable]
 public enum SaveFlag
 {
-    CutsceneStage1 = 1 << 0,
-    CutsceneStage2 = 1 << 1,
-    CutsceneStage3 = 1 << 2,
+    NewSave        = 1 << 0,
+    CutsceneStage1 = 1 << 1,
+    CutsceneStage2 = 1 << 2,
+    CutsceneStage3 = 1 << 3,
     
-    Scene2Bloom = 1 << 3,
-    
-    NewSave = 1 << 4,
+    Scene2Bloom   = 1 << 4,
+    Scene2Volcano = 1 << 5,
+    Scene2AmbientLight = 1 << 6,
     //. .
     //. .
     //. .
@@ -109,4 +150,6 @@ public struct SaveInfo
     public int stage;
     public Vector3 position;
     public SaveFlag flagInfo;
+    public int deathCount;
+    public float playTime;
 }

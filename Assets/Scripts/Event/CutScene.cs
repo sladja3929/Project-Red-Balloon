@@ -19,6 +19,7 @@ public class CutScene : MonoBehaviour
     [SerializeField] protected CameraMovement[] cameraMovements;
     [SerializeField] protected ParticleSystem[] particleObject;
     [SerializeField] protected AudioClip[] soundEffect;
+    [SerializeField] protected Command[] commands;
     [SerializeField] protected bool hasToStay;
 
     protected WaitUntil waitingFadeFinish;
@@ -55,6 +56,7 @@ public class CutScene : MonoBehaviour
             if (GameManager.instance.CanBalloonMove())
             {
                 balloon = other.gameObject;
+                GameManager.instance.CanDie = false;
                 GameManager.instance.FreezeBalloon();
                 hasExecuted = true;
             }
@@ -66,6 +68,7 @@ public class CutScene : MonoBehaviour
         if(other.CompareTag("Player") && !hasToStay)
         {
             balloon = other.gameObject;
+            GameManager.instance.CanDie = false;
             hasExecuted = true;
         }
     }

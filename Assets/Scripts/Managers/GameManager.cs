@@ -17,6 +17,16 @@ public class GameManager : Singleton<GameManager>
 
         SceneManager.sceneLoaded += SetBalloon;
     }
+
+    private void Update()
+    {
+        // if not playing continue
+        if (Time.timeScale == 0) return;
+        if (_balloonObj == null) return;
+        if (SceneManager.GetActiveScene().name == "MainMenu") return;
+        
+        SaveManager.instance.PlayTime += Time.deltaTime;
+    }
     
     private void SetBalloon(Scene arg0, LoadSceneMode arg1)
     {
@@ -42,48 +52,39 @@ public class GameManager : Singleton<GameManager>
 
     //현재 Spawn Point를 디버깅하기 위한 변수
     [SerializeField] private Vector3 savePoint;
-
+    
     private GameObject _balloonObj;
     private Rigidbody _balloonRigid;
     private Respawn _balloonSpawn;
     private BalloonController _balloonController;
     
-    public void SetSavePoint(Vector3 point) 
+    public void SetSavePoint(Vector3 point)
     {
         savePoint = point;
-        _balloonSpawn.SetSavePoint(point);
-        
-        SaveManager.instance.Stage = SceneManager.GetActiveScene().buildIndex;
+        SaveManager.instance.BuildIndex = SceneManager.GetActiveScene().buildIndex;
         SaveManager.instance.Position = point;
-        SaveManager.instance.ResetFlag(SaveFlag.NewSave);
+        SaveManager.instance.RemoveFlag(SaveFlag.NewSave);
         SaveManager.instance.Save();
     }
 
+    public Vector3 GetSavePoint()//기존 세이브포인트 반환
+    {
+        return savePoint;
+    }
+
+    private bool canDie = true;
+    public bool CanDie
+    {
+        get { return canDie; }
+        set { canDie = value; }
+    }
+    
     public void KillBalloon()
     {
+        if(canDie)
         _balloonSpawn.Die();
     }
-
-    [SerializeField] private float startTime;
-    //public List<float> records;
-    public string record;
-    public GameObject endCanvas;
-    public void StartGame()
-    {
-        startTime = Time.time;
-    }
-
-    public void FinishGame()
-    {
-        //records.Add(Time.time - startTime);
-        //records.Sort();
-        TimeSpan t = TimeSpan.FromSeconds(Time.time - startTime);
-
-        record = "score: " + $"{t.Hours:D2} h {t.Minutes:D2} m {t.Seconds:D2} s";
-
-        IsPause = true;
-        endCanvas.SetActive(true);
-    }
+    
     public static void GoToMainMenu()
     {
         SceneChangeManager.instance.LoadSceneAsync("MainMenu");
@@ -121,9 +122,12 @@ public class GameManager : Singleton<GameManager>
         _balloonController.SetOnPlatform(true);
     }
     
+    public bool IsCinematic = false;
+    
     public void CinematicMode()
     {
         _balloonController.SetCinematicState();
+        IsCinematic = true;
     }
     
     public void FreezeBalloon()
@@ -137,5 +141,13 @@ public class GameManager : Singleton<GameManager>
     public void BalloonDeadEvent()
     {
         onBalloonDead?.Invoke();
+    }
+    
+    [HideInInspector]
+    public UnityEvent onBalloonRespawn;
+
+    public void BalloonRespawnEvent()
+    {
+        onBalloonRespawn?.Invoke();
     }
 }

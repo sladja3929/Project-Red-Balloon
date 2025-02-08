@@ -6,11 +6,10 @@ using UnityEngine;
 
 public class LongStone : Gimmick
 {
-    [SerializeField] private float attackSpeed;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float additionalDistance;
     [SerializeField] private float attackDelay;
     [SerializeField] private float reloadDelay;
-    [Range(1 ,3)]
-    [SerializeField] private float lengthBetDirPos; //롱스톤이 튀어나오는 정도, 작을수록 많이나옴
 
     private ParticleSystem _particle;
     
@@ -42,15 +41,22 @@ public class LongStone : Gimmick
     private IEnumerator Attack()
     {
         canAttack = false;
+
+        Vector3 targetPos = transform.InverseTransformPoint(GameManager.instance.GetBalloonPosition());
+        targetPos.x = 0;
+        targetPos = transform.TransformPoint(targetPos);
+        transform.LookAt(targetPos);
+        targetPos += transform.forward * additionalDistance;
         
-        Vector3 dir = transform.InverseTransformPoint(GameManager.instance.GetBalloonPosition());
-        dir.x = 0;
-        dir = transform.TransformPoint(dir);
-        transform.LookAt(dir);
+        Vector3 currentPos = transform.position;
+        float distance = Vector3.Distance(currentPos, targetPos);
+        float duration = distance / moveSpeed;
+        float t = 0;
         
-        while (Vector3.Distance(transform.position, dir) > lengthBetDirPos)
+        while (t < duration)
         {
-            transform.position = (transform.position + transform.forward * attackSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(currentPos, targetPos, t / duration);
+            t += Time.deltaTime;
             yield return null;
         }
         
@@ -61,9 +67,15 @@ public class LongStone : Gimmick
 
     private IEnumerator Reload()
     {
-        while (Mathf.Abs((transform.position - initPos).z) > 0)
+        Vector3 currentPos = transform.position;
+        float distance = Vector3.Distance(transform.position, initPos);
+        float duration = distance / (moveSpeed / 10);
+        float t = 0f;
+        
+        while (t < duration)
         {
-            transform.position = (transform.position - transform.forward * attackSpeed / 10 * Time.deltaTime);
+            transform.position = Vector3.Lerp(currentPos, initPos, t / duration);
+            t += Time.deltaTime;
             yield return null;
         }
 

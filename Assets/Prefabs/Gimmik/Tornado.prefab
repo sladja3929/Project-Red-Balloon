@@ -9,9 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4315226767690649504}
-  - component: {fileID: 2094913466}
-  - component: {fileID: 1248804788576500593}
-  - component: {fileID: 8574576002077062567}
   m_Layer: 0
   m_Name: Tornado
   m_TagString: Untagged
@@ -37,133 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2094913466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4315226767690649505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ce4d683a41c5dc499ef67ac4a8908fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGimmickEnable: 1
-  pullPower: 5
-  upPower: 2
-  refreshRate: 1
-  rotationDegree: 5
---- !u!136 &1248804788576500593
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4315226767690649505}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 4.15
-  m_Height: 14
-  m_Direction: 1
-  m_Center: {x: 0, y: 4, z: 0}
---- !u!82 &8574576002077062567
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4315226767690649505}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1f819a8b2f3ff1b4482f053d487bf01a, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 0
-  MaxDistance: 150
-  Pan2D: 0
-  rolloffMode: 2
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.93685913
-      value: 0
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &4315226766872937662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -339,29 +209,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4315226767690649504}
     m_Modifications:
-    - target: {fileID: 913963926918133522, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.9528302
-      objectReference: {fileID: 0}
-    - target: {fileID: 913963926918133522, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.75327873
-      objectReference: {fileID: 0}
-    - target: {fileID: 913963926918133522, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.4554408
-      objectReference: {fileID: 0}
-    - target: {fileID: 1901559799174736022, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
-      propertyPath: m_MaxParticleSize
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4156561363126169758, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
       propertyPath: m_Name
       value: Water_Spary
-      objectReference: {fileID: 0}
-    - target: {fileID: 4156561363126169758, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 8079871262988793120, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
       propertyPath: m_RootOrder
@@ -373,11 +223,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8079871262988793120, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.072
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8079871262988793120, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8079871262988793120, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -385,15 +235,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8079871262988793120, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8079871262988793120, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8079871262988793120, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8079871262988793120, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

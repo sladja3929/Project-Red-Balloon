@@ -3,42 +3,39 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
+using System;
 
 public class DeathUIManager : MonoBehaviour
 {
-    public TextMeshProUGUI deathMessageText;
-    public TextMeshProUGUI TeabaggingText;
-    //public TextMeshProUGUI deathCountText;
-    //public Image TextBackground; // πË∞Ê ¿ÃπÃ¡ˆ √ﬂ∞°
+    public GameObject canvas;
+    public TextMeshProUGUI messageText;
+    public Image background;
 
+    [SerializeField] private int deathMessageCount = 5;
+    [SerializeField] private int teabaggingMessageCount = 10; //Î™áÎ≤àÏß∏ Ï£ΩÏùåÎßàÎã§ Ï∂úÎ†•Ìï† Í±¥ÏßÄ
+    [SerializeField] private float ShowedTime = 5.0f;
+    [SerializeField] private float fadetime = 0.5f; // ÏÇ¨Îßù Ïãú ÌåÅ/Ìã∞Î∞∞ÍπÖ Î©îÏãúÏßÄ Ï∂úÎ†•ÎêòÎäî ÏãúÍ∞Ñ
+    [SerializeField] private int backGroundWidthBlank = 200;
+    [SerializeField] private int backGroundHeightBlank = 30;
+    
     private List<string> deathMessages = new List<string>();
     private List<string> teabaggingMessages = new List<string>();
-    [SerializeField] private int deathCount;
-    [SerializeField] private float ShowedTime = 5.0f;
-    [SerializeField] private float fadetime = 0.5f; // ªÁ∏¡ Ω√ ∆¡/∆ºπË±Î ∏ﬁΩ√¡ˆ √‚∑¬µ«¥¬ Ω√∞£
-    //[SerializeField] private float fadeInImage = 0.2f; // πË∞Ê ¿ÃπÃ¡ˆ ∆‰¿ÃµÂ ¿Œ Ω√∞£
-
+    private bool isPlaying = false;
+    
     private void Start()
     {
-        //TextBackground.type = Image.Type.Sliced;
-    }
-    void OnEnable()
-    {
-        LoadDeathCount();
         LoadMessages();
-        //ShowDeathCount();
-        IncreaseDeathCount();
-        ShowDeathMessage();
+        GameManager.instance.onBalloonRespawn.AddListener(EnableDeathUI);
+        canvas.gameObject.SetActive(false);
     }
-
-    private void OnDisable()
+    private void EnableDeathUI()
     {
-        deathMessageText.gameObject.SetActive(false);
-        TeabaggingText.gameObject.SetActive(false);
-        //deathCountText.gameObject.SetActive(false);
-        //TextBackground.gameObject.SetActive(false);
+        if (isPlaying) return;
+        StartCoroutine(ShowDeathMessage());
     }
 
+
+    
     private void LoadMessages()
     {
         TextAsset deathTextAsset = Resources.Load<TextAsset>("deathMessages");
@@ -49,7 +46,7 @@ public class DeathUIManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("deathMessages.txt ∆ƒ¿œ¿ª √£¿ª ºˆ æ¯Ω¿¥œ¥Ÿ!");
+            Debug.LogError("deathMessages.txt ÌååÏùºÏùÑ Ï∞æÏùÑ Ïàò ÏóÜÏäµÎãàÎã§!");
         }
 
         if (teabaggingTextAsset != null)
@@ -58,70 +55,57 @@ public class DeathUIManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("teabaggingMessages.txt ∆ƒ¿œ¿ª √£¿ª ºˆ æ¯Ω¿¥œ¥Ÿ!");
+            Debug.LogError("teabaggingMessages.txt ÌååÏùºÏùÑ Ï∞æÏùÑ Ïàò ÏóÜÏäµÎãàÎã§!");
         }
     }
-    // ¡◊¿∫ »Ωºˆ ∞™ ∫“∑Øø¿¥¬ πÊπ˝ √ﬂ»ƒ ºˆ¡§ « ø‰
-    private void LoadDeathCount()
-    {
-        deathCount = PlayerPrefs.GetInt("death_count", 0);
-    }
 
-    // 5*nπ¯¬∞ ªÁ∏¡«“ ∂ß∏∂¥Ÿ ∆ºπË±ÎøÎ ∏‡∆Æ √‚∑¬
-    // ∏‡∆Æ √‚∑¬Ω√ ∞¢ txt∆ƒ¿œø°º≠ ∑£¥˝¿∏∑Œ ∏‡∆Æ º±¡§
-    public void ShowDeathMessage()
+    // nÎ≤àÏß∏ ÏÇ¨ÎßùÌï† ÎïåÎßàÎã§ Ìã∞Î∞∞ÍπÖÏö© Î©òÌä∏ Ï∂úÎ†•
+    // Î©òÌä∏ Ï∂úÎ†•Ïãú Í∞Å txtÌååÏùºÏóêÏÑú ÎûúÎç§ÏúºÎ°ú Î©òÌä∏ ÏÑ†Ï†ï
+    private IEnumerator ShowDeathMessage()
     {
+        isPlaying = true;
+        canvas.gameObject.SetActive(true);
+        
         if (deathMessages.Count > 0)
         {
-            if (deathCount % 5 == 0)
+            Debug.LogError("aasdas");
+            string randomMessage = "";
+            if (SaveManager.instance.DeathCount % teabaggingMessageCount == 0)
             {
-                TeabaggingText.gameObject.SetActive(true);
-                string randomMessage = GetRandomTeabaggingMessage();
-                TeabaggingText.text = randomMessage;
-                //TextBackground.gameObject.SetActive(true);
-                //AdjustBackgroundSize(TeabaggingText, TextBackground);
-                //StartCoroutine(FadeInBackground(TextBackground));
-                StartCoroutine(FadeInText(TeabaggingText));
+                randomMessage = GetRandomTeabaggingMessage();
             }
-            else
+            
+            else if (SaveManager.instance.DeathCount % deathMessageCount == 0)
             {
-                deathMessageText.gameObject.SetActive(true);
-                string randomMessage = GetRandomDeathMessage();
-                deathMessageText.text = randomMessage;
-                //TextBackground.gameObject.SetActive(true);
-                //AdjustBackgroundSize(deathMessageText, TextBackground);
-                //StartCoroutine(FadeInBackground(TextBackground));
-                StartCoroutine(FadeInText(deathMessageText));
+                randomMessage = GetRandomDeathMessage();
             }
-            Invoke("HideDeathMessage", ShowedTime);
+            
+            messageText.text = randomMessage;
+            AdjustBackgroundSize(messageText, background);
+            
+            StartCoroutine(FadeInBackground(background));
+            StartCoroutine(FadeInText(messageText));
         }
-    }
+        yield return new WaitForSeconds(fadetime);
+        yield return new WaitForSeconds(ShowedTime);
+        
+        StartCoroutine(FadeOut(background));
+        StartCoroutine(FadeOut(messageText));
+        yield return new WaitForSeconds(fadetime);
 
-    //private void ShowDeathCount()
-    //{
-    //    deathCountText.gameObject.SetActive(true);
-    //    IncreaseDeathCount();
-    //    deathCountText.text = $"<sprite=0> °ø {deathCount}";
-    //    StartCoroutine(FadeIn(deathCountText));
-    //    Invoke("HideDeathCount", ShowedTime);
-    //}
-
-    private void IncreaseDeathCount()
-    {
-        deathCount++;
-        PlayerPrefs.SetInt("death_count", deathCount);
-        PlayerPrefs.Save();
+        canvas.gameObject.SetActive(false);
+        isPlaying = false;
     }
 
     private string GetRandomDeathMessage()
     {
-        int randomIndex = Random.Range(0, deathMessages.Count);
+        int randomIndex = UnityEngine.Random.Range(0, deathMessages.Count);
         return deathMessages[randomIndex].Trim();
     }
 
     private string GetRandomTeabaggingMessage()
     {
-        int randomIndex = Random.Range(0, teabaggingMessages.Count);
+        int randomIndex = UnityEngine.Random.Range(0, teabaggingMessages.Count);
         return teabaggingMessages[randomIndex].Trim();
     }
 
@@ -141,32 +125,16 @@ public class DeathUIManager : MonoBehaviour
         color.a = 1;
         graphic.color = color;
     }
-    //private IEnumerator FadeInBackground(Image background)
-    //{
-    //    Color color = background.color;
-    //    color.a = 0.5f; // π›≈ı∏Ì«œ∞‘ º≥¡§
-    //    background.color = color;
-    //    float elapsedTime = 0f;
-    //    while (elapsedTime < fadeInImage)
-    //    {
-    //        elapsedTime += Time.deltaTime;
-    //        color.a = Mathf.Clamp01(elapsedTime / fadeInImage * 0.5f); // π›≈ı∏Ì«œ∞‘ ∆‰¿ÃµÂ ¿Œ
-    //        background.color = color;
-    //        yield return null;
-    //    }
-    //    color.a = 0.5f;
-    //    background.color = color;
-    //}
 
     private IEnumerator FadeOut(Graphic graphic)
     {
         Color color = graphic.color;
-        float startAlpha = color.a; // «ˆ¿Á ≈ı∏Ìµµ ªÛ≈¬ ¿˙¿Â
+        float startAlpha = color.a; // ÌòÑÏû¨ Ìà¨Î™ÖÎèÑ ÏÉÅÌÉú Ï†ÄÏû•
         float elapsedTime = 0f;
         while (elapsedTime < fadetime)
         {
             elapsedTime += Time.deltaTime;
-            color.a = Mathf.Lerp(startAlpha, 0, elapsedTime / fadetime); // «ˆ¿Á ≈ı∏Ìµµø°º≠ 0¿∏∑Œ ∆‰¿ÃµÂ æ∆øÙ
+            color.a = Mathf.Lerp(startAlpha, 0, elapsedTime / fadetime); // ÌòÑÏû¨ Ìà¨Î™ÖÎèÑÏóêÏÑú 0ÏúºÎ°ú ÌéòÏù¥Îìú ÏïÑÏõÉ
             graphic.color = color;
             yield return null;
         }
@@ -174,46 +142,52 @@ public class DeathUIManager : MonoBehaviour
         graphic.color = color;
     }
 
-    //private void HideDeathCount()
-    //{
-    //    StartCoroutine(FadeOut(deathCountText));
-    //}
-
-    private void HideDeathMessage()
+    private IEnumerator FadeInBackground(Image background)
     {
-        if (deathCount % 5 == 0)
+        Color color = background.color;
+        color.a = 0.5f; // Î∞òÌà¨Î™ÖÌïòÍ≤å ÏÑ§Ï†ï
+        background.color = color;
+        float elapsedTime = 0f;
+        while (elapsedTime < fadetime)
         {
-            StartCoroutine(FadeOut(TeabaggingText));
+            elapsedTime += Time.deltaTime;
+            color.a = Mathf.Clamp01(elapsedTime / fadetime * 0.5f); // Î∞òÌà¨Î™ÖÌïòÍ≤å ÌéòÏù¥Îìú Ïù∏
+            background.color = color;
+            yield return null;
         }
-        else
-        {
-            StartCoroutine(FadeOut(deathMessageText));
-        }
-            //StartCoroutine(FadeOut(TextBackground));
+        color.a = 0.5f;
+        background.color = color;
     }
-    //private void AdjustBackgroundSize(TextMeshProUGUI text, Image background)
-    //{
-    //    RectTransform textRect = text.GetComponent<RectTransform>();
-    //    RectTransform backgroundRect = background.GetComponent<RectTransform>();
+    private void AdjustBackgroundSize(TextMeshProUGUI text, Image background)
+    {
+        RectTransform textRect = text.GetComponent<RectTransform>();
+        RectTransform backgroundRect = background.GetComponent<RectTransform>();
 
-    //    ContentSizeFitter fitter = text.gameObject.GetComponent<ContentSizeFitter>();
-    //    if (fitter == null)
-    //    {
-    //        fitter = text.gameObject.AddComponent<ContentSizeFitter>();
-    //    }
-    //    fitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
-    //    fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+        ContentSizeFitter fitter = text.gameObject.GetComponent<ContentSizeFitter>();
+        if (fitter == null)
+        {
+            fitter = text.gameObject.AddComponent<ContentSizeFitter>();
+        }
+        fitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
+        fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
-    //    LayoutElement layoutElement = text.gameObject.GetComponent<LayoutElement>();
-    //    if (layoutElement == null)
-    //    {
-    //        layoutElement = text.gameObject.AddComponent<LayoutElement>();
-    //    }
+        LayoutElement layoutElement = text.gameObject.GetComponent<LayoutElement>();
+        if (layoutElement == null)
+        {
+            layoutElement = text.gameObject.AddComponent<LayoutElement>();
+        }
 
-    //    // ≈ÿΩ∫∆Æ ≈©±‚ø° ∏¬∞‘ πË∞Ê ≈©±‚ ¡∂¡§
-    //    LayoutRebuilder.ForceRebuildLayoutImmediate(textRect);
-    //    backgroundRect.sizeDelta = new Vector2(textRect.rect.width + 50, textRect.rect.height + 30);
-    //    background.pixelsPerUnitMultiplier = 1;
-    //    background.fillCenter = true;
-    //}
+        LayoutRebuilder.ForceRebuildLayoutImmediate(textRect);
+        backgroundRect.sizeDelta = new Vector2(textRect.rect.width + backGroundWidthBlank, textRect.rect.height + backGroundHeightBlank);
+        background.pixelsPerUnitMultiplier = 1;
+        background.fillCenter = true;
+
+        Canvas.ForceUpdateCanvases();
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.onBalloonRespawn.RemoveListener(EnableDeathUI);
+    }
 }
+

@@ -8,7 +8,8 @@ using Random = UnityEngine.Random;
 public class FallingGround : Gimmick
 {
     private Rigidbody _rigid;
-
+    private float time;
+    
     private GameObject _groundThatWillFall;
     [SerializeField] private float respawnTime;
     [SerializeField] private float fallTime;
@@ -26,14 +27,35 @@ public class FallingGround : Gimmick
         if (!isGimmickEnable) return;
         
         _isBreaking = true;
-        Invoke(nameof(Fall), fallTime);
+        Fall();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            time = 0;
+        }
     }
 
     private void OnCollisionStay(Collision collision)
     {
         //player와 충돌했으며, 복사본이 아니고 이미 Fall 함수가 실행 된 상태가 아니면 Execute함수를 호출합니다.
-        if (!collision.gameObject.CompareTag("Player") || _isPrefab || _isBreaking) return;
-        Execute();
+        if (_isPrefab || _isBreaking) return;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            time += Time.deltaTime;
+            if(time >= fallTime) Execute();
+        }
+        
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            time = 0;
+        }
     }
 
     /// <summary>
@@ -68,6 +90,7 @@ public class FallingGround : Gimmick
     private void SetPrefabMode()
     {
         _isPrefab = true;
+        gameObject.layer = LayerMask.NameToLayer("Default");
         _rigid.isKinematic = false;
         GetComponent<Collider>().isTrigger = false;
 

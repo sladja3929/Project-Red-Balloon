@@ -6,15 +6,17 @@ using UnityEngine;
 public class FanIsland : Gimmick
 {
     [SerializeField]private float rotateTime;
+    [SerializeField]private float maxSpeedPoint;
     [SerializeField]private float coolDown;
     [SerializeField]private float maxRotateSpeed;
-
+    [SerializeField] private float delay;
+    
     private Vector3 rotation;
     private Wind windScript;
     private bool isOn;
     private void Awake()
     {
-        rotation = transform.rotation.eulerAngles;
+        rotation = transform.localRotation.eulerAngles;
         windScript = transform.parent.GetComponentInChildren<Wind>();
         isOn = false;
     }
@@ -51,19 +53,23 @@ public class FanIsland : Gimmick
     {
         while (true)
         {
+            yield return new WaitForSeconds(delay);
+            
             if(isOn) GameManager.instance.AimToFallForced();
-            windScript.GimmickOn();
+            
             float t = 0;
             while ((t += Time.deltaTime) < rotateTime)
             {
-                float percentage = 1 - 2 * Mathf.Abs((t / rotateTime) - 0.5f);
+                float percentage = Mathf.Min(t / (maxSpeedPoint * rotateTime), 1f) * Mathf.Min((rotateTime - t) / (maxSpeedPoint * rotateTime), 1f);
 
                 rotation.y += percentage * maxRotateSpeed;
-                transform.eulerAngles = rotation;
+                transform.localEulerAngles = rotation;
+                
+                if(percentage > 0.6f) windScript.GimmickOn();
+                else windScript.GimmickOff();
                 
                 yield return null;
             }
-            windScript.GimmickOff();
             
             yield return new WaitForSeconds(coolDown);
         }
