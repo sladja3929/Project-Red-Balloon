@@ -16,6 +16,11 @@ public class GameManager : Singleton<GameManager>
         //records = new List<float>();
 
         SceneManager.sceneLoaded += SetBalloon;
+        
+        // VSync 비활성화
+        QualitySettings.vSyncCount = 0;
+        // 60FPS로 제한
+        Application.targetFrameRate = 60;
     }
 
     private void Update()
