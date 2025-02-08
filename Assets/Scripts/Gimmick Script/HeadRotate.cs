@@ -25,6 +25,6 @@ public class HeadRotate : MonoBehaviour
         dir.Normalize();
         
         float angle = Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg + 180f;
-        transform.rotation = Quaternion.Euler(0f, -angle, 90f);
+        transform.rotation = Quaternion.Euler(rot.x, -angle, rot.z);
     }
 }

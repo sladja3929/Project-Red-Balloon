@@ -9,7 +9,7 @@ public class BalloonController : MonoBehaviour
 {
 	public enum BalloonState
 	{
-		Aim, Charge, Fly, Fall, Freeze, Cinematic, DeveloperMode
+		Aim, Charge, Cancel, Fly, Fall, Freeze, Cinematic, DeveloperMode
 	}
 	
 	private BalloonState _balloonState;
@@ -24,6 +24,7 @@ public class BalloonController : MonoBehaviour
 	[SerializeField] private bool isDebug = false;
 	[SerializeField] private float chargeGauge;
 	[SerializeField] private KeyCode chargeKey;
+	[SerializeField] private KeyCode cancelKey;
 	[SerializeField] private float chargeSpeed;
 	[SerializeField] private ChargeUI ui;
 
@@ -145,15 +146,17 @@ public class BalloonController : MonoBehaviour
 	private IEnumerator Aim()
 	{
 		Debug.Log("Aim State");
-		ui.SetChargeUI(0);
-
-		_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-		_rigidbody.velocity = Vector3.zero;
-		_rigidbody.angularVelocity = Vector3.zero;
 		
-		// ReSharper disable once Unity.NoNullPropagation
-		_dragRotation.ResetDirection();
-		_showArrow?.Show();
+		if (!isCancel)
+		{
+			ui.SetChargeUI(0);
+			_rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+			_rigidbody.velocity = Vector3.zero;
+			_rigidbody.angularVelocity = Vector3.zero;
+			_dragRotation.ResetDirection();
+			_showArrow?.Show();
+		}
+		
 		//카메라 컨트롤 타입 드래그로 변경
 		CameraController.instance.onControll = CameraController.ControllType.Drag;
 		_dragRotation.onControll = true;
@@ -175,31 +178,51 @@ public class BalloonController : MonoBehaviour
 
 		ChangeState(BalloonState.Charge);
 	}
-
 	
 	private IEnumerator Charge()
 	{
 		Debug.Log("Charge State");
 		//SoundManager.instance.SfxPlay("BalloonCharge", balloonChargeSound);
-		
+
+		isCancel = false;
 		chargeGauge = 0f;
 
 		while (true)
 		{
 			if (Input.GetKey(chargeKey))
 			{
-				chargeGauge += chargeSpeed * Time.deltaTime;
-				if (chargeGauge > 1f) chargeGauge = 1f;
-				
-				ui.SetChargeUI(chargeGauge);
+				if (Input.GetMouseButtonDown(0))
+					ChangeState(BalloonState.Cancel);
+
+				else
+				{
+					chargeGauge += chargeSpeed * Time.deltaTime;
+					if (chargeGauge > 1f) chargeGauge = 1f;
+					ui.SetChargeUI(chargeGauge);
+				}
 			}
 			else break;
 
 			yield return null;
 		}
-
 		
 		ChangeState(BalloonState.Fly);
+	}
+	
+	private bool isCancel = false;
+	private IEnumerator Cancel()
+	{
+		Debug.Log("Cancel State");
+
+		isCancel = true;
+		ui.SetChargeUI(0);
+		
+		while (!Input.GetKeyUp(chargeKey))
+		{
+			yield return null;
+		}
+		
+		ChangeState(BalloonState.Aim);
 	}
 	
 	private IEnumerator Fly()
@@ -241,7 +264,8 @@ public class BalloonController : MonoBehaviour
 		{
 			yield return null;
 		}
-		
+
+		isCancel = false;
 		ChangeState(BalloonState.Aim);
 	}
 
@@ -261,7 +285,7 @@ public class BalloonController : MonoBehaviour
 		{
 			if (_rigidbody.velocity.magnitude < stopCriterionVelocity && collisionImpulse.magnitude < stopImpulse)
 			{
-				Debug.LogError("느리다");
+				Debug.Log("느리다");
 				isSlow = true;
 				_time = 0;
 			}
@@ -272,7 +296,7 @@ public class BalloonController : MonoBehaviour
 				if (_time > stopRollTime)
 				{
 					mustStop = true;
-					Debug.LogError("너무구른다");
+					Debug.Log("너무구른다");
 				}
 			}
 			
@@ -282,7 +306,7 @@ public class BalloonController : MonoBehaviour
 		else if (!mustStop && isOnPlatform && SomethingUnderBalloon() && !isGamePaused)
 		{
 			mustStop = true;
-			Debug.LogError("잘멈췄다");
+			Debug.Log("잘멈췄다");
 		}
 
 		if (!mustStop && isSlow && _rigidbody.velocity.magnitude == 0) //끼임 체크

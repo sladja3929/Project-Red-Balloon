@@ -10,6 +10,7 @@ public class Respawn : MonoBehaviour
     [SerializeField] private GameObject dieEffect;
     [SerializeField] private AudioClip dieSound;
     [SerializeField] private float respawnTime;
+    [SerializeField] private KeyCode skipKey;
     
     private bool isSavePointReached;
     private Vector3 respawnAngle;
@@ -111,12 +112,15 @@ public class Respawn : MonoBehaviour
         var curScale = Vector3.one;
         float yPos = savePoint.y;
         
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 50; i++)
         {
-            transform.localScale = curScale * (0.01f * i) ;
-            transform.position = new Vector3(savePoint.x, yPos -= 0.01f, savePoint.z);
+            //if (Input.GetKeyDown(skipKey)) break;
+            transform.localScale = curScale * (0.02f * i) ;
+            transform.position = new Vector3(savePoint.x, yPos -= 0.02f, savePoint.z);
             yield return new WaitForSeconds(0.01f);
         }
+
+        transform.position = new Vector3(savePoint.x, savePoint.y - 1f, savePoint.z);
         transform.localScale = new Vector3(1, 1, 1);
 
         _meshCollider.enabled = true;

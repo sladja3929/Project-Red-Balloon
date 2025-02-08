@@ -19,13 +19,13 @@ public class Tornado : Gimmick
     private Coroutine _tornado;
     private Vector3 originalScale;
     private Vector3 targetScale;
-    private AudioSource audio;
+    private AudioSource _audio;
     private float originalMinDist;
     
     private void Start()
     {
-        audio = GetComponent<AudioSource>();
-        originalMinDist = audio.minDistance;
+        _audio = GetComponent<AudioSource>();
+        originalMinDist = _audio.minDistance;
         originalScale = transform.localScale;
         targetScale = new Vector3(originalScale.x * sizeMultiplier, originalScale.y, originalScale.z * sizeMultiplier);
         StartCoroutine(ChangeSize());
@@ -43,12 +43,12 @@ public class Tornado : Gimmick
             {
                 float t = elapsed / halfTime;
                 transform.localScale = Vector3.Lerp(originalScale, targetScale, t);
-                audio.minDistance = Mathf.Lerp(originalMinDist, targetMinDist, t);
+                _audio.minDistance = Mathf.Lerp(originalMinDist, targetMinDist, t);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            audio.minDistance = targetMinDist;
+            _audio.minDistance = targetMinDist;
             transform.localScale = targetScale;
 
             yield return new WaitForSeconds(delay);
@@ -58,12 +58,12 @@ public class Tornado : Gimmick
             {
                 float t = elapsed / halfTime;
                 transform.localScale = Vector3.Lerp(targetScale, originalScale, t);
-                audio.minDistance = Mathf.Lerp(originalMinDist, targetMinDist, t);
+                _audio.minDistance = Mathf.Lerp(originalMinDist, targetMinDist, t);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
             
-            audio.minDistance = originalMinDist;
+            _audio.minDistance = originalMinDist;
             transform.localScale = originalScale;
             
             yield return new WaitForSeconds(delay);

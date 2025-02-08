@@ -8,21 +8,20 @@ using System;
 public class DeathUIManager : MonoBehaviour
 {
     public GameObject canvas;
-    public TextMeshProUGUI deathMessageText;
-    public TextMeshProUGUI TeabaggingText;
+    public TextMeshProUGUI messageText;
     public Image background;
 
     [SerializeField] private int deathMessageCount = 5;
     [SerializeField] private int teabaggingMessageCount = 10; //몇번째 죽음마다 출력할 건지
     [SerializeField] private float ShowedTime = 5.0f;
     [SerializeField] private float fadetime = 0.5f; // 사망 시 팁/티배깅 메시지 출력되는 시간
-    [SerializeField] private float deleteDeathUITime = 6.0f;
     [SerializeField] private int backGroundWidthBlank = 200;
     [SerializeField] private int backGroundHeightBlank = 30;
     
     private List<string> deathMessages = new List<string>();
     private List<string> teabaggingMessages = new List<string>();
-
+    private bool isPlaying = false;
+    
     private void Start()
     {
         LoadMessages();
@@ -31,18 +30,11 @@ public class DeathUIManager : MonoBehaviour
     }
     private void EnableDeathUI()
     {
-        canvas.gameObject.SetActive(true);
-        ShowDeathMessage();
-        Invoke("DeleteDeathUI", deleteDeathUITime);
+        if (isPlaying) return;
+        StartCoroutine(ShowDeathMessage());
     }
 
-    private void DisableDeathUI()
-    {
-        canvas.gameObject.SetActive(false);
-        deathMessageText.gameObject.SetActive(false);
-        TeabaggingText.gameObject.SetActive(false);
-        background.gameObject.SetActive(false);
-    }
+
     
     private void LoadMessages()
     {
@@ -69,32 +61,40 @@ public class DeathUIManager : MonoBehaviour
 
     // n번째 사망할 때마다 티배깅용 멘트 출력
     // 멘트 출력시 각 txt파일에서 랜덤으로 멘트 선정
-    public void ShowDeathMessage()
+    private IEnumerator ShowDeathMessage()
     {
+        isPlaying = true;
+        canvas.gameObject.SetActive(true);
+        
         if (deathMessages.Count > 0)
         {
+            Debug.LogError("aasdas");
+            string randomMessage = "";
             if (SaveManager.instance.DeathCount % teabaggingMessageCount == 0)
             {
-                TeabaggingText.gameObject.SetActive(true);
-                string randomMessage = GetRandomTeabaggingMessage();
-                TeabaggingText.text = randomMessage;
-                background.gameObject.SetActive(true);
-                AdjustBackgroundSize(TeabaggingText, background);
-                StartCoroutine(FadeInBackground(background));
-                StartCoroutine(FadeInText(TeabaggingText));
+                randomMessage = GetRandomTeabaggingMessage();
             }
+            
             else if (SaveManager.instance.DeathCount % deathMessageCount == 0)
             {
-                deathMessageText.gameObject.SetActive(true);
-                string randomMessage = GetRandomDeathMessage();
-                deathMessageText.text = randomMessage;
-                background.gameObject.SetActive(true);
-                AdjustBackgroundSize(deathMessageText, background);
-                StartCoroutine(FadeInBackground(background));
-                StartCoroutine(FadeInText(deathMessageText));
+                randomMessage = GetRandomDeathMessage();
             }
-            Invoke("HideDeathMessage", ShowedTime);
+            
+            messageText.text = randomMessage;
+            AdjustBackgroundSize(messageText, background);
+            
+            StartCoroutine(FadeInBackground(background));
+            StartCoroutine(FadeInText(messageText));
         }
+        yield return new WaitForSeconds(fadetime);
+        yield return new WaitForSeconds(ShowedTime);
+        
+        StartCoroutine(FadeOut(background));
+        StartCoroutine(FadeOut(messageText));
+        yield return new WaitForSeconds(fadetime);
+
+        canvas.gameObject.SetActive(false);
+        isPlaying = false;
     }
 
     private string GetRandomDeathMessage()
@@ -140,24 +140,6 @@ public class DeathUIManager : MonoBehaviour
         }
         color.a = 0;
         graphic.color = color;
-    }
-
-    private void HideDeathMessage()
-    {
-        if (SaveManager.instance.DeathCount % teabaggingMessageCount == 0)
-        {
-            StartCoroutine(FadeOut(TeabaggingText));
-        }
-        else if (SaveManager.instance.DeathCount % deathMessageCount == 0)
-        {
-            StartCoroutine(FadeOut(deathMessageText));
-        }
-        StartCoroutine(FadeOut(background));
-    }
-
-    void DeleteDeathUI()
-    {
-        canvas.gameObject.SetActive(false);
     }
 
     private IEnumerator FadeInBackground(Image background)
