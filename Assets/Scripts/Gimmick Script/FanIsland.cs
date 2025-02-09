@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FanIsland : Gimmick
@@ -9,20 +10,19 @@ public class FanIsland : Gimmick
     [SerializeField]private float maxSpeedPoint;
     [SerializeField]private float coolDown;
     [SerializeField]private float maxRotateSpeed;
-    [SerializeField] private float delay;
     
     private Vector3 rotation;
     private Wind windScript;
     private bool isOn;
+    private bool isCoolDown;
+    private float time = 0;
+    
     private void Awake()
     {
         rotation = transform.localRotation.eulerAngles;
         windScript = transform.parent.GetComponentInChildren<Wind>();
         isOn = false;
-    }
-    private void Start()
-    {
-        Execute();
+        isCoolDown = false;
     }
 
     private void OnCollisionEnter(Collision other)
@@ -41,20 +41,10 @@ public class FanIsland : Gimmick
         }
     }
 
-    [ContextMenu("Execute")]    
-    public override void Execute()
-    {
-        if (isGimmickEnable is false) return;
-
-        StartCoroutine(FlyCoroutine());
-    }
-
     private IEnumerator FlyCoroutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(delay);
-            
             if(isOn) GameManager.instance.AimToFallForced();
             
             float t = 0;
@@ -72,6 +62,45 @@ public class FanIsland : Gimmick
             }
             
             yield return new WaitForSeconds(coolDown);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isGimmickEnable)
+        {
+            time += Time.fixedDeltaTime;
+            
+            if (!isCoolDown)
+            {
+                if(isOn) GameManager.instance.AimToFallForced();
+
+                if (time < rotateTime)
+                {
+                    float percentage = Mathf.Min(time / (maxSpeedPoint * rotateTime), 1f) * Mathf.Min((rotateTime - time) / (maxSpeedPoint * rotateTime), 1f);
+                    
+                    rotation.y += percentage * maxRotateSpeed;
+                    transform.localEulerAngles = rotation;
+                
+                    if(percentage > 0.6f) windScript.GimmickOn();
+                    else windScript.GimmickOff();
+                }
+
+                else
+                {
+                    isCoolDown = true;
+                    time = 0;
+                }
+            }
+
+            else
+            {
+                if (time > coolDown)
+                {
+                    isCoolDown = false;
+                    time = 0;
+                }
+            }
         }
     }
 }

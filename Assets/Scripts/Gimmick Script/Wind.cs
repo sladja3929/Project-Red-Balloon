@@ -33,6 +33,11 @@ public class Wind : Gimmick
 
     private void FixedUpdate()
     {
+        foreach (var windEffect in _windEffects)
+        {
+            windEffect.gameObject.SetActive(isGimmickEnable);
+        }
+        
         if (playerInside && playerRb != null)
         {
             // FixedUpdate에서는 Time.fixedDeltaTime 사용
