@@ -10,10 +10,21 @@ Shader "Unlit/Gradient_Outline"
     }
     SubShader
     {
-        Tags { "RenderType"="Transparent" "Queue" = "Transparent" }
+        Tags { "Queue"="Overlay+2" "RenderType"="Opaque" }
         Blend SrcAlpha OneMinusSrcAlpha
+        
         Pass
         {
+            ZTest Always 
+            ZWrite Off            
+            
+            Stencil
+            {
+                Ref 2
+                Comp GEqual
+                Pass Replace
+            }
+            
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -65,8 +76,17 @@ Shader "Unlit/Gradient_Outline"
         Pass
         {
             Tags { "LightMode" = "UniversalForward" }
-            ZWrite Off
+            
+            ZTest Always
+            ZWrite Off  
             Cull Front
+            
+            Stencil
+            {
+                Ref 1
+                Comp GEqual
+                Pass Replace
+            }
             
             CGPROGRAM
             #pragma vertex vert

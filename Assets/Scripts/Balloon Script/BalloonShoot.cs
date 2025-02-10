@@ -8,6 +8,7 @@ public class BalloonShoot : MonoBehaviour
 {
     public float moveSpeed;
     public float speedScale;
+    public int step = 20;
     
     private Vector3 _moveDirection;
 
@@ -36,12 +37,18 @@ public class BalloonShoot : MonoBehaviour
             _rigidbody.AddForce(_moveDirection * (power * moveSpeed * speedScale));
             yield return new WaitForSeconds(0.01f);
         }
-    } 
+    }
+
+    private float QuantizePower(float power)
+    {
+        return power = 1f / step >= power ? power : Mathf.Round(power * step) / (float)step;
+    }
     
     public bool StartMove(float power)
     {
         SetRandomRotation();
-        StartCoroutine(PushBalloon(power));
+        //Debug.LogError(power + " " + QuantizePower(power));
+        StartCoroutine(PushBalloon(QuantizePower(power)));
         return true;
     }
 
