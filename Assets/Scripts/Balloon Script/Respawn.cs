@@ -60,6 +60,11 @@ public class Respawn : MonoBehaviour
     {
         respawnAngle = angle;
     }
+
+    public Quaternion GetRespawnAngle()
+    {
+        return Quaternion.Euler(respawnAngle);
+    }
     
     public void SetSavePointReached(bool isReached)//세이브포인트 도달 여부 설정, 이후 스폰 시 사용
     {
