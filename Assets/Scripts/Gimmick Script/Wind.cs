@@ -15,7 +15,7 @@ public class Wind : Gimmick
     
     private void OnTriggerEnter(Collider other)
     {
-        if(isGimmickEnable && other.CompareTag("Player"))
+        if(other.CompareTag("Player"))
         {
             playerInside = true;
             playerRb = other.GetComponent<Rigidbody>();
@@ -24,16 +24,26 @@ public class Wind : Gimmick
     
     private void OnTriggerExit(Collider other)
     {
-        if(isGimmickEnable && other.CompareTag("Player"))
+        if(other.CompareTag("Player"))
         {
-            playerInside = false;
-            playerRb = null;
+            BalloonExit();
         }
     }
 
+    private void BalloonExit()
+    {
+        playerInside = false;
+        playerRb = null;    
+    }
+    
     private void FixedUpdate()
     {
-        if (playerInside && playerRb != null)
+        foreach (var windEffect in _windEffects)
+        {
+            windEffect.gameObject.SetActive(isGimmickEnable);
+        }
+        
+        if (isGimmickEnable && playerInside && playerRb != null)
         {
             // FixedUpdate에서는 Time.fixedDeltaTime 사용
             playerRb.AddForce(windPower * Time.fixedDeltaTime * -transform.right, ForceMode.Force);
@@ -48,5 +58,15 @@ public class Wind : Gimmick
         {
             windEffect.gameObject.SetActive(isGimmickEnable);
         }
+    }
+
+    private void Start()
+    {
+        GameManager.instance.onBalloonDead.AddListener(BalloonExit);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.onBalloonDead.RemoveListener(BalloonExit);
     }
 }

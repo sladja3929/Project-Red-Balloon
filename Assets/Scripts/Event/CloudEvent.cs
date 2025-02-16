@@ -86,7 +86,7 @@ public class CloudEvent : MonoBehaviour
         float currentFloat;
         Color currentColor;
         
-        
+        if(end.cameraFarPlane == cloud.cameraFarPlane) SetFarPlane(end.cameraFarPlane);
         
         while (progress < 1)
         {

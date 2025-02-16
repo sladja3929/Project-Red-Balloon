@@ -17,7 +17,7 @@ public class Respawn : MonoBehaviour
 
     private Rigidbody _rigidbody;
     private BalloonController _controller;
-    private MeshRenderer _meshRenderer;
+    private MeshRenderer[] _meshRenderers;
     private MeshCollider _meshCollider;
 
     private SetSignPos setSignPos;
@@ -29,7 +29,7 @@ public class Respawn : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _controller = GetComponent<BalloonController>();
-        _meshRenderer = GetComponent<MeshRenderer>();
+        _meshRenderers = GetComponentsInChildren<MeshRenderer>();
         _meshCollider = GetComponent<MeshCollider>();
         
         setSignPos = FindObjectOfType<SetSignPos>();
@@ -60,6 +60,11 @@ public class Respawn : MonoBehaviour
     {
         respawnAngle = angle;
     }
+
+    public Quaternion GetRespawnAngle()
+    {
+        return Quaternion.Euler(respawnAngle);
+    }
     
     public void SetSavePointReached(bool isReached)//세이브포인트 도달 여부 설정, 이후 스폰 시 사용
     {
@@ -75,7 +80,8 @@ public class Respawn : MonoBehaviour
         GameManager.instance.CanDie = false;
         GameManager.instance.AimToFallForced();
         _meshCollider.enabled = false;
-        _meshRenderer.enabled = false;
+        foreach (var _meshRenderer in _meshRenderers)
+            _meshRenderer.enabled = false;
         _rigidbody.useGravity = false;
         _controller.SetFreezeState();
         
@@ -99,7 +105,8 @@ public class Respawn : MonoBehaviour
         transform.position = savePoint;
         transform.rotation = Quaternion.Euler(180, 0, 0);
         CameraController.instance.SetRotation(respawnAngle);
-        _meshRenderer.enabled = true;
+        foreach (var _meshRenderer in _meshRenderers)
+            _meshRenderer.enabled = true;
         
         //_rigidbody.position = savePoint;
         //_rigidbody.velocity = Vector3.zero;

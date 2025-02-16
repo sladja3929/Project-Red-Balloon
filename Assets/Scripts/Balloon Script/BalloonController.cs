@@ -43,14 +43,6 @@ public class BalloonController : MonoBehaviour
 		_balloonShoot = GetComponent<BalloonShoot>();
 		_rigidbody = GetComponent<Rigidbody>();
 		isOnPlatform = false;
-		
-		if (SaveManager.instance.IsNewSave() is false &&
-		    SaveManager.instance.BuildIndex == SceneManager.GetActiveScene().buildIndex)
-		{
-			// 릴리즈면 무조건 실행, 디버그면 isDebug에 따라
-			//if(!Debug.isDebugBuild || !isDebug) transform.position = SaveManager.instance.Position;
-			if(!isDebug) transform.position = SaveManager.instance.Position;
-		}
 	}
 
 	private void Start()
@@ -60,6 +52,17 @@ public class BalloonController : MonoBehaviour
 		GameManager.instance.CanDie = true;
 		if(SceneManager.GetActiveScene().name == "Stage0") GameManager.instance.CanDie = false;
 		GameManager.instance.onBalloonDead.AddListener(ResetCollision);
+		
+		if (SaveManager.instance.IsNewSave() is false &&
+		    SaveManager.instance.BuildIndex == SceneManager.GetActiveScene().buildIndex)
+		{
+			// 릴리즈면 무조건 실행, 디버그면 isDebug에 따라
+			//if(!Debug.isDebugBuild || !isDebug) transform.position = SaveManager.instance.Position;
+			if (!isDebug)
+			{
+				transform.position = SaveManager.instance.Position;
+			}
+		}
 	}
 
 	private void ResetCollision()

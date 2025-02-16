@@ -68,7 +68,6 @@ public class DeathUIManager : MonoBehaviour
         
         if (deathMessages.Count > 0)
         {
-            Debug.LogError("aasdas");
             string randomMessage = "";
             if (SaveManager.instance.DeathCount % teabaggingMessageCount == 0)
             {

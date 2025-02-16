@@ -16,8 +16,8 @@ public class CollisionKiller : Gimmick
     {
         if (effectType == EffectType.Shark)
         {
-            effectDelay = 3f;
-            deathDelay = 3.2f;
+            effectDelay = 1.8f;
+            deathDelay = 2f;
         }
     }
     public override void Execute()

@@ -12,6 +12,9 @@ public class DragRotation : MonoBehaviour
     public float minSpeed = 1f;
     public float maxSpeed = 100f;
     public float rotationSpeed = StaticSensitivity.mouseSensitivity;
+    public float rotateSmoothing = 80f;
+    public bool isReverse = true;
+
     
     public Camera cam;
 
@@ -19,26 +22,40 @@ public class DragRotation : MonoBehaviour
 
     public bool isOnFlyMode;
     
+    private Quaternion targetRotation;
+    
     private void DragRotate()
     {
-
+        targetRotation = direction.transform.rotation;
         if (Input.GetMouseButton(0))
         {
-            //cam = Camera.main;
-            //direction = transform.parent.GetChild(2).gameObject;
+            // 마우스 이동량에 따른 각도 계산
+            float deltaX = Input.GetAxis("Mouse X") * rotationSpeed;
+            float deltaY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-            float rotx = Input.GetAxis("Mouse X") * rotationSpeed;
-            float roty = Input.GetAxis("Mouse Y") * rotationSpeed;
+            // isReverse에 따른 각도 부호 결정
+            // 기존 코드: yaw에 -deltaX, pitch에 +deltaY 적용
+            // isReverse가 false면 이 부호들을 반전시켜서 마우스 이동과 동일하게 회전하도록 함
+            float factorX = isReverse ? -1f : 1f;
+            float factorY = isReverse ? 1f  : -1f;
 
-            // Calculate rotation axes using a more stable approach
-            Vector3 right = Vector3.Cross(cam.transform.up, direction.transform.forward);
-            Vector3 up = cam.transform.up;
+            // 회전 축 계산
+            Vector3 upAxis = cam.transform.up;
+            Vector3 rightAxis = Vector3.Cross(upAxis, direction.transform.forward).normalized;
 
-            // Apply rotations using Quaternions to avoid gimbal lock
-            Quaternion xRotation = Quaternion.AngleAxis(-rotx, up);
-            Quaternion yRotation = Quaternion.AngleAxis(roty, right);
-            direction.transform.rotation = yRotation * xRotation * direction.transform.rotation;
+            // 각 축의 회전 생성 (부호에 factor 적용)
+            Quaternion yawRotation = Quaternion.AngleAxis(deltaX * factorX, upAxis);
+            Quaternion pitchRotation = Quaternion.AngleAxis(deltaY * factorY, rightAxis);
+
+            // 두 회전을 결합 (순서 주의: 먼저 좌우 회전, 다음 상하 회전)
+            Quaternion deltaRotation = pitchRotation * yawRotation;
+
+            // 누적 목표 회전값 업데이트
+            targetRotation = deltaRotation * targetRotation;
         }
+
+        // 현재 회전에서 목표 회전으로 Slerp 보간 적용 (부드러운 회전)
+        direction.transform.rotation = Quaternion.Slerp(direction.transform.rotation, targetRotation, Time.deltaTime * rotateSmoothing);
         
         
         //테스트용 전방 45도 바라보는 방향지정
