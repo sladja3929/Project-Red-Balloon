@@ -12,22 +12,46 @@ public class StoneFall : Gimmick
     public float squareHeight = 10f;
     public float squareWidth = 1f;
     public float force = 1f;
+    public float resetTime = 10;
     
     private Rigidbody rb;
     private bool isActive = false;
+    private Vector3 initPos;
+    private float t = 0;
     
     private void Start()
     {
         rb = stone.GetComponent<Rigidbody>();
+        initPos = transform.position;
+    }
+
+    private void InitSettings()
+    {
+        isActive = false;
+        rb.isKinematic = true;
+        transform.position = initPos;
     }
     
-    public void Update()
+    public void FixedUpdate()
     {
-        if (!isActive && DetectBalloon())
+        if (!isActive)
         {
-            isActive = true;
-            rb.isKinematic = false;
-            rb.AddForce(-transform.up * force, ForceMode.Impulse);
+            if (DetectBalloon())
+            {
+                isActive = true;
+                rb.isKinematic = false;
+                rb.AddForce(-transform.up * force, ForceMode.Impulse);
+            }
+        }
+
+        else
+        {
+            t += Time.fixedDeltaTime;
+            if (t > resetTime)
+            {
+                InitSettings();
+                t = 0;
+            }
         }
     }
     

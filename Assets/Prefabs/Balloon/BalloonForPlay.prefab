@@ -165,10 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5d3628e0b8ee1479b2fdc9574115ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebug: 1
-  stopCriterionVelocity: 0.5
+  isDebug: 0
   chargeGauge: 0
   chargeKey: 32
+  cancelKey: 102
   chargeSpeed: 1
   ui: {fileID: 0}
   balloonShootSound: {fileID: 8300000, guid: 9bccbd9c6983dac499c43800dcfee40e, type: 3}
@@ -176,6 +176,11 @@ MonoBehaviour:
   balloonBoundSound: {fileID: 8300000, guid: 9bccbd9c6983dac499c43800dcfee40e, type: 3}
   rayToBottomLength: 1.4
   isGamePaused: 0
+  stopCriterionVelocity: 0.5
+  stopRollVelocity: 1.5
+  stopImpulse: 0.02
+  stopRollTime: 6
+  checkStuckTime: 2
   flyKey: 282
 --- !u!114 &7725434210765982043
 MonoBehaviour:
@@ -211,7 +216,8 @@ MonoBehaviour:
   savePoint: {x: 0, y: 0, z: 0}
   dieEffect: {fileID: 1116091231520297433, guid: 3903ad2d1ea915948b2dab0fffbfd9b4, type: 3}
   dieSound: {fileID: 8300000, guid: 48fceb0a6fc53254db8fdd775bd9b0c9, type: 3}
-  respawnTime: 3
+  respawnTime: 2
+  skipKey: 32
   dieKey: 114
 --- !u!114 &1968744810210670419
 MonoBehaviour:

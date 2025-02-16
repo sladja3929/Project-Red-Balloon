@@ -12,11 +12,14 @@ public class BalloonDebuff : MonoBehaviour
     private float maxSize;
     
     private float heatingSpeed;
-    
     private bool isHeated;
-
+    private BalloonController bc;
+    private float initRayLength;
+    
     void Start()
     {
+        bc = GetComponent<BalloonController>();
+        initRayLength = bc.rayToBottomLength;
         _originalScale = transform.localScale;
         GameManager.instance.onBalloonDead.AddListener(InitSettings);
         InitSettings();
@@ -29,14 +32,16 @@ public class BalloonDebuff : MonoBehaviour
         _gauge = 0;
         isHeated = false;
         this.enabled = false;
+        bc.rayToBottomLength = initRayLength;
     }
     
     private void FixedUpdate()
     {
-        transform.localScale = _originalScale * (1 + maxSize * _gauge);
-
         if (isHeated)
         {
+            transform.localScale = _originalScale * (1 + maxSize * _gauge);
+            bc.rayToBottomLength = initRayLength* (1 + maxSize * _gauge);
+            
             _gauge += heatingSpeed;
             
             if (_gauge > 1)
@@ -45,8 +50,11 @@ public class BalloonDebuff : MonoBehaviour
             }
         }
 
-        else
+        else if (_gauge > 0)
         {
+            transform.localScale = _originalScale * (1 + maxSize * _gauge);
+            bc.rayToBottomLength = initRayLength* (1 + maxSize * _gauge);
+            
             _gauge -= heatingSpeed;
             
             if (_gauge < 0)

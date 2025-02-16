@@ -30,17 +30,6 @@ public class Wind : Gimmick
             playerRb = null;
         }
     }
-    
-    private void OnTriggerStay(Collider other)
-    {
-        return;
-        if (!isGimmickEnable) return;
-        
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.GetComponent<Rigidbody>().AddForce(windPower * Time.deltaTime * -transform.right);
-        }
-    }
 
     private void FixedUpdate()
     {

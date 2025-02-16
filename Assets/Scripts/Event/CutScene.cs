@@ -56,6 +56,7 @@ public class CutScene : MonoBehaviour
             if (GameManager.instance.CanBalloonMove())
             {
                 balloon = other.gameObject;
+                GameManager.instance.CanDie = false;
                 GameManager.instance.FreezeBalloon();
                 hasExecuted = true;
             }
@@ -67,7 +68,7 @@ public class CutScene : MonoBehaviour
         if(other.CompareTag("Player") && !hasToStay)
         {
             balloon = other.gameObject;
-            GameManager.instance.CanSuicide = false;
+            GameManager.instance.CanDie = false;
             hasExecuted = true;
         }
     }

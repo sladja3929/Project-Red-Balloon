@@ -12,9 +12,10 @@ using UnityEngine.Serialization;
  *    - ㅇ
  */
 
+
 public class SaveManager : Singleton<SaveManager>
 {
-    private const string SAVE_PATH = "save.json";
+    private const string SAVE_PATH = "save.whs"; // .whs 확장자로 변경
 
     [SerializeField]
     private SaveInfo curInfo;
@@ -24,7 +25,7 @@ public class SaveManager : Singleton<SaveManager>
         get => curInfo.stage;
         set => curInfo.stage = value;
     }
-    
+
     public Vector3 Position
     {
         get => curInfo.position;
@@ -36,7 +37,7 @@ public class SaveManager : Singleton<SaveManager>
         get => curInfo.deathCount;
         set => curInfo.deathCount = value;
     }
-    
+
     public float PlayTime
     {
         get => curInfo.playTime;
@@ -46,22 +47,30 @@ public class SaveManager : Singleton<SaveManager>
     private new void Awake()
     {
         base.Awake();
-        
         curInfo = Load();
     }
-    
+
     public bool IsNewSave()
     {
         return !File.Exists(SAVE_PATH) || CheckFlag(SaveFlag.NewSave);
     }
-    
-    // save Info를 JsonData로 저장합니다.
+
+    // 🔹 Binary Save (JSON 대신 바이너리로 저장)
     public void Save()
-    { 
-        string file = JsonUtility.ToJson(curInfo);
-        File.WriteAllText(SAVE_PATH, file);
+    {
+        using (FileStream fs = new FileStream(SAVE_PATH, FileMode.Create))
+        using (BinaryWriter writer = new BinaryWriter(fs))
+        {
+            writer.Write(curInfo.stage);
+            writer.Write(curInfo.position.x);
+            writer.Write(curInfo.position.y);
+            writer.Write(curInfo.position.z);
+            writer.Write((int)curInfo.flagInfo);
+            writer.Write(curInfo.deathCount);
+            writer.Write(curInfo.playTime);
+        }
     }
-    
+
     public SaveInfo GetSaveInfo()
     {
         return curInfo;
@@ -70,7 +79,7 @@ public class SaveManager : Singleton<SaveManager>
     public void ResetSave()
     {
         File.Delete(SAVE_PATH);
-        
+
         curInfo = new SaveInfo
         {
             flagInfo = SaveFlag.NewSave,
@@ -79,22 +88,33 @@ public class SaveManager : Singleton<SaveManager>
         };
     }
 
+    // 🔹 Binary Load (JSON 대신 바이너리로 불러오기)
     private static SaveInfo Load()
     {
         if (!File.Exists(SAVE_PATH))
         {
-            SaveInfo ret = new SaveInfo
+            return new SaveInfo
             {
                 flagInfo = SaveFlag.NewSave,
                 deathCount = 0,
                 playTime = 0
             };
-
-            return ret;
         }
-        
-        string file = File.ReadAllText(SAVE_PATH);
-        return JsonUtility.FromJson<SaveInfo>(file);
+
+        using (FileStream fs = new FileStream(SAVE_PATH, FileMode.Open))
+        using (BinaryReader reader = new BinaryReader(fs))
+        {
+            SaveInfo loaded = new SaveInfo
+            {
+                stage = reader.ReadInt32(),
+                position = new Vector3(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle()),
+                flagInfo = (SaveFlag)reader.ReadInt32(),
+                deathCount = reader.ReadInt32(),
+                playTime = reader.ReadSingle()
+            };
+
+            return loaded;
+        }
     }
 
     private void OnApplicationQuit()
@@ -103,7 +123,7 @@ public class SaveManager : Singleton<SaveManager>
     }
 
     // ==================== Flag 관련 함수 ====================
-    
+
     public bool CheckFlag(SaveFlag flag)
     {
         return (curInfo.flagInfo & flag) == flag;
@@ -113,20 +133,21 @@ public class SaveManager : Singleton<SaveManager>
     {
         curInfo.flagInfo |= flag;
     }
-    
+
     public void RemoveFlag(SaveFlag flag)
     {
         curInfo.flagInfo &= ~flag;
     }
-    
+
     // ==================== Developer Function ====================
-    
+
     [ContextMenu("Save Immediately")]
     public void SaveImmediately()
     {
         Save();
     }
 }
+
 
 [System.Flags, System.Serializable]
 public enum SaveFlag
