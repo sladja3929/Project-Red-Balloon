@@ -32,6 +32,26 @@ public class URPSettingsController : MonoBehaviour
         // URP Asset을 가져옵니다.
         currentAsset = GraphicsSettings.renderPipelineAsset as UniversalRenderPipelineAsset;
         
+        if (currentAsset == null)
+        {
+            Debug.LogError("URP Asset이 설정되지 않았습니다.");
+        }
+
+        QualityLevel qualityLevel;
+        int levelInt = PlayerPrefs.GetInt("Quality", (int)QualityLevel.Medium);
+        
+        if (Enum.IsDefined(typeof(QualityLevel), levelInt))
+        {
+            qualityLevel = (QualityLevel)levelInt;
+        }
+
+        else
+        {
+            qualityLevel = QualityLevel.Medium;
+        }
+        
+        SetQualityLevel(qualityLevel);
+        
         rightButton.onClick.RemoveAllListeners();
         rightButton.onClick.AddListener(OnClickRightButton);
         
@@ -39,15 +59,12 @@ public class URPSettingsController : MonoBehaviour
         leftButton.onClick.AddListener(OnClickLeftButton);
         
         ReloadText();
-
-        if (currentAsset == null)
-        {
-            Debug.LogError("URP Asset이 설정되지 않았습니다.");
-        }
     }
 
     private void SetQualityLevel(QualityLevel qualityLevel)
     {
+        PlayerPrefs.SetInt("Quality", (int)qualityLevel);
+        
         GraphicsSettings.renderPipelineAsset = qualityLevel switch
         {
             QualityLevel.High => highQualityAsset,

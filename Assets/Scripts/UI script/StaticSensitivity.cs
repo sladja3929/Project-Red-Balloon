@@ -2,18 +2,22 @@ using UnityEngine;
 
 public static class StaticSensitivity
 {
-    private static float mouseSensitivity = 1f;
-    private const float MAX_MOUSE_SENSITIVITY = 50f;
-    private const float MIN_MOUSE_SENSITIVITY = 1f;
+    private static float mouseSensitivity = 6f;
+    private const float MAX_MOUSE_SENSITIVITY = 20f;
+    private const float MIN_MOUSE_SENSITIVITY = 0.5f;
     
-    private static float camSensitivity = 1f;
-    private const float MAX_CAM_SENSITIVITY = 10;
-    private const float MIN_CAM_SENSITIVITY = 0.1f;
+    private static float camSensitivity = 1.625f;
+    private const float MAX_CAM_SENSITIVITY = 6f;
+    private const float MIN_CAM_SENSITIVITY = 0.5f;
+
+    static StaticSensitivity()
+    {
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", mouseSensitivity);
+        camSensitivity = PlayerPrefs.GetFloat("CamSensitivity", camSensitivity);
+    }
     
-    public static float MouseSensitivity => 
-        PlayerPrefs.HasKey("MouseSensitivity") ? PlayerPrefs.GetFloat("MouseSensitivity") : mouseSensitivity;
-    public static float CamSensitivity => 
-        PlayerPrefs.HasKey("CamSensitivity") ? PlayerPrefs.GetFloat("CamSensitivity") : camSensitivity;
+    public static float MouseSensitivity => mouseSensitivity;
+    public static float CamSensitivity => camSensitivity;
     
     public static void SetMouseSensitivity(float rate)
     {
