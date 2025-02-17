@@ -23,12 +23,9 @@ public class URPSettingsController : MonoBehaviour
     [Header("UI")]
     public Button rightButton;
     public Button leftButton;
-    public Image currentQualityImage;
     
-    // Quality Images[0] = High, [1] = Medium, [2] = Low
-    // 해당 내용을 설명하는 텍스트가 유니티 Editor에서 표시되도록 하는 Attribute
-    [Tooltip("Quality Images[0] = High, [1] = Medium, [2] = Low")]
-    public Sprite[] qualityImages;
+    
+    public TMP_Text qualityText;
 
     private void Awake()
     {
@@ -46,11 +43,6 @@ public class URPSettingsController : MonoBehaviour
         if (currentAsset == null)
         {
             Debug.LogError("URP Asset이 설정되지 않았습니다.");
-        }
-        
-        if (qualityImages.Length != 3)
-        {
-            Debug.LogError("Quality Images의 개수가 3개가 아닙니다.");
         }
     }
 
@@ -103,18 +95,8 @@ public class URPSettingsController : MonoBehaviour
     
     private void ReloadText()
     {
-        if (currentAsset == highQualityAsset)
-        {
-            currentQualityImage.sprite = qualityImages[0];
-        }
-        else if (currentAsset == mediumQualityAsset)
-        {
-            currentQualityImage.sprite = qualityImages[1];
-        }
-        else if (currentAsset == lowQualityAsset)
-        {
-            currentQualityImage.sprite = qualityImages[2];
-        }
+        qualityText.text = currentAsset == highQualityAsset ? "High" : 
+            currentAsset == mediumQualityAsset ? "Medium" : "Low";
     }
 }
 

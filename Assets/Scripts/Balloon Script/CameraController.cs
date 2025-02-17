@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     }
 
     [SerializeField] private Transform viewerTransform;
-    private static float DPI => StaticSensitivity.camSensitivity;
+    private static float DPI => StaticSensitivity.CamSensitivity;
 
     public enum ControllType
     {
