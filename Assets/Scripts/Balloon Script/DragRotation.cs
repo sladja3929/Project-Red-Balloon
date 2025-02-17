@@ -11,7 +11,7 @@ public class DragRotation : MonoBehaviour
     
     public float minSpeed = 1f;
     public float maxSpeed = 100f;
-    public float rotationSpeed = StaticSensitivity.mouseSensitivity;
+    public float rotationSpeed => StaticSensitivity.MouseSensitivity;
     public float rotateSmoothing = 80f;
     public bool isReverse = true;
 
@@ -92,6 +92,7 @@ public class DragRotation : MonoBehaviour
 
     public void SetRotationSpeedRate(float value)
     {
-        rotationSpeed = Mathf.Lerp(minSpeed, maxSpeed, value);
+       // rotationSpeed = Mathf.Lerp(minSpeed, maxSpeed, value);
+       StaticSensitivity.SetMouseSensitivity(value);
     }
 }
