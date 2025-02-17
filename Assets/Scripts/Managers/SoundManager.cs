@@ -17,8 +17,8 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource backgroundSound;
     public AudioClip[] backgroundSoundList;
     
-    [SerializeField] private float backgroundVolume;
-    [SerializeField] private float sfxVolume;
+    [SerializeField] private float backgroundVolume = 0.4f;
+    [SerializeField] private float sfxVolume = 0.4f;
     [SerializeField] private float delayTime = 2;
     
     [SerializeField] private AudioMixer audioMixer;
@@ -30,8 +30,8 @@ public class SoundManager : Singleton<SoundManager>
         base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
         
-        sfxVolume =        PlayerPrefs.GetFloat("SfxVolume",        1);
-        backgroundVolume = PlayerPrefs.GetFloat("BackgroundVolume", 1);
+        sfxVolume =        PlayerPrefs.GetFloat("SfxVolume",        sfxVolume);
+        backgroundVolume = PlayerPrefs.GetFloat("BackgroundVolume", backgroundVolume);
         
         audioMixer.SetFloat("SfxVolume", Mathf.Log10(sfxVolume) * 20);
         foreach (AudioClip t in backgroundSoundList)

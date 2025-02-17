@@ -11,7 +11,7 @@ public class ResolutionController : MonoBehaviour
     private Resolution[] _resolutions;
     private int[] _refreshRates;
     private int _currentResolutionIndex = 0;
-    private int _currentFrameRateIndex = 0;
+    private int _currentFrameRateIndex = 1;
 
     [Header("Resolution Setting")]
     public TMP_Text resolutionText;
@@ -58,6 +58,7 @@ public class ResolutionController : MonoBehaviour
     private void ChangeFrameRate(int direction)
     {
         _currentFrameRateIndex = Mathf.Clamp(_currentFrameRateIndex + direction, 0, _refreshRates.Length - 1);
+        PlayerPrefs.SetInt("FrameRate", _currentFrameRateIndex);
         SetFrameRate(_currentFrameRateIndex);
     }
 
@@ -78,11 +79,15 @@ public class ResolutionController : MonoBehaviour
             // 720p
             new Resolution { width = 1280, height = 720, refreshRate = 60 },
         };
-
-        _refreshRates = new[] { 30, 60, 120, 144, 240 }; // 예시 refresh rate들
-
-        // 첫 해상도와 프레임 레이트를 설정
+        
+        // 첫 해상도를 설정
         SetResolution(_currentResolutionIndex);
+    }
+
+    private void SetupFrameRate()
+    {
+        _refreshRates = new[] { 30, 60, 120, 144, 240 }; // 예시 refresh rate들
+        _currentFrameRateIndex = PlayerPrefs.GetInt("FrameRate", _currentFrameRateIndex);
         SetFrameRate(_currentFrameRateIndex);
     }
 
@@ -132,7 +137,8 @@ public class ResolutionController : MonoBehaviour
     {
         SetupResolution();
         SetupFullScreen();
-
+        SetupFrameRate();
+        
         // Button 클릭 이벤트 등록
         rightResolutionButton.onClick.AddListener(() => ChangeResolution(1));
         leftResolutionButton.onClick.AddListener(() => ChangeResolution(-1));
