@@ -16,11 +16,6 @@ public class GameManager : Singleton<GameManager>
         //records = new List<float>();
 
         SceneManager.sceneLoaded += SetBalloon;
-        
-        // VSync 비활성화
-        QualitySettings.vSyncCount = 0;
-        // 60FPS로 제한
-        Application.targetFrameRate = 60;
     }
 
     private void Update()
@@ -41,6 +36,7 @@ public class GameManager : Singleton<GameManager>
         _balloonRigid = _balloonObj.GetComponent<Rigidbody>();
         _balloonSpawn = _balloonObj.GetComponent<Respawn>();
         _balloonController = _balloonObj.GetComponent<BalloonController>();
+        _balloonDrag = _balloonObj.GetComponent<DragRotation>();
     }
 
     public static bool IsPause
@@ -54,7 +50,22 @@ public class GameManager : Singleton<GameManager>
         Application.Quit();
     }
 
+    private bool invertAim = true;
+    public bool InvertAim
+    {
+        get
+        {
+            if (_balloonDrag != null) invertAim = _balloonDrag.isReverse;
+            return invertAim;
+        }
 
+        set
+        {
+            if (_balloonDrag != null) _balloonDrag.isReverse = value;
+            invertAim = value;
+        }
+    }
+    
     //현재 Spawn Point를 디버깅하기 위한 변수
     [SerializeField] private Vector3 savePoint;
     
@@ -62,6 +73,7 @@ public class GameManager : Singleton<GameManager>
     private Rigidbody _balloonRigid;
     private Respawn _balloonSpawn;
     private BalloonController _balloonController;
+    private DragRotation _balloonDrag;
     
     public void SetSavePoint(Vector3 point)
     {

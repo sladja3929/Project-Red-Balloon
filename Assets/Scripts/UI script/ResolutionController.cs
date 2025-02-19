@@ -1,93 +1,119 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ResolutionController : MonoBehaviour
 {
-    [SerializeField] private TMP_Dropdown resolutionDropdown;
-
     //====================Resolution Setting====================
     private Resolution[] _resolutions;
-    private List<Resolution> _filteredResolutions;
-
-    private float _currentRefreshRate;
+    private int[] _refreshRates;
     private int _currentResolutionIndex = 0;
+    private int _currentFrameRateIndex = 1;
 
+    [Header("Resolution Setting")]
+    public TMP_Text resolutionText;
+    public Button rightResolutionButton;
+    public Button leftResolutionButton;
+    
+    // Frame Rate 설정
+    [Header("Frame Rate Setting")]
+    public TMP_Text frameRateText;
+    public Button rightFrameRateButton;
+    public Button leftFrameRateButton;
+
+    // Resolution 설정
     public void SetResolution(int resolutionIndex)
     {
-        var resolution = _filteredResolutions[resolutionIndex];
+        var resolution = _resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, _fullScreen);
+
+        // 텍스트 업데이트
+        resolutionText.text = $"{resolution.width}x{resolution.height}";
     }
 
-    public void SetupResolution()
+    // Frame Rate 설정
+    public void SetFrameRate(int frameRateIndex)
     {
-        
-        _resolutions = Screen.resolutions;
-        _filteredResolutions = new List<Resolution>();
-
-        resolutionDropdown.ClearOptions();
-        _currentRefreshRate = Screen.currentResolution.refreshRate;
-
-        foreach (var resolution in _resolutions)
+        int targetFrameRate = _refreshRates[frameRateIndex];
+        if (frameRateIndex >= 0 && frameRateIndex < _refreshRates.Length)
         {
-            Debug.Log("Resolution : " + resolution);
-            // ReSharper disable once CompareOfFloatsByEqualityOperator
-            if (resolution.refreshRate == _currentRefreshRate)
-            {
-                _filteredResolutions.Add(resolution);
-            }
+            targetFrameRate = _refreshRates[frameRateIndex];
         }
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = targetFrameRate;
 
-        var options = new List<string>();
-        if (options == null) throw new ArgumentNullException(nameof(options));
+        // 텍스트 업데이트
+        frameRateText.text = $"{targetFrameRate} FPS";
+    }
 
-        for (var index = 0; index < _filteredResolutions.Count; index++)
+    private void ChangeResolution(int direction)
+    {
+        _currentResolutionIndex = Mathf.Clamp(_currentResolutionIndex + direction, 0, _resolutions.Length - 1);
+        SetResolution(_currentResolutionIndex);
+    }
+
+    private void ChangeFrameRate(int direction)
+    {
+        _currentFrameRateIndex = Mathf.Clamp(_currentFrameRateIndex + direction, 0, _refreshRates.Length - 1);
+        PlayerPrefs.SetInt("FrameRate", _currentFrameRateIndex);
+        SetFrameRate(_currentFrameRateIndex);
+    }
+
+    private void SetupResolution()
+    {
+        // 미리 정의된 해상도 배열
+        _resolutions = new[]
         {
-            var t = _filteredResolutions[index];
-            var resolutionOption = t.width + "x" +
-                                   t.height + " " +
-                                   t.refreshRate + "Hz";
-            options.Add(resolutionOption);
-            if (t.width == Screen.width && t.height == Screen.height)
-            {
-                _currentResolutionIndex = index;
-            }
-        }
+            // 4k
+            new Resolution { width = 3840, height = 2160, refreshRate = 60 },
 
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = _currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+            // 1440p
+            new Resolution { width = 2560, height = 1440, refreshRate = 60 },
+
+            // 1080p
+            new Resolution { width = 1920, height = 1080, refreshRate = 60 },
+
+            // 720p
+            new Resolution { width = 1280, height = 720, refreshRate = 60 },
+        };
         
-        resolutionDropdown.onValueChanged.AddListener(SetResolution);
+        // 첫 해상도를 설정
+        SetResolution(_currentResolutionIndex);
+    }
+
+    private void SetupFrameRate()
+    {
+        _refreshRates = new[] { 30, 60, 120, 144, 240 }; // 예시 refresh rate들
+        _currentFrameRateIndex = PlayerPrefs.GetInt("FrameRate", _currentFrameRateIndex);
+        SetFrameRate(_currentFrameRateIndex);
     }
 
     //=======================Full Screen Setting=======================
-    [Header("Full Screen Setting")]
-    private bool _fullScreen;
-    public Button fullScreenToggle;
-    public Button windowedToggle;
-
-    [Space(10)]
-    public Sprite fullScreenOn;
-    public Sprite fullScreenOff;
-    public Image fullScreenImage;
     
-    [Space(10)]
-    public Sprite windowedOn;
-    public Sprite windowedOff;
-    public Image windowedImage;
+    private bool _fullScreen;
+    
+    [Header("Full Screen Setting")]
+    public TMP_Text fullScreenText;
+    public Button fsRightButton;
+    public Button fsLeftButton;
+
+    public void PressRight_FullScreen()
+    {
+        SetFullScreen(!_fullScreen);
+    }
+
+    public void PressLeft_FullScreen()
+    {
+        SetFullScreen(!_fullScreen);
+    }
 
     private void ReloadToggle(bool isFullScreen)
     {
-        fullScreenToggle.interactable = !isFullScreen;
-        windowedToggle.interactable = isFullScreen;
-        
-        fullScreenImage.sprite = isFullScreen ? fullScreenOn : fullScreenOff;
-        windowedImage.sprite = isFullScreen ? windowedOff : windowedOn;
+        _fullScreen = isFullScreen;
+        fullScreenText.text = isFullScreen ? "Full Screen" : "Windowed";
     }
 
     private void SetupFullScreen()
@@ -98,9 +124,11 @@ public class ResolutionController : MonoBehaviour
     public void SetFullScreen(bool arg0)
     {
         Debug.Log("SetFullScreen : " + arg0);
-        
+
         _fullScreen = arg0;
-        Screen.SetResolution(Screen.width, Screen.height, _fullScreen ? FullScreenMode.FullScreenWindow :  FullScreenMode.Windowed);
+        Screen.SetResolution(Screen.width, Screen.height, _fullScreen ?
+            FullScreenMode.FullScreenWindow :
+            FullScreenMode.Windowed);
 
         ReloadToggle(_fullScreen);
     }
@@ -109,5 +137,21 @@ public class ResolutionController : MonoBehaviour
     {
         SetupResolution();
         SetupFullScreen();
+        SetupFrameRate();
+        
+        // Button 클릭 이벤트 등록
+        rightResolutionButton.onClick.AddListener(() => ChangeResolution(1));
+        leftResolutionButton.onClick.AddListener(() => ChangeResolution(-1));
+        rightFrameRateButton.onClick.AddListener(() => ChangeFrameRate(1));
+        leftFrameRateButton.onClick.AddListener(() => ChangeFrameRate(-1));
+        fsRightButton.onClick.AddListener(PressRight_FullScreen);
+        fsLeftButton.onClick.AddListener(PressLeft_FullScreen);
+    }
+
+    private void Update()
+    {
+        // Check Full Screen 상태
+        if (Screen.fullScreen != _fullScreen)
+            SetupFullScreen();
     }
 }

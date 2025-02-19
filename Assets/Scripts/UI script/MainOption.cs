@@ -28,6 +28,10 @@ public class MainOption : MonoBehaviour
 
         sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();
         musicVolumeSlider.value = SoundManager.instance.GetBackgroundVolume();
+        
+        mouseSensitivitySlider.value = StaticSensitivity.GetMouseSensitivityRate();
+        camSensitivitySlider.value = StaticSensitivity.GetCamSensitivityRate();
+        
     }
 
     public void ClosePauseMenu()
