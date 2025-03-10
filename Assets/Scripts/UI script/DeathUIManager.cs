@@ -24,29 +24,37 @@ public class DeathUIManager : MonoBehaviour
     
     private void Start()
     {
-        LoadMessages();
         GameManager.instance.onBalloonRespawn.AddListener(EnableDeathUI);
+        LoadMessages(LanguageManager.instance.currentLanguage);
+        LanguageManager.instance.OnLanguageChanged += LoadMessages;
         canvas.gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.onBalloonRespawn.RemoveListener(EnableDeathUI);
+        LanguageManager.instance.OnLanguageChanged -= LoadMessages;
     }
     private void EnableDeathUI()
     {
         if (isPlaying) return;
         StartCoroutine(ShowDeathMessage());
     }
-
-
     
-    private void LoadMessages()
+    private void LoadMessages(LanguageManager.Language language)
     {
-        TextAsset deathTextAsset = Resources.Load<TextAsset>("deathMessages");
-        TextAsset teabaggingTextAsset = Resources.Load<TextAsset>("teabaggingMessages");
+        deathMessages.Clear();
+        teabaggingMessages.Clear();
+
+        TextAsset deathTextAsset = Resources.Load<TextAsset>($"deathMessages_{language}");
+        TextAsset teabaggingTextAsset = Resources.Load<TextAsset>($"teabaggingMessages_{language}");
         if (deathTextAsset != null)
         {
             deathMessages.AddRange(deathTextAsset.text.Split('\n'));
         }
         else
         {
-            Debug.LogError("deathMessages.txt 파일을 찾을 수 없습니다!");
+            Debug.LogError($"deathMessages_{language}.txt 파일을 찾을 수 없습니다!");
         }
 
         if (teabaggingTextAsset != null)
@@ -55,7 +63,7 @@ public class DeathUIManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("teabaggingMessages.txt 파일을 찾을 수 없습니다!");
+            Debug.LogError($"teabaggingMessages_{language}.txt 파일을 찾을 수 없습니다!");
         }
     }
 
@@ -183,10 +191,4 @@ public class DeathUIManager : MonoBehaviour
 
         Canvas.ForceUpdateCanvases();
     }
-
-    private void OnDestroy()
-    {
-        GameManager.instance.onBalloonRespawn.RemoveListener(EnableDeathUI);
-    }
 }
-

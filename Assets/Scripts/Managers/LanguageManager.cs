@@ -1,16 +1,25 @@
+using System;
+
 public class LanguageManager : Singleton<LanguageManager>
 {
     public enum Language
     {
-        English,
-        Korean
+        KR,
+        EN,
+        JP,
+        CHT
     }
 
     public Language currentLanguage;
+    public event Action<Language> OnLanguageChanged;
 
     public void SetLanguage(Language language)
     {
-        currentLanguage = language;
+        if (currentLanguage != language)
+        {
+            currentLanguage = language;
+            OnLanguageChanged?.Invoke(language);
+        }
     }
 
     public string GetText(string key)
