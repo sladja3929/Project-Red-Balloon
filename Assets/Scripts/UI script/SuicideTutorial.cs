@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class SuicideTutorial : MonoBehaviour
 {
-    public TextMeshProUGUI text;
     public Image image;
-    public float fadetime;
-
+    public float fadeTime;
+    public int targetDeathCount;
     private bool isPlay = false;
 
     private void Awake()
@@ -18,15 +18,11 @@ public class SuicideTutorial : MonoBehaviour
         Color color = image.color;
         color.a = 0;
         image.color = color;
-        
-        color = text.color;
-        color.a = 0;
-        text.color = color;
     }
 
     private void Start()
     {
-        if (SaveManager.instance.DeathCount >= 5) Destroy(gameObject);
+        if (SaveManager.instance.DeathCount >= targetDeathCount) Destroy(gameObject);
 
         else
         {
@@ -36,7 +32,7 @@ public class SuicideTutorial : MonoBehaviour
 
     private void Show()
     {
-        if (!isPlay && SaveManager.instance.DeathCount == 5)
+        if (!isPlay && SaveManager.instance.DeathCount == targetDeathCount)
         {
             GameManager.instance.onBalloonRespawn.RemoveListener(Show);
             StartCoroutine(ShowCoroutine());
@@ -48,12 +44,10 @@ public class SuicideTutorial : MonoBehaviour
     {
         isPlay = true;
         
-        StartCoroutine(FadeIn(text));
         yield return StartCoroutine(FadeIn(image));
 
         yield return new WaitForSeconds(5f);
         
-        StartCoroutine(FadeOut(text));
         yield return StartCoroutine(FadeOut(image));
         
         Destroy(gameObject);
@@ -65,10 +59,10 @@ public class SuicideTutorial : MonoBehaviour
         color.a = 0;
         graphic.color = color;
         float elapsedTime = 0f;
-        while (elapsedTime < fadetime)
+        while (elapsedTime < fadeTime)
         {
             elapsedTime += Time.deltaTime;
-            color.a = Mathf.Clamp01(elapsedTime / fadetime);
+            color.a = Mathf.Clamp01(elapsedTime / fadeTime);
             graphic.color = color; 
             yield return null;
         }
@@ -81,10 +75,10 @@ public class SuicideTutorial : MonoBehaviour
         Color color = graphic.color;
         float startAlpha = color.a; // 현재 투명도 상태 저장
         float elapsedTime = 0f;
-        while (elapsedTime < fadetime)
+        while (elapsedTime < fadeTime)
         {
             elapsedTime += Time.deltaTime;
-            color.a = Mathf.Lerp(startAlpha, 0, elapsedTime / fadetime); // 현재 투명도에서 0으로 페이드 아웃
+            color.a = Mathf.Lerp(startAlpha, 0, elapsedTime / fadeTime); // 현재 투명도에서 0으로 페이드 아웃
             graphic.color = color;
             yield return null;
         }

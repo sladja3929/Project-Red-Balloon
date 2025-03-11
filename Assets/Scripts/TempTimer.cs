@@ -19,6 +19,6 @@ public class TempTimer : MonoBehaviour
         int hours = totalSeconds / 3600;
         int minutes = (totalSeconds % 3600) / 60;
         int seconds = totalSeconds % 60;
-        time.text = $"플레이 시간: {hours:D2}시간 {minutes:D2}분 {seconds:D2}초";
+        time.text = $"{hours:D2} : {minutes:D2} : {seconds:D2}";
     }
 }
