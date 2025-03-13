@@ -36,7 +36,7 @@ public class Stage3CutScene : CutScene
 
         if (hasExecuted && !isPlayed)
         {
-            //SoundManager.instance.FadeOutBackgroundVolume();
+            SoundManager.instance.FadeOutBackgroundVolume();
             myCoroutine = StartCoroutine("PlayCutScene");
             isPlayed = true;
         }
@@ -72,40 +72,30 @@ public class Stage3CutScene : CutScene
         yield return new WaitForSeconds(3.5f);
 
         //first camera, second rotation
-        cameraMovements[0].dollyCart.m_Speed = 0.25f;
+        cameraMovements[0].dollyCart.m_Speed = 0.390625f;
         cameraMovements[0].dollyCart.enabled = true;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.6f);
 
         //balloonman walk
         yield return new WaitForSeconds(2.5f);
         balloonMan.GetComponent<Animator>().SetTrigger("walk");
         StartCoroutine("BalloonManMove");
-        yield return new WaitForSeconds(6f);
+        SoundManager.instance.BackgroundPlay(soundEffect[0]);
+        yield return new WaitForSeconds(5f);
 
 
-        fadingInfo.playTime = 3f;
+        fadingInfo.playTime = 2f;
         SceneChangeManager.instance.FadeOut(fadingInfo);
         yield return waitingFadeFinish;
 
         //second camera
-        fadingInfo.playTime = 2f;
+        fadingInfo.playTime = 1.5f;
         SceneChangeManager.instance.FadeIn(fadingInfo);
         cameraMovements[1].cutSceneCamera.Priority = 16;
-
+        
         yield return waitingFadeFinish;
-
+        
         StartCoroutine("EndingCredit");
-
-
-
-        /*
-        SceneChangeManager.instance.FadeOut(fadingInfo);
-        yield return waitingFadeFinish;
-
-        //change scene
-        fadingInfo.playTime = 5;
-        void FadeIn() => SceneChangeManager.instance.FadeIn(fadingInfo);
-        SceneChangeManager.instance.LoadSceneAsync("stage3", onFinish: FadeIn);*/
     }
 
     private IEnumerator BalloonManMove()
@@ -155,13 +145,13 @@ public class Stage3CutScene : CutScene
         }
         final.SetActive(true);
         
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(4.5f);
 
         //결과창 띄움
         foreach (Graphic g in graphics)
         {
+            if (g.gameObject.GetComponent<Button>() != null) yield return new WaitForSeconds(2f);
             yield return StartCoroutine(UIFadeIn(g));
-            yield return new WaitForSeconds(1f);
         }
         
         button.interactable = true;
@@ -177,6 +167,7 @@ public class Stage3CutScene : CutScene
     {
         FadingInfo fadingInfo = new FadingInfo(2f, 0, 1, 0);
         SceneChangeManager.instance.FadeOut(fadingInfo);
+        SoundManager.instance.FadeOutBackgroundVolume();
         yield return waitingFadeFinish;
 
         fadingInfo.playTime = 0f;

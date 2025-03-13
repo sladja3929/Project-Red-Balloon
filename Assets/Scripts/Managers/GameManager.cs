@@ -25,7 +25,7 @@ public class GameManager : Singleton<GameManager>
         if (_balloonObj == null) return;
         if (SceneManager.GetActiveScene().name == "MainMenu") return;
         
-        SaveManager.instance.PlayTime += Time.deltaTime;
+        if(!IsCinematic) SaveManager.instance.PlayTime += Time.deltaTime;
     }
     
     private void SetBalloon(Scene arg0, LoadSceneMode arg1)
