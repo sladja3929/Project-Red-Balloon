@@ -34,8 +34,6 @@ public class PauseMenu : MonoBehaviour
         sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();
         musicVolumeSlider.value = SoundManager.instance.GetBackgroundVolume();
         
-        //mouseSensitivitySlider.value = _dragRotation.GetRotationSpeedRate();
-        //camSensitivitySlider.value = _cameraController.GetDpiRate();
         mouseSensitivitySlider.value = _dragRotation.GetRotationSpeedRate();
         camSensitivitySlider.value = _cameraController.GetDpiRate();
     }

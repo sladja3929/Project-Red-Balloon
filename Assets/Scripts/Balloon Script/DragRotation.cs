@@ -87,7 +87,8 @@ public class DragRotation : MonoBehaviour
     
     public float GetRotationSpeedRate()
     {
-        return (rotationSpeed - minSpeed) / (maxSpeed - minSpeed);
+        //return (rotationSpeed - minSpeed) / (maxSpeed - minSpeed);
+        return StaticSensitivity.GetMouseSensitivityRate();
     }
 
     public void SetRotationSpeedRate(float value)

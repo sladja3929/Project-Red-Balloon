@@ -17,12 +17,13 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource backgroundSound;
     public AudioClip[] backgroundSoundList;
     
-    [SerializeField] private float backgroundVolume;
-    [SerializeField] private float sfxVolume;
+    [SerializeField] private float backgroundVolume = 0.4f;
+    [SerializeField] private float sfxVolume = 0.4f;
     [SerializeField] private float delayTime = 2;
     
     [SerializeField] private AudioMixer audioMixer;
 
+    private Coroutine backGroundCoroutine;
     //싱글톤 처리
 
     private new void Awake()
@@ -30,14 +31,17 @@ public class SoundManager : Singleton<SoundManager>
         base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
         
-        sfxVolume =        PlayerPrefs.GetFloat("SfxVolume",        1);
-        backgroundVolume = PlayerPrefs.GetFloat("BackgroundVolume", 1);
+        sfxVolume =        PlayerPrefs.GetFloat("SfxVolume",        sfxVolume);
+        backgroundVolume = PlayerPrefs.GetFloat("BackgroundVolume", backgroundVolume);
         
         audioMixer.SetFloat("SfxVolume", Mathf.Log10(sfxVolume) * 20);
         foreach (AudioClip t in backgroundSoundList)
         {
-            if (SceneManager.GetActiveScene().name == t.name) 
-                StartCoroutine(BackgroundSoundPlayCoroutine(t));
+            if (SceneManager.GetActiveScene().name == t.name)
+            {
+                if(backGroundCoroutine != null) StopCoroutine(backGroundCoroutine);
+                backGroundCoroutine = StartCoroutine(BackgroundSoundPlayCoroutine(t));
+            }
         }
     }
     void OnDisable()
@@ -48,7 +52,11 @@ public class SoundManager : Singleton<SoundManager>
     {
         foreach (var t in backgroundSoundList)
         {
-            if (arg0.name == t.name) StartCoroutine(BackgroundSoundPlayCoroutine(t));
+            if (arg0.name == t.name)
+            {
+                if(backGroundCoroutine != null) StopCoroutine(backGroundCoroutine);
+                backGroundCoroutine = StartCoroutine(BackgroundSoundPlayCoroutine(t));
+            }
         }
     }
     
@@ -85,6 +93,12 @@ public class SoundManager : Singleton<SoundManager>
         Destroy(go, clip.length);
     }
 
+    public void BackgroundPlay(AudioClip clip)
+    {
+        if(backGroundCoroutine != null) StopCoroutine(backGroundCoroutine);
+        backGroundCoroutine = StartCoroutine(BackgroundSoundPlayCoroutine(clip));
+    }
+    
     private IEnumerator BackgroundSoundPlayCoroutine(AudioClip clip)
     {
         backgroundSound.Stop();

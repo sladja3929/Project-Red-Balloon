@@ -10,7 +10,7 @@ public class ResolutionController : MonoBehaviour
     private Resolution[] _resolutions;
     private int[] _refreshRates;
     private int _currentResolutionIndex = 0;
-    private int _currentFrameRateIndex = 0;
+    private int _currentFrameRateIndex = 1;
 
     [Header("Resolution Setting")]
     public TMP_Text resolutionText;
@@ -31,9 +31,8 @@ public class ResolutionController : MonoBehaviour
 
     private void Awake()
     {
-        LoadSettings();
-        SetupResolution();
         SetupFullScreen();
+        SetupResolution();
 
         rightResolutionButton.onClick.AddListener(() => ChangeResolution(1));
         leftResolutionButton.onClick.AddListener(() => ChangeResolution(-1));
@@ -81,19 +80,22 @@ public class ResolutionController : MonoBehaviour
     private void ChangeFrameRate(int direction)
     {
         _currentFrameRateIndex = Mathf.Clamp(_currentFrameRateIndex + direction, 0, _refreshRates.Length - 1);
+        PlayerPrefs.SetInt("FrameRate", _currentFrameRateIndex);
         SetFrameRate(_currentFrameRateIndex);
     }
 
     private void SetupFullScreen()
     {
         _fullScreen = (FullScreenMode)PlayerPrefs.GetInt("FullScreenMode", (int)FullScreenMode.FullScreenWindow);
+        SetFullScreen(_fullScreen);
         ReloadToggle(_fullScreen);
     }
 
     public void SetFullScreen(FullScreenMode mode)
     {
         Screen.fullScreenMode = mode;
-        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, mode);
+        //var resolution = _resolutions[_currentResolutionIndex];
+        //Screen.SetResolution(resolution.width, resolution.height, mode);
         ReloadToggle(mode);
         PlayerPrefs.SetInt("FullScreenMode", (int)mode);
     }
@@ -103,31 +105,27 @@ public class ResolutionController : MonoBehaviour
         _fullScreen = mode;
         fullScreenText.text = mode switch
         {
-            FullScreenMode.ExclusiveFullScreen => "Borderless",
-            FullScreenMode.FullScreenWindow => "FullScreen",
+            FullScreenMode.ExclusiveFullScreen => "FullScreen",
+            FullScreenMode.FullScreenWindow => "Borderless",
+            //FullScreenMode.MaximizedWindow => "Windowed",
             FullScreenMode.Windowed => "Windowed",
             _ => "Unknown"
         };
     }
-
+    
     public void PressRight_FullScreen()
     {
         int mode = (int)_fullScreen;
-        mode = (mode + 1) % 3;
+        mode = (mode + 1) % 4;
+        if (mode == 2) mode = 3;
         SetFullScreen((FullScreenMode)mode);
     }
 
     public void PressLeft_FullScreen()
     {
         int mode = (int)_fullScreen;
-        mode = (mode + 2) % 3;
+        mode = (mode + 3) % 4;
+        if (mode == 2) mode = 1;
         SetFullScreen((FullScreenMode)mode);
-    }
-
-    private void LoadSettings()
-    {
-        _currentResolutionIndex = PlayerPrefs.GetInt("ResolutionIndex", 0);
-        _currentFrameRateIndex = PlayerPrefs.GetInt("FrameRateIndex", 0);
-        _fullScreen = (FullScreenMode)PlayerPrefs.GetInt("FullScreenMode", (int)FullScreenMode.FullScreenWindow);
     }
 }
