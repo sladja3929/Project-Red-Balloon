@@ -1,7 +1,7 @@
 # Project-Red-Balloon
 Sea: Balloon made by team Red Balloon [from Pandora Cube game maker club]
 
-![브로슈어](https://github.com/sladja3929/Project-Red-Balloon/assets/43125863/ca7f5573-4db4-4190-9cc9-e340a71ff6ac)
+![main capsule](https://github.com/user-attachments/assets/4ffb9d6b-5d82-469d-80a9-67eb5e1b771b)
 
 ## 목차
 + 개요
@@ -12,9 +12,9 @@ Sea: Balloon made by team Red Balloon [from Pandora Cube game maker club]
 ## 개요
 *2023 PlayX4 출품작*
 
-**2024년 초 출시 예정**
+**2025년 3월 25일 출시 예정**
 
-풍선과 함께 다양한 섬들을 탐험하며 목적지에 도달하세요! 동심의 세계로 여러분들을 초대합니다.
+빨간 풍선과 함께 다양한 섬들을 탐험하세요! 당신에게 선사하는 느림의 미학.
 
 
 ## 팀 소개
@@ -24,9 +24,11 @@ Sea: Balloon made by team Red Balloon [from Pandora Cube game maker club]
 ## 환경
 + 플랫폼: Windows PC
 + 사용 엔진: Unity 3D
-+ 사용 언어: C#, ShaderLab(hlsl)
++ 사용 언어: C#
 
 ## 외부 링크
+steam 상점 페이지: https://store.steampowered.com/app/3516600/Sea_Balloon
+
 PlayX4 소개 링크: https://www.playx4.or.kr/b2c/exhibition/exhibition2_view.php?cont_id=2XW76ANB0001
 
-소개 영상: https://youtu.be/wPVezoCmPwQ?si=zcyRi_22-4l74MBV
+
