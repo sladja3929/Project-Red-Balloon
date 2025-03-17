@@ -86,6 +86,7 @@ public class SteamManager : Singleton<SteamManager>
             }
 
             SteamUserStats.RequestCurrentStats();
+            Debug.Log("스팀API 초기화 성공.");
         }
         catch (Exception e)
         {
