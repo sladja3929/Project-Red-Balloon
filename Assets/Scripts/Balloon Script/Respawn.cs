@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using Steamworks;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -47,7 +48,11 @@ public class Respawn : MonoBehaviour
     {
         if (Input.GetKeyDown(dieKey))
         {
-            GameManager.instance.KillBalloon();
+            if (GameManager.instance.KillBalloon())
+            {
+                //스팀도전과제
+                SteamManager.instance.UpdateRestartCount();
+            }
         }
     }
 
@@ -85,6 +90,8 @@ public class Respawn : MonoBehaviour
         _rigidbody.useGravity = false;
         _controller.SetFreezeState();
         
+        //스팀도전과제
+        SteamManager.instance.UpdateDeathCount();
         SaveManager.instance.DeathCount++;
         SaveManager.instance.Save();
         GameManager.instance.BalloonDeadEvent();

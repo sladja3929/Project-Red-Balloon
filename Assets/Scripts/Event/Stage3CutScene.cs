@@ -48,6 +48,9 @@ public class Stage3CutScene : CutScene
         GameManager.instance.CinematicMode();
         FadingInfo fadingInfo = new FadingInfo(2f, 0, 1, 0);
         SceneChangeManager.instance.FadeOut(fadingInfo);
+        
+        //스팀도전과제
+        SteamManager.instance.UpdateBestRecord();
         yield return waitingFadeFinish;
 
         //disable player, activate dummy
@@ -93,6 +96,9 @@ public class Stage3CutScene : CutScene
         SceneChangeManager.instance.FadeIn(fadingInfo);
         cameraMovements[1].cutSceneCamera.Priority = 16;
         
+        //스팀도전과제
+        SteamManager.instance.UpdateClearStage(3);
+        SteamManager.instance.UpdateClearCount();
         yield return waitingFadeFinish;
         
         StartCoroutine("EndingCredit");

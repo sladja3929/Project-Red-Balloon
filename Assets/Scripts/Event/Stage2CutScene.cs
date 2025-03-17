@@ -58,6 +58,8 @@ public class Stage2CutScene : CutScene
         yield return new WaitForSeconds(cameraMovements[1].timeToMove - 2f);
         
         SceneChangeManager.instance.FadeOut(fadingInfo);
+        //스팀도전과제
+        SteamManager.instance.UpdateClearStage(2);
         yield return waitingFadeFinish;
         
         //change scene

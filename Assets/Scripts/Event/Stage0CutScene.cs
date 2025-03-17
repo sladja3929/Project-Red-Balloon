@@ -40,9 +40,11 @@ public class Stage0CutScene : CutScene
         _isRotation = true;
         cameraMovements[0].dollyCart.enabled = true;
         yield return new WaitForSeconds(cameraMovements[0].timeToMove - 0.5f);
-
+        
         fadingInfo.delayTime = 0;
         SceneChangeManager.instance.FadeOut(fadingInfo);
+        //스팀도전과제
+        SteamManager.instance.UpdateClearStage(0);
         yield return waitingFadeFinish;
 
         fadingInfo.playTime = 5;
