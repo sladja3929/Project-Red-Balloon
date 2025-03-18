@@ -5,10 +5,11 @@ public class LanguageManager : Singleton<LanguageManager>
 {
     public enum Language
     {
-        KR,
+        KO,
         EN,
-        JP,
-        CHT
+        JA,
+        ZH,
+        ZH_TW
     }
 
     public Language currentLanguage;
@@ -22,8 +23,26 @@ public class LanguageManager : Singleton<LanguageManager>
 
     private Language LoadLanguage()
     {
-        int value = PlayerPrefs.GetInt("Language", 0);
-        return (Language)value;
+        Language language_enum;
+        int value = PlayerPrefs.GetInt("Language", -1);
+
+        if (value == -1)
+        {
+            string language_str = SteamManager.instance.RefreshSteamLanguage();
+            switch (language_str)
+            {
+                case "koreana": language_enum = Language.KO; break;
+                case "english": language_enum = Language.EN; break;
+                case "japanese": language_enum = Language.JA; break;
+                case "schinese": language_enum = Language.ZH; break;
+                case "tchinese": language_enum = Language.ZH_TW; break;
+                default: language_enum = Language.EN; break;
+            }
+        }
+
+        else language_enum = (Language)value;
+        
+        return language_enum;
     }
     
     protected override void Awake()

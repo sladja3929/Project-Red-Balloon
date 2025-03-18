@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[DefaultExecutionOrder(5)]
 public class LanguageController : MonoBehaviour
 {
     // 언어 설정
@@ -37,17 +38,20 @@ public class LanguageController : MonoBehaviour
         languageText.text = languages[currentLanguageIndex].ToString();
         switch(languages[currentLanguageIndex])
         {
-            case LanguageManager.Language.KR:
+            case LanguageManager.Language.KO:
                 languageText.text = "Korean";
                 break;
             case LanguageManager.Language.EN:
                 languageText.text = "English";
                 break;
-            case LanguageManager.Language.JP:
+            case LanguageManager.Language.JA:
                 languageText.text = "Japanese";
                 break;
-            case LanguageManager.Language.CHT:
-                languageText.text = "Chinese";
+            case LanguageManager.Language.ZH:
+                languageText.text = "Chinese_S";
+                break;
+            case LanguageManager.Language.ZH_TW:
+                languageText.text = "Chinese_T";
                 break;
         }
         Debug.Log(languages[currentLanguageIndex].ToString());
