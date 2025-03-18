@@ -99,6 +99,7 @@ public class Stage3CutScene : CutScene
         //스팀도전과제
         SteamManager.instance.UpdateClearStage(3);
         SteamManager.instance.UpdateClearCount();
+        SaveManager.instance.ResetSave();
         yield return waitingFadeFinish;
         
         StartCoroutine("EndingCredit");
