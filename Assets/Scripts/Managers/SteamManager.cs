@@ -2,6 +2,7 @@ using System;
 using Steamworks;
 using UnityEngine;
 
+[DefaultExecutionOrder(-5)]
 public sealed class SteamStats
 {
     public string Name { get; }
@@ -70,6 +71,9 @@ public class SteamManager : Singleton<SteamManager>
     
     private bool _statsLoaded = false;
     public bool StatsLoaded => _statsLoaded;
+
+    private string _steamLanguage;
+    public string SteamLanguage => _steamLanguage;
     
     protected Callback<UserStatsReceived_t> userStatsReceived;
     protected new void Awake()
@@ -85,6 +89,7 @@ public class SteamManager : Singleton<SteamManager>
                 return;
             }
 
+            _steamLanguage = SteamApps.GetCurrentGameLanguage()?.ToLower();
             SteamUserStats.RequestCurrentStats();
             Debug.Log("스팀API 초기화 성공.");
         }
@@ -239,5 +244,23 @@ public class SteamManager : Singleton<SteamManager>
             if (7200f > Mathf.FloorToInt(SaveManager.instance.PlayTime))
                 UnlockAchievement(SteamAchievements.ACH_SPEEDRUN_1);
         }
+    }
+
+    public string RefreshSteamLanguage()
+    {
+        _steamLanguage = "english";
+        if (!ValiateAPI())
+        {
+            return _steamLanguage;
+        }
+
+        string newLang = SteamApps.GetCurrentGameLanguage();
+        if (!string.IsNullOrEmpty(newLang))
+        {
+            _steamLanguage = newLang.ToLower();
+            return _steamLanguage;
+        }
+
+        return _steamLanguage;
     }
 }
