@@ -78,14 +78,18 @@ public class SaveManager : Singleton<SaveManager>
 
     public void ResetSave()
     {
-        File.Delete(SAVE_PATH);
+        //File.Delete(SAVE_PATH); 스팀판은 삭제하면 안됨
 
         curInfo = new SaveInfo
         {
             flagInfo = SaveFlag.NewSave,
             deathCount = 0,
-            playTime = 0
+            playTime = 0,
+            position = new Vector3(0, 0, 0),
+            stage = 0
         };
+
+        Save();
     }
 
     // 🔹 Binary Load (JSON 대신 바이너리로 불러오기)

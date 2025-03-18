@@ -93,6 +93,7 @@ public class Stage3CutScene : CutScene
         SceneChangeManager.instance.FadeIn(fadingInfo);
         cameraMovements[1].cutSceneCamera.Priority = 16;
         
+        SaveManager.instance.ResetSave();
         yield return waitingFadeFinish;
         
         StartCoroutine("EndingCredit");
