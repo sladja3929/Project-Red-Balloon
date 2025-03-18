@@ -101,7 +101,7 @@ public class Stage3CutScene : CutScene
         //스팀도전과제
         SteamManager.instance.UpdateClearStage(3);
         SteamManager.instance.UpdateClearCount();
-        SteamManager.instance.UpdateBestRecord();
+        SteamManager.instance.UpdateBestRecord(finalResult.FinalTime);
         SaveManager.instance.ResetSave();
         yield return waitingFadeFinish;
         

@@ -233,17 +233,17 @@ public class SteamManager : Singleton<SteamManager>
         if(clearCount != -2) SetStatInt(SteamStats.ClearCount, clearCount + 1);
     }
     
-    public void UpdateBestRecord()
+    public void UpdateBestRecord(float time)
     {
         float statRecord = GetStatFloat(SteamStats.BestRecord);
-        if (statRecord >= 0)
+        if (statRecord >= -2f)
         {
-            if (statRecord > SaveManager.instance.PlayTime)
-                SetStatFloat(SteamStats.BestRecord, SaveManager.instance.PlayTime);
-
-            if (7200f > Mathf.FloorToInt(SaveManager.instance.PlayTime))
-                UnlockAchievement(SteamAchievements.ACH_SPEEDRUN_1);
+            if (statRecord > time)
+                SetStatFloat(SteamStats.BestRecord, time);
         }
+        
+        if (7200f > Mathf.FloorToInt(time))
+            UnlockAchievement(SteamAchievements.ACH_SPEEDRUN_1);
     }
 
     public string RefreshSteamLanguage()
