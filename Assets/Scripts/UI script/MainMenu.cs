@@ -69,7 +69,7 @@ public class MainMenu : MonoBehaviour
         #endif
     }
 
-    public void Awake()
+    public void Start()
     {
         if (SaveManager.instance.IsNewSave())
         {

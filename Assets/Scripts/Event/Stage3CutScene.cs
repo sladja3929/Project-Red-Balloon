@@ -50,6 +50,11 @@ public class Stage3CutScene : CutScene
         SceneChangeManager.instance.FadeOut(fadingInfo);
         yield return waitingFadeFinish;
 
+        //set result
+        FinalResult finalResult = final.GetComponent<FinalResult>();
+        finalResult.FinalTime = SaveManager.instance.PlayTime;
+        finalResult.FinalCount = SaveManager.instance.DeathCount;
+        
         //disable player, activate dummy
         SceneChangeManager.instance.FadeIn(fadingInfo);
         balloonDummy.SetActive(true);
