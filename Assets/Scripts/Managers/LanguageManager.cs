@@ -29,7 +29,7 @@ public class LanguageManager : Singleton<LanguageManager>
         if (value == -1)
         {
             //string language_str = SteamManager.instance.RefreshSteamLanguage(); 플랫폼별 초기화
-            language_str = Language.KO;
+            string language_str = "koreana";
             switch (language_str)
             {
                 case "koreana": language_enum = Language.KO; break;
