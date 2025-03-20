@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LanguageManager : Singleton<LanguageManager>
 {
@@ -15,6 +18,8 @@ public class LanguageManager : Singleton<LanguageManager>
     public Language currentLanguage;
     public event Action<Language> OnLanguageChanged;
 
+    private List<TMP_Text> fixedUITexts = new List<TMP_Text>();
+    
     private void SaveLanguage(Language language)
     {
         PlayerPrefs.SetInt("Language", (int)language);
@@ -50,8 +55,34 @@ public class LanguageManager : Singleton<LanguageManager>
     {
         base.Awake();
         currentLanguage = LoadLanguage();
+        GetFixedUIText(); //true면 파일 로드 후 글자 변경
     }
 
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        GetFixedUIText();
+    }
+
+    private bool GetFixedUIText()
+    {
+        fixedUITexts.Clear();
+        GameObject[] fixedUIs = GameObject.FindGameObjectsWithTag("Fixed Text UI");
+        if (fixedUIs.Length == 0) return false;
+
+        foreach (var fixedUI in fixedUIs)
+        {
+            TMP_Text tmpText = fixedUI.GetComponent<TMP_Text>();
+            if(tmpText != null) fixedUITexts.Add(tmpText);
+        }
+
+        return fixedUITexts.Count != 0;
+    }
+    
     public void SetLanguage(Language language)
     {
         if (currentLanguage != language)
