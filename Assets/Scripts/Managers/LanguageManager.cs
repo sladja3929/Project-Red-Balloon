@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LanguageManager : Singleton<LanguageManager>
@@ -11,10 +13,11 @@ public class LanguageManager : Singleton<LanguageManager>
         ZH,
         ZH_TW
     }
-
+    
     public Language currentLanguage;
     public event Action<Language> OnLanguageChanged;
-
+    
+    // 언어 전체 설정 / 변경 -------------------------------------
     private void SaveLanguage(Language language)
     {
         PlayerPrefs.SetInt("Language", (int)language);
@@ -45,12 +48,6 @@ public class LanguageManager : Singleton<LanguageManager>
         return language_enum;
     }
     
-    protected override void Awake()
-    {
-        base.Awake();
-        currentLanguage = LoadLanguage();
-    }
-
     public void SetLanguage(Language language)
     {
         if (currentLanguage != language)
@@ -60,7 +57,61 @@ public class LanguageManager : Singleton<LanguageManager>
             OnLanguageChanged?.Invoke(language);
         }
     }
+    
+    protected override void Awake()
+    {
+        base.Awake();
+        currentLanguage = LoadLanguage();
+        OnLanguageChanged += ChangeFixedUIText;
+    }
 
+    private void OnDestroy()
+    {
+        OnLanguageChanged -= ChangeFixedUIText;
+    }
+    
+    // fixed UI Text 변경 -------------------------------------
+    private List<TMP_Text> fixedUITexts = new List<TMP_Text>();
+    
+    private bool GetFixedUIText()
+    {
+        fixedUITexts.Clear();
+        GameObject[] fixedUIs = GameObject.FindGameObjectsWithTag("Fixed Text UI");
+        if (fixedUIs.Length == 0) return false;
+
+        foreach (var fixedUI in fixedUIs)
+        {
+            TMP_Text tmpText = fixedUI.GetComponent<TMP_Text>();
+            if(tmpText != null) fixedUITexts.Add(tmpText);
+        }
+
+        return fixedUITexts.Count != 0;
+    }
+
+    public void ChangeFixedUIText(Language language)
+    {
+        if (!GetFixedUIText()) return;
+        
+        TextAsset fixedUITextAsset = Resources.Load<TextAsset>($"FixedSettings_{language}");
+        if (fixedUITextAsset != null)
+        {
+            string[] loadedText = fixedUITextAsset.text.Split('\n');
+            int index = 0;
+            foreach (var UIText in fixedUITexts)
+            {
+                if (index < loadedText.Length)
+                {
+                    UIText.text = loadedText[index];
+                    ++index;
+                }
+
+                else UIText.text = "No Data";
+            }
+        }
+        
+        else Debug.LogError($"FixedSettings_{language}.txt 파일을 찾을 수 없습니다!");
+    }
+    
     public string GetText(string key)
     {
         return key;
