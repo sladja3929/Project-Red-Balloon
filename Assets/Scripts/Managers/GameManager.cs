@@ -11,10 +11,12 @@ public class GameManager : Singleton<GameManager>
     private new void Awake()
     {
         base.Awake();
+        Cursor.lockState = CursorLockMode.Confined;
+        
+        //풍선 세팅
         _balloonObj = GameObject.FindWithTag("Player");
         SetBalloon(SceneManager.GetActiveScene(), LoadSceneMode.Single);
         //records = new List<float>();
-
         SceneManager.sceneLoaded += SetBalloon;
     }
 
