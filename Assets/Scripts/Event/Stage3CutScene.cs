@@ -98,10 +98,6 @@ public class Stage3CutScene : CutScene
         SceneChangeManager.instance.FadeIn(fadingInfo);
         cameraMovements[1].cutSceneCamera.Priority = 16;
         
-        //스팀도전과제
-        SteamManager.instance.UpdateClearStage(3);
-        SteamManager.instance.UpdateClearCount();
-        SteamManager.instance.UpdateBestRecord(finalResult.FinalTime);
         SaveManager.instance.ResetSave();
         yield return waitingFadeFinish;
         

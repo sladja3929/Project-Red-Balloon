@@ -98,15 +98,10 @@ public class GameManager : Singleton<GameManager>
         set { canDie = value; }
     }
     
-    public bool KillBalloon()
+    public void KillBalloon()
     {
-        if (canDie)
-        {
-            _balloonSpawn.Die();
-            return true;
-        }
-
-        return false;
+        if(canDie)
+        _balloonSpawn.Die();
     }
     
     public static void GoToMainMenu()
