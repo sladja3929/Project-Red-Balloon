@@ -68,6 +68,7 @@ public class SaveManager : Singleton<SaveManager>
             writer.Write((int)curInfo.flagInfo);
             writer.Write(curInfo.deathCount);
             writer.Write(curInfo.playTime);
+            writer.Write((int)curInfo.skinData);
         }
     }
 
@@ -108,15 +109,24 @@ public class SaveManager : Singleton<SaveManager>
         using (FileStream fs = new FileStream(SAVE_PATH, FileMode.Open))
         using (BinaryReader reader = new BinaryReader(fs))
         {
+            long fileLength = reader.BaseStream.Length;
+            
             SaveInfo loaded = new SaveInfo
             {
                 stage = reader.ReadInt32(),
                 position = new Vector3(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle()),
                 flagInfo = (SaveFlag)reader.ReadInt32(),
                 deathCount = reader.ReadInt32(),
-                playTime = reader.ReadSingle()
+                playTime = reader.ReadSingle(),
+                skinData = (SkinFlag)1
             };
 
+            //파일 길이가 더 길면 스킨 데이터 추가로 읽기
+            if (reader.BaseStream.Position + sizeof(int) <= fileLength)
+            {
+                loaded.skinData = (SkinFlag)reader.ReadInt32();
+            }
+            
             return loaded;
         }
     }
@@ -141,6 +151,23 @@ public class SaveManager : Singleton<SaveManager>
     public void RemoveFlag(SaveFlag flag)
     {
         curInfo.flagInfo &= ~flag;
+    }
+    
+    // ==================== Skin 관련 함수 ====================
+
+    public bool CheckSkin(SkinFlag flag)
+    {
+        return (curInfo.skinData & flag) == flag;
+    }
+
+    public void UnlockSkin(SkinFlag flag)
+    {
+        curInfo.skinData |= flag;
+    }
+
+    public void LockSkin(SkinFlag flag)
+    {
+        curInfo.skinData &= ~flag;
     }
 
     // ==================== Developer Function ====================
@@ -169,6 +196,16 @@ public enum SaveFlag
     //. .
 }
 
+[System.Flags, System.Serializable]
+public enum SkinFlag
+{
+    Red = 1 << 0,
+    Smile = 1 << 1,
+    //. .
+    //. .
+    //. .
+}
+
 [System.Serializable]
 public struct SaveInfo
 {
@@ -177,4 +214,5 @@ public struct SaveInfo
     public SaveFlag flagInfo;
     public int deathCount;
     public float playTime;
+    public SkinFlag skinData;
 }
