@@ -12,7 +12,7 @@ Sea: Balloon made by team Red Balloon [from Pandora Cube game maker club]
 ## 개요
 *2023 PlayX4 출품작*
 
-**2025년 3월 25일 출시 예정**
+**2025년 3월 25일 출시**
 
 빨간 풍선과 함께 다양한 섬들을 탐험하세요! 당신에게 선사하는 느림의 미학.
 
