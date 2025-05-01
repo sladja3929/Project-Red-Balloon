@@ -69,7 +69,7 @@ public class MainMenu : MonoBehaviour
         #endif
     }
 
-    public void Awake()
+    public void Start()
     {
         if (SaveManager.instance.IsNewSave())
         {
@@ -83,8 +83,6 @@ public class MainMenu : MonoBehaviour
                 image.color = new Color(1, 1, 1, 0.5f);
             }
         }
-        
-        
     }
     
     public void OpenPauseMenu()

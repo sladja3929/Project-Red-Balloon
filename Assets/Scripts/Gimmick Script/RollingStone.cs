@@ -12,8 +12,10 @@ public class RollingStone : Gimmick
     private Rigidbody _rigidbody;
     private MeshCollider _meshCollider;
     private MeshRenderer _meshRenderer;
+    private AudioSource _audio;
     private Vector3 originalPos;
     private Quaternion originalRot;
+    private bool isPlayed = false;
     
     void Awake()
     {
@@ -21,17 +23,24 @@ public class RollingStone : Gimmick
         _meshCollider = GetComponent<MeshCollider>();
         _meshRenderer = GetComponent<MeshRenderer>();
         _rigidbody.isKinematic = true;
+        _audio = GetComponent<AudioSource>();
         originalPos = transform.position;
         originalRot = transform.rotation;
     }
     
     public override void Execute()
     {
-        _rigidbody.isKinematic = false;
+        if (!isPlayed)
+        {
+            isPlayed = true;
+            _rigidbody.isKinematic = false;
+            _audio.Play();
+        }
     }
 
     private void InitStone()
     {
+        isPlayed = false;
         _meshCollider.enabled = true;
         _meshRenderer.enabled = true;
         transform.SetPositionAndRotation(originalPos, originalRot);

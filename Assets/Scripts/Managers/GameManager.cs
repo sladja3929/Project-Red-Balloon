@@ -11,11 +11,14 @@ public class GameManager : Singleton<GameManager>
     private new void Awake()
     {
         base.Awake();
+        Cursor.lockState = CursorLockMode.Confined;
+        
+        //풍선 세팅
         _balloonObj = GameObject.FindWithTag("Player");
         SetBalloon(SceneManager.GetActiveScene(), LoadSceneMode.Single);
         //records = new List<float>();
-
         SceneManager.sceneLoaded += SetBalloon;
+        SceneManager.sceneLoaded += InitSavePoint;
     }
 
     private void Update()
@@ -74,6 +77,11 @@ public class GameManager : Singleton<GameManager>
     private Respawn _balloonSpawn;
     private BalloonController _balloonController;
     private DragRotation _balloonDrag;
+    
+    private void InitSavePoint(Scene arg0, LoadSceneMode arg1)
+    {
+        savePoint = new Vector3(0, 0, 0);
+    }
     
     public void SetSavePoint(Vector3 point)
     {

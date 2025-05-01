@@ -29,6 +29,7 @@ public class PauseMenu : MonoBehaviour
             panel.SetActive(true);
         }
 
+        LanguageManager.instance.ChangeFixedUIText(LanguageManager.instance.currentLanguage);
         GameManager.IsPause = true;
 
         sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();

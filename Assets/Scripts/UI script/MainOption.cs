@@ -26,6 +26,8 @@ public class MainOption : MonoBehaviour
             panel.SetActive(true);
         }
 
+        LanguageManager.instance.ChangeFixedUIText(LanguageManager.instance.currentLanguage);
+        
         sfxVolumeSlider.value = SoundManager.instance.GetSfxSoundVolume();
         musicVolumeSlider.value = SoundManager.instance.GetBackgroundVolume();
         

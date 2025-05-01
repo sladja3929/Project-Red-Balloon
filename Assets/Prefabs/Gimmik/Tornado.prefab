@@ -209,6 +209,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4315226767690649504}
     m_Modifications:
+    - target: {fileID: 913963926918133522, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 913963926918133522, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3015866324717670197, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
+      propertyPath: cycleTime
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4156561363126169758, guid: 661e84a64b339064ca127cc41acc54a1, type: 3}
       propertyPath: m_Name
       value: Water_Spary
