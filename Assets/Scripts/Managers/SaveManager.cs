@@ -52,12 +52,14 @@ public class SaveManager : Singleton<SaveManager>
 
     public bool IsNewSave()
     {
+        return true;
         return !File.Exists(SAVE_PATH) || CheckFlag(SaveFlag.NewSave);
     }
 
     // 🔹 Binary Save (JSON 대신 바이너리로 저장)
     public void Save()
     {
+        return;
         using (FileStream fs = new FileStream(SAVE_PATH, FileMode.Create))
         using (BinaryWriter writer = new BinaryWriter(fs))
         {
@@ -89,13 +91,14 @@ public class SaveManager : Singleton<SaveManager>
             stage = 0
         };
 
+        return;
         Save();
     }
 
     // 🔹 Binary Load (JSON 대신 바이너리로 불러오기)
     private static SaveInfo Load()
     {
-        if (!File.Exists(SAVE_PATH))
+        if (true)
         {
             return new SaveInfo
             {
